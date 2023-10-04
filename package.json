@@ -4,14 +4,18 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && next build",
+    "postinstall": "prisma generate && prisma db push",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "5.3.1",
+    "next": "13.5.4",
+    "prisma": "^5.3.1",
     "react": "^18",
     "react-dom": "^18",
-    "next": "13.5.4"
+    "zod": "^3.22.3"
   },
   "devDependencies": {
     "typescript": "^5",
