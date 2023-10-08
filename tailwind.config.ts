@@ -3,13 +3,15 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
+      fontFamily: {
+        satoshi: ["var(--font-satoshi)"],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -18,6 +20,27 @@ const config: Config = {
     },
   },
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [
+    nextui({
+      themes: {
+        light: {
+          colors: {
+            primary: {
+              DEFAULT: "#00752A",
+              400: "#329345",
+              300: "#54B262",
+              200: "#74D27F",
+              100: "#95F39E",
+            },
+            secondary: {
+              DEFAULT: "#ffdc83",
+              800: "#cfa54f",
+              900: "#96711b",
+            },
+          },
+        },
+      },
+    }),
+  ],
 };
 export default config;
