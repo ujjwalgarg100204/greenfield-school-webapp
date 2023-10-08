@@ -1,0 +1,12 @@
+{
+    "index": {
+        "title": "హలో వరల్డ్"
+    },
+    "Some": {
+        "text": "ఇది పెద్ద, కొవ్వు వచనం"
+    },
+    "LocaleSwitcher": {
+        "label": "భాష మార్చు",
+        "locale": "{locale, select, ta {Tamil} te {Telugu} en {English} other {Unknown}}"
+    }
+}

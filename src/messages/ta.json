@@ -1,0 +1,12 @@
+{
+    "index": {
+        "title": "வணக்கம் உலகம்"
+    },
+    "Some": {
+        "text": "இது ஒரு சிறந்த, கொழுப்பு உரை"
+    },
+    "LocaleSwitcher": {
+        "label": "மொழியை மாற்றவும்",
+        "locale": "{locale, select, ta {Tamil} te {Telugu} en {English} other {Unknown}}"
+    }
+}
