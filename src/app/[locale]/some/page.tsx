@@ -1,7 +1,7 @@
-import LocaleSwitcher from "@/components/ui/LanguageSwither";
 import { PageProps } from "@/types";
-import { unstable_setRequestLocale } from "next-intl/server";
+import LocaleSwitcher from "@components/ui/LanguageSwither";
 import { useTranslations } from "next-intl";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 export default function SomePage({ params: { locale } }: PageProps) {
     unstable_setRequestLocale(locale);
