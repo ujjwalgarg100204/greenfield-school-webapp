@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./_components/Footer";
 import LinksNavbar from "./_components/Navbar/LinksNavbar";
 import MainNavbar from "./_components/Navbar/MainNavbar";
 
@@ -10,6 +11,7 @@ const MainSiteLayout = ({ children }: Props) => {
       <MainNavbar />
       <LinksNavbar />
       {children}
+      <Footer />
     </header>
   );
 };
