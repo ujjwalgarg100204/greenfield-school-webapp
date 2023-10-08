@@ -9,10 +9,10 @@ import {
 } from "@nextui-org/react";
 
 import GreenfieldLogo from "@/../public/images/logo.png";
-import { useTranslations } from "next-intl";
 import Image from "next/image";
-import Link from "next/link";
 import LanguageSwitcher from "../../../../../components/ui/LanguageSwither";
+import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 const MainNavbar = () => {
   const t = useTranslations("Root.main-navbar");
@@ -27,7 +27,7 @@ const MainNavbar = () => {
             className="rounded-full"
             priority
           />
-          <p className="text-sm font-bold text-primary md:text-xl">
+          <p className="hidden text-sm font-bold text-primary md:block md:text-xl">
             Greenfield School,
             <br /> Tamil Nadu
           </p>
