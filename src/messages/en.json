@@ -4,5 +4,9 @@
     },
     "Some": {
         "text": "This is a big, fat text"
+    },
+    "LocaleSwitcher": {
+        "label": "Change language",
+        "locale": "{locale, select, ta {Tamil} te {Telugu} en {English} other {Unknown}}"
     }
 }
