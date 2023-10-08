@@ -13,7 +13,7 @@
             },
             "presentation": {
                 "reveal": "always",
-                "panel": "new"
+                "panel": "shared"
             },
             "problemMatcher": {
                 "owner": "javascript",
@@ -42,7 +42,7 @@
             },
             "presentation": {
                 "reveal": "always",
-                "panel": "new"
+                "panel": "dedicated"
             },
             "problemMatcher": {
                 "owner": "javascript",
@@ -69,12 +69,14 @@
             },
             "presentation": {
                 "reveal": "always",
-                "panel": "new"
+                "panel": "shared"
             },
             "problemMatcher": {
                 "owner": "javascript",
+                "owner": "javascript",
                 "fileLocation": ["relative", "${workspaceFolder}"],
                 "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(error|warning):\\s+(.*)$",
                     "regexp": "^(.*):(\\d+):(\\d+):\\s+(error|warning):\\s+(.*)$",
                     "file": 1,
                     "line": 2,
