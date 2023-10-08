@@ -1,12 +1,93 @@
 {
-    "index": {
-        "title": "வணக்கம் உலகம்"
+  "Root": {
+    "main-navbar": {
+      "admission-portal": "சேர்க்கை போர்டல்",
+      "login": "உள்நுழைய"
     },
-    "Some": {
-        "text": "இது ஒரு சிறந்த, கொழுப்பு உரை"
-    },
-    "LocaleSwitcher": {
-        "label": "மொழியை மாற்றவும்",
-        "locale": "{locale, select, ta {Tamil} te {Telugu} en {English} other {Unknown}}"
+    "links-navbar": {
+      "school": {
+        "title": "அந்த பள்ளிக்கூடம்",
+        "sub-links": {
+          "about": "எங்களை பற்றி",
+          "mission": "பணி மற்றும் பார்வை",
+          "principal": "பிரினிசிபலின் செய்தி",
+          "infrastructure": "உள்கட்டமைப்பு",
+          "achievements": "சாதனைகள்",
+          "gallery": "கேலரி",
+          "news": "செய்தியில்",
+          "transport": "பள்ளி போக்குவரத்து",
+          "pledges": "எங்கள் உறுதிமொழிகள்",
+          "news-letter": "செய்திமடல்",
+          "admissions": "சேர்க்கை",
+          "contact": "எங்களை தொடர்பு கொள்ள"
+        }
+      },
+      "admission": {
+        "title": "சேர்க்கை",
+        "sub-links": {
+          "notice": "சேர்க்கை அறிவிப்பு",
+          "prospectus": "ப்ரஸ்பெக்டஸ்",
+          "procedure": "சேர்க்கை நடைமுறை",
+          "instructions": "சேர்க்கைக்கான பொதுவான வழிமுறைகள்",
+          "age": "வயது அளவுகோல்கள்",
+          "fee": "கட்டண அமைப்பு",
+          "orientation": "நோக்குநிலை",
+          "registration": "ஆன்லைன் பதிவு"
+        }
+      },
+      "academic": {
+        "title": "கல்வியாளர்கள்",
+        "sub-links": {
+          "result": "முடிவு பகுப்பாய்வு",
+          "syllabus": "பாடத்திட்டங்கள்",
+          "boolist": "புத்தக பட்டியல்",
+          "holiday": "விடுமுறை பட்டியல்",
+          "block-holidays": "விடுமுறை நாட்களைத் தடுக்கவும்",
+          "fees": "கட்டண அமைப்பு"
+        }
+      },
+      "student": {
+        "title": "மாணவர்கள்",
+        "sub-links": {
+          "portal": "மாணவர் போர்டல்",
+          "council": "மாணவர் சங்கம்",
+          "activities": "இணை பாடத்திட்ட நடவடிக்கைகள்",
+          "timings": "பள்ளி நேரம்",
+          "certificate": "பரிமாற்ற சான்றிதழ்",
+          "prayer": "பள்ளி பிரார்த்தனை",
+          "trips": "பயணங்கள் மற்றும் உல்லாசப் பயணம்",
+          "cc": "நடத்தை நெறிமுறை",
+          "s-rules": "சிறப்பு விதிகள்",
+          "l-rules": "நூலக விதிகள்",
+          "c-rules": "கேண்டீன் விதிகள்",
+          "+ve-behavior-manage": "நேர்மறை நடத்தை மேலாண்மை",
+          "cce": "தொடர்ச்சியான மற்றும் விரிவான மதிப்பீடு"
+        }
+      },
+      "parent": {
+        "title": "பெற்றோர்",
+        "sub-links": {
+          "dispersal": "மாணவர்களின் சிதறல்",
+          "uniform": "பாடசாலை சீருடை",
+          "hours": "வருகை நேரம்",
+          "guidelines": "பொதுவான வழிமுறைகள்",
+          "absence": "இல்லாதது - விடுப்பு - பள்ளிக்கு தாமதமாக வருகை",
+          "infirmary": "பள்ளி மருத்துவமனை",
+          "report": "வளர்ச்சி அறிக்கை",
+          "fee": "ஆன்லைனில் கட்டணம் செலுத்துங்கள்",
+          "login": "பெற்றோரின் உள்நுழைவு"
+        }
+      }
     }
+  },
+  "index": {
+    "title": "வணக்கம் உலகம்"
+  },
+  "Some": {
+    "text": "இது ஒரு சிறந்த, கொழுப்பு உரை"
+  },
+  "LocaleSwitcher": {
+    "label": "மொழியை மாற்றவும்",
+    "locale": "{locale, select, ta {Tamil} te {Telugu} en {English} other {Unknown}}"
+  }
 }

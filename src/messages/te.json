@@ -1,12 +1,93 @@
 {
-    "index": {
-        "title": "హలో వరల్డ్"
+  "Root": {
+    "main-navbar": {
+      "admission-portal": "ప్రవేశ పోర్టల్",
+      "login": "ప్రవేశించండి"
     },
-    "Some": {
-        "text": "ఇది పెద్ద, కొవ్వు వచనం"
-    },
-    "LocaleSwitcher": {
-        "label": "భాష మార్చు",
-        "locale": "{locale, select, ta {Tamil} te {Telugu} en {English} other {Unknown}}"
+    "links-navbar": {
+      "school": {
+        "title": "அந்த பள்ளிக்கூடம்",
+        "sub-links": {
+          "about": "మా గురించి",
+          "mission": "మిషన్ అండ్ విజన్",
+          "principal": "ప్రినిసిపల్ సందేశం",
+          "infrastructure": "మౌలిక సదుపాయాలు",
+          "achievements": "విజయాలు",
+          "gallery": "గ్యాలరీ",
+          "news": "వార్తల్లో",
+          "transport": "పాఠశాల రవాణా",
+          "pledges": "మా ప్రతిజ్ఞలు",
+          "news-letter": "వార్తాలేఖ",
+          "admissions": "ప్రవేశాలు",
+          "contact": "మమ్మల్ని సంప్రదించండి"
+        }
+      },
+      "admission": {
+        "title": "ప్రవేశాలు",
+        "sub-links": {
+          "notice": "ప్రవేశ నోటీసు",
+          "prospectus": "ప్రాస్పెక్టస్",
+          "procedure": "ప్రవేశ విధానం",
+          "instructions": "ప్రవేశానికి సాధారణ సూచనలు",
+          "age": "వయస్సు ప్రమాణాలు",
+          "fee": "ఫీజు నిర్మాణం",
+          "orientation": "ధోరణి",
+          "registration": "ఆన్‌లైన్ రిజిస్ట్రేషన్"
+        }
+      },
+      "academic": {
+        "title": "విద్యావేత్తలు",
+        "sub-links": {
+          "result": "ఫలిత విశ్లేషణ",
+          "syllabus": "సిలబస్",
+          "boolist": "బుక్‌లిస్ట్",
+          "holiday": "హాలిడే జాబితా",
+          "block-holidays": "బ్లాక్ సెలవులు",
+          "fees": "ఫీజు నిర్మాణం"
+        }
+      },
+      "student": {
+        "title": "విద్యార్థులు",
+        "sub-links": {
+          "portal": "విద్యార్థి పోర్టల్",
+          "council": "విద్యార్థి మండలి",
+          "activities": "సహ పాఠ్య కార్యకలాపాలు",
+          "timings": "పాఠశాల సమయాలు",
+          "certificate": "బదిలీ సర్టిఫికేట్",
+          "prayer": "పాఠశాల ప్రార్థన",
+          "trips": "ట్రిప్స్ & విహారయాత్రలు",
+          "cc": "ప్రవర్తనా నియమావళిని",
+          "s-rules": "ప్రత్యేక నియమాలు",
+          "l-rules": "లైబ్రరీ నియమాలు",
+          "c-rules": "క్యాంటీన్ రూల్స్",
+          "+ve-behavior-manage": "సానుకూల ప్రవర్తన నిర్వహణ",
+          "cce": "నిరంతర మరియు సమగ్ర మూల్యాంకనం"
+        }
+      },
+      "parent": {
+        "title": "తల్లిదండ్రులు",
+        "sub-links": {
+          "dispersal": "విద్యార్థుల చెదరగొట్టడం",
+          "uniform": "స్కూల్ యూనిఫాం",
+          "hours": "సందర్శన గంటలు",
+          "guidelines": "సాధారణ మార్గదర్శకాలు",
+          "absence": "లేకపోవడం - సెలవు - పాఠశాలలో ఆలస్యంగా రావడం",
+          "infirmary": "పాఠశాల వైద్యశాల",
+          "report": "పురోగతి నివేదిక",
+          "fee": "ఆన్‌లైన్‌లో రుసుము చెల్లించండి",
+          "login": "తల్లిదండ్రుల లాగిన్"
+        }
+      }
     }
+  },
+  "index": {
+    "title": "హలో వరల్డ్"
+  },
+  "Some": {
+    "text": "ఇది పెద్ద, కొవ్వు వచనం"
+  },
+  "LocaleSwitcher": {
+    "label": "భాష మార్చు",
+    "locale": "{locale, select, ta {Tamil} te {Telugu} en {English} other {Unknown}}"
+  }
 }
