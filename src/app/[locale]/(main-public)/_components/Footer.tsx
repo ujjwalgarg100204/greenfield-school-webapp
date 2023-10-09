@@ -1,5 +1,5 @@
-import { BsTelephone } from "react-icons/bs";
 import Link from "next/link";
+import { BsTelephone } from "react-icons/bs";
 import { MdOutlineLocationOn } from "react-icons/md";
 
 const Footer = () => {
