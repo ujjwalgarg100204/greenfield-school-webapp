@@ -1,0 +1,93 @@
+{
+  "Root": {
+    "main-navbar": {
+      "admission-portal": "Admission Portal",
+      "login": "Login"
+    },
+    "links-navbar": {
+      "school": {
+        "title": "The School",
+        "sub-links": {
+          "about": "About Us",
+          "mission": "Mission and Vision",
+          "principal": "Prinicipal's Message",
+          "infrastructure": "Infrastructure",
+          "achievements": "Achievements",
+          "gallery": "Gallery",
+          "news": "In the News",
+          "transport": "School Transport",
+          "pledges": "Our Pledges",
+          "news-letter": "Newsletter",
+          "admissions": "Admissions",
+          "contact": "Contact Us"
+        }
+      },
+      "admission": {
+        "title": "Admissions",
+        "sub-links": {
+          "notice": "Admission Notice",
+          "prospectus": "Prospectus",
+          "procedure": "Admission Procedure",
+          "instructions": "General Instructions for Admission",
+          "age": "Age Criteria",
+          "fee": "Fee Structure",
+          "orientation": "Orientation",
+          "registration": "Online Registration"
+        }
+      },
+      "academic": {
+        "title": "Academics",
+        "sub-links": {
+          "result": "Result Analysis",
+          "syllabus": "Syllabus",
+          "boolist": "Booklist",
+          "holiday": "Holiday List",
+          "block-holidays": "Block Holidays",
+          "fees": "Fee Structure"
+        }
+      },
+      "student": {
+        "title": "Students",
+        "sub-links": {
+          "portal": "Student Portal",
+          "council": "Student Council",
+          "activities": "Co-Curricular Activities",
+          "timings": "School Timings",
+          "certificate": "Transfer Certificate",
+          "prayer": "School Prayer",
+          "trips": "Trips & Excursions",
+          "cc": "Code of Conduct",
+          "s-rules": "Special Rules",
+          "l-rules": "Library Rules",
+          "c-rules": "Canteen Rules",
+          "+ve-behavior-manage": "Positive Behavior Management",
+          "cce": "Continuous and Comprehensive Evaluation"
+        }
+      },
+      "parent": {
+        "title": "Parents",
+        "sub-links": {
+          "dispersal": "Student's Dispersal",
+          "uniform": "School Uniform",
+          "hours": "Visiting Hours",
+          "guidelines": "General Guidelines",
+          "absence": "Absence - Leave - Late Arrival in School",
+          "infirmary": "School Infirmary",
+          "report": "Progress Report",
+          "fee": "Pay Fee Online",
+          "login": "Parent's Login"
+        }
+      }
+    }
+  },
+  "index": {
+    "title": "Hello World"
+  },
+  "Some": {
+    "text": "This is a big, fat text"
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, ta {Tamil} te {Telugu} en {English} other {Unknown}}"
+  }
+}
