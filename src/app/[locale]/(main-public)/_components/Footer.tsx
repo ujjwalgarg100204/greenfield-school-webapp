@@ -1,18 +1,17 @@
-import { BsTelephone } from "react-icons/bs";
 import Link from "next/link";
+import { BsTelephone } from "react-icons/bs";
 import { MdOutlineLocationOn } from "react-icons/md";
 
 const Footer = () => {
   return (
-    <footer className="grid grid-cols-2 justify-items-center gap-y-8 rounded-t-md bg-primary px-4 py-8 text-sm text-foreground-100 sm:grid-cols-3 md:grid-cols-5">
-      <section className="col-span-3 max-w-md space-y-4 text-center md:col-span-2 md:justify-self-start md:text-left">
+    <footer className="grid grid-cols-2 justify-items-center gap-y-8 rounded-t-md bg-primary px-4 py-8 text-sm text-foreground-100 sm:grid-cols-3 md:grid-cols-5 md:px-5 lg:grid-cols-6 lg:px-6 xl:px-7">
+      <section className="col-span-3 max-w-md space-y-4 text-center md:col-span-2 md:justify-self-start md:text-left lg:col-span-3">
         <p className="text-base font-bold">
           Greenfield Public School, Tamil Nadu
         </p>
         <iframe
-          className="h-32 w-full rounded-md outline-none"
+          className="h-32 w-full rounded-md border-0 outline-none"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.7155168074796!2d76.94687797475602!3d11.05994248910661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8f626ffc42147%3A0xf398a88ed4aed02b!2sGreenfields%20Matriculation%20School!5e0!3m2!1sen!2sin!4v1696784362822!5m2!1sen!2sin"
-          style={{ border: 0 }}
           loading="lazy"
         ></iframe>
         <p className="flex items-center gap-2">
@@ -27,7 +26,7 @@ const Footer = () => {
           <span>+91 935 441 6441</span>
         </p>
       </section>
-      <section className="space-y-4">
+      <section className="space-y-4 md:justify-self-end">
         <h6 className="text-base font-bold">Student Links</h6>
         <ul className="space-y-2">
           <li>
@@ -44,7 +43,7 @@ const Footer = () => {
           </li>
         </ul>
       </section>
-      <section className="space-y-4">
+      <section className="space-y-4 md:justify-self-end">
         <h6 className="text-base font-bold">Parental Links</h6>
         <ul className="space-y-2">
           <li>
@@ -61,7 +60,7 @@ const Footer = () => {
           </li>
         </ul>
       </section>
-      <section className="col-span-2 space-y-4 text-center sm:col-auto md:text-left">
+      <section className="col-span-2 space-y-4 text-center sm:col-auto sm:text-left md:justify-self-end">
         <h6 className="text-base font-bold">More about School</h6>
         <ul className="space-y-2">
           <li>
