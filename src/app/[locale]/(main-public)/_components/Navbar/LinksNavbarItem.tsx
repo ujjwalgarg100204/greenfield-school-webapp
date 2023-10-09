@@ -79,7 +79,7 @@ const LinksNavbarItem = ({ link }: { link: (typeof LINKS)[number] }) => {
   const subLinks = useTranslations(`Root.links-navbar.${link}.sub-links`);
 
   return (
-    <Dropdown radius="sm">  
+    <Dropdown radius="sm">
       <NavbarItem>
         <DropdownTrigger>
           <Button

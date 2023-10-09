@@ -48,3 +48,8 @@ next-env.d.ts
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+packa
+
+package.json
+package-lock.json
