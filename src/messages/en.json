@@ -78,7 +78,13 @@
           "login": "Parent's Login"
         }
       }
+    },
+    "main-body":{
+      "Welcome to Greenfield International School":"Welcome to Greenfield International School"
+
     }
+
+
   },
   "index": {
     "title": "Hello World"

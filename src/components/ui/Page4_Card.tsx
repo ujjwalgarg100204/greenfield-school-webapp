@@ -4,6 +4,9 @@ import { Card } from "flowbite-react";
 import React from "react";
 import Image from "next/image";
 import Bulb from "../../../public/images/animation_lnj1lri7_small.gif";
+import browse from "../../../public/images/animation_lnj6gii3_small.gif";
+import yoga from "../../../public/images/animation_lnj6ilj1_small.gif";
+import award from "../../../public/images/trophy.gif"
 
 const Page4_Card = () => {
   return (
@@ -31,7 +34,7 @@ const Page4_Card = () => {
 
         <Card className="hover my-4 flex max-w-sm justify-center hover:bg-gray-100">
           <section className=" flex justify-center ">
-            <Image className="w-[30%]" w-5 src={Bulb} alt="Bulb" />{" "}
+            <Image className="w-[30%]" w-5 src={browse} alt="Bulb" />{" "}
           </section>
           <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white md:text-2xl">
             Noteworthy technology acquisitions 2021 {/* Removed <p> */}
@@ -44,7 +47,7 @@ const Page4_Card = () => {
 
         <Card className="hover my-4 flex max-w-sm justify-center hover:bg-gray-100">
           <section className=" flex justify-center ">
-            <Image className="w-[30%]" w-5 src={Bulb} alt="Bulb" />{" "}
+            <Image className="w-[30%]" w-5 src={yoga} alt="Bulb" />{" "}
           </section>
           <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white md:text-2xl">
             Noteworthy technology acquisitions 2021 {/* Removed <p> */}
@@ -57,7 +60,7 @@ const Page4_Card = () => {
 
         <Card className="hover my-4 flex max-w-sm justify-center hover:bg-gray-100">
           <section className=" flex justify-center ">
-            <Image className="w-[30%]" w-5 src={Bulb} alt="Bulb" />{" "}
+            <Image className="w-[20%]" w-5 src={award} alt="Bulb" />{" "}
           </section>
           <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white md:text-2xl">
             Noteworthy technology acquisitions 2021 {/* Removed <p> */}

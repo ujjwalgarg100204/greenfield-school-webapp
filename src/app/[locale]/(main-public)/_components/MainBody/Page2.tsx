@@ -1,12 +1,15 @@
 "use client";
 
+import LanguageSwitcher from "@/components/ui/LanguageSwither";
 import { Button } from "flowbite-react";
+import { useTranslations } from "next-intl";
 
 /* eslint-disable @next/next/no-img-element */
 
 const Page2 = () => {
   const isSmallScreen = window.innerWidth <= 769;
   console.log(isSmallScreen);
+  const t = useTranslations("Root.main-body");
 
   return (
     <section className=" mx-3 my-16 rounded-lg border border-gray-200 bg-white p-4 shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 md:m-16 md:max-w-full  ">
@@ -21,7 +24,7 @@ const Page2 = () => {
           />
           <div className="flex-col justify-center p-4 md:p-10">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Welcome to Greenfield International School
+              {t("Welcome to Greenfield International School")}
             </h5>
             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

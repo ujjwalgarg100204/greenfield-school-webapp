@@ -78,6 +78,10 @@
           "login": "பெற்றோரின் உள்நுழைவு"
         }
       }
+    },
+    "main-body":{
+      "Welcome to Greenfield International School":"கிரீன்ஃபீல்ட் சர்வதேச பள்ளிக்கு வரவேற்கிறோம்"
+
     }
   },
   "index": {
