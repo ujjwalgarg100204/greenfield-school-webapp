@@ -1,12 +1,16 @@
 "use client";
 
-import "pure-react-carousel/dist/react-carousel.es.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-import type { CarouselProviderProps } from "pure-react-carousel";
-import { CarouselProvider } from "pure-react-carousel";
+import {
+  CarouselProps,
+  Carousel as ReactResponsiveCarousel,
+} from "react-responsive-carousel";
 
-const Carousel = (props: CarouselProviderProps) => {
-  return <CarouselProvider {...props}></CarouselProvider>;
+const Carousel = ({ children, ...props }: Partial<CarouselProps>) => {
+  return (
+    <ReactResponsiveCarousel {...props}>{children}</ReactResponsiveCarousel>
+  );
 };
 
 export default Carousel;

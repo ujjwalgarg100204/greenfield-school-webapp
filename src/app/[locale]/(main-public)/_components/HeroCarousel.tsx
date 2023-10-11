@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+
+import Carousel from "@/components/ui/Carousel";
+import Image from "next/image";
 import { v4 as uuid } from "uuid";
 
 const images = [
