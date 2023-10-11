@@ -9,10 +9,10 @@ import {
   NavbarItem,
 } from "@nextui-org/react";
 
-import { useTranslations } from "next-intl";
-import Link from "next/link";
 import { BsChevronDown } from "react-icons/bs";
 import { LINKS } from "./LinksNavbar";
+import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 const NAV_LINKS = {
   school: {
@@ -41,7 +41,7 @@ const NAV_LINKS = {
   academic: {
     result: "/result-analysis",
     syllabus: "/syllabus",
-    boolist: "/booklist",
+    "book-list": "/book-list",
     holiday: "/holiday-list",
     "block-holidays": "/block-holidays",
     fees: "/fees-structure",

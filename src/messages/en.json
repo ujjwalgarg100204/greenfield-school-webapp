@@ -1,5 +1,10 @@
 {
+  "Dictionary": {},
   "Root": {
+    "LocaleSwitcher": {
+      "label": "Change language",
+      "locale": "{locale, select, ta {Tamil} te {Telugu} en {English} hi {Hindi} other {Unknown}}"
+    },
     "main-navbar": {
       "admission-portal": "Admission Portal",
       "login": "Login"
@@ -10,7 +15,7 @@
         "sub-links": {
           "about": "About Us",
           "mission": "Mission and Vision",
-          "principal": "Prinicipal's Message",
+          "principal": "Principal's Message",
           "infrastructure": "Infrastructure",
           "achievements": "Achievements",
           "gallery": "Gallery",
@@ -40,7 +45,7 @@
         "sub-links": {
           "result": "Result Analysis",
           "syllabus": "Syllabus",
-          "boolist": "Booklist",
+          "book-list": "Book List",
           "holiday": "Holiday List",
           "block-holidays": "Block Holidays",
           "fees": "Fee Structure"
@@ -79,15 +84,5 @@
         }
       }
     }
-  },
-  "index": {
-    "title": "Hello World"
-  },
-  "Some": {
-    "text": "This is a big, fat text"
-  },
-  "LocaleSwitcher": {
-    "label": "Change language",
-    "locale": "{locale, select, ta {Tamil} te {Telugu} en {English} other {Unknown}}"
   }
 }

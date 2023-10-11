@@ -16,7 +16,7 @@ import { useTransition } from "react";
 import { MdLanguage } from "react-icons/md";
 
 const LanguageSwitcher = () => {
-  const t = useTranslations("LocaleSwitcher");
+  const t = useTranslations("Root.LocaleSwitcher");
   const locale = useLocale() as (typeof locales)[number];
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
