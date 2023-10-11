@@ -3,9 +3,9 @@
   "tasks": [
     {
       "icon": { "id": "desktop-download" },
-      "label": "Install Bun Dependencies",
+      "label": "Install Dependencies",
       "type": "shell",
-      "command": "bun",
+      "command": "pnpm",
       "args": ["install"],
       "group": {
         "kind": "build",
@@ -32,9 +32,9 @@
       "icon": {
         "id": "azure-devops"
       },
-      "label": "Run Bun Dev",
+      "label": "Run next dev",
       "type": "shell",
-      "command": "bun",
+      "command": "pnpm",
       "args": ["run", "dev"],
       "group": {
         "kind": "build",
@@ -59,9 +59,9 @@
     },
     {
       "icon": { "id": "tools", "color": "terminal.ansiBlue" },
-      "label": "Build Bun Project",
+      "label": "Build next project",
       "type": "shell",
-      "command": "bun",
+      "command": "pnpm",
       "args": ["run", "build"],
       "group": {
         "kind": "build",
@@ -73,10 +73,8 @@
       },
       "problemMatcher": {
         "owner": "javascript",
-        "owner": "javascript",
         "fileLocation": ["relative", "${workspaceFolder}"],
         "pattern": {
-          "regexp": "^(.*):(\\d+):(\\d+):\\s+(error|warning):\\s+(.*)$",
           "regexp": "^(.*):(\\d+):(\\d+):\\s+(error|warning):\\s+(.*)$",
           "file": 1,
           "line": 2,
