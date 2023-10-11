@@ -1,14 +1,8 @@
 "use client";
-
 import React from "react";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Image,
-  Button,
-} from "@nextui-org/react";
+import Image from "next/image";
+import { v4 as uuid } from "uuid";
+import { Card, CardHeader } from "@nextui-org/react";
 
 const Page3 = () => {
   return (
@@ -29,11 +23,15 @@ const Page3 = () => {
             </h4>
           </CardHeader>
           <Image
-            removeWrapper
-            alt="Card background"
-            className="z-0 h-full w-full object-cover hover:blur-sm"
-            src="https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            key={uuid()}
+            src="https://picsum.photos/id/1025/1920/1080"
+            alt="adorable dob"
+            className="object-cover object-top"
+            quality={95}
+            fill
+            priority
           />
+          ,
         </Card>
         <Card className="col-span-5 h-[300px] sm:col-span-1">
           <CardHeader className="absolute top-1 z-10 flex-col !items-start">
@@ -45,9 +43,11 @@ const Page3 = () => {
             </h4>
           </CardHeader>
           <Image
-            removeWrapper
             alt="Card background"
-            className="z-0 h-full w-full object-cover hover:blur-sm"
+            quality={95}
+            fill
+            priority
+            className="object-cover object-top hover:blur-sm"
             src="https://images.pexels.com/photos/5212344/pexels-photo-5212344.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
           />
         </Card>
@@ -61,9 +61,12 @@ const Page3 = () => {
             </h4>
           </CardHeader>
           <Image
-            removeWrapper
+            key={uuid()}
+            quality={95}
+            fill
+            priority
             alt="Card background"
-            className="z-0 h-full w-full object-cover hover:blur-sm"
+            className="object-cover object-top  hover:blur-sm"
             src="https://images.pexels.com/photos/5211446/pexels-photo-5211446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
           />
         </Card>
@@ -78,9 +81,11 @@ const Page3 = () => {
             </h4>
           </CardHeader>
           <Image
-            removeWrapper
+            quality={95}
+            fill
+            priority
             alt="Card background"
-            className="z-0 h-full w-full object-cover hover:blur-sm"
+            className="object-cover object-top hover:blur-sm"
             src="https://images.pexels.com/photos/3494806/pexels-photo-3494806.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
           />
         </Card>
@@ -95,9 +100,11 @@ const Page3 = () => {
             </h4>
           </CardHeader>
           <Image
-            removeWrapper
+            quality={95}
+            fill
+            priority
             alt="Card background"
-            className="z-0 h-full w-full object-cover hover:blur-sm"
+            className="object-cover object-top hover:blur-sm"
             src="https://images.pexels.com/photos/3747512/pexels-photo-3747512.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
           />
         </Card>

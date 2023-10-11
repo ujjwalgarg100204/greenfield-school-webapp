@@ -1,0 +1,88 @@
+{
+  "Dictionary": {},
+  "Root": {
+    "LocaleSwitcher": {
+      "label": "भाषा बदलें",
+      "locale": "{locale, select, ta {Tamil} te {Telugu} en {English} hi {Hindi} other {Unknown}}"
+    },
+    "main-navbar": {
+      "admission-portal": "प्रवेश पोर्टल",
+      "login": "लॉग इन करें"
+    },
+    "links-navbar": {
+      "school": {
+        "title": "स्कूल",
+        "sub-links": {
+          "about": "हमारे बारे में",
+          "mission": "लक्ष्य और दूरदर्शिता",
+          "principal": "प्रिंसिपल का संदेश",
+          "infrastructure": "आधारभूत संरचना",
+          "achievements": "उपलब्धियां",
+          "gallery": "गैलरी",
+          "news": "समाचार में",
+          "transport": "स्कूल परिवहन",
+          "pledges": "हमारी प्रतिज्ञा",
+          "news-letter": "समाचार पत्र",
+          "admissions": "प्रवेश",
+          "contact": "संपर्क करें"
+        }
+      },
+      "admission": {
+        "title": "प्रवेश",
+        "sub-links": {
+          "notice": "प्रवेश सूचना",
+          "prospectus": "प्रॉस्पेक्टस",
+          "procedure": "प्रवेश प्रक्रिया",
+          "instructions": "प्रवेश के लिए सामान्य निर्देश",
+          "age": "आयु मानदंड",
+          "fee": "शुल्क संरचना",
+          "orientation": "अभिविन्यास",
+          "registration": "ऑनलाइन पंजीकरण"
+        }
+      },
+      "academic": {
+        "title": "शैक्षणिक",
+        "sub-links": {
+          "result": "परिणाम विश्लेषण",
+          "syllabus": "पाठ्यक्रम",
+          "book-list": "पुस्तक सूची",
+          "holiday": "हॉलिडे लिस्ट",
+          "block-holidays": "ब्लॉक छुट्टियां",
+          "fees": "शुल्क संरचना"
+        }
+      },
+      "student": {
+        "title": "छात्र",
+        "sub-links": {
+          "portal": "विद्यार्थी पोर्टल",
+          "council": "छात्र परिषद",
+          "activities": "सह पाठ्यक्रम गतिविधियां",
+          "timings": "स्कूल टाइमिंग",
+          "certificate": "स्थानांतरण प्रमाणपत्र",
+          "prayer": "स्कूल प्रार्थना",
+          "trips": "यात्राएं और भ्रमण",
+          "cc": "आचार संहिता",
+          "s-rules": "विशेष नियम",
+          "l-rules": "पुस्तकालय नियम",
+          "c-rules": "कैंटीन नियम",
+          "+ve-behavior-manage": "सकारात्मक व्यवहार प्रबंधन",
+          "cce": "निरंतर और व्यापक मूल्यांकन"
+        }
+      },
+      "parent": {
+        "title": "अभिभावक",
+        "sub-links": {
+          "dispersal": "छात्र का फैलाव",
+          "uniform": "स्कूल की पोशाक",
+          "hours": "मिलने के समय",
+          "guidelines": "सामान्य दिशानिर्देश",
+          "absence": "अनुपस्थिति - छुट्टी - स्कूल में देर से आगमन",
+          "infirmary": "स्कूल इन्फर्मरी",
+          "report": "प्रगति रिपोर्ट",
+          "fee": "भुगतान शुल्क ऑनलाइन",
+          "login": "माता -पिता का लॉगिन"
+        }
+      }
+    }
+  }
+}

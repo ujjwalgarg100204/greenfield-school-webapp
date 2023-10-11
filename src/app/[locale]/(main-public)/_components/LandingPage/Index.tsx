@@ -1,12 +1,11 @@
-"use client";
 
 import React from "react";
-import Page1 from "./Page1";
-import Page2 from "./Page2";
-import Page3 from "./Page3";
-import Page4 from "./Page4";
-import Page5 from "./Page5";
-import Page6 from "./Page6";
+import Page1 from "./MainCarosal";
+import Page2 from "./AboutUs";
+import Page3 from "./PhotoGallery";
+import Page4 from "./KeyCharacteristics";
+import Page5 from "./AdmissionOpen";
+import Page6 from "./PremiumFacilities";
 
 const Main = () => {
   return (

@@ -1,13 +1,8 @@
-import MainBody from "./_components/MainBody/Main";
-
+import Index from "../(main-public)/_components/LandingPage/Index"
 const IndexPage = () => {
-  return (
-    <div className="text-center">
-      <main>
-        <MainBody />
-      </main>
-    </div>
-  );
+  return <div className="text-center">
+    <Index />
+  </div>;
 };
 
 export default IndexPage;

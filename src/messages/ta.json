@@ -1,5 +1,10 @@
 {
+  "Dictionary": {},
   "Root": {
+    "LocaleSwitcher": {
+      "label": "மொழியை மாற்ற",
+      "locale": "{locale, select, ta {Tamil} te {Telugu} en {English} hi {Hindi} other {Unknown}}"
+    },
     "main-navbar": {
       "admission-portal": "சேர்க்கை போர்டல்",
       "login": "உள்நுழைய"
@@ -10,7 +15,7 @@
         "sub-links": {
           "about": "எங்களை பற்றி",
           "mission": "பணி மற்றும் பார்வை",
-          "principal": "பிரினிசிபலின் செய்தி",
+          "principal": "முதல்வரின் செய்தி",
           "infrastructure": "உள்கட்டமைப்பு",
           "achievements": "சாதனைகள்",
           "gallery": "கேலரி",
@@ -40,9 +45,9 @@
         "sub-links": {
           "result": "முடிவு பகுப்பாய்வு",
           "syllabus": "பாடத்திட்டங்கள்",
-          "boolist": "புத்தக பட்டியல்",
+          "book-list": "புத்தக பட்டியல்",
           "holiday": "விடுமுறை பட்டியல்",
-          "block-holidays": "விடுமுறை நாட்களைத் தடுக்கவும்",
+          "block-holidays": "பிளாக் ஹாலிடேஸ்",
           "fees": "கட்டண அமைப்பு"
         }
       },
@@ -74,7 +79,7 @@
           "absence": "இல்லாதது - விடுப்பு - பள்ளிக்கு தாமதமாக வருகை",
           "infirmary": "பள்ளி மருத்துவமனை",
           "report": "வளர்ச்சி அறிக்கை",
-          "fee": "ஆன்லைனில் கட்டணம் செலுத்துங்கள்",
+          "fee": "ஆன்லைனில் கட்டணம் செலுத்த",
           "login": "பெற்றோரின் உள்நுழைவு"
         }
       }
@@ -83,15 +88,5 @@
       "Welcome to Greenfield International School":"கிரீன்ஃபீல்ட் சர்வதேச பள்ளிக்கு வரவேற்கிறோம்"
 
     }
-  },
-  "index": {
-    "title": "வணக்கம் உலகம்"
-  },
-  "Some": {
-    "text": "இது ஒரு சிறந்த, கொழுப்பு உரை"
-  },
-  "LocaleSwitcher": {
-    "label": "மொழியை மாற்றவும்",
-    "locale": "{locale, select, ta {Tamil} te {Telugu} en {English} other {Unknown}}"
   }
 }

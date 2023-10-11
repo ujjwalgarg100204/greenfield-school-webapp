@@ -3,10 +3,10 @@
 import { Card } from "flowbite-react";
 import React from "react";
 import Image from "next/image";
-import Bulb from "../../../public/images/animation_lnj1lri7_small.gif";
-import browse from "../../../public/images/animation_lnj6gii3_small.gif";
-import yoga from "../../../public/images/animation_lnj6ilj1_small.gif";
-import award from "../../../public/images/trophy.gif"
+import Bulb from "../../../../../../public/animation json/animation_lnm3rxno.json";
+// import browse from "../../../public/images/animation_lnj6gii3_small.gif";
+// import yoga from "../../../public/images/animation_lnj6ilj1_small.gif";
+// import award from "../../../public/images/trophy.gif";
 
 const Page4_Card = () => {
   return (
@@ -20,7 +20,7 @@ const Page4_Card = () => {
       <section className=" p-4 md:flex md:justify-between md:p-4">
         <Card className="hover my-4 flex max-w-xs justify-center hover:bg-gray-100">
           <section className=" flex justify-center ">
-            <Image className="w-[30%]" w-5 src={Bulb} alt="Bulb" />{" "}
+            <iframe src="https://lottie.host/?file=a1fd3b30-07c4-4d3d-a2f7-d3a94d6041aa/MDmQDVhsZx.json"></iframe>
           </section>
           <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white md:text-2xl">
             Tomorrow’s Leaders {/* Removed <p> */}
@@ -34,7 +34,7 @@ const Page4_Card = () => {
 
         <Card className="hover my-4 flex max-w-sm justify-center hover:bg-gray-100">
           <section className=" flex justify-center ">
-            <Image className="w-[30%]" w-5 src={browse} alt="Bulb" />{" "}
+            <iframe src="https://lottie.host/?file=0965ef1d-8246-43c7-83a2-aad231cb117e/T5DIee22dX.json"></iframe>
           </section>
           <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white md:text-2xl">
             Noteworthy technology acquisitions 2021 {/* Removed <p> */}
@@ -47,7 +47,7 @@ const Page4_Card = () => {
 
         <Card className="hover my-4 flex max-w-sm justify-center hover:bg-gray-100">
           <section className=" flex justify-center ">
-            <Image className="w-[30%]" w-5 src={yoga} alt="Bulb" />{" "}
+            <iframe src="https://lottie.host/?file=57a7603e-9f49-41f9-b8b0-84f27dec2d1b/DHSDaYQzrH.json"></iframe>{" "}
           </section>
           <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white md:text-2xl">
             Noteworthy technology acquisitions 2021 {/* Removed <p> */}
@@ -60,7 +60,7 @@ const Page4_Card = () => {
 
         <Card className="hover my-4 flex max-w-sm justify-center hover:bg-gray-100">
           <section className=" flex justify-center ">
-            <Image className="w-[20%]" w-5 src={award} alt="Bulb" />{" "}
+            <iframe src="https://lottie.host/?file=c1935571-8ef7-45f2-8365-66687e1646b9/vVo20iC8Vl.json"></iframe>
           </section>
           <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white md:text-2xl">
             Noteworthy technology acquisitions 2021 {/* Removed <p> */}
