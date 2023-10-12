@@ -1,37 +1,37 @@
 
 import React from "react";
-import Page1 from "./MainCarosal";
-import Page2 from "./AboutUs";
-import Page3 from "./PhotoGallery";
-import Page4 from "./KeyCharacteristics";
-import Page5 from "./AdmissionOpen";
-import Page6 from "./PremiumFacilities";
+import MainCarosal from "./MainCarosal";
+import AboutUs from "./AboutUs";
+import PhotoGallery from "./PhotoGallery";
+import KeyCharacteristics from "./KeyCharacteristics";
+import AdmissionOpen from "./AdmissionOpen";
+import PremiumFacilities from "./PremiumFacilities";
 
 const Index = () => {
   return (
     <>
       <section>
-        <Page1 />
+        <MainCarosal />
       </section>
 
       <section>
-        <Page2 />
+        <AboutUs />
       </section>
 
       <section>
-        <Page3 />
+        <PhotoGallery />
       </section>
 
       <section>
-        <Page4 />
+        <KeyCharacteristics />
       </section>
 
       <section>
-        <Page5 />
+        <AdmissionOpen />
       </section>
 
       <section>
-        <Page6 />
+        <PremiumFacilities />
       </section>
     </>
   );
