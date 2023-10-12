@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@lottiefiles/lottie-player": "^2.0.2",
     "@nextui-org/react": "^2.1.13",
     "@prisma/client": "^5.4.1",
     "@tanstack/react-query": "^4.35.7",

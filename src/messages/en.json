@@ -233,6 +233,8 @@
       "admission-portal": "Admission Portal",
       "login": "Login"
     },
-    "footer": {}
-  }
+    "main-body":{
+      "Welcome to Greenfield International School":"Welcome to Greenfield International School"
+    }
+  },
 }
