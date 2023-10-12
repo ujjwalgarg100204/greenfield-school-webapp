@@ -2,12 +2,11 @@
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-import {
-  CarouselProps,
-  Carousel as ReactResponsiveCarousel,
-} from "react-responsive-carousel";
+import type { FC } from "react";
+import type { CarouselProps } from "react-responsive-carousel";
+import { Carousel as ReactResponsiveCarousel } from "react-responsive-carousel";
 
-const Carousel = ({ children, ...props }: Partial<CarouselProps>) => {
+const Carousel: FC<Partial<CarouselProps>> = ({ children, ...props }) => {
   return (
     <ReactResponsiveCarousel {...props}>{children}</ReactResponsiveCarousel>
   );

@@ -2,17 +2,11 @@
 
 import { Navbar, NavbarContent } from "@nextui-org/react";
 
+import { NAV_LINK_TYPES } from "@/lib/frontend-data";
+import type { FC } from "react";
 import LinksNavbarItem from "./LinksNavbarItem";
 
-export const LINKS = [
-  "school",
-  "admission",
-  "academic",
-  "student",
-  "parent",
-] as const;
-
-const LinksNavbar = () => {
+const LinksNavbar: FC = () => {
   return (
     <Navbar
       height="3"
@@ -24,8 +18,8 @@ const LinksNavbar = () => {
         className="flex flex-wrap gap-y-0 sm:gap-x-8"
         justify="center"
       >
-        {LINKS.map(link => (
-          <LinksNavbarItem key={link} link={link} />
+        {NAV_LINK_TYPES.map(type => (
+          <LinksNavbarItem key={type} linkType={type} />
         ))}
       </NavbarContent>
     </Navbar>

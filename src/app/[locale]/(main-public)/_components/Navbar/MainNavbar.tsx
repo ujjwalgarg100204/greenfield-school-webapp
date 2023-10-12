@@ -9,12 +9,13 @@ import {
 } from "@nextui-org/react";
 
 import GreenfieldLogo from "@/../public/images/logo.png";
-import Image from "next/image";
-import LanguageSwitcher from "../../../../../components/ui/LanguageSwither";
-import Link from "next/link";
+import LanguageSwitcher from "@components/ui/LanguageSwither";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
+import Link from "next/link";
+import type { FC } from "react";
 
-const MainNavbar = () => {
+const MainNavbar: FC = () => {
   const t = useTranslations("Root.main-navbar");
   return (
     <Navbar position="static" maxWidth="full">

@@ -2,6 +2,7 @@ import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
 
 import Carousel from "@/components/ui/Carousel";
 import Image from "next/image";
+import type { FC } from "react";
 import { v4 as uuid } from "uuid";
 
 const images = [
@@ -82,7 +83,7 @@ const images = [
   />,
 ];
 
-const HeroCarousel = () => {
+const HeroCarousel: FC = () => {
   return (
     <Carousel
       showArrows

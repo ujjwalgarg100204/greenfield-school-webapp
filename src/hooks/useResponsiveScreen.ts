@@ -4,19 +4,31 @@ import { useEffect, useState } from "react";
 
 import useWindowSize from "./useWindowSize";
 
-const useResponsiveScreen = () => {
-  const [screenSize, setScreenSize] = useState<
-    "sm" | "md" | "lg" | "xl" | "2xl"
-  >("sm");
+type ScreenSize = "sm" | "md" | "lg" | "xl" | "2xl";
+
+const useResponsiveScreen = (): ScreenSize => {
+  const [screenSize, setScreenSize] = useState<ScreenSize>("sm");
   const { width } = useWindowSize();
 
   useEffect(() => {
-    if (!width) return;
-    if (width <= 640) return setScreenSize("sm");
-    else if (width <= 768) return setScreenSize("md"); // mobile screen
-    else if (width <= 1024) return setScreenSize("lg"); // tabs
-    else if (width <= 1280) return setScreenSize("xl"); // desktop & laptop
-    else return setScreenSize("2xl"); // insanely large screen
+    if (typeof width !== "number") return;
+
+    let screenSize: ScreenSize = "2xl";
+    switch (true) {
+      case width <= 640:
+        screenSize = "sm";
+        break;
+      case width <= 768:
+        screenSize = "md"; // mobile screen
+        break;
+      case width <= 1024:
+        screenSize = "lg"; // tabs
+        break;
+      case width <= 1280:
+        screenSize = "xl"; // desktop & laptop
+        break;
+    }
+    setScreenSize(screenSize);
   }, [width]);
 
   return screenSize;

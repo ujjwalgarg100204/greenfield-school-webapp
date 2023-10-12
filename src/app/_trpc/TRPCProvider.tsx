@@ -4,9 +4,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React, { useState } from "react";
 
 import { httpBatchLink } from "@trpc/client";
+import type { FC } from "react";
 import { trpc } from "./client";
 
-const TRPCProvider = ({ children }: { children: React.ReactNode }) => {
+const TRPCProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
   const [queryClient] = useState(() => new QueryClient({}));
   const [trpcClient] = useState(() =>
     trpc.createClient({
