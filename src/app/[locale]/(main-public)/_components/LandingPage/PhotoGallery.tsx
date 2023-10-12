@@ -3,7 +3,7 @@ import Image from "next/image";
 import { v4 as uuid } from "uuid";
 import { Card, CardHeader } from "@nextui-org/react";
 
-const Page3 = () => {
+const PhotoGallery = () => {
   return (
     <section className=" m-4 my-20 rounded-xl bg-slate-100  md:m-9 md:my-20">
       <header>
@@ -112,4 +112,4 @@ const Page3 = () => {
   );
 };
 
-export default Page3;
+export default PhotoGallery;

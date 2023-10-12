@@ -2,7 +2,7 @@
 import { Button } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
-const Page5 = () => {
+const AdmissionOpen = () => {
   let date = new Date();
 
   const n = date.getFullYear();
@@ -54,4 +54,4 @@ const Page5 = () => {
   );
 };
 
-export default Page5;
+export default AdmissionOpen;

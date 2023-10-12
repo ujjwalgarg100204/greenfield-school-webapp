@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import HeroCarousel from "../HeroCarousel";
-const Page1 = () => {
+const MainCarosal = () => {
   return <HeroCarousel />;
 };
 
-export default Page1;
+export default MainCarosal;

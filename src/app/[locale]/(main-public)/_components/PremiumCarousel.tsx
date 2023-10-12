@@ -82,7 +82,7 @@ const images = [
   />,
 ];
 
-const HeroCarouselThree = () => {
+const PremiumCarousel = () => {
   return (
     <Carousel
       showArrows
@@ -125,4 +125,4 @@ const HeroCarouselThree = () => {
   );
 };
 
-export default HeroCarouselThree;
+export default PremiumCarousel;

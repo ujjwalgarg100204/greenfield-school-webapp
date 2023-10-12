@@ -1,7 +1,9 @@
 "use client";
 import { Card } from "@nextui-org/react";
 import React, { useRef } from "react";
-const Page4_Card = () => {
+
+
+const KeyCharacteristics = () => {
   const ref = useRef(null);
   React.useEffect(() => {
     import("@lottiefiles/lottie-player");
@@ -104,4 +106,4 @@ const Page4_Card = () => {
   );
 };
 
-export default Page4_Card;
+export default KeyCharacteristics;

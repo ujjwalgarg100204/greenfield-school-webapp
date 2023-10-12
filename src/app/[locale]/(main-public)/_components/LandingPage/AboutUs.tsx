@@ -2,7 +2,7 @@
 import { Button } from "@nextui-org/react";
 import Image from "next/image";
 
-const Page2 = () => {
+const AboutUs = () => {
   return (
     <section className=" mx-3  my-16 rounded-lg border border-gray-200 bg-white p-4 shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 md:m-16 md:max-w-full  ">
       <section className="flex flex-col-reverse md:flex md:flex-row    ">
@@ -38,4 +38,4 @@ const Page2 = () => {
   );
 };
 
-export default Page2;
+export default AboutUs;

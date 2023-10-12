@@ -1,8 +1,8 @@
 "use client";
-import HeroCarouselThree from "../HeroCarouselThree";
+import HeroCarouselThree from "../PremiumCarousel";
 import HeroCarousel from "../HeroCarousel";
 
-export default function Page6() {
+export default function PremiumFacilities() {
   return (
     <section className="m-5 my-10 rounded-xl bg-slate-100 md:m-10">
       <section>
