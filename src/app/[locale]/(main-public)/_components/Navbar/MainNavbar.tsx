@@ -13,8 +13,9 @@ import LanguageSwitcher from "@components/ui/LanguageSwither";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
+import type { FC } from "react";
 
-const MainNavbar = () => {
+const MainNavbar: FC = () => {
   const t = useTranslations("Root.main-navbar");
   return (
     <Navbar position="static" maxWidth="full">

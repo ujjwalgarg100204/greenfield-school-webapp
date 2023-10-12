@@ -3,9 +3,10 @@
 import { Navbar, NavbarContent } from "@nextui-org/react";
 
 import { NAV_LINK_TYPES } from "@/lib/frontend-data";
+import type { FC } from "react";
 import LinksNavbarItem from "./LinksNavbarItem";
 
-const LinksNavbar = () => {
+const LinksNavbar: FC = () => {
   return (
     <Navbar
       height="3"

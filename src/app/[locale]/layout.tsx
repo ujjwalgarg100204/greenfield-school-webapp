@@ -2,12 +2,13 @@ import "../globals.css";
 
 import Providers from "@/contexts";
 import { locales } from "@/i18n";
-import { PageProps } from "@/types";
+import type { PageProps } from "@/types";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { unstable_setRequestLocale as setRequestLocale } from "next-intl/server";
 import localFont from "next/font/local";
 import { notFound } from "next/navigation";
+import type { FC } from "react";
 import React from "react";
 
 export const metadata: Metadata = {
@@ -30,14 +31,16 @@ const satoshiFont = localFont({
   variable: "--font-satoshi",
 });
 
-export const generateStaticParams = () => {
+export const generateStaticParams = (): Array<{
+  locale: (typeof locales)[number];
+}> => {
   return locales.map(locale => ({ locale }));
 };
 
 type Props = PageProps & {
   children: React.ReactNode;
 };
-const LocaleLayout = async ({ children, params: { locale } }: Props) => {
+const LocaleLayout: FC<Props> = async ({ children, params: { locale } }) => {
   let messages;
   try {
     messages = (await import(`../../messages/${locale}.json`)).default;

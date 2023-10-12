@@ -1,10 +1,12 @@
 "use client";
 
 import { Button, Divider } from "@nextui-org/react";
-import { NAV_LINKS, NAV_LINK_TYPES } from "../../../../../lib/frontend-data";
 
-import NextLink from "next/link";
 import { useTranslations } from "next-intl";
+import NextLink from "next/link";
+import { type FC } from "react";
+import type { NAV_LINK_TYPES } from "../../../../../lib/frontend-data";
+import { NAV_LINKS } from "../../../../../lib/frontend-data";
 
 type Props = {
   linkType: (typeof NAV_LINK_TYPES)[number];
@@ -14,7 +16,7 @@ type Props = {
   >;
 };
 
-const SideNavbar = ({ linkType, selected }: Props) => {
+const SideNavbar: FC<Props> = ({ linkType, selected }) => {
   const t = useTranslations(`Pages.${linkType}`);
   const tDict = useTranslations("Dictionary");
 

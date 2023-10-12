@@ -12,10 +12,11 @@ import { usePathname, useRouter } from "next-intl/client";
 
 import useResponsiveScreen from "@/hooks/useResponsiveScreen";
 import { locales } from "@/i18n";
+import type { FC } from "react";
 import { useTransition } from "react";
 import { MdLanguage } from "react-icons/md";
 
-const LanguageSwitcher = () => {
+const LanguageSwitcher: FC = () => {
   const t = useTranslations("Root.LocaleSwitcher");
   const locale = useLocale() as (typeof locales)[number];
   const [isPending, startTransition] = useTransition();
@@ -23,8 +24,11 @@ const LanguageSwitcher = () => {
   const pathname = usePathname();
   const screen = useResponsiveScreen();
 
-  const handleLangChange = (locale: (typeof locales)[number]) =>
-    startTransition(() => router.replace(pathname, { locale }));
+  const handleLangChange = (locale: (typeof locales)[number]): void => {
+    startTransition(() => {
+      router.replace(pathname, { locale });
+    });
+  };
 
   return (
     <Dropdown>

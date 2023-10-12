@@ -1,11 +1,12 @@
-import { HTMLAttributes } from "react";
+import type { FC, HTMLAttributes } from "react";
+
 import clsx from "clsx";
 
-const SectionHeading = ({
+const SectionHeading: FC<HTMLAttributes<HTMLHeadingElement>> = ({
   children,
   className,
   ...props
-}: HTMLAttributes<HTMLHeadingElement>) => {
+}) => {
   return (
     <h1
       className={clsx(

@@ -3,8 +3,9 @@
 
 import TRPCProvider from "@/app/_trpc/TRPCProvider";
 import { NextUIProvider } from "@nextui-org/react";
+import type { FC } from "react";
 
-const Providers = ({ children }: { children: React.ReactNode }) => {
+const Providers: FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <TRPCProvider>
       <NextUIProvider>{children}</NextUIProvider>

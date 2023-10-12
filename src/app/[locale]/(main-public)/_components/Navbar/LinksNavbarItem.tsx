@@ -1,6 +1,5 @@
 "use client";
 
-import { NAV_LINKS, NAV_LINK_TYPES } from "@/lib/frontend-data";
 import {
   Button,
   Dropdown,
@@ -10,14 +9,17 @@ import {
   NavbarItem,
 } from "@nextui-org/react";
 
+import type { NAV_LINK_TYPES } from "@/lib/frontend-data";
+import { NAV_LINKS } from "@/lib/frontend-data";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import type { FC } from "react";
 import { BsChevronDown } from "react-icons/bs";
 
 type Props = {
   linkType: (typeof NAV_LINK_TYPES)[number];
 };
-const LinksNavbarItem = ({ linkType }: Props) => {
+const LinksNavbarItem: FC<Props> = ({ linkType }) => {
   const t = useTranslations(`Pages.${linkType}`);
 
   return (
