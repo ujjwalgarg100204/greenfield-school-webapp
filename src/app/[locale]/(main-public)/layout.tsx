@@ -11,6 +11,7 @@ const MainSiteLayout = ({ children }: Props) => {
       <MainNavbar />
       <LinksNavbar />
       {children}
+      <Footer />
     </header>
   );
 };

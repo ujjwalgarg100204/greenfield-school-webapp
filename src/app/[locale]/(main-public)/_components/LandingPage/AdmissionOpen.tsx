@@ -1,12 +1,11 @@
 "use client";
-import { Button } from "flowbite-react";
-import { useEffect, useState } from "react";
+import { Button } from "@nextui-org/react";
 import Image from "next/image";
+import Link from "next/link";
 const Page5 = () => {
   let date = new Date();
 
   const n = date.getFullYear();
-
   return (
     <section className="m-5 rounded-xl bg-[#0EE35A]  p-[5%] align-middle md:m-10 md:flex md:justify-between md:p-[5%] md:text-center">
       <section className=" hidden font-bold text-white md:block md:p-[2%] md:text-left">
@@ -14,7 +13,11 @@ const Page5 = () => {
         <h1 className="md:text-3xl">School</h1>
         <h1 className="md:text-3xl">Admission Open</h1>
 
-        <Button className=" w-full font-bold md:my-5 md:text-xl" color="light">
+        <Button
+          as={Link}
+          href="#"
+          className=" w-full font-bold md:my-5 md:text-xl"
+        >
           Enroll Now
         </Button>
       </section>
@@ -23,12 +26,16 @@ const Page5 = () => {
         <p>Greenfield School, Tamil Nadu. Best for your child</p>
       </section>
 
-      <section className=" font-bold text-white md:p-[2%] md:hidden md:text-left">
+      <section className=" font-bold text-white md:hidden md:p-[2%] md:text-left">
         <h1 className="md:text-3xl">{n}</h1>
         <h1 className="md:text-3xl">School</h1>
         <h1 className="md:text-3xl">Admission Open</h1>
 
-        <Button className=" w-full font-bold my-3 md:my-5 md:text-xl" color="light">
+        <Button
+          as={Link}
+          href="#"
+          className=" my-3 w-full font-bold md:my-5 md:text-xl"
+        >
           Enroll Now
         </Button>
       </section>

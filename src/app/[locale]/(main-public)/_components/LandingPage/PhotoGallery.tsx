@@ -1,5 +1,4 @@
-"use client";
-import React from "react";
+"use client"
 import Image from "next/image";
 import { v4 as uuid } from "uuid";
 import { Card, CardHeader } from "@nextui-org/react";

@@ -1,8 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
-
-import { Carousel } from "flowbite-react";
-import { useEffect, useState } from "react";
 import HeroCarouselThree from "../HeroCarouselThree";
 import HeroCarousel from "../HeroCarousel";
 

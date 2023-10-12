@@ -1,14 +1,11 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
-import { Card } from "flowbite-react";
-import React from "react";
-import Image from "next/image";
-import Bulb from "../../../../../../public/animation json/animation_lnm3rxno.json";
-// import browse from "../../../public/images/animation_lnj6gii3_small.gif";
-// import yoga from "../../../public/images/animation_lnj6ilj1_small.gif";
-// import award from "../../../public/images/trophy.gif";
-
+import { Card } from "@nextui-org/react";
+import React, { useRef } from "react";
 const Page4_Card = () => {
+  const ref = useRef(null);
+  React.useEffect(() => {
+    import("@lottiefiles/lottie-player");
+  });
   return (
     <section className=" m-4 my-10 rounded-xl bg-slate-100 p-3 md:m-9 md:my-20">
       <header>
@@ -18,12 +15,20 @@ const Page4_Card = () => {
       </header>
 
       <section className=" p-4 md:flex md:justify-between md:p-4">
-        <Card className="hover my-4 flex max-w-xs justify-center hover:bg-gray-100">
+        <Card className="hover my-4 flex max-w-xs justify-center p-3 hover:bg-gray-100 md:p-3">
           <section className=" flex justify-center ">
-            <iframe src="https://lottie.host/?file=a1fd3b30-07c4-4d3d-a2f7-d3a94d6041aa/MDmQDVhsZx.json"></iframe>
+            <lottie-player
+              id="firstLottie"
+              ref={ref}
+              autoplay
+              loop
+              mode="normal"
+              src="https://lottie.host/3b570408-327f-41f4-9f50-27d9f9babb65/ZkWM5SdPGZ.json"
+              style={{ width: "10rem", height: "10rem" }}
+            ></lottie-player>
           </section>
           <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white md:text-2xl">
-            Tomorrow’s Leaders {/* Removed <p> */}
+            Tomorrow’s Leaders
           </h5>
           <p className="font-normal text-gray-700 dark:text-gray-400">
             Here with us, students develop a sense of self, social skills, and
@@ -32,9 +37,17 @@ const Page4_Card = () => {
           </p>
         </Card>
 
-        <Card className="hover my-4 flex max-w-sm justify-center hover:bg-gray-100">
+        <Card className="hover my-4 flex max-w-sm justify-center p-3 hover:bg-gray-100">
           <section className=" flex justify-center ">
-            <iframe src="https://lottie.host/?file=0965ef1d-8246-43c7-83a2-aad231cb117e/T5DIee22dX.json"></iframe>
+            <lottie-player
+              id="firstLottie"
+              ref={ref}
+              autoplay
+              loop
+              mode="normal"
+              src="https://lottie.host/0965ef1d-8246-43c7-83a2-aad231cb117e/T5DIee22dX.json"
+              style={{ width: "10rem", height: "10rem" }}
+            ></lottie-player>{" "}
           </section>
           <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white md:text-2xl">
             Noteworthy technology acquisitions 2021 {/* Removed <p> */}
@@ -45,9 +58,17 @@ const Page4_Card = () => {
           </p>
         </Card>
 
-        <Card className="hover my-4 flex max-w-sm justify-center hover:bg-gray-100">
+        <Card className="hover my-4 flex max-w-sm justify-center p-3 hover:bg-gray-100">
           <section className=" flex justify-center ">
-            <iframe src="https://lottie.host/?file=57a7603e-9f49-41f9-b8b0-84f27dec2d1b/DHSDaYQzrH.json"></iframe>{" "}
+            <lottie-player
+              id="firstLottie"
+              ref={ref}
+              autoplay
+              loop
+              mode="normal"
+              src="https://lottie.host/57a7603e-9f49-41f9-b8b0-84f27dec2d1b/DHSDaYQzrH.json"
+              style={{ width: "10rem", height: "10rem" }}
+            ></lottie-player>{" "}
           </section>
           <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white md:text-2xl">
             Noteworthy technology acquisitions 2021 {/* Removed <p> */}
@@ -58,9 +79,17 @@ const Page4_Card = () => {
           </p>
         </Card>
 
-        <Card className="hover my-4 flex max-w-sm justify-center hover:bg-gray-100">
+        <Card className="hover my-4 flex max-w-sm justify-center p-3 hover:bg-gray-100">
           <section className=" flex justify-center ">
-            <iframe src="https://lottie.host/?file=c1935571-8ef7-45f2-8365-66687e1646b9/vVo20iC8Vl.json"></iframe>
+            <lottie-player
+              id="firstLottie"
+              ref={ref}
+              autoplay
+              loop
+              mode="normal"
+              src="https://lottie.host/c1935571-8ef7-45f2-8365-66687e1646b9/vVo20iC8Vl.json"
+              style={{ width: "5rem", height: "5rem" }}
+            ></lottie-player>{" "}
           </section>
           <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white md:text-2xl">
             Noteworthy technology acquisitions 2021 {/* Removed <p> */}
