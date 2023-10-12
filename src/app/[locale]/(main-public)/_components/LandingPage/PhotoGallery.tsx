@@ -49,7 +49,7 @@ const PhotoGallery: FC = () => {
       </header>
       <div className="grid max-w-full grid-rows-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
         {photoGalleryCards.map(({ heading, image, subHeading }) => (
-          <Card key={heading} className="h-[300px] w-full">
+          <Card key={heading} className="group h-[300px] w-full">
             <CardHeader className="absolute top-1/2 z-10 w-full -translate-y-1/2 flex-col items-start text-center">
               <p className="w-full text-center text-tiny font-bold uppercase text-white/60">
                 {heading}
@@ -64,7 +64,7 @@ const PhotoGallery: FC = () => {
               key={uuid()}
               src={image.url}
               alt={image.url}
-              className="z-0 object-cover object-top brightness-[.4]"
+              className="z-0 object-cover object-top brightness-[.4] transition-all duration-500 group-hover:blur-md"
               quality={95}
               fill
             />
