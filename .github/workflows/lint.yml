@@ -9,7 +9,7 @@ on:
       - "*"
 
 jobs:
-  cache-and-install:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,6 +21,9 @@ jobs:
         with:
           node-version: 16
 
+      - name: Setup env
+        run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" > .env
+
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         with:
@@ -28,6 +31,8 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+        shell: bash
 
       - name: Run Eslint
         run: pnpm run lint
+        shell: bash
