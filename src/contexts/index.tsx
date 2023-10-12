@@ -1,4 +1,3 @@
-// app/providers.tsx
 "use client";
 
 import TRPCProvider from "@/app/_trpc/TRPCProvider";

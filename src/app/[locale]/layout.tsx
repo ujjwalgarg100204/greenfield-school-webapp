@@ -2,7 +2,6 @@ import "../globals.css";
 
 import Providers from "@/contexts";
 import { locales } from "@/i18n";
-import type { PageProps } from "@/types";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { unstable_setRequestLocale as setRequestLocale } from "next-intl/server";
@@ -37,7 +36,8 @@ export const generateStaticParams = (): Array<{
   return locales.map(locale => ({ locale }));
 };
 
-type Props = PageProps & {
+type Props = {
+  params: { locale: string };
   children: React.ReactNode;
 };
 const LocaleLayout: FC<Props> = async ({ children, params: { locale } }) => {
