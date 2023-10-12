@@ -7,7 +7,7 @@ import Page4 from "./KeyCharacteristics";
 import Page5 from "./AdmissionOpen";
 import Page6 from "./PremiumFacilities";
 
-const Main = () => {
+const Index = () => {
   return (
     <>
       <section>
@@ -37,4 +37,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Index;
