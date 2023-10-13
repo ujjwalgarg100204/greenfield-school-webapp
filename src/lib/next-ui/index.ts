@@ -1,6 +1,8 @@
 "use client";
 
 import {
+  Accordion,
+  AccordionItem,
   Avatar,
   Button,
   Card,
@@ -19,6 +21,8 @@ import {
 } from "@nextui-org/react";
 
 export {
+  Accordion,
+  AccordionItem,
   Avatar,
   Button,
   Card,
