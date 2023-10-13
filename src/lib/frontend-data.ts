@@ -2,6 +2,7 @@ export const NAV_LINKS = {
   school: [
     { translationKey: "about", link: "/school/about-us" },
     { translationKey: "mission", link: "/school/mission-and-vision" },
+    { translationKey: "principal", link: "/school/principals-message" },
     { translationKey: "infrastructure", link: "/school/infrastructure" },
     { translationKey: "achievements", link: "/school/achievements" },
     { translationKey: "gallery", link: "/school/gallery" },

@@ -1,6 +1,4 @@
-"use client";
-
-import { Button } from "@nextui-org/react";
+import { Button } from "@lib/next-ui";
 import Image from "next/image";
 import Link from "next/link";
 import type { FC } from "react";

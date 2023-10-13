@@ -1,9 +1,10 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 import Carousel from "@/components/ui/Carousel";
 import useResponsiveScreen from "@/hooks/useResponsiveScreen";
 import type { FC } from "react";
-import { useEffect, useState } from "react";
 import CarouselCard from "./CarouselCard";
 import CarouselNextBtn from "./CarouselNextBtn";
 import CarouselPrevBtn from "./CarouselPrevBtn";

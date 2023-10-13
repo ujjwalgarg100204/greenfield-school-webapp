@@ -1,6 +1,4 @@
-"use client";
-
-import { Button, Divider } from "@nextui-org/react";
+import { Button, Divider } from "@lib/next-ui";
 
 import { useTranslations } from "next-intl";
 import NextLink from "next/link";

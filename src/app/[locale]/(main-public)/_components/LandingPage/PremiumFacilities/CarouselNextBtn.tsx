@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@nextui-org/react";
+import { Button } from "@lib/next-ui";
 import type { FC } from "react";
 import { BiRightArrow } from "react-icons/bi";
 

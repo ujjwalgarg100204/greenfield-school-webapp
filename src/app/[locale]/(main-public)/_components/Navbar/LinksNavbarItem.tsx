@@ -7,7 +7,7 @@ import {
   DropdownMenu,
   DropdownTrigger,
   NavbarItem,
-} from "@nextui-org/react";
+} from "@lib/next-ui";
 
 import type { NAV_LINK_TYPES } from "@/lib/frontend-data";
 import { NAV_LINKS } from "@/lib/frontend-data";

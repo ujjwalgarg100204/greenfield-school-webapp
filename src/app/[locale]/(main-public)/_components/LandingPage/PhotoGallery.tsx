@@ -1,6 +1,4 @@
-"use client";
-
-import { Card, CardHeader, Image } from "@nextui-org/react";
+import { Card, CardHeader, Image } from "@lib/next-ui";
 
 import NextImage from "next/image";
 import type { FC } from "react";
@@ -68,7 +66,6 @@ const PhotoGallery: FC = () => {
               quality={95}
               fill
             />
-            ,
           </Card>
         ))}
       </div>

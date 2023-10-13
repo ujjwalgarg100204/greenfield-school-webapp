@@ -1,12 +1,10 @@
-"use client";
-
 import {
   Button,
   Navbar,
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-} from "@nextui-org/react";
+} from "@lib/next-ui";
 
 import GreenfieldLogo from "@/../public/images/logo.png";
 import LanguageSwitcher from "@components/ui/LanguageSwither";
