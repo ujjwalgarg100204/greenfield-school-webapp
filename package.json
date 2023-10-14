@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.2",
     "@lottiefiles/react-lottie-player": "^3.5.3",
     "@nextui-org/react": "^2.1.13",
     "@prisma/client": "^5.4.1",
@@ -25,6 +26,7 @@
     "prisma": "latest",
     "react": "^18",
     "react-dom": "^18",
+    "react-hook-form": "^7.47.0",
     "react-icons": "^4.11.0",
     "react-responsive-carousel": "^3.2.23",
     "sharp": "^0.32.6",

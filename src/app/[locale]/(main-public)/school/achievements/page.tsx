@@ -2,8 +2,8 @@
 
 import { Accordion, AccordionItem } from "@lib/next-ui";
 
-import type { FC } from "react";
 import SectionHeading from "@/components/ui/SectionHeading";
+import type { FC } from "react";
 import SideNavbar from "../../_components/Navbar/SideNavbar";
 
 const achievementsData = [

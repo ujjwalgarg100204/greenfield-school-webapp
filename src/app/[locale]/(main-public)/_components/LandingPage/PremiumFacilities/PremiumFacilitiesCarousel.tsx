@@ -27,7 +27,7 @@ const PremiumFacilitiesCarousel: FC = () => {
   const [currSlideIndex, setCurrSlideIndex] = useState(0);
 
   useEffect((): void => {
-    let percentage = 30;
+    let percentage: number;
     switch (screenSize) {
       case "sm":
         percentage = 100;
@@ -38,9 +38,8 @@ const PremiumFacilitiesCarousel: FC = () => {
       case "lg":
         percentage = 50;
         break;
-      case "xl":
+      default:
         percentage = 30;
-        break;
     }
     setCenterSlidePercentage(percentage);
   }, [screenSize]);

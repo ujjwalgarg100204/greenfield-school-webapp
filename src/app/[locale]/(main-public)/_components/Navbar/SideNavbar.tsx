@@ -1,11 +1,10 @@
+import type { NAV_LINK_TYPES } from "@/lib/frontend-data";
+import { NAV_LINKS } from "@/lib/frontend-data";
 import { Button, Divider } from "@lib/next-ui";
 
-import { useScopedI18n } from "@/locales/client";
+import { getScopedI18n } from "@/locales/server";
 import NextLink from "next/link";
 import { type FC } from "react";
-import type { NAV_LINK_TYPES } from "../../../../../lib/frontend-data";
-import { NAV_LINKS } from "../../../../../lib/frontend-data";
-import { getScopedI18n } from "@/locales/server";
 
 type Props = {
   linkType: (typeof NAV_LINK_TYPES)[number];
@@ -15,7 +14,7 @@ type Props = {
   >;
 };
 
-const SideNavbar: FC<Props> =async ({ linkType, selected }) => {
+const SideNavbar: FC<Props> = async ({ linkType, selected }) => {
   const t = await getScopedI18n(`Pages.${linkType}`);
   const tDict = await getScopedI18n("Dictionary");
 

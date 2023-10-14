@@ -64,7 +64,7 @@ export const NAV_LINKS = {
     { translationKey: "infirmary", link: "/school-infirmary" },
     { translationKey: "report", link: "/progress-report" },
     { translationKey: "fee", link: "/pay-fee-online" },
-    { translationKey: "login", link: "/parents-login" },
+    { translationKey: "login", link: "/login" },
   ],
 } as const;
 
