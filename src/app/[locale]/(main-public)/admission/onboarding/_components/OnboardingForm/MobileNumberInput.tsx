@@ -2,9 +2,9 @@ import { Button, Input } from "@/lib/next-ui";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import type { FC } from "react";
-import { useFormContext } from "react-hook-form";
 import { FiEdit } from "react-icons/fi";
 import type { TAdmissionPortalSchema } from ".";
+import { useFormContext } from "react-hook-form";
 
 const MobileNumberInput: FC = () => {
   const router = useRouter();

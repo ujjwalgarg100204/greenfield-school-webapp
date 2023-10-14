@@ -1,7 +1,7 @@
-import SectionHeading from "@/components/ui/SectionHeading";
-import type { FC } from "react";
-import ArticlePage from "../../_components/ArticlePage";
 import AchievementsAccordion from "./_components/AchievementsAccordion";
+import ArticlePage from "../../_components/ArticlePage";
+import type { FC } from "react";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 const achievementsData = [
   {

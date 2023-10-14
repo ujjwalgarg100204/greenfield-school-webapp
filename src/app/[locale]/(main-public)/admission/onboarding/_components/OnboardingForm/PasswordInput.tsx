@@ -1,8 +1,8 @@
-import type { FC } from "react";
 import { Input } from "@/lib/next-ui";
-import type { TAdmissionPortalSchema } from ".";
-import { useFormContext } from "react-hook-form";
 import { useSearchParams } from "next/navigation";
+import type { FC } from "react";
+import { useFormContext } from "react-hook-form";
+import type { TAdmissionPortalSchema } from ".";
 
 const PasswordInput: FC = () => {
   const {
