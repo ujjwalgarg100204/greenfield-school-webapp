@@ -1,13 +1,16 @@
+import admissionImage from "@/../public/images/Screenshot_5.png";
+import { getScopedI18n } from "@/locales/server";
 import { Button } from "@lib/next-ui";
-import type { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import admissionImage from "@/../public/images/Screenshot_5.png"
-import { getScopedI18n } from "@/locales/server";
+import type { FC } from "react";
 
 const AdmissionOpen: FC = async () => {
   const currYear = new Date().getFullYear();
+const AdmissionOpen: FC = async () => {
   const t = await getScopedI18n("Root.LandingPage.admission");
+
+  const currYear = new Date().getFullYear();
 
   return (
     <section className="grid grid-cols-1 gap-6 rounded-xl bg-primary-400 p-8 text-slate-50 sm:grid-flow-row sm:grid-cols-2 md:p-10 lg:grid-flow-col lg:grid-cols-3 lg:items-center lg:gap-x-16">
@@ -32,7 +35,7 @@ const AdmissionOpen: FC = async () => {
         width={500}
         height={500}
         quality={95}
-        src= {admissionImage}
+        src={admissionImage}
         alt="Students Studying"
         className="order-4 row-span-2 ml-auto hidden max-w-xs rounded-lg object-cover object-center shadow-2xl lg:block"
       />

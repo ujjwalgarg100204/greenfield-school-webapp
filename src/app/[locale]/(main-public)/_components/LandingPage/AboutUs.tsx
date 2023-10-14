@@ -1,10 +1,10 @@
+import abousImage from "@/../public/images/Screenshot_4.png";
+import { NAV_LINKS } from "@/lib/frontend-data";
+import { getScopedI18n } from "@/locales/server";
 import { Button } from "@lib/next-ui";
-import type { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { NAV_LINKS } from "@/lib/frontend-data";
-import abousImage from "@/../public/images/Screenshot_4.png"
-import { getScopedI18n } from "@/locales/server";
+import type { FC } from "react";
 
 const AboutUs: FC = async () => {
   const t = await getScopedI18n("Root.LandingPage.hero");
@@ -35,7 +35,7 @@ const AboutUs: FC = async () => {
       </div>
       <Image
         className="hidden h-72 w-full rounded-lg object-cover lg:block"
-        src= {abousImage}
+        src={abousImage}
         alt="Girl Studying in Greenfield school"
         width={500}
         height={500}
