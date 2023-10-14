@@ -1,5 +1,6 @@
 import "../globals.css";
 
+import { ClerkProvider } from "@clerk/nextjs";
 import type { FC } from "react";
 import { I18nProviderClient } from "@/locales/client";
 import type { Metadata } from "next";
@@ -32,21 +33,23 @@ const satoshiFont = localFont({
 
 export const generateStaticParams = (): ReturnType<typeof getStaticParams> =>
   getStaticParams();
-  
+
 type Props = {
   params: { locale: string };
   children: React.ReactNode;
 };
-const LocaleLayout: FC<Props> = async ({ children, params: { locale } }) => {  
+const LocaleLayout: FC<Props> = async ({ children, params: { locale } }) => {
   setStaticParamsLocale(locale);
 
   return (
     <html lang={locale}>
-      <body className={`${satoshiFont.variable} font-satoshi`}>
-        <I18nProviderClient locale={locale}>
-          <Providers>{children}</Providers>
-        </I18nProviderClient>
-      </body>
+      <ClerkProvider>
+        <body className={`${satoshiFont.variable} font-satoshi`}>
+          <I18nProviderClient locale={locale}>
+            <Providers>{children}</Providers>
+          </I18nProviderClient>
+        </body>
+      </ClerkProvider>
     </html>
   );
 };
