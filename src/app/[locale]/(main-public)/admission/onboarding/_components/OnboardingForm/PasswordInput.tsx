@@ -1,6 +1,6 @@
-import { AdmissionPortalSchema } from ".";
 import type { FC } from "react";
 import { Input } from "@/lib/next-ui";
+import type { TAdmissionPortalSchema } from ".";
 import { useFormContext } from "react-hook-form";
 import { useSearchParams } from "next/navigation";
 
@@ -8,7 +8,7 @@ const PasswordInput: FC = () => {
   const {
     register,
     formState: { errors },
-  } = useFormContext<AdmissionPortalSchema>();
+  } = useFormContext<TAdmissionPortalSchema>();
   const searchParams = useSearchParams();
 
   // should render when otp is generated & verified and search param is present
@@ -24,7 +24,7 @@ const PasswordInput: FC = () => {
         variant="bordered"
         labelPlacement="outside"
         placeholder="Enter a password for your account"
-        isInvalid={!!errors.password}
+        isInvalid={errors.password !== undefined}
         errorMessage={errors.password?.message}
         {...register("password")}
       />
@@ -35,7 +35,7 @@ const PasswordInput: FC = () => {
         variant="bordered"
         labelPlacement="outside"
         placeholder="Re-enter the password you previously typed"
-        isInvalid={!!errors.confirmPassword}
+        isInvalid={errors.confirmPassword !== undefined}
         errorMessage={errors.confirmPassword?.message}
         {...register("confirmPassword")}
       />

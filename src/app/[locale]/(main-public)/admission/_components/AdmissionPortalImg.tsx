@@ -7,8 +7,6 @@ type Props = {
 const AdmissionPortalImg: FC<Props> = ({ className }) => {
   return (
     <svg
-      width="552"
-      height="384"
       viewBox="0 0 552 384"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

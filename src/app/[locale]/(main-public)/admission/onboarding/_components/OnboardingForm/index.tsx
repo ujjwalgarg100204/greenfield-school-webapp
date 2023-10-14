@@ -1,12 +1,15 @@
 "use client";
 
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import { useCallback, useRef } from "react";
+import { FormProvider, useForm } from "react-hook-form";
 
 import useUpdateSearchParams from "@/hooks/useUpdateSearchParams";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@lib/next-ui";
-import { ReadonlyURLSearchParams, useSearchParams } from "next/navigation";
-import { useCallback, useRef, type FC } from "react";
+import type { ReadonlyURLSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
+import type { FC } from "react";
+import type { SubmitHandler } from "react-hook-form";
 import { z } from "zod";
 import MobileNumberInput from "./MobileNumberInput";
 import OTPInput from "./OTPInput";
@@ -49,11 +52,11 @@ const AdmissionPortalSchema = z
     path: ["confirmPassword"],
   });
 
-export type AdmissionPortalSchema = z.infer<typeof AdmissionPortalSchema>;
+export type TAdmissionPortalSchema = z.infer<typeof AdmissionPortalSchema>;
 
 const OnboardingForm: FC = () => {
   const searchParams = useSearchParams();
-  const formMethods = useForm<AdmissionPortalSchema>({
+  const formMethods = useForm<TAdmissionPortalSchema>({
     mode: "onBlur",
     reValidateMode: "onBlur",
     defaultValues: {
@@ -66,7 +69,7 @@ const OnboardingForm: FC = () => {
 
   const updateSearchParams = useUpdateSearchParams();
 
-  const submitHandler: SubmitHandler<AdmissionPortalSchema> = data => {
+  const submitHandler: SubmitHandler<TAdmissionPortalSchema> = data => {
     console.log("data", JSON.stringify(data, null, 2));
   };
 
@@ -81,9 +84,8 @@ const OnboardingForm: FC = () => {
 
     switch (true) {
       case otpGenerated !== "true" && otpVerified !== "true":
-        formMethods.trigger("mobileNumber");
-        if (!mobileNumber || formMethods.getFieldState("mobileNumber").invalid)
-          return;
+        await formMethods.trigger("mobileNumber");
+        if (formMethods.getFieldState("mobileNumber").invalid) return;
 
         // generate OTP
         await generateOTP(mobileNumber);
@@ -92,11 +94,11 @@ const OnboardingForm: FC = () => {
         break;
 
       case otpGenerated === "true" && otpVerified !== "true":
-        if (!otp || formMethods.getFieldState("otp").invalid) return;
+        await formMethods.trigger("otp");
+        if (formMethods.getFieldState("otp").invalid) return;
 
         // verify OTP
-        const isValid = await verifyOTP(otp);
-        if (!isValid) {
+        if (!(await verifyOTP(otp))) {
           formMethods.setError("otp", { message: "Invalid OTP" });
           return;
         }
@@ -106,9 +108,9 @@ const OnboardingForm: FC = () => {
 
       case otpGenerated === "true" && otpVerified === "true":
         // make api call to create account
-        if (formRef) formRef.current?.requestSubmit();
+        formRef.current?.requestSubmit();
     }
-  }, [searchParams]);
+  }, [searchParams, formMethods, updateSearchParams]);
 
   return (
     <FormProvider {...formMethods}>

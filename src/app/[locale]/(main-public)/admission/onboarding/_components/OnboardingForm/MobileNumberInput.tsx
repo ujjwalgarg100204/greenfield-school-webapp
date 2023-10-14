@@ -4,7 +4,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import type { FC } from "react";
 import { useFormContext } from "react-hook-form";
 import { FiEdit } from "react-icons/fi";
-import { AdmissionPortalSchema } from ".";
+import type { TAdmissionPortalSchema } from ".";
 
 const MobileNumberInput: FC = () => {
   const router = useRouter();
@@ -12,7 +12,7 @@ const MobileNumberInput: FC = () => {
     register,
     formState: { errors },
     reset,
-  } = useFormContext<AdmissionPortalSchema>();
+  } = useFormContext<TAdmissionPortalSchema>();
   const searchParams = useSearchParams();
   const disabled = searchParams.get("otp-generated") === "true";
 
@@ -31,7 +31,7 @@ const MobileNumberInput: FC = () => {
         isDisabled={disabled}
         label="Mobile Number"
         labelPlacement="outside"
-        isInvalid={!!errors.mobileNumber}
+        isInvalid={errors.mobileNumber !== undefined}
         placeholder="Enter your mobile number"
         errorMessage={errors.mobileNumber?.message}
         {...register("mobileNumber")}

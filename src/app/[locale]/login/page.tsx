@@ -1,11 +1,12 @@
 "use client";
 
 import { Button, Input, Link, RadioGroup } from "@lib/next-ui";
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import NextLink from "next/link";
 import type { FC } from "react";
+import type { SubmitHandler } from "react-hook-form";
 import { z } from "zod";
 import SectionHeading from "../../../components/ui/SectionHeading";
 import CustomRadio from "./_components/CustomRadio";
@@ -16,7 +17,7 @@ const LoginPageSchema = z.object({
   password: z.string().min(6).max(16),
 });
 
-type LoginPageSchema = z.infer<typeof LoginPageSchema>;
+type TLoginPageSchema = z.infer<typeof LoginPageSchema>;
 
 const LoginPage: FC = () => {
   const {
@@ -24,9 +25,9 @@ const LoginPage: FC = () => {
     control,
     formState: { errors },
     handleSubmit,
-  } = useForm<LoginPageSchema>({ resolver: zodResolver(LoginPageSchema) });
+  } = useForm<TLoginPageSchema>({ resolver: zodResolver(LoginPageSchema) });
 
-  const onSubmit: SubmitHandler<LoginPageSchema> = data => {
+  const onSubmit: SubmitHandler<TLoginPageSchema> = data => {
     console.log("data", JSON.stringify(data, null, 2));
   };
 
@@ -82,7 +83,7 @@ const LoginPage: FC = () => {
                 variant="bordered"
                 labelPlacement="outside"
                 placeholder="Enter your user id"
-                isInvalid={!!errors.userId}
+                isInvalid={errors.userId !== null}
                 errorMessage={errors.userId?.message}
                 {...register("userId")}
               />
@@ -93,7 +94,7 @@ const LoginPage: FC = () => {
                 variant="bordered"
                 labelPlacement="outside"
                 placeholder="Enter your password"
-                isInvalid={!!errors.password}
+                isInvalid={errors.password !== undefined}
                 errorMessage={errors.password?.message}
                 {...register("password")}
               />

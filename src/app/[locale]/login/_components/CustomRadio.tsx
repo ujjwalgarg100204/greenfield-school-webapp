@@ -2,8 +2,9 @@
 
 import { Radio } from "@lib/next-ui";
 import type { RadioProps } from "@nextui-org/react";
+import type { FC } from "react";
 
-const CustomRadio = ({ children, ...props }: RadioProps) => {
+const CustomRadio: FC<RadioProps> = ({ children, ...props }) => {
   return (
     <Radio
       classNames={{

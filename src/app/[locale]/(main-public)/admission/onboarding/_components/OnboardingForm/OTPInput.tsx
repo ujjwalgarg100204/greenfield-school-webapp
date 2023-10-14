@@ -4,27 +4,29 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState, type FC } from "react";
 import { useFormContext } from "react-hook-form";
 import { TiTick } from "react-icons/ti";
-import { AdmissionPortalSchema } from ".";
+import type { TAdmissionPortalSchema } from ".";
 
 const OTPInput: FC = () => {
   const {
     register,
     formState: { errors },
-  } = useFormContext<AdmissionPortalSchema>();
+  } = useFormContext<TAdmissionPortalSchema>();
   const [otpTimer, setOTPTimer] = useState(120);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setOTPTimer(prev => (prev > 0 ? prev - 1 : prev));
     }, 1000);
-    return () => clearInterval(timer);
+    return (): void => {
+      clearInterval(timer);
+    };
   }, []);
 
   // should render when otp is generated and search param is present
   const searchParams = useSearchParams();
   const shouldRender = searchParams.get("otp-generated");
   const isVerified = searchParams.get("otp-verified") === "true";
-  return shouldRender ? (
+  return shouldRender !== null ? (
     <div className="flex items-center gap-8">
       <Input
         type="text"
@@ -32,7 +34,7 @@ const OTPInput: FC = () => {
         label="OTP"
         variant="bordered"
         labelPlacement="outside"
-        isInvalid={!!errors.otp}
+        isInvalid={errors.otp !== undefined}
         isDisabled={isVerified}
         errorMessage={errors.otp?.message}
         placeholder="Enter OTP received on your mobile"
