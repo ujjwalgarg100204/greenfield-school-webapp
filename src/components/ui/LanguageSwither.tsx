@@ -7,28 +7,38 @@ import {
   DropdownMenu,
   DropdownTrigger,
 } from "@nextui-org/react";
-import { useLocale, useTranslations } from "next-intl";
-import { usePathname, useRouter } from "next-intl/client";
+import { useChangeLocale, useCurrentLocale } from "@/locales/client";
 
-import useResponsiveScreen from "@/hooks/useResponsiveScreen";
-import { locales } from "@/i18n";
 import type { FC } from "react";
-import { useTransition } from "react";
+import type { Locale } from "@/locales";
 import { MdLanguage } from "react-icons/md";
+import useResponsiveScreen from "@/hooks/useResponsiveScreen";
+import { useTransition } from "react";
+
+const locales = [
+  { localeCode: "en", localeName: "English" },
+  { localeCode: "hi", localeName: "Hindi" },
+  { localeCode: "ta", localeName: "Tamil" },
+  { localeCode: "te", localeName: "Telugu" },
+] as const;
 
 const LanguageSwitcher: FC = () => {
-  const t = useTranslations("Root.LocaleSwitcher");
-  const locale = useLocale() as (typeof locales)[number];
+  const changeLocale = useChangeLocale();
+  const locale = useCurrentLocale();
   const [isPending, startTransition] = useTransition();
-  const router = useRouter();
-  const pathname = usePathname();
+
   const screen = useResponsiveScreen();
 
-  const handleLangChange = (locale: (typeof locales)[number]): void => {
+  const handleLangChange = (locale: Locale): void => {
     startTransition(() => {
-      router.replace(pathname, { locale });
+      changeLocale(locale);
     });
   };
+
+  const currentLocaleName = locales.find(
+    ({ localeCode }) => localeCode === locale,
+  );
+  if (currentLocaleName === undefined) throw new Error("Invalid locale code");
 
   return (
     <Dropdown>
@@ -51,18 +61,18 @@ const LanguageSwitcher: FC = () => {
             isDisabled={isPending}
             className="font-semibold"
           >
-            {t("locale", { locale })}
+            {currentLocaleName.localeName}
           </Button>
         )}
       </DropdownTrigger>
 
       <DropdownMenu aria-label="Static Actions" className="text-center">
-        {locales.map(locale => (
+        {locales.map(({ localeCode, localeName }) => (
           <DropdownItem
-            key={locale}
-            onClick={handleLangChange.bind(null, locale)}
+            key={localeCode}
+            onClick={handleLangChange.bind(null, localeCode)}
           >
-            {t("locale", { locale })}
+            {localeName}
           </DropdownItem>
         ))}
       </DropdownMenu>

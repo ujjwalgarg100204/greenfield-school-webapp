@@ -11,7 +11,7 @@ import {
 
 import type { NAV_LINK_TYPES } from "@/lib/frontend-data";
 import { NAV_LINKS } from "@/lib/frontend-data";
-import { useTranslations } from "next-intl";
+import { useScopedI18n } from "@/locales/client";
 import Link from "next/link";
 import type { FC } from "react";
 import { BsChevronDown } from "react-icons/bs";
@@ -20,7 +20,7 @@ type Props = {
   linkType: (typeof NAV_LINK_TYPES)[number];
 };
 const LinksNavbarItem: FC<Props> = ({ linkType }) => {
-  const t = useTranslations(`Pages.${linkType}`);
+  const t = useScopedI18n (`Pages.${linkType}`);
 
   return (
     <Dropdown radius="sm">

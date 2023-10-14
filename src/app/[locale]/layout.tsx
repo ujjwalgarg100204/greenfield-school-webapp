@@ -1,14 +1,14 @@
 import "../globals.css";
 
-import Providers from "@/contexts";
-import { locales } from "@/i18n";
+import type { FC } from "react";
+import { I18nProviderClient } from "@/locales/client";
 import type { Metadata } from "next";
-import { NextIntlClientProvider } from "next-intl";
-import { unstable_setRequestLocale as setRequestLocale } from "next-intl/server";
+import Providers from "@/contexts";
+import React from "react";
+import { getStaticParams } from "@/locales/server";
 import localFont from "next/font/local";
 import { notFound } from "next/navigation";
-import type { FC } from "react";
-import React from "react";
+import { setStaticParamsLocale } from "next-international/server";
 
 export const metadata: Metadata = {
   title: "Greenfield School",
@@ -30,31 +30,22 @@ const satoshiFont = localFont({
   variable: "--font-satoshi",
 });
 
-export const generateStaticParams = (): Array<{
-  locale: (typeof locales)[number];
-}> => {
-  return locales.map(locale => ({ locale }));
-};
-
+export const generateStaticParams = (): ReturnType<typeof getStaticParams> =>
+  getStaticParams();
+  
 type Props = {
   params: { locale: string };
   children: React.ReactNode;
 };
-const LocaleLayout: FC<Props> = async ({ children, params: { locale } }) => {
-  let messages;
-  try {
-    messages = (await import(`../../messages/${locale}.json`)).default;
-  } catch (error) {
-    notFound();
-  }
-  setRequestLocale(locale);
+const LocaleLayout: FC<Props> = async ({ children, params: { locale } }) => {  
+  setStaticParamsLocale(locale);
 
   return (
     <html lang={locale}>
       <body className={`${satoshiFont.variable} font-satoshi`}>
-        <NextIntlClientProvider locale={locale} messages={messages}>
+        <I18nProviderClient locale={locale}>
           <Providers>{children}</Providers>
-        </NextIntlClientProvider>
+        </I18nProviderClient>
       </body>
     </html>
   );

@@ -1,10 +1,10 @@
-import type { FC } from "react";
 import SectionHeading from "@/components/ui/SectionHeading";
+import { useScopedI18n } from "@/locales/client";
+import type { FC } from "react";
 import SideNavbar from "../../_components/Navbar/SideNavbar";
-import { useTranslations } from "next-intl";
 
 const MissionAndVisionPage: FC = () => {
-  const t = useTranslations("Pages.school.sub-links.pledge");
+  const t = useScopedI18n("Pages.school.sub-links.pledge");
 
   return (
     <div className="container mx-auto my-12 flex justify-between gap-16 px-6 lg:px-8 xl:px-12 2xl:px-16">
