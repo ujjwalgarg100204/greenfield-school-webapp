@@ -7,7 +7,6 @@ import {
 } from "@lib/next-ui";
 
 import GreenfieldLogo from "@/../public/images/logo.png";
-import { getScopedI18n } from "@/locales/server";
 import LanguageSwitcher from "@components/ui/LanguageSwither";
 import Image from "next/image";
 import NextLink from "next/link";
@@ -15,6 +14,7 @@ import type { FC } from "react";
 
 const MainNavbar: FC = async () => {
   const t = await getScopedI18n("Root.main-navbar");
+
   return (
     <Navbar position="static" maxWidth="full">
       <NavbarBrand>
