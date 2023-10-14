@@ -6,7 +6,7 @@ import { getScopedI18n } from "@/locales/server";
 import NextLink from "next/link";
 import { type FC } from "react";
 
-type Props = {
+export type Props = {
   linkType: (typeof NAV_LINK_TYPES)[number];
   selected: Pick<
     (typeof NAV_LINKS)[keyof typeof NAV_LINKS][number],
