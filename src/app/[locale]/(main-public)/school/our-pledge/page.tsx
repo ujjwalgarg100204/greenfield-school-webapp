@@ -1,6 +1,7 @@
 import SectionHeading from "@/components/ui/SectionHeading";
 import { getScopedI18n } from "@/locales/server";
 import type { FC } from "react";
+import ArticlePage from "../../_components/ArticlePage";
 
 const MissionAndVisionPage: FC = async () => {
   const t = await getScopedI18n("Pages.school.sub-links.pledge");

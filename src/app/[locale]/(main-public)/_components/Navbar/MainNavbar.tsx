@@ -55,6 +55,30 @@ const MainNavbar: FC = async () => {
             {t("admission-portal")}
           </Button>
         </NavbarItem>
+        <NavbarItem>
+          <Button
+            as={NextLink}
+            href="/login"
+            color="primary"
+            variant="solid"
+            className="font-semibold text-white sm:hidden"
+            radius="sm"
+            size="sm"
+          >
+            {t("login")}
+          </Button>
+
+          <Button
+            as={NextLink}
+            href="/login"
+            color="primary"
+            variant="solid"
+            className="hidden font-semibold text-white sm:flex"
+            radius="sm"
+          >
+            {t("login")}
+          </Button>
+        </NavbarItem>
       </NavbarContent>
     </Navbar>
   );

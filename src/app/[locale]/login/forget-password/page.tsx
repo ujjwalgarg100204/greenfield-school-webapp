@@ -1,9 +1,9 @@
-import SectionHeading from "@/components/ui/SectionHeading";
-import type { NextPageProps } from "@/types";
 import { Button } from "@lib/next-ui";
-import { setStaticParamsLocale } from "next-international/server";
-import NextLink from "next/link";
 import type { FC } from "react";
+import NextLink from "next/link";
+import type { NextPageProps } from "@/types";
+import SectionHeading from "@/components/ui/SectionHeading";
+import { setStaticParamsLocale } from "next-international/server";
 
 const ForgetPasswordPage: FC<NextPageProps> = ({ params: { locale } }) => {
   setStaticParamsLocale(locale);
