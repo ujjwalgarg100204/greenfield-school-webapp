@@ -1,8 +1,8 @@
 import { Navbar, NavbarContent } from "@lib/next-ui";
 
-import { NAV_LINK_TYPES } from "@/lib/frontend-data";
 import type { FC } from "react";
 import LinksNavbarItem from "./LinksNavbarItem";
+import { NAV_LINK_TYPES } from "@/lib/frontend-data";
 
 const LinksNavbar: FC = () => {
   return (

@@ -13,7 +13,7 @@ import Image from "next/image";
 import NextLink from "next/link";
 import type { FC } from "react";
 
-const MainNavbar: FC =async () => {
+const MainNavbar: FC = async () => {
   const t = await getScopedI18n("Root.main-navbar");
   return (
     <Navbar position="static" maxWidth="full">

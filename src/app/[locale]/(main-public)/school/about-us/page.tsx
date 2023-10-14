@@ -3,7 +3,7 @@ import { getScopedI18n } from "@/locales/server";
 import type { FC } from "react";
 import ArticlePage from "../../_components/ArticlePage";
 
-const AboutPage: FC = async() => {
+const AboutPage: FC = async () => {
   const t = await getScopedI18n("Pages.school.sub-links.about");
 
   return (

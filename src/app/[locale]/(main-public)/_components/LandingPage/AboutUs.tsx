@@ -1,18 +1,17 @@
-import { Button } from "@lib/next-ui";
-import type { FC } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { NAV_LINKS } from "@/lib/frontend-data";
 import { getScopedI18n } from "@/locales/server";
+import { Button } from "@lib/next-ui";
+import Image from "next/image";
+import Link from "next/link";
+import type { FC } from "react";
 
-const AboutUs: FC =async () => {
+const AboutUs: FC = async () => {
+  const t = await getScopedI18n("Root.LandingPage");
   const aboutUsLink = NAV_LINKS.school.find(
     link => link.translationKey === "about",
   );
   if (aboutUsLink === undefined) throw new Error("About us link not found");
 
-
-  const t = await getScopedI18n("Root.LandingPage");
   return (
     <section className="gap-20 rounded-lg border border-gray-200 bg-white p-8 shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 md:flex md:max-w-full md:items-center md:p-10">
       <div className="flex-grow space-y-6 text-center lg:max-w-md lg:text-left xl:max-w-xl 2xl:max-w-3xl">

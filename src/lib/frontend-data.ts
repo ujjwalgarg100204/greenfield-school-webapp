@@ -76,5 +76,3 @@ export const NAV_LINK_TYPES = [
   "student",
   "parent",
 ] as const;
-
-

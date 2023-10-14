@@ -3,7 +3,7 @@
 import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
 
 import Carousel from "@/components/ui/Carousel";
-import Image from "next/image";
+import NextImage from "next/image";
 import type { FC } from "react";
 
 const imagesLinks = [
@@ -49,7 +49,7 @@ const HeroCarousel: FC = () => {
     >
       {imagesLinks.map(image => (
         <div key={image} className="relative h-64 sm:h-72 md:h-[26rem]">
-          <Image
+          <NextImage
             src={image}
             alt="bear"
             className="object-cover object-top"

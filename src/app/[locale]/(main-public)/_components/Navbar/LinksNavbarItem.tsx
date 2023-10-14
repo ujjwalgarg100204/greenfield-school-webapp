@@ -20,7 +20,7 @@ type Props = {
   linkType: (typeof NAV_LINK_TYPES)[number];
 };
 const LinksNavbarItem: FC<Props> = ({ linkType }) => {
-  const t = useScopedI18n (`Pages.${linkType}`);
+  const t = useScopedI18n(`Pages.${linkType}`);
 
   return (
     <Dropdown radius="sm">

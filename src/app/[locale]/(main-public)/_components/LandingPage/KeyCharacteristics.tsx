@@ -1,35 +1,27 @@
 import { Card, CardBody, CardHeader } from "@lib/next-ui";
 
-import type { FC } from "react";
 import Lottie from "@/components/ui/Lottie";
 import { getScopedI18n } from "@/locales/server";
+import type { FC } from "react";
 
 const keyCharacteristicsCards = [
   {
     translationKey: "first",
-    // heading: "Tomorrow’s Leaders",
-    // body: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
     lottie:
       "https://lottie.host/3b570408-327f-41f4-9f50-27d9f9babb65/ZkWM5SdPGZ.json",
   },
   {
     translationKey: "second",
-    // heading: "Noteworthy technology acquisitions 2021",
-    // body: "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
     lottie:
       "https://lottie.host/57a7603e-9f49-41f9-b8b0-84f27dec2d1b/DHSDaYQzrH.json",
   },
   {
     translationKey: "third",
-    // heading: "Tomorrow’s Leaders are",
-    // body: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
     lottie:
       "https://lottie.host/0965ef1d-8246-43c7-83a2-aad231cb117e/T5DIee22dX.json",
   },
   {
     translationKey: "forth",
-    // heading: "Tomorrow’s Leaders good",
-    // body: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
     lottie:
       "https://lottie.host/c1935571-8ef7-45f2-8365-66687e1646b9/vVo20iC8Vl.json",
   },
@@ -37,6 +29,7 @@ const keyCharacteristicsCards = [
 
 const KeyCharacteristics: FC = async () => {
   const t = await getScopedI18n("Root.LandingPage.characteristics");
+
   return (
     <section className="space-y-12 rounded-xl bg-slate-100 p-8 md:p-10">
       <h2 className="text-3xl font-bold md:text-3xl">{t("title")}</h2>

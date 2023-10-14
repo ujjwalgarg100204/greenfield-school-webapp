@@ -1,19 +1,19 @@
 "use client";
 
+import { useChangeLocale, useCurrentLocale } from "@/locales/client";
 import {
   Button,
   Dropdown,
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
-} from "@nextui-org/react";
-import { useChangeLocale, useCurrentLocale } from "@/locales/client";
+} from "@lib/next-ui";
 
-import type { FC } from "react";
-import type { Locale } from "@/locales";
-import { MdLanguage } from "react-icons/md";
 import useResponsiveScreen from "@/hooks/useResponsiveScreen";
+import type { Locale } from "@/locales";
+import type { FC } from "react";
 import { useTransition } from "react";
+import { MdLanguage } from "react-icons/md";
 
 const locales = [
   { localeCode: "en", localeName: "English" },
