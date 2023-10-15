@@ -4,7 +4,6 @@ export default {
     links: "இணைப்புகள்",
   },
   Pages: {
-    home: { title: "முதன்மை பக்கம்" },
     school: {
       title: "பள்ளி",
       "sub-links": {

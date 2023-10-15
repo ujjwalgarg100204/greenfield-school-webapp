@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from "react";
 
-import SideNavbar from "./Navbar/SideNavbar";
 import type { Props as SideNavbarProps } from "./Navbar/SideNavbar";
+import SideNavbar from "./Navbar/SideNavbar";
 
 type Props = { children: ReactNode } & SideNavbarProps;
 

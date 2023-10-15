@@ -1,4 +1,4 @@
-import abousImage from "@/../public/images/Screenshot_4.png";
+import AboutImage from "@/../public/images/Screenshot_4.png";
 import { NAV_LINKS } from "@/lib/frontend-data";
 import { getScopedI18n } from "@/locales/server";
 import { Button } from "@lib/next-ui";
@@ -35,7 +35,7 @@ const AboutUs: FC = async () => {
       </div>
       <Image
         className="hidden h-72 w-full rounded-lg object-cover lg:block"
-        src={abousImage}
+        src={AboutImage}
         alt="Girl Studying in Greenfield school"
         width={500}
         height={500}

@@ -6,10 +6,7 @@ import NextLink from "next/link";
 import type { FC } from "react";
 
 const AdmissionOpen: FC = async () => {
-  const currYear = new Date().getFullYear();
-const AdmissionOpen: FC = async () => {
   const t = await getScopedI18n("Root.LandingPage.admission");
-
   const currYear = new Date().getFullYear();
 
   return (
