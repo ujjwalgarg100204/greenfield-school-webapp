@@ -1,6 +1,6 @@
 import SectionHeading from "@/components/ui/SectionHeading";
 import type { FC } from "react";
-import ArticlePage from "../../_components/ArticlePage";
+import ArticlePage from "../../_components/ArticlePage/ArticlePageSchoolSection";
 import AchievementsAccordion from "./_components/AchievementsAccordion";
 
 const achievementsData = [

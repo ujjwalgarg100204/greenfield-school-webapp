@@ -4,7 +4,7 @@ import { Button } from "@lib/next-ui";
 import { setStaticParamsLocale } from "next-international/server";
 import NextLink from "next/link";
 import type { FC } from "react";
-import ArticlePage from "../../_components/ArticlePage";
+import ArticlePage from "../../_components/ArticlePage/ArticlePageSchoolSection";
 
 const AdmissionPortal: FC<NextPageProps> = ({ params: { locale } }) => {
   setStaticParamsLocale(locale);
