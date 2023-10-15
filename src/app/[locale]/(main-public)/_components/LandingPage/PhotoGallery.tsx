@@ -1,8 +1,8 @@
 import { Card, CardHeader, Image } from "@lib/next-ui";
 
-import type { FC } from "react";
-import NextImage from "next/image";
 import { getScopedI18n } from "@/locales/server";
+import NextImage from "next/image";
+import type { FC } from "react";
 import { v4 as uuid } from "uuid";
 
 const photoGalleryCards = [

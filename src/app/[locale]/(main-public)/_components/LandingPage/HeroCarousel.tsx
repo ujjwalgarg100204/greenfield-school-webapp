@@ -3,20 +3,21 @@
 import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
 
 import Carousel from "@/components/ui/Carousel";
-import Image from "next/image";
 import type { FC } from "react";
+import Image from "next/image";
+import mainCarosoulImage from "@/../public/images/mainCarosoulImg.png";
+import mainCarosoulImage1 from "@/../public/images/mainCarosoulImg1.png";
+import mainCarosoulImage2 from "@/../public/images/Screenshot_1.png";
+import mainCarosoulImage3 from "@/../public/images/Screenshot_2.png";
+import mainCarosoulImage4 from "@/../public/images/Screenshot_3.png";
 
 const imagesLinks = [
-  "https://picsum.photos/id/1020/1920/1080",
-  "https://picsum.photos/id/1025/1920/1080",
-  "https://picsum.photos/id/642/1920/1080",
-  "https://picsum.photos/id/743/1920/1080",
-  "https://picsum.photos/id/1060/1920/1080",
-  "https://picsum.photos/id/377/1920/1080",
-  "https://picsum.photos/id/684/1920/1080",
-  "https://picsum.photos/id/242/1920/1080",
-  "https://picsum.photos/id/525/1920/1080",
-];
+  {translationKey : "first" , image : mainCarosoulImage},
+  {translationKey : "second" ,image : mainCarosoulImage1},
+  {translationKey : "third" ,image :mainCarosoulImage2},
+  {translationKey : "fourth" ,image :mainCarosoulImage3},
+  {translationKey : "fifth" ,image :mainCarosoulImage4},
+]as const;
 
 const HeroCarousel: FC = () => {
   return (
@@ -47,8 +48,8 @@ const HeroCarousel: FC = () => {
         </button>
       )}
     >
-      {imagesLinks.map(image => (
-        <div key={image} className="relative h-64 sm:h-72 md:h-[26rem]">
+      {imagesLinks.map(({translationKey, image}) => (
+        <div key={translationKey} className="relative h-64 sm:h-72 md:h-[35rem]">
           <Image
             src={image}
             alt="bear"
