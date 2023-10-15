@@ -1,6 +1,6 @@
+import { getScopedI18n } from "@/locales/server";
 import type { FC } from "react";
 import PremiumFacilitiesCarousel from "./PremiumFacilitiesCarousel";
-import { getScopedI18n } from "@/locales/server";
 
 const PremiumFacilities: FC = async () => {
   const t = await getScopedI18n("Root.LandingPage.premiunFacilities");

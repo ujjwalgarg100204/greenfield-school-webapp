@@ -1,8 +1,8 @@
-import admissionImage from "@/../public/images/Screenshot_5.png";
+import AdmissionImage from "@/../public/images/Screenshot_5.png";
 import { getScopedI18n } from "@/locales/server";
 import { Button } from "@lib/next-ui";
-import Image from "next/image";
-import Link from "next/link";
+import NextImage from "next/image";
+import NextLink from "next/link";
 import type { FC } from "react";
 
 const AdmissionOpen: FC = async () => {
@@ -18,7 +18,7 @@ const AdmissionOpen: FC = async () => {
         {currYear} {t("title")}
       </h3>
       <Button
-        as={Link}
+        as={NextLink}
         href="#"
         color="secondary"
         variant="shadow"
@@ -31,11 +31,11 @@ const AdmissionOpen: FC = async () => {
         {t("content")}
       </div>
 
-      <Image
+      <NextImage
         width={500}
         height={500}
         quality={95}
-        src={admissionImage}
+        src={AdmissionImage}
         alt="Students Studying"
         className="order-4 row-span-2 ml-auto hidden max-w-xs rounded-lg object-cover object-center shadow-2xl lg:block"
       />
