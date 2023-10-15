@@ -5,14 +5,13 @@ import {
   NavbarContent,
   NavbarItem,
 } from "@lib/next-ui";
-import { SignIn, SignInButton, SignUpButton, useUser } from "@clerk/nextjs";
 
-import { useState, type FC } from "react";
 import GreenfieldLogo from "@/../public/images/logo.png";
-import Image from "next/image";
-import LanguageSwitcher from "@components/ui/LanguageSwither";
-import Link from "next/link";
 import { getScopedI18n } from "@/locales/server";
+import LanguageSwitcher from "@components/ui/LanguageSwither";
+import Image from "next/image";
+import Link from "next/link";
+import { type FC } from "react";
 
 const MainNavbar: FC = async () => {
   // const { isLoaded: userLoaded, isSignedIn } = useUser();
@@ -59,35 +58,24 @@ const MainNavbar: FC = async () => {
           </Button>
         </NavbarItem>
         <NavbarItem>
-          {/* <SignUpButton >
-              <Button
-                color="primary"
-                variant="solid"
-                className="font-semibold text-white sm:hidden"
-                radius="sm"
-                size="sm"
-              >
-                {t("login")}
-              </Button>
-            </SignUpButton>
-            
-         
-          <SignUpButton >
-            <Button
-              color="primary"
-              variant="solid"
-              className="hidden font-semibold text-white sm:flex"
-              radius="sm"
-            >
-              {t("login")}
-            </Button>
-          </SignUpButton> */}
+          <Button
+            color="primary"
+            variant="solid"
+            className="font-semibold text-white sm:hidden"
+            radius="sm"
+            size="sm"
+          >
+            {t("login")}
+          </Button>
 
-          {/* <SignUpButton /> */}
-          <div>
-            <h1> Sign in </h1>
-            <SignInButton />
-          </div>
+          <Button
+            color="primary"
+            variant="solid"
+            className="hidden font-semibold text-white sm:flex"
+            radius="sm"
+          >
+            {t("login")}
+          </Button>
         </NavbarItem>
       </NavbarContent>
     </Navbar>

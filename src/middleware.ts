@@ -19,7 +19,6 @@
 // middleware.ts
 
 import { NextRequest } from "next/server";
-import { authMiddleware } from "@clerk/nextjs";
 import { createI18nMiddleware } from "next-international/middleware";
 
 const I18nMiddleware = createI18nMiddleware({
@@ -34,13 +33,6 @@ export function middleware(request: NextRequest) {
 
 console.log("Middlerware is running");
 
-export default authMiddleware({});
-
 export const config = {
-  matcher: [
-    "/((?!api|static|.*\\..*|_next|favicon.ico|robots.txt).*)",
-    "/((?!.+\\.[\\w]+$|_next).*)",
-    "/",
-    "/(api|trpc)(.*)",
-  ],
+  matcher: ["/((?!api|static|.*\\..*|_next|favicon.ico|robots.txt).*)"],
 };

@@ -1,15 +1,13 @@
 import "../globals.css";
 
-import { ClerkProvider } from "@clerk/nextjs";
-import type { FC } from "react";
-import { I18nProviderClient } from "@/locales/client";
-import type { Metadata } from "next";
 import Providers from "@/contexts";
-import React from "react";
+import { I18nProviderClient } from "@/locales/client";
 import { getStaticParams } from "@/locales/server";
-import localFont from "next/font/local";
-import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { setStaticParamsLocale } from "next-international/server";
+import localFont from "next/font/local";
+import type { FC } from "react";
+import React from "react";
 
 export const metadata: Metadata = {
   title: "Greenfield School",
@@ -43,13 +41,11 @@ const LocaleLayout: FC<Props> = async ({ children, params: { locale } }) => {
 
   return (
     <html lang={locale}>
-      <ClerkProvider>
-        <body className={`${satoshiFont.variable} font-satoshi`}>
-          <I18nProviderClient locale={locale}>
-            <Providers>{children}</Providers>
-          </I18nProviderClient>
-        </body>
-      </ClerkProvider>
+      <body className={`${satoshiFont.variable} font-satoshi`}>
+        <I18nProviderClient locale={locale}>
+          <Providers>{children}</Providers>
+        </I18nProviderClient>
+      </body>
     </html>
   );
 };
