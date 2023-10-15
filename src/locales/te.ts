@@ -4,6 +4,7 @@ export default {
     links: "లింకులు",
   },
   Pages: {
+    home: { title: "ప్రధాన పేజీ" },
     school: {
       title: "పాఠశాల",
       "sub-links": {

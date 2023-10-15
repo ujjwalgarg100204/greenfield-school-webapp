@@ -11,7 +11,7 @@ import { useChangeLocale, useCurrentLocale } from "@/locales/client";
 
 import type { FC } from "react";
 import type { Locale } from "@/locales";
-import { MdLanguage } from "react-icons/md";
+import Lottie from "./Lottie";
 import useResponsiveScreen from "@/hooks/useResponsiveScreen";
 import { useTransition } from "react";
 
@@ -51,13 +51,25 @@ const LanguageSwitcher: FC = () => {
             size="sm"
             isIconOnly
           >
-            <MdLanguage />
+            <Lottie
+              src="https://lottie.host/6db4a0f8-7c19-4219-9ec0-f2b41439a5c4/6mgmoTYbay.json"
+              className="h-7 w-7"
+              autoplay
+              loop
+            />
           </Button>
         ) : (
           <Button
             color="primary"
             variant="bordered"
-            startContent={<MdLanguage />}
+            startContent={
+              <Lottie
+                src="https://lottie.host/6db4a0f8-7c19-4219-9ec0-f2b41439a5c4/6mgmoTYbay.json"
+                className="h-10 w-8"
+                autoplay
+                loop
+              />
+            }
             isDisabled={isPending}
             className="font-semibold"
           >

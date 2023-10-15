@@ -5,7 +5,7 @@ import NextImage from "next/image";
 import type { FC } from "react";
 import SideNavbar from "../../_components/Navbar/SideNavbar";
 
-const PrincipalsPage: FC =async () => {
+const PrincipalsPage: FC = async () => {
   const t = await getScopedI18n("Pages.school.sub-links.principal");
 
   return (
@@ -26,15 +26,15 @@ const PrincipalsPage: FC =async () => {
               width: 600,
               height: 400,
             }}
-            name="Joe Doe"
+            name="Sam"
             color="success"
             ImgComponent={NextImage}
             className="h-40 w-40"
-            src="https://picsum.photos/id/237/600/400"
+            src="https://images.pexels.com/photos/756484/pexels-photo-756484.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
           />
           <p className="flex flex-col items-center justify-center">
             <span className="text-xl font-bold leading-6 lg:leading-5">
-              Mr. Jane Doe
+              Mr. Sam
             </span>
             <span className="text-base lg:text-lg">{t("content.avatar")}</span>
           </p>

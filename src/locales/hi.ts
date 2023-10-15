@@ -4,6 +4,7 @@ export default {
     links: "लिंक",
   },
   Pages: {
+    home: { title: "मुख्य पृष्ठ" },
     school: {
       title: "विद्यालय",
       "sub-links": {
