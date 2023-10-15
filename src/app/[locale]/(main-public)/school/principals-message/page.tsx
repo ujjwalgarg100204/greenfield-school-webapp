@@ -1,12 +1,12 @@
 import SectionHeading from "@/components/ui/SectionHeading";
-import { useScopedI18n } from "@/locales/client";
+import { getScopedI18n } from "@/locales/server";
 import { Avatar } from "@lib/next-ui";
 import NextImage from "next/image";
 import type { FC } from "react";
 import SideNavbar from "../../_components/Navbar/SideNavbar";
 
-const PrincipalsPage: FC = () => {
-  const t = useScopedI18n("Pages.school.sub-links.principal");
+const PrincipalsPage: FC =async () => {
+  const t = await getScopedI18n("Pages.school.sub-links.principal");
 
   return (
     <div className="container mx-auto my-12 flex justify-between gap-16 px-6 lg:px-8 xl:px-12 2xl:px-16">
