@@ -6,12 +6,12 @@ import {
   NavbarItem,
 } from "@lib/next-ui";
 
-import GreenfieldLogo from "@/../public/images/logo.png";
-import { getScopedI18n } from "@/locales/server";
-import LanguageSwitcher from "@components/ui/LanguageSwither";
-import Image from "next/image";
-import NextLink from "next/link";
 import type { FC } from "react";
+import GreenfieldLogo from "@/../public/images/logo.png";
+import Image from "next/image";
+import LanguageSwitcher from "@components/ui/LanguageSwither";
+import NextLink from "next/link";
+import { getScopedI18n } from "@/locales/server";
 
 const MainNavbar: FC = async () => {
   const t = await getScopedI18n("Root.main-navbar");

@@ -1,6 +1,6 @@
+import { getScopedI18n } from "@/locales/server";
 import type { FC } from "react";
 import PhotoGalleryCard from "./PhotoGalleryCard";
-import { getScopedI18n } from "@/locales/server";
 
 const photoGalleryCards = [
   {
