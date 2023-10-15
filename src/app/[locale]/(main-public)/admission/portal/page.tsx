@@ -34,7 +34,7 @@ const AdmissionPortal: FC<NextPageProps> = ({ params: { locale } }) => {
         radius="sm"
         as={NextLink}
         color="primary"
-        href="/admission/portal"
+        href="/admission/onboarding"
         className="w-full font-semibold"
       >
         Get Started
