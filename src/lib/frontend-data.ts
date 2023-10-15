@@ -1,9 +1,9 @@
 export const NAV_LINKS = {
   home: [
-    { translationKey: "hero", link: "#about-us" },
-    { translationKey: "photo-gallery", link: "#photo-gallery" },
-    { translationKey: "key-features", link: "#key-features" },
-    { translationKey: "premium-facilities", link: "#premium-facilities" },
+    { translationKey: "hero", link: "/#about-us" },
+    { translationKey: "photo-gallery", link: "/#photo-gallery" },
+    { translationKey: "key-features", link: "/#key-features" },
+    { translationKey: "premium-facilities", link: "/#premium-facilities" },
   ],
   school: [
     { translationKey: "about", link: "/school/about-us" },
