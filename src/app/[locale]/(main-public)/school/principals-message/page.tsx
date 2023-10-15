@@ -1,11 +1,15 @@
-import SectionHeading from "@/components/ui/SectionHeading";
-import { getScopedI18n } from "@/locales/server";
 import { Avatar } from "@lib/next-ui";
-import NextImage from "next/image";
 import type { FC } from "react";
+import NextImage from "next/image";
+import type { NextPageProps } from "@/types";
+import SectionHeading from "@/components/ui/SectionHeading";
 import SideNavbar from "../../_components/Navbar/SideNavbar";
+import { getScopedI18n } from "@/locales/server";
+import { setStaticParamsLocale } from "next-international/server";
+import { useScopedI18n } from "@/locales/client";
 
-const PrincipalsPage: FC = async () => {
+const PrincipalsPage: FC<NextPageProps> = async ({ params: { locale } }) => {
+  setStaticParamsLocale(locale);
   const t = await getScopedI18n("Pages.school.sub-links.principal");
 
   return (

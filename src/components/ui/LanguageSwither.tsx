@@ -6,7 +6,7 @@ import {
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
-} from "@nextui-org/react";
+} from "@lib/next-ui";
 import { useChangeLocale, useCurrentLocale } from "@/locales/client";
 
 import type { FC } from "react";
@@ -52,8 +52,8 @@ const LanguageSwitcher: FC = () => {
             isIconOnly
           >
             <Lottie
-              src="https://lottie.host/6db4a0f8-7c19-4219-9ec0-f2b41439a5c4/6mgmoTYbay.json"
-              className="h-7 w-7"
+              src="https://lottie.host/1afca697-eafa-49ec-acd4-799d4e67bb66/qGhFOY2OJm.json"
+              className="w-9"
               autoplay
               loop
             />
@@ -64,8 +64,8 @@ const LanguageSwitcher: FC = () => {
             variant="bordered"
             startContent={
               <Lottie
-                src="https://lottie.host/6db4a0f8-7c19-4219-9ec0-f2b41439a5c4/6mgmoTYbay.json"
-                className="h-10 w-8"
+                src="https://lottie.host/1afca697-eafa-49ec-acd4-799d4e67bb66/qGhFOY2OJm.json"
+                className="w-11"
                 autoplay
                 loop
               />

@@ -4,36 +4,29 @@ export default {
     links: "links",
   },
   Pages: {
-    home: { title: "Home" },
     school: {
       title: "School",
       "sub-links": {
         about: {
           title: "About Us",
           content: {
-            "para-1":
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc faucibus a pellentesque sit amet porttitor eget dolor morbi. Lorem donec massa sapien faucibus. Leo vel fringilla est ullamcorper eget nulla. Accumsan tortor posuere ac ut. Rutrum quisque non tellus orci ac auctor augue mauris augue. Nunc faucibus a pellentesque sit. Elementum tempus egestas sed sed risus pretium. Sit amet luctus venenatis lectus. Ut pharetra sit amet aliquam id diam. Eu mi bibendum neque egestas congue quisque egestas. Quisque non tellus orci ac auctor augue mauris. Erat nam at lectus urna duis convallis. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Quis vel eros donec ac odio tempor orci. Ultrices dui sapien eget mi proin sed libero enim sed.",
-            "para-2":
-              "Ut sem viverra aliquet eget sit amet tellus. Et egestas quis ipsum suspendisse ultrices gravida. Aenean sed adipiscing diam donec adipiscing tristique risus nec. Morbi tristique senectus et netus et. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi. Convallis tellus id interdum velit laoreet id donec ultrices tincidunt. Mollis aliquam ut porttitor leo a diam sollicitudin tempor id. Nam at lectus urna duis convallis. Vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt. Non pulvinar neque laoreet suspendisse interdum.",
+            "para-1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc faucibus a pellentesque sit amet porttitor eget dolor morbi. Lorem donec massa sapien faucibus. Leo vel fringilla est ullamcorper eget nulla. Accumsan tortor posuere ac ut. Rutrum quisque non tellus orci ac auctor augue mauris augue. Nunc faucibus a pellentesque sit. Elementum tempus egestas sed sed risus pretium. Sit amet luctus venenatis lectus. Ut pharetra sit amet aliquam id diam. Eu mi bibendum neque egestas congue quisque egestas. Quisque non tellus orci ac auctor augue mauris. Erat nam at lectus urna duis convallis. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Quis vel eros donec ac odio tempor orci. Ultrices dui sapien eget mi proin sed libero enim sed.",
+            "para-2": "Ut sem viverra aliquet eget sit amet tellus. Et egestas quis ipsum suspendisse ultrices gravida. Aenean sed adipiscing diam donec adipiscing tristique risus nec. Morbi tristique senectus et netus et. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi. Convallis tellus id interdum velit laoreet id donec ultrices tincidunt. Mollis aliquam ut porttitor leo a diam sollicitudin tempor id. Nam at lectus urna duis convallis. Vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt. Non pulvinar neque laoreet suspendisse interdum.",
           },
         },
         mission: {
           title: "Mission and Vision",
           content: {
-            "para-1":
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc faucibus a pellentesque sit amet porttitor eget dolor morbi. Lorem donec massa sapien faucibus. Leo vel fringilla est ullamcorper eget nulla. Accumsan tortor posuere ac ut. Rutrum quisque non tellus orci ac auctor augue mauris augue. Nunc faucibus a pellentesque sit. Elementum tempus egestas sed sed risus pretium. Sit amet luctus venenatis lectus. Ut pharetra sit amet aliquam id diam. Eu mi bibendum neque egestas congue quisque egestas. Quisque non tellus orci ac auctor augue mauris. Erat nam at lectus urna duis convallis. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Quis vel eros donec ac odio tempor orci. Ultrices dui sapien eget mi proin sed libero enim sed.",
-            "para-2":
-              "Ut sem viverra aliquet eget sit amet tellus. Et egestas quis ipsum suspendisse ultrices gravida. Aenean sed adipiscing diam donec adipiscing tristique risus nec. Morbi tristique senectus et netus et. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi. Convallis tellus id interdum velit laoreet id donec ultrices tincidunt. Mollis aliquam ut porttitor leo a diam sollicitudin tempor id. Nam at lectus urna duis convallis. Vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt. Non pulvinar neque laoreet suspendisse interdum.",
+            "para-1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc faucibus a pellentesque sit amet porttitor eget dolor morbi. Lorem donec massa sapien faucibus. Leo vel fringilla est ullamcorper eget nulla. Accumsan tortor posuere ac ut. Rutrum quisque non tellus orci ac auctor augue mauris augue. Nunc faucibus a pellentesque sit. Elementum tempus egestas sed sed risus pretium. Sit amet luctus venenatis lectus. Ut pharetra sit amet aliquam id diam. Eu mi bibendum neque egestas congue quisque egestas. Quisque non tellus orci ac auctor augue mauris. Erat nam at lectus urna duis convallis. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Quis vel eros donec ac odio tempor orci. Ultrices dui sapien eget mi proin sed libero enim sed.",
+            "para-2": "Ut sem viverra aliquet eget sit amet tellus. Et egestas quis ipsum suspendisse ultrices gravida. Aenean sed adipiscing diam donec adipiscing tristique risus nec. Morbi tristique senectus et netus et. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi. Convallis tellus id interdum velit laoreet id donec ultrices tincidunt. Mollis aliquam ut porttitor leo a diam sollicitudin tempor id. Nam at lectus urna duis convallis. Vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt. Non pulvinar neque laoreet suspendisse interdum.",
           },
         },
         principal: {
           title: "Principal's Message",
           content: {
             avatar: "Prinicpal of Greenfield",
-            "para-1":
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc faucibus a pellentesque sit amet porttitor eget dolor morbi. Lorem donec massa sapien faucibus. Leo vel fringilla est ullamcorper eget nulla. Accumsan tortor posuere ac ut. Rutrum quisque non tellus orci ac auctor augue mauris augue. Nunc faucibus a pellentesque sit. Elementum tempus egestas sed sed risus pretium. Sit amet luctus venenatis lectus. Ut pharetra sit amet aliquam id diam. Eu mi bibendum neque egestas congue quisque egestas. Quisque non tellus orci ac auctor augue mauris. Erat nam at lectus urna duis convallis. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Quis vel eros donec ac odio tempor orci. Ultrices dui sapien eget mi proin sed libero enim sed.",
-            "para-2":
-              "Ut sem viverra aliquet eget sit amet tellus. Et egestas quis ipsum suspendisse ultrices gravida. Aenean sed adipiscing diam donec adipiscing tristique risus nec. Morbi tristique senectus et netus et. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi. Convallis tellus id interdum velit laoreet id donec ultrices tincidunt. Mollis aliquam ut porttitor leo a diam sollicitudin tempor id. Nam at lectus urna duis convallis. Vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt. Non pulvinar neque laoreet suspendisse interdum.",
+            "para-1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc faucibus a pellentesque sit amet porttitor eget dolor morbi. Lorem donec massa sapien faucibus. Leo vel fringilla est ullamcorper eget nulla. Accumsan tortor posuere ac ut. Rutrum quisque non tellus orci ac auctor augue mauris augue. Nunc faucibus a pellentesque sit. Elementum tempus egestas sed sed risus pretium. Sit amet luctus venenatis lectus. Ut pharetra sit amet aliquam id diam. Eu mi bibendum neque egestas congue quisque egestas. Quisque non tellus orci ac auctor augue mauris. Erat nam at lectus urna duis convallis. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Quis vel eros donec ac odio tempor orci. Ultrices dui sapien eget mi proin sed libero enim sed.",
+            "para-2": "Ut sem viverra aliquet eget sit amet tellus. Et egestas quis ipsum suspendisse ultrices gravida. Aenean sed adipiscing diam donec adipiscing tristique risus nec. Morbi tristique senectus et netus et. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi. Convallis tellus id interdum velit laoreet id donec ultrices tincidunt. Mollis aliquam ut porttitor leo a diam sollicitudin tempor id. Nam at lectus urna duis convallis. Vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt. Non pulvinar neque laoreet suspendisse interdum.",
           },
         },
         infrastructure: {
@@ -60,10 +53,8 @@ export default {
           title: "Our Pledge",
           content: {
             avatar: "Prinicpal of Greenfield",
-            "para-1":
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc faucibus a pellentesque sit amet porttitor eget dolor morbi. Lorem donec massa sapien faucibus. Leo vel fringilla est ullamcorper eget nulla. Accumsan tortor posuere ac ut. Rutrum quisque non tellus orci ac auctor augue mauris augue. Nunc faucibus a pellentesque sit. Elementum tempus egestas sed sed risus pretium. Sit amet luctus venenatis lectus. Ut pharetra sit amet aliquam id diam. Eu mi bibendum neque egestas congue quisque egestas. Quisque non tellus orci ac auctor augue mauris. Erat nam at lectus urna duis convallis. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Quis vel eros donec ac odio tempor orci. Ultrices dui sapien eget mi proin sed libero enim sed.",
-            "para-2":
-              "Ut sem viverra aliquet eget sit amet tellus. Et egestas quis ipsum suspendisse ultrices gravida. Aenean sed adipiscing diam donec adipiscing tristique risus nec. Morbi tristique senectus et netus et. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi. Convallis tellus id interdum velit laoreet id donec ultrices tincidunt. Mollis aliquam ut porttitor leo a diam sollicitudin tempor id. Nam at lectus urna duis convallis. Vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt. Non pulvinar neque laoreet suspendisse interdum.",
+            "para-1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc faucibus a pellentesque sit amet porttitor eget dolor morbi. Lorem donec massa sapien faucibus. Leo vel fringilla est ullamcorper eget nulla. Accumsan tortor posuere ac ut. Rutrum quisque non tellus orci ac auctor augue mauris augue. Nunc faucibus a pellentesque sit. Elementum tempus egestas sed sed risus pretium. Sit amet luctus venenatis lectus. Ut pharetra sit amet aliquam id diam. Eu mi bibendum neque egestas congue quisque egestas. Quisque non tellus orci ac auctor augue mauris. Erat nam at lectus urna duis convallis. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Quis vel eros donec ac odio tempor orci. Ultrices dui sapien eget mi proin sed libero enim sed.",
+            "para-2": "Ut sem viverra aliquet eget sit amet tellus. Et egestas quis ipsum suspendisse ultrices gravida. Aenean sed adipiscing diam donec adipiscing tristique risus nec. Morbi tristique senectus et netus et. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi. Convallis tellus id interdum velit laoreet id donec ultrices tincidunt. Mollis aliquam ut porttitor leo a diam sollicitudin tempor id. Nam at lectus urna duis convallis. Vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt. Non pulvinar neque laoreet suspendisse interdum.",
           },
         },
         "news-letter": {
@@ -248,8 +239,7 @@ export default {
   Root: {
     LocaleSwitcher: {
       label: "Change language",
-      locale:
-        "{locale, select, ta {Tamil} te {Telugu} en {English} hi {Hindi} other {Unknown}}",
+      locale: "{locale, select, ta {Tamil} te {Telugu} en {English} hi {Hindi} other {Unknown}}",
     },
     "main-navbar": {
       "admission-portal": "Admission Portal",
@@ -258,8 +248,7 @@ export default {
     LandingPage: {
       hero: {
         title: "Welcome to Greenfield International School",
-        "para-1":
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc faucibus a pellentesque sit amet porttitor eget dolor morbi. Lorem donec massa sapien faucibus. Leo vel fringilla est ullamcorper eget nulla. Accumsan tortor posuere ac ut. Rutrum quisque non tellus orci ac auctor augue mauris augue. Nunc faucibus a pellentesque sit. Elementum tempus egestas sed sed risus pretium. Sit amet luctus venenatis lectus. Ut pharetra sit amet aliquam id diam. Eu mi bibendum neque egestas congue quisque egestas. Quisque non tellus orci ac auctor augue mauris. Erat nam at lectus urna duis convallis. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Quis vel eros donec ac odio tempor orci. Ultrices dui sapien eget mi proin sed libero enim sed.",
+        "para-1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc faucibus a pellentesque sit amet porttitor eget dolor morbi. Lorem donec massa sapien faucibus. Leo vel fringilla est ullamcorper eget nulla. Accumsan tortor posuere ac ut. Rutrum quisque non tellus orci ac auctor augue mauris augue. Nunc faucibus a pellentesque sit. Elementum tempus egestas sed sed risus pretium. Sit amet luctus venenatis lectus. Ut pharetra sit amet aliquam id diam. Eu mi bibendum neque egestas congue quisque egestas. Quisque non tellus orci ac auctor augue mauris. Erat nam at lectus urna duis convallis. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Quis vel eros donec ac odio tempor orci. Ultrices dui sapien eget mi proin sed libero enim sed.",
         "about-us": "About us",
       },
       photogallery: {
@@ -287,8 +276,7 @@ export default {
       admission: {
         title: "School Admission Open",
         button: "Enroll Now",
-        para1:
-          "Get your kid the best experience of education at Greenfield School,Tamil Nadu. Best for your child ",
+        para1: "Get your kid the best experience of education at Greenfield School,Tamil Nadu. Best for your child ",
       },
 
       characteristics: {
@@ -296,7 +284,7 @@ export default {
         cardElements: {
           first: {
             heading: "Tomorrow’s Leaders",
-            body: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
+            body: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future."
           },
           second: {
             heading: "Noteworthy technology acquisitions 2021",
@@ -313,9 +301,9 @@ export default {
         },
       },
 
-      premiunFacilities: {
-        title: "Premium Facilities",
-      },
+      premiunFacilities :{
+        title: "Premium Facilities"
+      }
     },
   },
 } as const;

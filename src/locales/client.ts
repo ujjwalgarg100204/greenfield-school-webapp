@@ -10,8 +10,8 @@ export const {
   useChangeLocale,
   useCurrentLocale,
 } = createI18nClient({
-  en: () => import("./en"),
-  hi: () => import("./hi"),
-  ta: () => import("./ta"),
-  te: () => import("./te"),
+  en: async () => await import("./languages/en"),
+  hi: async () => await import("./languages/hi"),
+  ta: async () => await import("./languages/ta"),
+  te: async () => await import("./languages/te"),
 });

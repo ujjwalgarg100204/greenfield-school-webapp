@@ -40,7 +40,7 @@ const LocaleLayout: FC<Props> = async ({ children, params: { locale } }) => {
   setStaticParamsLocale(locale);
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className="scroll-smooth">
       <body className={`${satoshiFont.variable} font-satoshi`}>
         <I18nProviderClient locale={locale}>
           <Providers>{children}</Providers>
