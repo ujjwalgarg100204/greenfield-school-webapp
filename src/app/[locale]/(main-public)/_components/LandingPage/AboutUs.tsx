@@ -3,6 +3,7 @@ import type { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { NAV_LINKS } from "@/lib/frontend-data";
+import abousImage from "@/../public/images/Screenshot_4.png"
 import { getScopedI18n } from "@/locales/server";
 
 const AboutUs: FC = async () => {
@@ -34,7 +35,7 @@ const AboutUs: FC = async () => {
       </div>
       <Image
         className="hidden h-72 w-full rounded-lg object-cover lg:block"
-        src="https://images.pexels.com/photos/4144036/pexels-photo-4144036.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        src= {abousImage}
         alt="Girl Studying in Greenfield school"
         width={500}
         height={500}

@@ -2,6 +2,7 @@ import { Button } from "@lib/next-ui";
 import type { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import admissionImage from "@/../public/images/Screenshot_5.png"
 import { getScopedI18n } from "@/locales/server";
 
 const AdmissionOpen: FC = async () => {
@@ -31,7 +32,7 @@ const AdmissionOpen: FC = async () => {
         width={500}
         height={500}
         quality={95}
-        src="https://images.pexels.com/photos/3992949/pexels-photo-3992949.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        src= {admissionImage}
         alt="Students Studying"
         className="order-4 row-span-2 ml-auto hidden max-w-xs rounded-lg object-cover object-center shadow-2xl lg:block"
       />
