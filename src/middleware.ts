@@ -15,10 +15,5 @@ export const middleware = (
 };
 
 export const config = {
-  matcher: [
-    "/((?!api|static|.*\\..*|_next|favicon.ico|robots.txt).*)",
-    "/((?!.+\\.[\\w]+$|_next).*)",
-    "/",
-    "/(api|trpc)(.*)",
-  ],
+  matcher: ["/((?!api|static|.*\\..*|_next|favicon.ico|robots.txt).*)"],
 };

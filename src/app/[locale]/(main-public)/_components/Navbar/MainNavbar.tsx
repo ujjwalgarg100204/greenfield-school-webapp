@@ -7,6 +7,7 @@ import {
 } from "@lib/next-ui";
 
 import GreenfieldLogo from "@/../public/images/logo.png";
+import { getScopedI18n } from "@/locales/server";
 import LanguageSwitcher from "@components/ui/LanguageSwither";
 import Image from "next/image";
 import NextLink from "next/link";
@@ -52,29 +53,6 @@ const MainNavbar: FC = async () => {
             className="font-semibold sm:hidden"
           >
             {t("admission-portal")}
-          </Button>
-        </NavbarItem>
-        <NavbarItem>
-          <Button
-            as={NextLink}
-            href="/login"
-            color="primary"
-            variant="solid"
-            className="font-semibold text-white sm:hidden"
-            radius="sm"
-            size="sm"
-          >
-            {t("login")}
-          </Button>
-          <Button
-            as={NextLink}
-            href="/login"
-            color="primary"
-            variant="solid"
-            className="hidden font-semibold text-white sm:flex"
-            radius="sm"
-          >
-            {t("login")}
           </Button>
         </NavbarItem>
       </NavbarContent>
