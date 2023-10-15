@@ -1,13 +1,13 @@
 import "../globals.css";
 
-import type { FC } from "react";
-import { I18nProviderClient } from "@/locales/client";
-import type { Metadata } from "next";
 import Providers from "@/contexts";
-import React from "react";
+import { I18nProviderClient } from "@/locales/client";
 import { getStaticParams } from "@/locales/server";
-import localFont from "next/font/local";
+import type { Metadata } from "next";
 import { setStaticParamsLocale } from "next-international/server";
+import localFont from "next/font/local";
+import type { FC } from "react";
+import React from "react";
 
 export const metadata: Metadata = {
   title: "Greenfield School",

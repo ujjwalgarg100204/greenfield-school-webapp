@@ -52,7 +52,7 @@ const LanguageSwitcher: FC = () => {
             isIconOnly
           >
             <Lottie
-              src="https://lottie.host/6db4a0f8-7c19-4219-9ec0-f2b41439a5c4/6mgmoTYbay.json"
+              src="https://lottie.host/?file=1afca697-eafa-49ec-acd4-799d4e67bb66/qGhFOY2OJm.json"
               className="h-7 w-7"
               autoplay
               loop
@@ -64,7 +64,7 @@ const LanguageSwitcher: FC = () => {
             variant="bordered"
             startContent={
               <Lottie
-                src="https://lottie.host/6db4a0f8-7c19-4219-9ec0-f2b41439a5c4/6mgmoTYbay.json"
+                src="https://lottie.host/?file=1afca697-eafa-49ec-acd4-799d4e67bb66/qGhFOY2OJm.json"
                 className="h-8 w-8"
                 autoplay
                 loop
