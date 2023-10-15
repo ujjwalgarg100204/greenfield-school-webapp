@@ -73,27 +73,6 @@ export default {
           },
         },
 
-        admission_portal: {
-          title: "Welcome to Admission Portal of Greenfield School",
-          content: {
-            main_section: {
-              "para-1":
-                "For smooth experience while taking online admission, we recommend having availability of these documents beforehand",
-              "para-2":
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc faucibus a pellentesque sit amet porttitor eget dolor morbi. Lorem donec massa sapien faucibus. Leo vel fringilla est",
-              "button-text": "Get Started",
-            },
-
-            onboarding: {
-              heading: "Admission Application Registration",
-              content: {
-                mobile_no : "Mobile Number",
-                button : "Generate OTP",
-                wrong_input: "String must contain at least 10 character(s)"
-              }
-            }
-          },
-        },
         "premium-facilities": {
           title: "Premium Facilities",
           content: {
@@ -218,6 +197,29 @@ export default {
         contact: {
           title: "Contact Us",
           content: {},
+        },
+      },
+    },
+
+    admission_portal: {
+      title: "Welcome to Admission Portal of Greenfield School",
+      content: {
+        main_section: {
+          "para-1":
+            "For smooth experience while taking online admission, we recommend having availability of these documents beforehand",
+          "para-2":
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc faucibus a pellentesque sit amet porttitor eget dolor morbi. Lorem donec massa sapien faucibus. Leo vel fringilla est",
+          "button-text": "Get Started",
+        },
+
+        onboarding: {
+          heading: "Admission Application Registration",
+          content: {
+            mobile_no: "Mobile Number",
+            button: "Generate OTP",
+            wrong_input: "String must contain at least 10 character(s)",
+            placeholder: "Enter your mobile number"
+          },
         },
       },
     },
