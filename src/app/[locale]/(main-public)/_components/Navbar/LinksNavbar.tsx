@@ -1,13 +1,13 @@
-import { Navbar, NavbarContent } from "@lib/next-ui";
+import { Button, Navbar, NavbarContent } from "@lib/next-ui";
 
-import type { FC } from "react";
-import Link from "next/link";
-import LinksNavbarItem from "./LinksNavbarItem";
-import { NAV_LINK_TYPES } from "@/lib/frontend-data";
+import { NAV_LINKS } from "@/lib/frontend-data";
 import { getScopedI18n } from "@/locales/server";
+import { default as NextLink } from "next/link";
+import type { FC } from "react";
+import LinksNavbarItem from "./LinksNavbarItem";
 
-const LinksNavbar: FC =async () => {
-  const t = await getScopedI18n("Pages.home")
+const LinksNavbar: FC = async () => {
+  const t = await getScopedI18n("Pages.home");
   return (
     <Navbar
       height="3"
@@ -19,15 +19,20 @@ const LinksNavbar: FC =async () => {
         className="flex flex-wrap gap-y-0 sm:gap-x-8"
         justify="center"
       >
-        <Link
-          className="bg-transparent  p-0 text-xs data-[hover=true]:bg-transparent sm:text-sm md:text-base"
+        <Button
+          as={NextLink}
           href="/"
+          disableRipple
+          className="bg-slate-400 bg-transparent p-0 text-xs data-[hover=true]:bg-transparent sm:text-sm md:text-base"
         >
           {t("title")}
-        </Link>
-        {NAV_LINK_TYPES.map(type => (
-          <LinksNavbarItem key={type} linkType={type} />
-        ))}
+        </Button>
+        {(Object.keys(NAV_LINKS) as Array<keyof typeof NAV_LINKS>).map(
+          navLink =>
+            navLink === "home" ? null : (
+              <LinksNavbarItem key={navLink} linkType={navLink} />
+            ),
+        )}
       </NavbarContent>
     </Navbar>
   );

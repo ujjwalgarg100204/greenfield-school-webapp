@@ -9,17 +9,57 @@ import CarouselCard from "./CarouselCard";
 import CarouselNextBtn from "./CarouselNextBtn";
 import CarouselPrevBtn from "./CarouselPrevBtn";
 
-const imagesLinks = [
-  "https://picsum.photos/id/1020/1920/1080",
-  "https://picsum.photos/id/1025/1920/1080",
-  "https://picsum.photos/id/642/1920/1080",
-  "https://picsum.photos/id/743/1920/1080",
-  "https://picsum.photos/id/1060/1920/1080",
-  "https://picsum.photos/id/377/1920/1080",
-  "https://picsum.photos/id/684/1920/1080",
-  "https://picsum.photos/id/242/1920/1080",
-  "https://picsum.photos/id/525/1920/1080",
-];
+const premiumFacilitiesCards = [
+  {
+    translationKey: 1,
+    img: {
+      url: "https://picsum.photos/id/1020/1920/1080",
+      alt: "image",
+    },
+  },
+  {
+    translationKey: 2,
+    img: {
+      url: "https://picsum.photos/id/1025/1920/1080",
+      alt: "image",
+    },
+  },
+  {
+    translationKey: 3,
+    img: {
+      url: "https://picsum.photos/id/642/1920/1080",
+      alt: "image",
+    },
+  },
+  {
+    translationKey: 4,
+    img: {
+      url: "https://picsum.photos/id/743/1920/1080",
+      alt: "image",
+    },
+  },
+  {
+    translationKey: 5,
+    img: {
+      url: "https://picsum.photos/id/1060/1920/1080",
+      alt: "image",
+    },
+  },
+  {
+    translationKey: 6,
+    img: {
+      url: "https://picsum.photos/id/377/1920/1080",
+      alt: "image",
+    },
+  },
+  {
+    translationKey: 7,
+    img: {
+      url: "https://picsum.photos/id/684/1920/1080",
+      alt: "image",
+    },
+  },
+] as const;
 
 const PremiumFacilitiesCarousel: FC = () => {
   const screenSize = useResponsiveScreen();
@@ -27,7 +67,7 @@ const PremiumFacilitiesCarousel: FC = () => {
   const [currSlideIndex, setCurrSlideIndex] = useState(0);
 
   useEffect((): void => {
-    let percentage = 30;
+    let percentage: number;
     switch (screenSize) {
       case "sm":
         percentage = 100;
@@ -38,9 +78,8 @@ const PremiumFacilitiesCarousel: FC = () => {
       case "lg":
         percentage = 50;
         break;
-      case "xl":
+      default:
         percentage = 30;
-        break;
     }
     setCenterSlidePercentage(percentage);
   }, [screenSize]);
@@ -51,12 +90,12 @@ const PremiumFacilitiesCarousel: FC = () => {
 
   const handlePrevSlide = (): void => {
     setCurrSlideIndex(prev =>
-      prev - 1 === 0 ? imagesLinks.length - 1 : prev - 1,
+      prev - 1 === 0 ? premiumFacilitiesCards.length - 1 : prev - 1,
     );
   };
 
   const handleNextSlide = (): void => {
-    setCurrSlideIndex(prev => (prev + 1) % imagesLinks.length);
+    setCurrSlideIndex(prev => (prev + 1) % premiumFacilitiesCards.length);
   };
 
   return (
@@ -79,8 +118,11 @@ const PremiumFacilitiesCarousel: FC = () => {
         centerMode
         infiniteLoop
       >
-        {imagesLinks.map(image => (
-          <CarouselCard key={image} imgUrl={image} />
+        {premiumFacilitiesCards.map(premiumFacility => (
+          <CarouselCard
+            key={premiumFacility.translationKey}
+            {...premiumFacility}
+          />
         ))}
       </Carousel>
       <CarouselNextBtn onClick={handleNextSlide} className="hidden sm:flex" />

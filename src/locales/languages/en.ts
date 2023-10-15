@@ -4,7 +4,126 @@ export default {
     links: "links",
   },
   Pages: {
-    home: { title: "Home" },
+    home: {
+      title: "Home",
+      "sub-links": {
+        hero: {
+          title: "About Us",
+          content: {
+            heading: "Welcome to Greenfield International School",
+            "para-1":
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc faucibus a pellentesque sit amet porttitor eget dolor morbi. Lorem donec massa sapien faucibus. Leo vel fringilla est ullamcorper eget nulla. Accumsan tortor posuere ac ut. Rutrum quisque non tellus orci ac auctor augue mauris augue. Nunc faucibus a pellentesque sit. Elementum tempus egestas sed sed risus pretium. Sit amet luctus venenatis lectus. Ut pharetra sit amet aliquam id diam. Eu mi bibendum neque egestas congue quisque egestas. Quisque non tellus orci ac auctor augue mauris. Erat nam at lectus urna duis convallis. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Quis vel eros donec ac odio tempor orci. Ultrices dui sapien eget mi proin sed libero enim sed.",
+            "button-text": "About us",
+          },
+        },
+        "photo-gallery": {
+          title: "Photo Gallery",
+          content: {
+            heading: "Photo Gallery",
+            cards: {
+              1: {
+                heading: "What to watch",
+                "sub-heading": "Stream the Acme event",
+              },
+              2: {
+                heading: "Plant a tree",
+                "sub-heading": "Contribute to the planet",
+              },
+              3: {
+                heading: "Supercharged",
+                "sub-heading": "Creates beauty like a beast",
+              },
+              4: {
+                heading: "Super-duper-charged",
+                "sub-heading": "Creates beauty like a beast",
+              },
+            },
+          },
+        },
+        "key-features": {
+          title: "Key Features",
+          content: {
+            heading: "Key differentiating characteristics of the School",
+            cards: {
+              1: {
+                heading: "Tomorrow’s Leaders",
+                body: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
+              },
+              2: {
+                heading: "Noteworthy technology acquisitions 2021",
+                body: "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
+              },
+              3: {
+                heading: "Tomorrow’s Leaders are",
+                body: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
+              },
+              4: {
+                heading: "Tomorrow’s Leaders good",
+                body: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
+              },
+            },
+          },
+        },
+        admission: {
+          title: "Admission Banner",
+          content: {
+            heading: "Admission Open for {currYear} - {nextYear}",
+            "button-text": "Enroll Now",
+            para: "Get your kid the best experience of education at Greenfield School,Tamil Nadu. Best for your child ",
+          },
+        },
+        "premium-facilities": {
+          title: "Premium Facilities",
+          content: {
+            heading: "Premium Facilities",
+            cards: {
+              1: {
+                heading: "Frontend Radio",
+                "sub-heading": "Daily Mix",
+                subtitle: "12 tracks",
+                body: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
+              },
+              2: {
+                heading: "Frontend Radio",
+                "sub-heading": "Daily Mix",
+                subtitle: "12 tracks",
+                body: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
+              },
+              3: {
+                heading: "Frontend Radio",
+                "sub-heading": "Daily Mix",
+                subtitle: "12 tracks",
+                body: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
+              },
+              4: {
+                heading: "Frontend Radio",
+                "sub-heading": "Daily Mix",
+                subtitle: "12 tracks",
+                body: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
+              },
+              5: {
+                heading: "Frontend Radio",
+                "sub-heading": "Daily Mix",
+                subtitle: "12 tracks",
+                body: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
+              },
+              6: {
+                heading: "Frontend Radio",
+                "sub-heading": "Daily Mix",
+                subtitle: "12 tracks",
+                body: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
+              },
+              7: {
+                heading: "Frontend Radio",
+                "sub-heading": "Daily Mix",
+                subtitle: "12 tracks",
+                body: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
+              },
+            },
+          },
+        },
+      },
+    },
     school: {
       title: "School",
       "sub-links": {
@@ -70,7 +189,7 @@ export default {
           title: "Newsletter",
           content: {},
         },
-        admissions: {
+        admission: {
           title: "Admissions",
           content: {},
         },
@@ -113,6 +232,10 @@ export default {
         },
         registration: {
           title: "Online Registration",
+          content: {},
+        },
+        "admission-portal": {
+          title: "Admission Portal",
           content: {},
         },
       },
@@ -254,68 +377,6 @@ export default {
     "main-navbar": {
       "admission-portal": "Admission Portal",
       login: "Login",
-    },
-    LandingPage: {
-      hero: {
-        title: "Welcome to Greenfield International School",
-        "para-1":
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc faucibus a pellentesque sit amet porttitor eget dolor morbi. Lorem donec massa sapien faucibus. Leo vel fringilla est ullamcorper eget nulla. Accumsan tortor posuere ac ut. Rutrum quisque non tellus orci ac auctor augue mauris augue. Nunc faucibus a pellentesque sit. Elementum tempus egestas sed sed risus pretium. Sit amet luctus venenatis lectus. Ut pharetra sit amet aliquam id diam. Eu mi bibendum neque egestas congue quisque egestas. Quisque non tellus orci ac auctor augue mauris. Erat nam at lectus urna duis convallis. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Quis vel eros donec ac odio tempor orci. Ultrices dui sapien eget mi proin sed libero enim sed.",
-        "about-us": "About us",
-      },
-      photogallery: {
-        title: "Photo Gallery",
-        cardElements: {
-          first: {
-            heading: "What to watch",
-            subHeading: "Stream the Acme event",
-          },
-          second: {
-            heading: "Plant a tree",
-            subHeading: "Contribute to the planet",
-          },
-          third: {
-            heading: "Supercharged",
-            subHeading: "Creates beauty like a beast",
-          },
-          forth: {
-            heading: "Super-duper-charged",
-            subHeading: "Creates beauty like a beast",
-          },
-        },
-      },
-
-      admission: {
-        title: "School Admission Open",
-        button: "Enroll Now",
-        para1:
-          "Get your kid the best experience of education at Greenfield School,Tamil Nadu. Best for your child ",
-      },
-
-      characteristics: {
-        title: " Key differentiating characteristics of the School",
-        cardElements: {
-          first: {
-            heading: "Tomorrow’s Leaders",
-            body: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
-          },
-          second: {
-            heading: "Noteworthy technology acquisitions 2021",
-            body: "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
-          },
-          third: {
-            heading: "Tomorrow’s Leaders are",
-            body: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
-          },
-          forth: {
-            heading: "Tomorrow’s Leaders good",
-            body: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
-          },
-        },
-      },
-
-      premiunFacilities: {
-        title: "Premium Facilities",
-      },
     },
   },
 } as const;

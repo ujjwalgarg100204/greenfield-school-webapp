@@ -91,7 +91,7 @@
       "command": "pnpm",
       "args": ["run", "lint"],
       "group": {
-        "kind": "none",
+        "kind": "build",
         "isDefault": true
       },
       "presentation": {

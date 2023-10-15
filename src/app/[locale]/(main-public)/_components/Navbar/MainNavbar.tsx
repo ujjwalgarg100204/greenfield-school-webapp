@@ -10,18 +10,16 @@ import GreenfieldLogo from "@/../public/images/logo.png";
 import { getScopedI18n } from "@/locales/server";
 import LanguageSwitcher from "@components/ui/LanguageSwither";
 import Image from "next/image";
-import Link from "next/link";
-import { type FC } from "react";
+import NextLink from "next/link";
+import type { FC } from "react";
 
 const MainNavbar: FC = async () => {
-  // const { isLoaded: userLoaded, isSignedIn } = useUser();
-  // const [showSignIn, setShowSignIn] = useState(false);
-
   const t = await getScopedI18n("Root.main-navbar");
+
   return (
     <Navbar position="static" maxWidth="full">
       <NavbarBrand>
-        <Link href="/" className="flex h-full w-full gap-4">
+        <NextLink href="/" className="flex h-full w-full gap-4">
           <Image
             src={GreenfieldLogo}
             alt="Greenfield School Logo"
@@ -33,7 +31,7 @@ const MainNavbar: FC = async () => {
             Greenfield School,
             <br /> Tamil Nadu
           </p>
-        </Link>
+        </NextLink>
       </NavbarBrand>
 
       <NavbarContent justify="end" className="gap-1 md:gap-4">
@@ -42,6 +40,8 @@ const MainNavbar: FC = async () => {
         </NavbarItem>
         <NavbarItem>
           <Button
+            as={NextLink}
+            href="/admission/portal"
             variant="ghost"
             color="primary"
             className="hidden font-semibold sm:flex"
@@ -49,6 +49,8 @@ const MainNavbar: FC = async () => {
             {t("admission-portal")}
           </Button>
           <Button
+            as={NextLink}
+            href="/admission/portal"
             variant="ghost"
             color="primary"
             size="sm"
@@ -59,6 +61,8 @@ const MainNavbar: FC = async () => {
         </NavbarItem>
         <NavbarItem>
           <Button
+            as={NextLink}
+            href="/login"
             color="primary"
             variant="solid"
             className="font-semibold text-white sm:hidden"
@@ -69,6 +73,8 @@ const MainNavbar: FC = async () => {
           </Button>
 
           <Button
+            as={NextLink}
+            href="/login"
             color="primary"
             variant="solid"
             className="hidden font-semibold text-white sm:flex"

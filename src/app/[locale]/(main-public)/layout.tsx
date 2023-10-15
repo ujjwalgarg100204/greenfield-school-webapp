@@ -8,12 +8,12 @@ type Props = { children: React.ReactNode };
 
 const MainSiteLayout: FC<Props> = ({ children }) => {
   return (
-    <header>
+    <div>
       <MainNavbar />
       <LinksNavbar />
       {children}
       <Footer />
-    </header>
+    </div>
   );
 };
 
