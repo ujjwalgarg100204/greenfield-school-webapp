@@ -1,6 +1,5 @@
 "use client";
 
-import { useChangeLocale, useCurrentLocale } from "@/locales/client";
 import {
   Button,
   Dropdown,
@@ -8,12 +7,13 @@ import {
   DropdownMenu,
   DropdownTrigger,
 } from "@lib/next-ui";
+import { useChangeLocale, useCurrentLocale } from "@/locales/client";
 
-import useResponsiveScreen from "@/hooks/useResponsiveScreen";
-import type { Locale } from "@/locales";
 import type { FC } from "react";
-import { useTransition } from "react";
+import type { Locale } from "@/locales";
 import Lottie from "./Lottie";
+import useResponsiveScreen from "@/hooks/useResponsiveScreen";
+import { useTransition } from "react";
 
 const locales = [
   { localeCode: "en", localeName: "English" },
@@ -52,8 +52,8 @@ const LanguageSwitcher: FC = () => {
             isIconOnly
           >
             <Lottie
-              src="https://lottie.host/?file=1afca697-eafa-49ec-acd4-799d4e67bb66/qGhFOY2OJm.json"
-              className="h-7 w-7"
+              src="https://lottie.host/1afca697-eafa-49ec-acd4-799d4e67bb66/qGhFOY2OJm.json"
+              className="w-9"
               autoplay
               loop
             />
@@ -64,8 +64,8 @@ const LanguageSwitcher: FC = () => {
             variant="bordered"
             startContent={
               <Lottie
-                src="https://lottie.host/?file=1afca697-eafa-49ec-acd4-799d4e67bb66/qGhFOY2OJm.json"
-                className="h-8 w-8"
+                src="https://lottie.host/1afca697-eafa-49ec-acd4-799d4e67bb66/qGhFOY2OJm.json"
+                className="w-11"
                 autoplay
                 loop
               />
