@@ -1,12 +1,12 @@
-import type { NextPageProps } from "@/types";
-import { setStaticParamsLocale } from "next-international/server";
-import type { FC } from "react";
 import AboutUs from "./_components/LandingPage/AboutUs";
 import AdmissionOpen from "./_components/LandingPage/AdmissionOpen";
+import type { FC } from "react";
 import HeroCarousel from "./_components/LandingPage/HeroCarousel";
 import KeyCharacteristics from "./_components/LandingPage/KeyCharacteristics";
+import type { NextPageProps } from "@/types";
 import PhotoGallery from "./_components/LandingPage/PhotoGallery";
 import PremiumFacilities from "./_components/LandingPage/PremiumFacilities";
+import { setStaticParamsLocale } from "next-international/server";
 
 const IndexPage: FC<NextPageProps> = ({ params: { locale } }) => {
   setStaticParamsLocale(locale);

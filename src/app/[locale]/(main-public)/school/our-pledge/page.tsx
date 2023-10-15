@@ -3,7 +3,7 @@ import { getScopedI18n } from "@/locales/server";
 import type { NextPageProps } from "@/types";
 import { setStaticParamsLocale } from "next-international/server";
 import type { FC } from "react";
-import ArticlePage from "../../_components/ArticlePage";
+import ArticlePage from "../../_components/ArticlePage/ArticlePageSchoolSection";
 
 const MissionAndVisionPage: FC<NextPageProps> = async ({
   params: { locale },

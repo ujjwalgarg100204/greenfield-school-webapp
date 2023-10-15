@@ -2,11 +2,12 @@ import { Button, Input } from "@/lib/next-ui";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import type { FC } from "react";
-import { useFormContext } from "react-hook-form";
 import { FiEdit } from "react-icons/fi";
 import type { TAdmissionPortalSchema } from ".";
+import { useFormContext } from "react-hook-form";
+import { useScopedI18n } from "@/locales/client";
 
-const MobileNumberInput: FC = () => {
+const MobileNumberInput: FC = async() => {
   const router = useRouter();
   const {
     register,
@@ -22,6 +23,8 @@ const MobileNumberInput: FC = () => {
     router.replace("/admission/onboarding");
   };
 
+
+  const t = useScopedI18n("Pages.admission_portal.content.onboarding")
   return (
     <div className="flex items-end gap-8">
       <Input
@@ -29,10 +32,10 @@ const MobileNumberInput: FC = () => {
         radius="sm"
         variant="bordered"
         isDisabled={disabled}
-        label="Mobile Number"
+        label={t("content.mobile_no")}
         labelPlacement="outside"
         isInvalid={errors.mobileNumber !== undefined}
-        placeholder="Enter your mobile number"
+        placeholder={t("content.placeholder")}
         errorMessage={errors.mobileNumber?.message}
         {...register("mobileNumber")}
       />

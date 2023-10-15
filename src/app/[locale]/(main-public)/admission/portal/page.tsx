@@ -1,13 +1,16 @@
-import SectionHeading from "@/components/ui/SectionHeading";
-import type { NextPageProps } from "@/types";
+import ArticlePage from "../../_components/ArticlePage/ArticlePageSchoolSection";
 import { Button } from "@lib/next-ui";
-import { setStaticParamsLocale } from "next-international/server";
-import NextLink from "next/link";
 import type { FC } from "react";
-import ArticlePage from "../../_components/ArticlePage";
+import NextLink from "next/link";
+import type { NextPageProps } from "@/types";
+import SectionHeading from "@/components/ui/SectionHeading";
+import { getScopedI18n } from "@/locales/server";
+import { setStaticParamsLocale } from "next-international/server";
 
-const AdmissionPortal: FC<NextPageProps> = ({ params: { locale } }) => {
+const AdmissionPortal: FC<NextPageProps> =async ({ params: { locale } }) => {
   setStaticParamsLocale(locale);
+
+  const t = await getScopedI18n("Pages.admission_portal")
 
   return (
     <ArticlePage
@@ -15,18 +18,14 @@ const AdmissionPortal: FC<NextPageProps> = ({ params: { locale } }) => {
       selected={{ translationKey: "admission-portal" }}
     >
       <SectionHeading>
-        Welcome to Admission Portal of Greenfield School
+        {t("title")}
       </SectionHeading>
       <div className="space-y-4">
         <p>
-          For smooth experience while taking online admission, we recommend
-          having availability of these documents beforehand{" "}
+          {t("content.main_section.para-1")}
         </p>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc
-          faucibus a pellentesque sit amet porttitor eget dolor morbi. Lorem
-          donec massa sapien faucibus. Leo vel fringilla est{" "}
+          {t("content.main_section.para-2")}
         </p>
       </div>
       <Button
@@ -37,7 +36,7 @@ const AdmissionPortal: FC<NextPageProps> = ({ params: { locale } }) => {
         href="/admission/onboarding"
         className="w-full font-semibold"
       >
-        Get Started
+        {t("content.main_section.button-text")}
       </Button>
     </ArticlePage>
   );

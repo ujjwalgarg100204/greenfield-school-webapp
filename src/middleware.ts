@@ -14,6 +14,8 @@ export const middleware = (
   return I18nMiddleware(request);
 };
 
+console.log("Middlerware is running");
+
 export const config = {
   matcher: ["/((?!api|static|.*\\..*|_next|favicon.ico|robots.txt).*)"],
 };

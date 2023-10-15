@@ -1,9 +1,9 @@
 import AdmissionBannerImage from "@/../public/images/landing-page-admission-banner.png";
-import { getScopedI18n } from "@/locales/server";
 import { Button } from "@lib/next-ui";
+import type { FC } from "react";
 import NextImage from "next/image";
 import NextLink from "next/link";
-import type { FC } from "react";
+import { getScopedI18n } from "@/locales/server";
 
 const AdmissionOpen: FC = async () => {
   const t = await getScopedI18n("Pages.home.sub-links.admission.content");

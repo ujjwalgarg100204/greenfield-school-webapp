@@ -2,7 +2,7 @@ import { Button, Navbar, NavbarContent } from "@lib/next-ui";
 
 import { NAV_LINKS } from "@/lib/frontend-data";
 import { getScopedI18n } from "@/locales/server";
-import NextLink from "next/link";
+import { default as NextLink } from "next/link";
 import type { FC } from "react";
 import LinksNavbarItem from "./LinksNavbarItem";
 

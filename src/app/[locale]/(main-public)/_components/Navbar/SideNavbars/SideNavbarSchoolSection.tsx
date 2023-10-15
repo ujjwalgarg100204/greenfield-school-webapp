@@ -1,11 +1,11 @@
 import { Button, Divider } from "@lib/next-ui";
 
-import { NAV_LINKS } from "@/lib/frontend-data";
-import { getScopedI18n } from "@/locales/server";
-import NextLink from "next/link";
 import type { FC } from "react";
+import { NAV_LINKS } from "@/lib/frontend-data";
+import NextLink from "next/link";
+import { getScopedI18n } from "@/locales/server";
 
-export type Props = {
+export type SchoolProps = {
   linkType: keyof typeof NAV_LINKS;
   selected: Pick<
     (typeof NAV_LINKS)[keyof typeof NAV_LINKS][number],
@@ -13,7 +13,7 @@ export type Props = {
   >;
 };
 
-const SideNavbar: FC<Props> = async ({ linkType, selected }) => {
+const SideNavbarSchoolSection: FC<SchoolProps> = async ({ linkType, selected }) => {
   const t = await getScopedI18n(`Pages.${linkType}`);
   const tDict = await getScopedI18n("Dictionary");
 
@@ -56,4 +56,4 @@ const SideNavbar: FC<Props> = async ({ linkType, selected }) => {
   );
 };
 
-export default SideNavbar;
+export default SideNavbarSchoolSection;

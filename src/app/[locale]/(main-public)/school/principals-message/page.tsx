@@ -5,7 +5,7 @@ import { Avatar } from "@lib/next-ui";
 import { setStaticParamsLocale } from "next-international/server";
 import NextImage from "next/image";
 import type { FC } from "react";
-import SideNavbar from "../../_components/Navbar/SideNavbar";
+import SideNavbar from "../../_components/Navbar/SideNavbars/SideNavbarSchoolSection";
 
 const PrincipalsPage: FC<NextPageProps> = async ({ params: { locale } }) => {
   setStaticParamsLocale(locale);
