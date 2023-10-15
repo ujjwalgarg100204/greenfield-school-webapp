@@ -9,15 +9,14 @@ import {
   NavbarItem,
 } from "@lib/next-ui";
 
-import type { NAV_LINK_TYPES } from "@/lib/frontend-data";
+import { BsChevronDown } from "react-icons/bs";
+import type { FC } from "react";
+import Link from "next/link";
 import { NAV_LINKS } from "@/lib/frontend-data";
 import { useScopedI18n } from "@/locales/client";
-import Link from "next/link";
-import type { FC } from "react";
-import { BsChevronDown } from "react-icons/bs";
 
 type Props = {
-  linkType: (typeof NAV_LINK_TYPES)[number];
+  linkType: keyof typeof NAV_LINKS;
 };
 const LinksNavbarItem: FC<Props> = ({ linkType }) => {
   const t = useScopedI18n(`Pages.${linkType}`);

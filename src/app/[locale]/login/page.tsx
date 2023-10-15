@@ -3,13 +3,13 @@
 import { Button, Input, Link, RadioGroup } from "@lib/next-ui";
 import { Controller, useForm } from "react-hook-form";
 
-import CustomRadio from "./_components/CustomRadio";
-import type { FC } from "react";
+import SectionHeading from "@components/ui/SectionHeading";
+import { zodResolver } from "@hookform/resolvers/zod";
 import NextLink from "next/link";
-import SectionHeading from "../../../components/ui/SectionHeading";
+import type { FC } from "react";
 import type { SubmitHandler } from "react-hook-form";
 import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
+import CustomRadio from "./_components/CustomRadio";
 
 const LoginPageSchema = z.object({
   role: z.enum(["student", "teacher", "parent", "admin"]),

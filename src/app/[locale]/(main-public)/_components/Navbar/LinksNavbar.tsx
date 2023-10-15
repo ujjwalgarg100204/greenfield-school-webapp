@@ -1,6 +1,6 @@
 import { Navbar, NavbarContent } from "@lib/next-ui";
 
-import { NAV_LINK_TYPES } from "@/lib/frontend-data";
+import { NAV_LINKS } from "@/lib/frontend-data";
 import type { FC } from "react";
 import LinksNavbarItem from "./LinksNavbarItem";
 
@@ -16,9 +16,11 @@ const LinksNavbar: FC = () => {
         className="flex flex-wrap gap-y-0 sm:gap-x-8"
         justify="center"
       >
-        {NAV_LINK_TYPES.map(type => (
-          <LinksNavbarItem key={type} linkType={type} />
-        ))}
+        {(Object.keys(NAV_LINKS) as Array<keyof typeof NAV_LINKS>).map(
+          navLink => (
+            <LinksNavbarItem key={navLink} linkType={navLink} />
+          ),
+        )}
       </NavbarContent>
     </Navbar>
   );

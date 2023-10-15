@@ -9,7 +9,6 @@ const MissionAndVisionPage: FC<NextPageProps> = async ({
   params: { locale },
 }) => {
   setStaticParamsLocale(locale);
-
   const t = await getScopedI18n("Pages.school.sub-links.mission");
 
   return (

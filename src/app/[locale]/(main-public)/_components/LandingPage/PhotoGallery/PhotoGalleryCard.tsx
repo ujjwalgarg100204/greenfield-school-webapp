@@ -6,7 +6,7 @@ import NextImage from "next/image";
 import type { FC } from "react";
 
 type Props = {
-  translationKey: keyof (typeof Translation)["Root"]["LandingPage"]["photogallery"]["cardElements"];
+  translationKey: keyof (typeof Translation)["Pages"]["home"]["sub-links"]["photo-gallery"]["content"]["cards"];
   image: {
     url: string;
     alt: string;
@@ -14,16 +14,18 @@ type Props = {
 };
 
 const PhotoGalleryCard: FC<Props> = async ({ translationKey, image }) => {
-  const t = await getScopedI18n("Root.LandingPage.photogallery");
+  const t = await getScopedI18n(
+    "Pages.home.sub-links.photo-gallery.content.cards",
+  );
 
   return (
     <Card key={translationKey} className="group h-[300px] w-full">
       <CardHeader className="absolute top-1/2 z-10 w-full -translate-y-1/2 flex-col items-start text-center">
         <p className="w-full text-center text-tiny font-bold uppercase text-white/60">
-          {t(`cardElements.${translationKey}.heading`)}
+          {t(`${translationKey}.heading`)}
         </p>
         <h4 className="w-full text-center text-lg font-bold text-slate-50 lg:font-medium">
-          {t(`cardElements.${translationKey}.subHeading`)}
+          {t(`${translationKey}.sub-heading`)}
         </h4>
       </CardHeader>
       <Image

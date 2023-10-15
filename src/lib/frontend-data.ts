@@ -1,4 +1,10 @@
 export const NAV_LINKS = {
+  home: [
+    { translationKey: "hero", link: "#about-us" },
+    { translationKey: "photo-gallery", link: "#photo-gallery" },
+    { translationKey: "key-features", link: "#key-features" },
+    { translationKey: "premium-facilities", link: "#premium-facilities" },
+  ],
   school: [
     { translationKey: "about", link: "/school/about-us" },
     { translationKey: "mission", link: "/school/mission-and-vision" },
@@ -68,11 +74,3 @@ export const NAV_LINKS = {
     { translationKey: "login", link: "/login" },
   ],
 } as const;
-
-export const NAV_LINK_TYPES = [
-  "school",
-  "admission",
-  "academic",
-  "student",
-  "parent",
-] as const;

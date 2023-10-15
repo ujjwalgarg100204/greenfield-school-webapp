@@ -1,13 +1,13 @@
 import "../globals.css";
 
-import Providers from "@/contexts";
-import { I18nProviderClient } from "@/locales/client";
-import { getStaticParams } from "@/locales/server";
-import type { Metadata } from "next";
-import { setStaticParamsLocale } from "next-international/server";
-import localFont from "next/font/local";
 import type { FC } from "react";
+import { I18nProviderClient } from "@/locales/client";
+import type { Metadata } from "next";
+import Providers from "@/contexts";
 import React from "react";
+import { getStaticParams } from "@/locales/server";
+import localFont from "next/font/local";
+import { setStaticParamsLocale } from "next-international/server";
 
 export const metadata: Metadata = {
   title: "Greenfield School",
@@ -40,7 +40,7 @@ const LocaleLayout: FC<Props> = async ({ children, params: { locale } }) => {
   setStaticParamsLocale(locale);
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className="scroll-smooth">
       <body className={`${satoshiFont.variable} font-satoshi`}>
         <I18nProviderClient locale={locale}>
           <Providers>{children}</Providers>
