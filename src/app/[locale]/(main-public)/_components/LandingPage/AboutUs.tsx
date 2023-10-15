@@ -1,10 +1,10 @@
-import AboutImage from "@/../public/images/Screenshot_4.png";
-import { Button } from "@lib/next-ui";
-import type { FC } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import AboutImage from "@/../public/images/landing-page-about-us.png";
 import { NAV_LINKS } from "@/lib/frontend-data";
 import { getScopedI18n } from "@/locales/server";
+import { Button } from "@lib/next-ui";
+import Image from "next/image";
+import Link from "next/link";
+import type { FC } from "react";
 
 const AboutUs: FC = async () => {
   const t = await getScopedI18n("Pages.home.sub-links.hero.content");
