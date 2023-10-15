@@ -1,9 +1,9 @@
 import { Button, Divider } from "@lib/next-ui";
 
-import type { FC } from "react";
 import { NAV_LINKS } from "@/lib/frontend-data";
-import NextLink from "next/link";
 import { getScopedI18n } from "@/locales/server";
+import NextLink from "next/link";
+import type { FC } from "react";
 
 export type Props = {
   linkType: keyof typeof NAV_LINKS;
