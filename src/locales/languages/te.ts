@@ -114,6 +114,10 @@ export default {
           title: "ఆన్‌లైన్ రిజిస్ట్రేషన్",
           content: {},
         },
+        "admission-portal": {
+          title: "Admission Portal",
+          content: {},
+        },
       },
     },
     academic: {

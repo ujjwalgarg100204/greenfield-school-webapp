@@ -105,7 +105,10 @@ export default {
         registration: {
           title: "ஆன்லைன் பதிவு",
           content: {},
-        },
+        },"admission-portal": {
+          title: "Admission Portal",
+          content: {},
+        }
       },
     },
     academic: {

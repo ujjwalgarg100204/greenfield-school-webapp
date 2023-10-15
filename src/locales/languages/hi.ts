@@ -114,6 +114,10 @@ export default {
           title: "ऑनलाइन पंजीकरण",
           content: {},
         },
+        "admission-portal": {
+          title: "Admission Portal",
+          content: {},
+        },
       },
     },
     academic: {

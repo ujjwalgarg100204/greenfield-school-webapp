@@ -114,6 +114,10 @@ export default {
           title: "Online Registration",
           content: {},
         },
+        "admission-portal": {
+          title: "Admission Portal",
+          content: {},
+        },
       },
     },
     academic: {

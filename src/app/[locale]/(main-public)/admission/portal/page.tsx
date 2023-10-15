@@ -1,10 +1,14 @@
-import ArticlePage from "../../_components/ArticlePage";
-import { Button } from "@lib/next-ui";
-import type { FC } from "react";
-import NextLink from "next/link";
 import SectionHeading from "@/components/ui/SectionHeading";
+import type { NextPageProps } from "@/types";
+import { Button } from "@lib/next-ui";
+import { setStaticParamsLocale } from "next-international/server";
+import NextLink from "next/link";
+import type { FC } from "react";
+import ArticlePage from "../../_components/ArticlePage";
 
-const AdmissionPortal: FC = () => {
+const AdmissionPortal: FC<NextPageProps> = ({ params: { locale } }) => {
+  setStaticParamsLocale(locale);
+
   return (
     <ArticlePage
       linkType="admission"

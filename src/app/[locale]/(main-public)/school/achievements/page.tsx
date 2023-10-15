@@ -1,10 +1,7 @@
-"use client";
-
-import { Accordion, AccordionItem } from "@lib/next-ui";
-
 import SectionHeading from "@/components/ui/SectionHeading";
 import type { FC } from "react";
 import ArticlePage from "../../_components/ArticlePage";
+import AchievementsAccordion from "./_components/AchievementsAccordion";
 
 const achievementsData = [
   {
@@ -42,16 +39,7 @@ const AchievementsPage: FC = () => {
         aspernatur possimus voluptate aperiam laudantium deleniti suscipit alias
         tempore fuga?
       </p>
-      <Accordion
-        variant="splitted"
-        defaultExpandedKeys={[achievementsData[0].title]}
-      >
-        {achievementsData.map(({ title, content }) => (
-          <AccordionItem key={title} title={title}>
-            {content}
-          </AccordionItem>
-        ))}
-      </Accordion>
+      <AchievementsAccordion achievements={achievementsData} />
     </ArticlePage>
   );
 };

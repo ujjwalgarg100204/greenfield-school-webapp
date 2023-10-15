@@ -1,9 +1,13 @@
 import SectionHeading from "@/components/ui/SectionHeading";
+import type { NextPageProps } from "@/types";
 import { Button } from "@lib/next-ui";
+import { setStaticParamsLocale } from "next-international/server";
 import NextLink from "next/link";
 import type { FC } from "react";
 
-const ForgetPasswordPage: FC = () => {
+const ForgetPasswordPage: FC<NextPageProps> = ({ params: { locale } }) => {
+  setStaticParamsLocale(locale);
+
   return (
     <>
       <SectionHeading className="lg:text-center lg:text-2xl">
