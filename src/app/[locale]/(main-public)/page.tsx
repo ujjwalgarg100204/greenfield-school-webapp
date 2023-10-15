@@ -1,3 +1,5 @@
+import type { NextPageProps } from "@/types";
+import { setStaticParamsLocale } from "next-international/server";
 import type { FC } from "react";
 import AboutUs from "./_components/LandingPage/AboutUs";
 import AdmissionOpen from "./_components/LandingPage/AdmissionOpen";
@@ -6,7 +8,9 @@ import KeyCharacteristics from "./_components/LandingPage/KeyCharacteristics";
 import PhotoGallery from "./_components/LandingPage/PhotoGallery";
 import PremiumFacilities from "./_components/LandingPage/PremiumFacilities";
 
-const IndexPage: FC = () => {
+const IndexPage: FC<NextPageProps> = ({ params: { locale } }) => {
+  setStaticParamsLocale(locale);
+
   return (
     <main className="mb-8 text-center">
       <div className="space-y-4">

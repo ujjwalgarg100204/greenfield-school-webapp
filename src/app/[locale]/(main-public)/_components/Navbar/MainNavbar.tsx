@@ -7,18 +7,19 @@ import {
 } from "@lib/next-ui";
 
 import GreenfieldLogo from "@/../public/images/logo.png";
+import { getScopedI18n } from "@/locales/server";
 import LanguageSwitcher from "@components/ui/LanguageSwither";
-import { useTranslations } from "next-intl";
 import Image from "next/image";
-import Link from "next/link";
+import NextLink from "next/link";
 import type { FC } from "react";
 
-const MainNavbar: FC = () => {
-  const t = useTranslations("Root.main-navbar");
+const MainNavbar: FC = async () => {
+  const t = await getScopedI18n("Root.main-navbar");
+
   return (
     <Navbar position="static" maxWidth="full">
       <NavbarBrand>
-        <Link href="/" className="flex h-full w-full gap-4">
+        <NextLink href="/" className="flex h-full w-full gap-4">
           <Image
             src={GreenfieldLogo}
             alt="Greenfield School Logo"
@@ -30,7 +31,7 @@ const MainNavbar: FC = () => {
             Greenfield School,
             <br /> Tamil Nadu
           </p>
-        </Link>
+        </NextLink>
       </NavbarBrand>
 
       <NavbarContent justify="end" className="gap-1 md:gap-4">
@@ -39,6 +40,8 @@ const MainNavbar: FC = () => {
         </NavbarItem>
         <NavbarItem>
           <Button
+            as={NextLink}
+            href="/admission/portal"
             variant="ghost"
             color="primary"
             className="hidden font-semibold sm:flex"
@@ -46,6 +49,8 @@ const MainNavbar: FC = () => {
             {t("admission-portal")}
           </Button>
           <Button
+            as={NextLink}
+            href="/admission/portal"
             variant="ghost"
             color="primary"
             size="sm"
@@ -56,6 +61,8 @@ const MainNavbar: FC = () => {
         </NavbarItem>
         <NavbarItem>
           <Button
+            as={NextLink}
+            href="/login"
             color="primary"
             variant="solid"
             className="font-semibold text-white sm:hidden"
@@ -64,7 +71,10 @@ const MainNavbar: FC = () => {
           >
             {t("login")}
           </Button>
+
           <Button
+            as={NextLink}
+            href="/login"
             color="primary"
             variant="solid"
             className="hidden font-semibold text-white sm:flex"

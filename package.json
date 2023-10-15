@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.2",
     "@lottiefiles/react-lottie-player": "^3.5.3",
     "@nextui-org/react": "^2.1.13",
     "@prisma/client": "^5.4.1",
@@ -21,10 +22,11 @@
     "clsx": "^2.0.0",
     "framer-motion": "^10.16.4",
     "next": "13.5.4",
-    "next-intl": "3.0.0-beta.19",
+    "next-international": "^1.1.2",
     "prisma": "latest",
     "react": "^18",
     "react-dom": "^18",
+    "react-hook-form": "^7.47.0",
     "react-icons": "^4.11.0",
     "react-responsive-carousel": "^3.2.23",
     "sharp": "^0.32.6",

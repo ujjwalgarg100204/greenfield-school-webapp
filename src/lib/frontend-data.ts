@@ -1,4 +1,10 @@
 export const NAV_LINKS = {
+  home: [
+    { translationKey: "hero", link: "/#about-us" },
+    { translationKey: "photo-gallery", link: "/#photo-gallery" },
+    { translationKey: "key-features", link: "/#key-features" },
+    { translationKey: "premium-facilities", link: "/#premium-facilities" },
+  ],
   school: [
     { translationKey: "about", link: "/school/about-us" },
     { translationKey: "mission", link: "/school/mission-and-vision" },
@@ -10,21 +16,22 @@ export const NAV_LINKS = {
     { translationKey: "news", link: "/school/in-the-news" },
     { translationKey: "transport", link: "/school/school-transport" },
     { translationKey: "news-letter", link: "/school/newsletter" },
-    { translationKey: "admissions", link: "/school/admissions" },
+    { translationKey: "admission", link: "/school/admissions" },
     { translationKey: "contact", link: "/school/contact-us" },
   ],
   admission: [
-    { translationKey: "notice", link: "/admission-notice" },
-    { translationKey: "prospectus", link: "/prospectus" },
-    { translationKey: "procedure", link: "/admission-procedure" },
+    { translationKey: "notice", link: "/admission/admission-notice" },
+    { translationKey: "prospectus", link: "/admission/prospectus" },
+    { translationKey: "procedure", link: "/admission/admission-procedure" },
     {
       translationKey: "instructions",
-      link: "/general-instructions-for-admission",
+      link: "/admission/general-instructions-for-admission",
     },
-    { translationKey: "age", link: "/age-criteria" },
-    { translationKey: "fee", link: "/fee-structure" },
-    { translationKey: "orientation", link: "/orientation" },
-    { translationKey: "registration", link: "/online-registration" },
+    { translationKey: "age", link: "/admission/age-criteria" },
+    { translationKey: "fee", link: "/admission/fee-structure" },
+    { translationKey: "orientation", link: "/admission/orientation" },
+    { translationKey: "registration", link: "/admission/online-registration" },
+    { translationKey: "admission-portal", link: "/admission/portal" },
   ],
   academic: [
     { translationKey: "result", link: "/result-analysis" },
@@ -64,14 +71,6 @@ export const NAV_LINKS = {
     { translationKey: "infirmary", link: "/school-infirmary" },
     { translationKey: "report", link: "/progress-report" },
     { translationKey: "fee", link: "/pay-fee-online" },
-    { translationKey: "login", link: "/parents-login" },
+    { translationKey: "login", link: "/login" },
   ],
 } as const;
-
-export const NAV_LINK_TYPES = [
-  "school",
-  "admission",
-  "academic",
-  "student",
-  "parent",
-] as const;

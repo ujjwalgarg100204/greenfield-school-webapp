@@ -14,10 +14,14 @@ import {
   DropdownMenu,
   DropdownTrigger,
   Image,
+  Input,
+  Link,
   Navbar,
   NavbarBrand,
   NavbarContent,
   NavbarItem,
+  Radio,
+  RadioGroup,
 } from "@nextui-org/react";
 
 export {
@@ -34,8 +38,12 @@ export {
   DropdownMenu,
   DropdownTrigger,
   Image,
+  Input,
+  Link,
   Navbar,
   NavbarBrand,
   NavbarContent,
   NavbarItem,
+  Radio,
+  RadioGroup,
 };
