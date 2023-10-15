@@ -261,7 +261,7 @@ export default {
     LandingPage: {
       hero: {
         title: "Welcome to Greenfield International School",
-        "para-1":
+        content:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc faucibus a pellentesque sit amet porttitor eget dolor morbi. Lorem donec massa sapien faucibus. Leo vel fringilla est ullamcorper eget nulla. Accumsan tortor posuere ac ut. Rutrum quisque non tellus orci ac auctor augue mauris augue. Nunc faucibus a pellentesque sit. Elementum tempus egestas sed sed risus pretium. Sit amet luctus venenatis lectus. Ut pharetra sit amet aliquam id diam. Eu mi bibendum neque egestas congue quisque egestas. Quisque non tellus orci ac auctor augue mauris. Erat nam at lectus urna duis convallis. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Quis vel eros donec ac odio tempor orci. Ultrices dui sapien eget mi proin sed libero enim sed.",
         "about-us": "About us",
       },
@@ -286,14 +286,12 @@ export default {
           },
         },
       },
-
       admission: {
         title: "School Admission Open",
         button: "Enroll Now",
-        para1:
+        content:
           "Get your kid the best experience of education at Greenfield School,Tamil Nadu. Best for your child ",
       },
-
       characteristics: {
         title: " Key differentiating characteristics of the School",
         cardElements: {
@@ -315,8 +313,7 @@ export default {
           },
         },
       },
-
-      premiunFacilities: {
+      premiumFacilities: {
         title: "Premium Facilities",
       },
     },

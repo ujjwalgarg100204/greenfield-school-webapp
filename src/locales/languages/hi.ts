@@ -263,7 +263,7 @@ export default {
         title: "ग्रीनफील्ड इंटरनेशनल स्कूल में आपका स्वागत है",
         "para-1":
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc faucibus a pellentesque sit amet porttitor eget dolor morbi. Lorem donec massa sapien faucibus. Leo vel fringilla est ullamcorper eget nulla. Accumsan tortor posuere ac ut. Rutrum quisque non tellus orci ac auctor augue mauris augue. Nunc faucibus a pellentesque sit. Elementum tempus egestas sed sed risus pretium. Sit amet luctus venenatis lectus. Ut pharetra sit amet aliquam id diam. Eu mi bibendum neque egestas congue quisque egestas. Quisque non tellus orci ac auctor augue mauris. Erat nam at lectus urna duis convallis. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Quis vel eros donec ac odio tempor orci. Ultrices dui sapien eget mi proin sed libero enim sed.",
-        "about-us": "हमारे बारे में",
+        content: "हमारे बारे में",
       },
       photogallery: {
         title: "फोटो गैलरी",
@@ -286,14 +286,12 @@ export default {
           },
         },
       },
-
       admission: {
         title: "स्कूल प्रवेश खुला",
         button: "अभी दाखिला लें",
-        para1:
+        content:
           "अपने बच्चे को ग्रीनफील्ड स्कूल, तमिलनाडु में शिक्षा का सर्वोत्तम अनुभव प्राप्त करें। आपके बच्चे के लिए सर्वोत्तम ",
       },
-
       characteristics: {
         title: "स्कूल की प्रमुख विभेदक विशेषताएं",
         cardElements: {
@@ -315,8 +313,7 @@ export default {
           },
         },
       },
-
-      premiunFacilities: {
+      premiumFacilities: {
         title: " प्रीमियम सुविधाएं",
       },
     },

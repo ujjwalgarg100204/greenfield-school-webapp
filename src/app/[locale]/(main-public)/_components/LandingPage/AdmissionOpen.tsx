@@ -1,8 +1,8 @@
-import { getScopedI18n } from "@/locales/server";
 import { Button } from "@lib/next-ui";
+import type { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import type { FC } from "react";
+import { getScopedI18n } from "@/locales/server";
 
 const AdmissionOpen: FC = async () => {
   const currYear = new Date().getFullYear();
@@ -24,7 +24,7 @@ const AdmissionOpen: FC = async () => {
       </Button>
 
       <div className="order-2 w-full self-end justify-self-end text-center font-semibold sm:row-span-2 sm:self-center lg:order-3 lg:text-lg lg:font-normal">
-        {t("para1")}
+        {t("content")}
       </div>
 
       <Image
