@@ -6,12 +6,12 @@ import {
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
+  Link,
   NavbarItem,
 } from "@lib/next-ui";
 
 import { BsChevronDown } from "react-icons/bs";
-import type { FC } from "react";
-import Link from "next/link";
+import { FC } from "react";
 import { NAV_LINKS } from "@/lib/frontend-data";
 import { useScopedI18n } from "@/locales/client";
 
