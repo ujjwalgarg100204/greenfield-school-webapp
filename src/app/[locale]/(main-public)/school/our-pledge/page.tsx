@@ -1,15 +1,8 @@
 import SectionHeading from "@/components/ui/SectionHeading";
 import { getScopedI18n } from "@/locales/server";
-import type { NextPageProps } from "@/types";
-import { setStaticParamsLocale } from "next-international/server";
 import type { FC } from "react";
-import ArticlePage from "../../_components/ArticlePage";
 
-const MissionAndVisionPage: FC<NextPageProps> = async ({
-  params: { locale },
-}) => {
-  setStaticParamsLocale(locale);
-
+const MissionAndVisionPage: FC = async () => {
   const t = await getScopedI18n("Pages.school.sub-links.pledge");
 
   return (
