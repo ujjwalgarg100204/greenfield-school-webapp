@@ -1,12 +1,15 @@
-import { Navbar, NavbarBrand, NavbarContent } from "@lib/next-ui";
+import { Button, Navbar, NavbarBrand, NavbarContent } from "@lib/next-ui";
 
 import type { FC } from "react";
 import GreenfieldLogo from "@/../public/images/logo.png";
 import LanguageSwitcher from "@/components/ui/LanguageSwither";
+import Lottie from "@/components/ui/Lottie";
 import NextImage from "next/image";
-import NextLink from "next/link";
+import { default as NextLink } from "next/link";
+import { getScopedI18n } from "@/locales/server";
 
-const Header: FC = () => {
+const Header: FC = async () => {
+  const t = await getScopedI18n("Pages.home");
   return (
     <Navbar position="static">
       <NavbarBrand as={NextLink} href="/" className="gap-4">
@@ -21,6 +24,33 @@ const Header: FC = () => {
         </h1>
       </NavbarBrand>
       <NavbarContent justify="end">
+        <Button
+          isIconOnly
+          as={NextLink}
+          href="/"
+          color="primary"
+          variant="solid"
+          className="font-semibold text-white sm:hidden"
+          radius="sm"
+          size="sm"
+        >
+          <Lottie
+            src="https://lottie.host/c48712ea-8e16-40b1-bc08-38538fa927c6/EFGH7qXtwX.json"
+            autoplay
+            loop
+          />
+        </Button>
+
+        <Button
+          as={NextLink}
+          href="/"
+          color="primary"
+          variant="solid"
+          className="hidden font-semibold text-white sm:flex"
+          radius="sm"
+        >
+          {t("title")}
+        </Button>
         <LanguageSwitcher />
       </NavbarContent>
     </Navbar>
