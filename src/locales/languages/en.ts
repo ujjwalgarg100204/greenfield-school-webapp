@@ -3,6 +3,61 @@ export default {
     other: "other",
     links: "links",
   },
+  login: {
+    "sub-links": {
+      index: {
+        title: "Login to your account",
+        content: {
+          "my-creds": "My credentials are",
+          forget: "Forget Password ?",
+          "button-text": "Login",
+          inputs: {
+            "user-id": {
+              label: "User ID",
+              placeholder: "Enter your user id",
+              error: {
+                "short-input": "User ID must contain at least 6 character(s)",
+                "long-input": "User ID must contain at most 16 character(s)",
+              },
+            },
+            password: {
+              label: "Password",
+              placeholder: "Enter your password",
+              error: {
+                "short-input": "Password must contain at least 6 character(s)",
+                "long-input": "Password must contain at most 16 character(s)",
+              },
+            },
+            role: {
+              label: "I am a/an",
+              roles: {
+                student: "Student",
+                teacher: "Teacher",
+                parent: "Parent",
+                admin: "Admin",
+              },
+              error: {
+                "no-input": "Please select one of the option above",
+              },
+            },
+          },
+        },
+      },
+      forget: {
+        title: "Reset Password",
+        content: {
+          contact:
+            "Please contact the school administration for password resetting.",
+          details: {
+            heading: "Contact details",
+            "technical-admin": "Technical Administration: {number}",
+            principal: "Principal: {number}",
+          },
+          "button-text": "Return to Login Page",
+        },
+      },
+    },
+  },
   Pages: {
     home: {
       title: "Home",
@@ -161,7 +216,28 @@ export default {
         },
         achievements: {
           title: "Achievements",
-          content: {},
+          content: {
+            heading: "Our Achievements",
+            desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim magnam hic eveniet totam accusantium modi iusto nemo dolor, veniam eos aspernatur possimus voluptate aperiam laudantium deleniti suscipit alias tempore fuga?",
+            accordions: {
+              1: {
+                heading: "2020",
+                desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim magnam hic eveniet totam accusantium modi iusto nemo dolor, veniam eos aspernatur possimus voluptate aperiam laudantium deleniti suscipit alias tempore fuga?",
+              },
+              2: {
+                heading: "2021",
+                desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim magnam hic eveniet totam accusantium modi iusto nemo dolor, veniam eos aspernatur possimus voluptate aperiam laudantium deleniti suscipit alias tempore fuga?",
+              },
+              3: {
+                heading: "2022",
+                desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim magnam hic eveniet totam accusantium modi iusto nemo dolor, veniam eos aspernatur possimus voluptate aperiam laudantium deleniti suscipit alias tempore fuga?",
+              },
+              4: {
+                heading: "2023",
+                desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim magnam hic eveniet totam accusantium modi iusto nemo dolor, veniam eos aspernatur possimus voluptate aperiam laudantium deleniti suscipit alias tempore fuga?",
+              },
+            },
+          },
         },
         gallery: {
           title: "Gallery",
@@ -236,7 +312,45 @@ export default {
         },
         "admission-portal": {
           title: "Admission Portal",
-          content: {},
+          "sub-links": {
+            index: {
+              heading: "Welcome to Admission Portal of Greenfield School",
+              "para-1":
+                "For smooth experience while taking online admission, we recommend having availability of these documents beforehand",
+              "para-2":
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc faucibus a pellentesque sit amet porttitor eget dolor morbi. Lorem donec massa sapien faucibus. Leo vel fringilla est",
+              "button-text": "Get Started",
+            },
+            onboarding: {
+              heading: "Admission Application Registration",
+              "button-text": {
+                "generate-otp": "Generate OTP",
+                "verify-otp": "Verify OTP",
+                "fill-form": "Complete Application by filling form",
+              },
+              "mobile-input": {
+                label: "Mobile Number",
+                placeholder: "Enter your mobile number",
+                error: {
+                  "short-input":
+                    "Mobile Number must contain at least 10 digit(s)",
+                  "long-input": "Mobile must contain at most 10 digit(s)",
+                  "wrong-input": "Mobile Number must contain only digits",
+                },
+              },
+              "otp-input": {
+                label: "OTP",
+                placeholder: "Enter OTP received on your mobile",
+                desc: "Check your inbox for an OTP from Greenfield International School, OTP is valid for 5 minutes",
+                timer: "Generate New {br} in {timer} sec(s)",
+                error: {
+                  "short-input": "OTP must contain at least 6 digit(s)",
+                  "long-input": "OTP must contain at most 6 digit(s)",
+                  "wrong-input": "OTP must contain only digits",
+                },
+              },
+            },
+          },
         },
       },
     },
@@ -302,7 +416,25 @@ export default {
         },
         cc: {
           title: "Code of Conduct",
-          content: {},
+          content: {
+            heading: "Code of Conduct",
+            "para-1":
+              "We hereby notify all the students and their parents that, per CBSE guidelines, students will be evaluated for discipline based on the following criteria: Attendance, Sincerity, Behaviour, Values, Neatness, Compliance with School Rules and Regulations, and Attitude toward Society and the Country.",
+            "para-2":
+              "Therefore, kindly ensure that all the guidelines listed below are strictly followed.",
+            "para-3":
+              "We emphasise elementary qualities like politeness, discipline etc. and encourage our students to imbibe the same in their daily activities. They should greet all the teachers whenever and wherever they meet them. Bullying classmates, using foul language and indecent behaviour inside and outside the school premises would lead to strict disciplinary action.",
+            "para-4":
+              "They should take good care of their health and remain physically fit and strong.",
+            "para-5":
+              "They should always accept and complete the assignments given to them by the teachers",
+            "para-6":
+              "They should never adopt unfair practices like stealing or borrowing others’ belonging without taking permission. They should be truthful.",
+            "para-7":
+              "They should never hesitate to say ‘NO’ when asked or tempted to do something thing, which they know is wrong.",
+            "para-8":
+              "Instead of lamenting and grumbling over the evils of the world, they should try to contribute to making the world a better place to live in.",
+          },
         },
         "s-rules": {
           title: "Special Rules",
@@ -310,7 +442,26 @@ export default {
         },
         "l-rules": {
           title: "Library Rules",
-          content: {},
+          content: {
+            "para-1":
+              "The Library is a Silent Zone. Students must maintain silence in the Library.",
+            "para-2":
+              "Students have to pay a fine of Rs. 1/- per day for delay from the due date of return.",
+            "para-3":
+              "Students are not allowed to enter the Library with food, water and personal items. They must keep their bags outside the Library before entering.",
+            "para-4":
+              "Each student has to show their book at the exit during dispersal.",
+            "para-5":
+              "For any loss or damage to the library book, the student has to replace the same within a week.",
+            "para-6":
+              "Each student must check the library book while it is being issued and notify the Librarian if there are any defects.",
+            "para-7":
+              "If any scribbling or damage to the book is found at the time of return, the student will have to replace the book.",
+            "para-8":
+              "Students of Class XII should submit the clearance slip (issued by the Librarian) to their respective class teachers to get their Admit Card for the Board Exam.",
+            "para-9":
+              "Once issued from the Library, the students should only bring the books to the School on the day of return, as they might get lost.",
+          },
         },
         "c-rules": {
           title: "Canteen Rules",
@@ -371,8 +522,6 @@ export default {
   Root: {
     LocaleSwitcher: {
       label: "Change language",
-      locale:
-        "{locale, select, ta {Tamil} te {Telugu} en {English} hi {Hindi} other {Unknown}}",
     },
     "main-navbar": {
       "admission-portal": "Admission Portal",

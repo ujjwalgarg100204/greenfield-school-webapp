@@ -1,10 +1,10 @@
 import { Navbar, NavbarBrand, NavbarContent } from "@lib/next-ui";
 
+import type { FC } from "react";
 import GreenfieldLogo from "@/../public/images/logo.png";
 import LanguageSwitcher from "@/components/ui/LanguageSwither";
 import NextImage from "next/image";
 import NextLink from "next/link";
-import type { FC } from "react";
 
 const Header: FC = () => {
   return (
@@ -21,9 +21,7 @@ const Header: FC = () => {
         </h1>
       </NavbarBrand>
       <NavbarContent justify="end">
-        {/* <div className="absolute -right-2 sm:-right-4 md:-right-6 lg:-right-8 xl:-right-10 2xl:-right-12"> */}
         <LanguageSwitcher />
-        {/* </div> */}
       </NavbarContent>
     </Navbar>
   );

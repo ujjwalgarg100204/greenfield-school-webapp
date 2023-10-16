@@ -1,12 +1,22 @@
+"use client";
+
 import { Button, Input } from "@/lib/next-ui";
 
+import { useScopedI18n } from "@/locales/client";
+import type Translation from "@/locales/languages/en";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState, type FC } from "react";
 import { useFormContext } from "react-hook-form";
 import { TiTick } from "react-icons/ti";
 import type { TAdmissionPortalSchema } from ".";
 
+type OTPErrorType =
+  keyof (typeof Translation)["Pages"]["admission"]["sub-links"]["admission-portal"]["sub-links"]["onboarding"]["otp-input"]["error"];
+
 const OTPInput: FC = () => {
+  const t = useScopedI18n(
+    "Pages.admission.sub-links.admission-portal.sub-links.onboarding.otp-input",
+  );
   const {
     register,
     formState: { errors },
@@ -26,19 +36,24 @@ const OTPInput: FC = () => {
   const searchParams = useSearchParams();
   const shouldRender = searchParams.get("otp-generated");
   const isVerified = searchParams.get("otp-verified") === "true";
+  const errorMessage =
+    errors.otp?.message !== undefined
+      ? t(`error.${errors.otp?.message as OTPErrorType}`)
+      : "";
+
   return shouldRender !== null ? (
     <div className="flex items-center gap-8">
       <Input
         type="text"
         radius="sm"
-        label="OTP"
+        label={t("label")}
         variant="bordered"
         labelPlacement="outside"
         isInvalid={errors.otp !== undefined}
         isDisabled={isVerified}
-        errorMessage={errors.otp?.message}
-        placeholder="Enter OTP received on your mobile"
-        description="Check your inbox for an OTP from Greenfield International School, OTP is valid for 5 minutes"
+        errorMessage={errorMessage}
+        placeholder={t("placeholder")}
+        description={t("desc")}
         {...register("otp")}
       />
 
@@ -52,7 +67,7 @@ const OTPInput: FC = () => {
           className="p-6 py-7"
           isDisabled={otpTimer !== 0}
         >
-          Generate New <br /> in {otpTimer} sec
+          {t("timer", { br: <br />, timer: otpTimer })}
         </Button>
       )}
     </div>

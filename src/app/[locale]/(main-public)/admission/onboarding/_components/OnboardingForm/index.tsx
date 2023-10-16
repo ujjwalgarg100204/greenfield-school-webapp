@@ -4,6 +4,8 @@ import { useCallback, useRef } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
 import useUpdateSearchParams from "@/hooks/useUpdateSearchParams";
+import { useScopedI18n } from "@/locales/client";
+import type Translation from "@/locales/languages/en";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@lib/next-ui";
 import type { ReadonlyURLSearchParams } from "next/navigation";
@@ -26,24 +28,34 @@ const verifyOTP = async (otp: string): Promise<boolean> => {
   return true;
 };
 
-const getButtonText = (searchParams: ReadonlyURLSearchParams): string => {
+const getButtonText = (
+  searchParams: ReadonlyURLSearchParams,
+): keyof (typeof Translation)["Pages"]["admission"]["sub-links"]["admission-portal"]["sub-links"]["onboarding"]["button-text"] => {
   const otpGenerated = searchParams.get("otp-generated");
   const otpVerified = searchParams.get("otp-verified");
 
   switch (true) {
     case otpGenerated !== "true" && otpVerified !== "true":
-      return "Generate OTP";
+      return "generate-otp";
     case otpGenerated === "true" && otpVerified !== "true":
-      return "Verify OTP";
+      return "verify-otp";
     default:
-      return "Create Account";
+      return "fill-form";
   }
 };
 
 const AdmissionPortalSchema = z
   .object({
-    mobileNumber: z.string().min(10).max(10).regex(/^\d+$/),
-    otp: z.string().min(6).max(6).regex(/^\d+$/),
+    mobileNumber: z
+      .string()
+      .min(10, "short-input")
+      .max(10, "long-input")
+      .regex(/^\d+$/, "wrong-input"),
+    otp: z
+      .string()
+      .min(6, "short-input")
+      .max(6, "short-input")
+      .regex(/^\d+$/, "wrong-input"),
     password: z.string().min(8).max(16),
     confirmPassword: z.string().min(8).max(16),
   })
@@ -55,6 +67,9 @@ const AdmissionPortalSchema = z
 export type TAdmissionPortalSchema = z.infer<typeof AdmissionPortalSchema>;
 
 const OnboardingForm: FC = () => {
+  const t = useScopedI18n(
+    "Pages.admission.sub-links.admission-portal.sub-links.onboarding",
+  );
   const searchParams = useSearchParams();
   const formMethods = useForm<TAdmissionPortalSchema>({
     mode: "onBlur",
@@ -130,7 +145,7 @@ const OnboardingForm: FC = () => {
           radius="sm"
           onClick={clickHandler}
         >
-          {getButtonText(searchParams)}
+          {t(`button-text.${getButtonText(searchParams)}`)}
         </Button>
       </form>
     </FormProvider>

@@ -3,23 +3,31 @@
 import { Button, Input, Link, RadioGroup } from "@lib/next-ui";
 import { Controller, useForm } from "react-hook-form";
 
-import SectionHeading from "@components/ui/SectionHeading";
-import { zodResolver } from "@hookform/resolvers/zod";
-import NextLink from "next/link";
-import type { FC } from "react";
-import type { SubmitHandler } from "react-hook-form";
-import { z } from "zod";
 import CustomRadio from "./_components/CustomRadio";
+import type { FC } from "react";
+import NextLink from "next/link";
+import SectionHeading from "@components/ui/SectionHeading";
+import type { SubmitHandler } from "react-hook-form";
+import type Translation from "@/locales/languages/en";
+import { useScopedI18n } from "@/locales/client";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const LoginPageSchema = z.object({
   role: z.enum(["student", "teacher", "parent", "admin"]),
-  userId: z.string().min(1),
-  password: z.string().min(6).max(16),
+  userId: z.string().min(6, "short-input").max(16, "long-input"),
+  password: z.string().min(6, "short-input").max(16, "long-input"),
 });
 
 type TLoginPageSchema = z.infer<typeof LoginPageSchema>;
 
+type UserIdErrorType =
+  keyof (typeof Translation)["login"]["sub-links"]["index"]["content"]["inputs"]["user-id"]["error"];
+type PasswordErrorType =
+  keyof (typeof Translation)["login"]["sub-links"]["index"]["content"]["inputs"]["password"]["error"];
+
 const LoginPage: FC = () => {
+  const t = useScopedI18n("login.sub-links.index");
   const {
     register,
     control,
@@ -34,7 +42,7 @@ const LoginPage: FC = () => {
   return (
     <>
       <SectionHeading className="lg:text-center lg:text-2xl">
-        Login to your account
+        {t("title")}
       </SectionHeading>
       <main>
         <form className="space-y-8" onSubmit={handleSubmit(onSubmit)}>
@@ -43,7 +51,7 @@ const LoginPage: FC = () => {
             name="role"
             render={({ fieldState, field: { value, onChange } }) => (
               <RadioGroup
-                label="I am"
+                label={t("content.inputs.role.label")}
                 color="primary"
                 classNames={{
                   wrapper:
@@ -54,13 +62,13 @@ const LoginPage: FC = () => {
                 onValueChange={onChange}
                 errorMessage={
                   fieldState.invalid
-                    ? "Please select one of the option above"
+                    ? t("content.inputs.role.error.no-input")
                     : ""
                 }
               >
                 {Object.values(LoginPageSchema.shape.role.Values).map(role => (
                   <CustomRadio key={role} value={role}>
-                    {role}
+                    {t(`content.inputs.role.roles.${role}`)}
                   </CustomRadio>
                 ))}
               </RadioGroup>
@@ -69,22 +77,30 @@ const LoginPage: FC = () => {
 
           <div className="flex items-center justify-center gap-4">
             <hr className="h-0.5 flex-grow rounded-full bg-default" />
-            <span className="text-sm text-foreground-500">and</span>
+            <span className="text-sm text-foreground-500">&</span>
             <hr className="h-0.5 flex-grow rounded-full bg-default" />
           </div>
 
           <div className="space-y-4 md:space-y-2">
-            <p className="text-foreground-500">My credentials are</p>
+            <p className="text-foreground-500">{t("content.my-creds")}</p>
             <div className="space-y-3">
               <Input
                 type="text"
                 radius="sm"
-                label="User ID"
+                label={t("content.inputs.user-id.label")}
                 variant="bordered"
                 labelPlacement="outside"
-                placeholder="Enter your user id"
+                placeholder={t("content.inputs.user-id.placeholder")}
                 isInvalid={errors.userId !== undefined}
-                errorMessage={errors.userId?.message}
+                errorMessage={
+                  errors.userId?.message !== undefined
+                    ? t(
+                        `content.inputs.user-id.error.${
+                          errors.userId.message as UserIdErrorType
+                        }`,
+                      )
+                    : ""
+                }
                 {...register("userId")}
               />
               <Input
@@ -95,7 +111,15 @@ const LoginPage: FC = () => {
                 labelPlacement="outside"
                 placeholder="Enter your password"
                 isInvalid={errors.password !== undefined}
-                errorMessage={errors.password?.message}
+                errorMessage={
+                  errors.password?.message !== undefined
+                    ? t(
+                        `content.inputs.password.error.${
+                          errors.password.message as PasswordErrorType
+                        }`,
+                      )
+                    : ""
+                }
                 {...register("password")}
               />
             </div>
@@ -106,7 +130,7 @@ const LoginPage: FC = () => {
                 underline="always"
                 href="/login/forget-password"
               >
-                Forgot password ?
+                {t("content.forget")}
               </Link>
             </div>
           </div>
@@ -116,7 +140,7 @@ const LoginPage: FC = () => {
             variant="solid"
             className="w-full font-semibold"
           >
-            Login
+            {t("content.button-text")}
           </Button>
         </form>
       </main>

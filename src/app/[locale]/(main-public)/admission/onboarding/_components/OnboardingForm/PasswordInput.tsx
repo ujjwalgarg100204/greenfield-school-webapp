@@ -1,3 +1,5 @@
+"use client";
+
 import { Input } from "@/lib/next-ui";
 import { useSearchParams } from "next/navigation";
 import type { FC } from "react";
