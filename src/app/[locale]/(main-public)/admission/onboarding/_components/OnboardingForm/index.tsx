@@ -1,21 +1,20 @@
 "use client";
 
-import { useCallback, useRef } from "react";
 import { FormProvider, useForm } from "react-hook-form";
+import { useCallback, useRef } from "react";
 
-import useUpdateSearchParams from "@/hooks/useUpdateSearchParams";
-import { useScopedI18n } from "@/locales/client";
-import type Translation from "@/locales/languages/en";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@lib/next-ui";
-import type { ReadonlyURLSearchParams } from "next/navigation";
-import { useSearchParams } from "next/navigation";
 import type { FC } from "react";
-import type { SubmitHandler } from "react-hook-form";
-import { z } from "zod";
 import MobileNumberInput from "./MobileNumberInput";
 import OTPInput from "./OTPInput";
-import PasswordInput from "./PasswordInput";
+import type { ReadonlyURLSearchParams } from "next/navigation";
+import type { SubmitHandler } from "react-hook-form";
+import type Translation from "@/locales/languages/en";
+import { useScopedI18n } from "@/locales/client";
+import { useSearchParams } from "next/navigation";
+import useUpdateSearchParams from "@/hooks/useUpdateSearchParams";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const generateOTP = async (mobileNumber: string): Promise<void> => {
   // call api to generate OTP
@@ -44,25 +43,18 @@ const getButtonText = (
   }
 };
 
-const AdmissionPortalSchema = z
-  .object({
-    mobileNumber: z
-      .string()
-      .min(10, "short-input")
-      .max(10, "long-input")
-      .regex(/^\d+$/, "wrong-input"),
-    otp: z
-      .string()
-      .min(6, "short-input")
-      .max(6, "short-input")
-      .regex(/^\d+$/, "wrong-input"),
-    password: z.string().min(8).max(16),
-    confirmPassword: z.string().min(8).max(16),
-  })
-  .refine(data => data.password === data.confirmPassword, {
-    message: "Passwords do not match",
-    path: ["confirmPassword"],
-  });
+const AdmissionPortalSchema = z.object({
+  mobileNumber: z
+    .string()
+    .min(10, "short-input")
+    .max(10, "long-input")
+    .regex(/^\d+$/, "wrong-input"),
+  otp: z
+    .string()
+    .min(6, "short-input")
+    .max(6, "short-input")
+    .regex(/^\d+$/, "wrong-input"),
+});
 
 export type TAdmissionPortalSchema = z.infer<typeof AdmissionPortalSchema>;
 
@@ -136,7 +128,6 @@ const OnboardingForm: FC = () => {
       >
         <MobileNumberInput />
         <OTPInput />
-        <PasswordInput />
 
         <Button
           color="primary"
