@@ -21,16 +21,13 @@ jobs:
         with:
           node-version: 16
 
-      - name: Setup env
-        run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" > .env
-
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         with:
           version: 8
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --ignore-scripts
         shell: bash
 
       - name: Run Eslint
