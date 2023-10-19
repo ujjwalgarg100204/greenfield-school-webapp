@@ -1,65 +1,121 @@
+import { Account, AuthOptions, Profile, Session, User } from "next-auth";
+
 import { prisma } from "@/lib/prisma";
-import { compare } from "bcrypt";
-import NextAuth, { type NextAuthOptions } from "next-auth";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+import { JWT } from "next-auth/jwt";
+import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-export const authOptions: NextAuthOptions = {
-  session: {
-    strategy: "jwt",
-  },
+export const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
-      name: "Sign in",
+      name: "credentials",
+
       credentials: {
         email: {
           label: "Email",
-          type: "email",
-          placeholder: "hello@exaple.com",
+          type: "text",
+          placeholder: "your@email.com",
         },
-        password: { label: "Password", type: "password" },
+        password: {
+          label: "Password",
+          type: "password",
+        },
       },
-      async authorize(credentials) {
-        if (!credentials?.email || !credentials.password) {
+      authorize: async credentials => {
+        if (!credentials) {
           return null;
         }
 
+        const { email, password } = credentials;
+
         const user = await prisma.user.findUnique({
           where: {
-            email: credentials.email,
+            email,
           },
         });
-
-        console.log("User details inside the route", credentials);
 
         if (!user) {
           return null;
         }
 
-        const isPasswordValid = await compare(
-          credentials.password,
-          user.password,
-        );
+        const userPassword = user.passwordHash;
 
-        if (!isPasswordValid) {
+        const isValidPassword = bcrypt.compareSync(password, userPassword);
+
+        if (!isValidPassword) {
           return null;
         }
 
-        return {
-          id: user.id + "",
-          email: user.email,
-          name: user.name,
-        };
-
-        // const user = {
-        //   id: "1",
-        //   name: "Priyansh",
-        //   email: "priyanshkotak1@gmail.com",
-        // };
-        // return user;
+        return user;
       },
     }),
   ],
+
+  pages: {
+    signIn: "/en/login",
+    signOut: "/en/auth",
+  },
+
+  secret: process.env.NEXTAUTH_SECRET,
+
+  jwt: {
+    async encode({ secret, token }) {
+      if (!token) {
+        throw new Error("No token to encode");
+      }
+      return jwt.sign(token, secret);
+    },
+
+    async decode({ secret, token }) {
+      if (!token) {
+        throw new Error("No token to decode");
+      }
+
+      const decodedToken = jwt.verify(token, secret);
+
+      if (typeof decodedToken === "string") {
+        return JSON.parse(decodedToken);
+      } else {
+        return decodedToken;
+      }
+    },
+  },
+
+  session: {
+    strategy: "jwt",
+    maxAge: 30 * 24 * 60 * 60,
+    updateAge: 24 * 60 * 60,
+  },
+
+  callbacks: {
+    async session(param: { session: Session; token: JWT; user: User }) {
+      if (param.session.user) {
+        param.session.user.email = param.token.email;
+      }
+
+      return param.session;
+    },
+
+    async jwt(params: {
+      token: JWT;
+      user?: User | undefined;
+      account?: Account | null | undefined;
+      profile?: Profile | undefined;
+      isNewUser?: boolean | undefined;
+      session?: any;
+    }) {
+      if (params.user) {
+        params.token.email = params.user.email;
+      }
+
+      return params.token;
+    },
+  },
 };
 
 const handler = NextAuth(authOptions);
+
 export { handler as GET, handler as POST };
+

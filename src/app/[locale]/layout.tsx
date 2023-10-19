@@ -48,7 +48,7 @@ const LocaleLayout: FC<Props> = async ({ children, params: { locale } }) => {
       <body className={`${satoshiFont.variable} font-satoshi`}>
         <NextAuthProvider session={session}>
           <I18nProviderClient locale={locale}>
-            <Providers>{children}</Providers>
+            <Providers>{children}</Providers> 
           </I18nProviderClient>
         </NextAuthProvider>
       </body>
