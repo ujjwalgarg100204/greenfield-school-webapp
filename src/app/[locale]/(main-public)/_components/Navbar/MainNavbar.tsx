@@ -6,15 +6,19 @@ import {
   NavbarItem,
 } from "@lib/next-ui";
 
-import GreenfieldLogo from "@/../public/images/logo.png";
-import { getScopedI18n } from "@/locales/server";
-import LanguageSwitcher from "@components/ui/LanguageSwither";
-import Image from "next/image";
-import NextLink from "next/link";
 import type { FC } from "react";
+import GreenfieldLogo from "@/../public/images/logo.png";
+import Image from "next/image";
+import LanguageSwitcher from "@components/ui/LanguageSwither";
+import NextLink from "next/link";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { getScopedI18n } from "@/locales/server";
+import { getServerSession } from "next-auth";
 
 const MainNavbar: FC = async () => {
   const t = await getScopedI18n("Root.main-navbar");
+
+  const session = await getServerSession(authOptions);
 
   return (
     <Navbar position="static" maxWidth="full">
@@ -60,28 +64,57 @@ const MainNavbar: FC = async () => {
           </Button>
         </NavbarItem>
         <NavbarItem>
-          <Button
-            as={NextLink}
-            href="/login"
-            color="primary"
-            variant="solid"
-            className="font-semibold text-white sm:hidden"
-            radius="sm"
-            size="sm"
-          >
-            {t("login")}
-          </Button>
+          {session && session.user?.email ? (
+            <>
+              <Button
+                as={NextLink}
+                href="/logout"
+                color="primary"
+                variant="solid"
+                className="font-semibold text-white sm:hidden"
+                radius="sm"
+                size="sm"
+              >
+                Sign out
+              </Button>
 
-          <Button
-            as={NextLink}
-            href="/login"
-            color="primary"
-            variant="solid"
-            className="hidden font-semibold text-white sm:flex"
-            radius="sm"
-          >
-            {t("login")}
-          </Button>
+              <Button
+                as={NextLink}
+                href="/logout"
+                color="primary"
+                variant="solid"
+                className="hidden font-semibold text-white sm:flex"
+                radius="sm"
+              >
+                Sign out
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button
+                as={NextLink}
+                href="/login"
+                color="primary"
+                variant="solid"
+                className="font-semibold text-white sm:hidden"
+                radius="sm" 
+                size="sm"
+              >
+                {t("login")}
+              </Button>
+
+              <Button
+                as={NextLink}
+                href="/login"
+                color="primary"
+                variant="solid"
+                className="hidden font-semibold text-white sm:flex"
+                radius="sm"
+              >
+                {t("login")}
+              </Button>
+            </>
+          )}
         </NavbarItem>
       </NavbarContent>
     </Navbar>
