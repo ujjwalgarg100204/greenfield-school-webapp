@@ -526,6 +526,7 @@ export default {
     "main-navbar": {
       "admission-portal": "Admission Portal",
       login: "Login",
+      signout: "Sign out"
     },
   },
 } as const;

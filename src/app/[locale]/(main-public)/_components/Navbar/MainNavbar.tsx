@@ -75,7 +75,7 @@ const MainNavbar: FC = async () => {
                 radius="sm"
                 size="sm"
               >
-                Sign out
+                {t("signout")}
               </Button>
 
               <Button
@@ -86,7 +86,7 @@ const MainNavbar: FC = async () => {
                 className="hidden font-semibold text-white sm:flex"
                 radius="sm"
               >
-                Sign out
+                {t("signout")}
               </Button>
             </>
           ) : (

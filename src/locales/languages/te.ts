@@ -526,6 +526,7 @@ export default {
     "main-navbar": {
       "admission-portal": "ప్రవేశ పోర్టల్",
       login: "ప్రవేశించండి",
+      signout: "సైన్ అవుట్ చేయండి",
     },
   },
 } as const;

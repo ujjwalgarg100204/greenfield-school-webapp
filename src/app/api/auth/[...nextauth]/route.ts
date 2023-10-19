@@ -1,7 +1,6 @@
 import { Account, AuthOptions, Profile, Session, User } from "next-auth";
 
 import { prisma } from "@/lib/prisma";
-import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { JWT } from "next-auth/jwt";
 import NextAuth from "next-auth/next";
@@ -22,13 +21,19 @@ export const authOptions: AuthOptions = {
           label: "Password",
           type: "password",
         },
+
+        role: {
+          label: "role",
+          type: "text",
+          placeholder: "student, teacher, parent, admin",
+        },
       },
       authorize: async credentials => {
         if (!credentials) {
           return null;
         }
 
-        const { email, password } = credentials;
+        const { email, password, role } = credentials;
 
         const user = await prisma.user.findUnique({
           where: {
@@ -42,11 +47,11 @@ export const authOptions: AuthOptions = {
 
         const userPassword = user.passwordHash;
 
-        const isValidPassword = bcrypt.compareSync(password, userPassword);
+        // const isValidPassword = bcrypt.compareSync(password, userPassword);
 
-        if (!isValidPassword) {
-          return null;
-        }
+        // if (!isValidPassword) {
+        //   return null;
+        // }
 
         return user;
       },
@@ -54,8 +59,8 @@ export const authOptions: AuthOptions = {
   ],
 
   pages: {
-    signIn: "/en/login",
-    signOut: "/en/auth",
+    signIn: "/login",
+    signOut: "/auth",
   },
 
   secret: process.env.NEXTAUTH_SECRET,

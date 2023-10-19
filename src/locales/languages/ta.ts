@@ -534,6 +534,7 @@ export default {
     "main-navbar": {
       "admission-portal": "சேர்க்கை போர்டல்",
       login: "உள்நுழைய",
+      signout: "வெளியேறு"
     },
   },
 } as const;

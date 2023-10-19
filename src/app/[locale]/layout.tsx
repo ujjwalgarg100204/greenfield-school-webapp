@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import NextAuthProvider from "@/contexts/NextAuthProvider";
 import Providers from "@/contexts";
 import React from "react";
+import { Toaster } from "react-hot-toast";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 import { getStaticParams } from "@/locales/server";
@@ -48,8 +49,9 @@ const LocaleLayout: FC<Props> = async ({ children, params: { locale } }) => {
       <body className={`${satoshiFont.variable} font-satoshi`}>
         <NextAuthProvider session={session}>
           <I18nProviderClient locale={locale}>
-            <Providers>{children}</Providers> 
+            <Providers>{children}</Providers>
           </I18nProviderClient>
+          <Toaster position="top-center" reverseOrder={false} />
         </NextAuthProvider>
       </body>
     </html>
