@@ -1,10 +1,10 @@
 import { Account, AuthOptions, Profile, Session, User } from "next-auth";
 
-import { prisma } from "@/lib/prisma";
-import jwt from "jsonwebtoken";
+import CredentialsProvider from "next-auth/providers/credentials";
 import { JWT } from "next-auth/jwt";
 import NextAuth from "next-auth/next";
-import CredentialsProvider from "next-auth/providers/credentials";
+import jwt from "jsonwebtoken";
+import { prisma } from "@/lib/prisma";
 
 export const authOptions: AuthOptions = {
   providers: [
@@ -33,7 +33,7 @@ export const authOptions: AuthOptions = {
           return null;
         }
 
-        const { email, password, role } = credentials;
+        const { email, password } = credentials;
 
         const user = await prisma.user.findUnique({
           where: {
@@ -47,11 +47,10 @@ export const authOptions: AuthOptions = {
 
         const userPassword = user.passwordHash;
 
-        // const isValidPassword = bcrypt.compareSync(password, userPassword);
 
-        // if (!isValidPassword) {
-        //   return null;
-        // }
+        if (password !== userPassword) {
+          return null;
+        }
 
         return user;
       },
@@ -123,4 +122,3 @@ export const authOptions: AuthOptions = {
 const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };
-
