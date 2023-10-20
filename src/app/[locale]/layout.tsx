@@ -1,15 +1,16 @@
 import "../globals.css";
 
-import type { FC } from "react";
-import { I18nProviderClient } from "@/locales/client";
-import type { Metadata } from "next";
-import NextAuthSessionProvider from "@/contexts/NextAuthSessionProvider";
 import Providers from "@/contexts";
-import React from "react";
-import { auth } from "../api/auth/[...nextauth]/route";
+import NextAuthSessionProvider from "@/contexts/NextAuthSessionProvider";
+import { I18nProviderClient } from "@/locales/client";
 import { getStaticParams } from "@/locales/server";
-import localFont from "next/font/local";
+import type { Metadata } from "next";
 import { setStaticParamsLocale } from "next-international/server";
+import localFont from "next/font/local";
+import type { FC } from "react";
+import React from "react";
+import { Toaster } from "react-hot-toast";
+import { auth } from "../api/auth/[...nextauth]/route";
 
 export const metadata: Metadata = {
   title: "Greenfield School",
@@ -50,6 +51,7 @@ const LocaleLayout: FC<Props> = async ({ children, params: { locale } }) => {
             <Providers>{children}</Providers>
           </I18nProviderClient>
         </NextAuthSessionProvider>
+        <Toaster position="top-right" reverseOrder={false} />
       </body>
     </html>
   );

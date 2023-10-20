@@ -57,9 +57,12 @@ export const authOptions = {
   callbacks: {
     jwt({ token, user }) {
       // save user details, like id, role and username in jwt token
-      token.id = user.id;
-      token.role = user.role;
-      token.username = user.username;
+      // eslint-disable-next-line
+      if (user) {
+        token.id = user.id;
+        token.role = user.role;
+        token.username = user.username;
+      }
 
       return token;
     },

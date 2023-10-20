@@ -3,17 +3,18 @@
 import { Button, Link } from "@lib/next-ui";
 import { FormProvider, useForm } from "react-hook-form";
 
-import CredentialInputs from "./CredentialInputs";
-import type { FC } from "react";
-import NextLink from "next/link";
-import RoleRadioGroups from "./RoleRadioGroups";
-import type { SubmitHandler } from "react-hook-form";
-import { UserCreateInputSchema } from "@/types/zod/index";
-import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
 import { useScopedI18n } from "@/locales/client";
-import type { z } from "zod";
+import { UserCreateInputSchema } from "@/types/zod/index";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { signIn } from "next-auth/react";
+import NextLink from "next/link";
+import { useRouter } from "next/navigation";
+import type { FC } from "react";
+import type { SubmitHandler } from "react-hook-form";
+import toast from "react-hot-toast";
+import type { z } from "zod";
+import CredentialInputs from "./CredentialInputs";
+import RoleRadioGroups from "./RoleRadioGroups";
 
 const SignInForm: FC = () => {
   const t = useScopedI18n("login.sub-links.index");
@@ -30,8 +31,8 @@ const SignInForm: FC = () => {
       redirect: false,
     });
 
-    if (res?.ok) router.push("/dashboard");
-    else alert(res?.error);
+    if (res?.ok) router.replace("/dashboard");
+    else toast.error("Oops, something went wrong!, Can you try again?");
   };
 
   return (
