@@ -1,15 +1,15 @@
 import "../globals.css";
 
-import Providers from "@/contexts";
-import NextAuthSessionProvider from "@/contexts/NextAuthSessionProvider";
-import { I18nProviderClient } from "@/locales/client";
-import { getStaticParams } from "@/locales/server";
-import type { Metadata } from "next";
-import { setStaticParamsLocale } from "next-international/server";
-import localFont from "next/font/local";
 import type { FC } from "react";
+import { I18nProviderClient } from "@/locales/client";
+import type { Metadata } from "next";
+import NextAuthSessionProvider from "@/contexts/NextAuthSessionProvider";
+import Providers from "@/contexts";
 import React from "react";
 import { auth } from "../api/auth/[...nextauth]/route";
+import { getStaticParams } from "@/locales/server";
+import localFont from "next/font/local";
+import { setStaticParamsLocale } from "next-international/server";
 
 export const metadata: Metadata = {
   title: "Greenfield School",
@@ -45,7 +45,7 @@ const LocaleLayout: FC<Props> = async ({ children, params: { locale } }) => {
   return (
     <html lang={locale} className="scroll-smooth">
       <body className={`${satoshiFont.variable} font-satoshi`}>
-        <NextAuthSessionProvider session={session}>
+        <NextAuthSessionProvider session={session} refetchInterval={5 * 60}>
           <I18nProviderClient locale={locale}>
             <Providers>{children}</Providers>
           </I18nProviderClient>
