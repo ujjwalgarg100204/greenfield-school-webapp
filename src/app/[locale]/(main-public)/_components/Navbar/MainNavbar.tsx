@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Button,
   Navbar,
@@ -7,16 +9,17 @@ import {
 } from "@lib/next-ui";
 
 import GreenfieldLogo from "@/../public/images/logo.png";
-import { auth } from "@/app/api/auth/[...nextauth]/route";
-import { getScopedI18n } from "@/locales/server";
+import { useScopedI18n } from "@/locales/client";
 import LanguageSwitcher from "@components/ui/LanguageSwither";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import NextLink from "next/link";
 import type { FC } from "react";
+import AccountMenu from "./AccountMenu";
 
-const MainNavbar: FC = async () => {
-  const t = await getScopedI18n("Root.main-navbar");
-  const session = await auth();
+const MainNavbar: FC = () => {
+  const t = useScopedI18n("Root.main-navbar");
+  const { status, data } = useSession();
 
   return (
     <Navbar position="static" maxWidth="full">
@@ -36,7 +39,7 @@ const MainNavbar: FC = async () => {
         </NextLink>
       </NavbarBrand>
 
-      <NavbarContent justify="end" className="gap-1 md:gap-4">
+      <NavbarContent justify="end" className="gap-2 md:gap-4">
         <NavbarItem>
           <LanguageSwitcher />
         </NavbarItem>
@@ -62,7 +65,7 @@ const MainNavbar: FC = async () => {
           </Button>
         </NavbarItem>
         <NavbarItem>
-          {session === null ? (
+          {status === "loading" || data === null ? (
             <>
               <Button
                 as={NextLink}
@@ -88,30 +91,7 @@ const MainNavbar: FC = async () => {
               </Button>
             </>
           ) : (
-            <>
-              <Button
-                as={NextLink}
-                href="/dashboard"
-                color="primary"
-                variant="solid"
-                className="font-semibold text-white sm:hidden"
-                radius="sm"
-                size="sm"
-              >
-                {t("dashboard")}
-              </Button>
-
-              <Button
-                as={NextLink}
-                href="/dashboard"
-                color="primary"
-                variant="solid"
-                className="hidden font-semibold text-white sm:flex"
-                radius="sm"
-              >
-                {t("dashboard")}
-              </Button>
-            </>
+            <AccountMenu />
           )}
         </NavbarItem>
       </NavbarContent>
