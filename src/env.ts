@@ -13,7 +13,7 @@ const envSchema = z.object({
     .enum(["development", "production", "test"])
     .default("development"),
   // next-auth
-  NEXTAUTH_URL: z.string().url(),
+  NEXTAUTH_URL: z.string().url().optional(),
   NEXTAUTH_SECRET: z.string().min(1),
 });
 
