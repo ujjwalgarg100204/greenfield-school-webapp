@@ -34,6 +34,10 @@
     "indent": "off",
     "@typescript-eslint/indent": "off",
     "multiline-ternary": "off",
-    "@typescript-eslint/no-misused-promises": "off"
+    "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/strict-boolean-expressions": [
+      "error",
+      { "allowNullableBoolean": true }
+    ]
   }
 }

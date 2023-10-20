@@ -9,7 +9,7 @@ import { RadioGroup } from "@nextui-org/react";
 import { TRPCClientError } from "@trpc/client";
 import type { FC } from "react";
 import type { SubmitHandler } from "react-hook-form";
-import { z } from "zod";
+import type { z } from "zod";
 import RoleRadioButton from "../_components/RoleRadioButton";
 
 const RegisterPage: FC = () => {

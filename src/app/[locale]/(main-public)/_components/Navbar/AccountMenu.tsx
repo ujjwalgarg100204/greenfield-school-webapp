@@ -9,15 +9,15 @@ import {
 } from "@/lib/next-ui";
 import { signOut, useSession } from "next-auth/react";
 
-import type { FC } from "react";
 import NextLink from "next/link";
 import { useRouter } from "next/navigation";
+import type { FC } from "react";
 
 const AccountMenu: FC = () => {
   const { status, data } = useSession();
   const router = useRouter();
 
-  const signOutHandler = async () => {
+  const signOutHandler = async (): Promise<void> => {
     await signOut({ redirect: false });
     router.push("/");
   };

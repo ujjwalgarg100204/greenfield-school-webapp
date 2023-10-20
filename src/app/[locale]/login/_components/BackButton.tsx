@@ -1,13 +1,13 @@
 "use client";
 
-import { BiArrowBack } from "react-icons/bi";
 import { Button } from "@/lib/next-ui";
-import type { FC } from "react";
 import { useRouter } from "next/navigation";
+import type { FC } from "react";
+import { BiArrowBack } from "react-icons/bi";
 
 const BackButton: FC = () => {
   const router = useRouter();
-  const clickHandler = () => {
+  const clickHandler = (): void => {
     router.back();
   };
 

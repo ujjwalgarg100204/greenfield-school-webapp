@@ -1,11 +1,11 @@
 "use client";
 
-import type { FC } from "react";
-import { Input } from "@lib/next-ui";
-import type Translation from "@/locales/languages/en";
-import { UserCreateInputSchema } from "@/types/zod/index";
-import { useFormContext } from "react-hook-form";
 import { useScopedI18n } from "@/locales/client";
+import type Translation from "@/locales/languages/en";
+import type { UserCreateInputSchema } from "@/types/zod/index";
+import { Input } from "@lib/next-ui";
+import type { FC } from "react";
+import { useFormContext } from "react-hook-form";
 import type { z } from "zod";
 
 type UserIdErrorType =

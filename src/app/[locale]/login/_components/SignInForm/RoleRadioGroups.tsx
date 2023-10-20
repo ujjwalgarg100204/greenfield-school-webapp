@@ -1,9 +1,10 @@
 "use client";
 
-import { UserCreateInputSchema, UserRolesSchema } from "@/types/zod/index";
 import { Controller, useFormContext } from "react-hook-form";
 
 import { useScopedI18n } from "@/locales/client";
+import type { UserCreateInputSchema } from "@/types/zod/index";
+import { UserRolesSchema } from "@/types/zod/index";
 import { RadioGroup } from "@nextui-org/react";
 import type { FC } from "react";
 import type { z } from "zod";

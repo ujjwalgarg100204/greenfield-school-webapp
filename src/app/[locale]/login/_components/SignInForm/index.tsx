@@ -3,17 +3,17 @@
 import { Button, Link } from "@lib/next-ui";
 import { FormProvider, useForm } from "react-hook-form";
 
-import { useScopedI18n } from "@/locales/client";
-import { UserCreateInputSchema } from "@/types/zod/index";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { signIn } from "next-auth/react";
-import NextLink from "next/link";
-import { useRouter } from "next/navigation";
-import type { FC } from "react";
-import type { SubmitHandler } from "react-hook-form";
-import type { z } from "zod";
 import CredentialInputs from "./CredentialInputs";
+import type { FC } from "react";
+import NextLink from "next/link";
 import RoleRadioGroups from "./RoleRadioGroups";
+import type { SubmitHandler } from "react-hook-form";
+import { UserCreateInputSchema } from "@/types/zod/index";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useScopedI18n } from "@/locales/client";
+import type { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const SignInForm: FC = () => {
   const t = useScopedI18n("login.sub-links.index");

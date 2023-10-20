@@ -8,7 +8,6 @@ declare module "next-auth" {
    */
   interface Session {
     user: Pick<PrismaUser, "id" | "role" | "username">;
-    token: {};
   }
 
   /**
@@ -22,5 +21,5 @@ declare module "next-auth/jwt" {
   /** Returned by the `jwt` callback and `getToken`, when using JWT sessions */
   interface JWT extends Pick<PrismaUser, "id" | "role" | "username"> {}
 }
-
+// eslint-disable-next-line
 export {};

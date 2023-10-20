@@ -14,7 +14,7 @@ import type {
 import type { NextAuthOptions } from "next-auth";
 import { getServerSession } from "next-auth";
 
-export const config = {
+export const authOptions = {
   providers: [
     CredentialsProvider({
       name: "credentials",
@@ -57,11 +57,9 @@ export const config = {
   callbacks: {
     jwt({ token, user }) {
       // save user details, like id, role and username in jwt token
-      if (user) {
-        token.id = user.id;
-        token.role = user.role;
-        token.username = user.username;
-      }
+      token.id = user.id;
+      token.role = user.role;
+      token.username = user.username;
 
       return token;
     },
@@ -86,16 +84,18 @@ export const config = {
   debug: env.NODE_ENV === "development",
 } satisfies NextAuthOptions;
 
+/* eslint-disable */
 // Use it in server contexts
-export function auth(
+export const auth = (
   ...args:
     | [GetServerSidePropsContext["req"], GetServerSidePropsContext["res"]]
     | [NextApiRequest, NextApiResponse]
     | []
-) {
-  return getServerSession(...args, config);
-}
+) => {
+  return getServerSession(...args, authOptions);
+};
+/* eslint-enable */
 
-const handler = NextAuth(config);
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };
