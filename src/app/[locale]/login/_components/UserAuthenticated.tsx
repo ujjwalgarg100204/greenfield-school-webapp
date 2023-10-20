@@ -1,11 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
-
-import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
-const UserAuthenticated = () => {
+const UserAuthenticated = (): null => {
   const { status } = useSession();
 
   const router = useRouter();

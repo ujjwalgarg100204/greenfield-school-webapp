@@ -1,10 +1,16 @@
-import { Account, AuthOptions, Profile, Session, User } from "next-auth";
+import {
+  type Account,
+  type AuthOptions,
+  type Profile,
+  type Session,
+  type User,
+} from "next-auth";
 
-import CredentialsProvider from "next-auth/providers/credentials";
-import { JWT } from "next-auth/jwt";
-import NextAuth from "next-auth/next";
-import jwt from "jsonwebtoken";
 import { prisma } from "@/lib/prisma";
+import jwt from "jsonwebtoken";
+import { type JWT } from "next-auth/jwt";
+import NextAuth from "next-auth/next";
+import CredentialsProvider from "next-auth/providers/credentials";
 
 export const authOptions: AuthOptions = {
   providers: [
@@ -29,7 +35,7 @@ export const authOptions: AuthOptions = {
         },
       },
       authorize: async credentials => {
-        if (!credentials) {
+        if (credentials === undefined) {
           return null;
         }
 
@@ -41,12 +47,11 @@ export const authOptions: AuthOptions = {
           },
         });
 
-        if (!user) {
+        if (user === null) {
           return null;
         }
 
         const userPassword = user.passwordHash;
-
 
         if (password !== userPassword) {
           return null;
@@ -66,14 +71,14 @@ export const authOptions: AuthOptions = {
 
   jwt: {
     async encode({ secret, token }) {
-      if (!token) {
+      if (token === undefined) {
         throw new Error("No token to encode");
       }
       return jwt.sign(token, secret);
     },
 
     async decode({ secret, token }) {
-      if (!token) {
+      if (token === undefined) {
         throw new Error("No token to decode");
       }
 
@@ -95,7 +100,7 @@ export const authOptions: AuthOptions = {
 
   callbacks: {
     async session(param: { session: Session; token: JWT; user: User }) {
-      if (param.session.user) {
+      if (param.session.user !== undefined) {
         param.session.user.email = param.token.email;
       }
 
@@ -110,7 +115,7 @@ export const authOptions: AuthOptions = {
       isNewUser?: boolean | undefined;
       session?: any;
     }) {
-      if (params.user) {
+      if (params.user !== undefined) {
         params.token.email = params.user.email;
       }
 
@@ -122,3 +127,4 @@ export const authOptions: AuthOptions = {
 const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };
+

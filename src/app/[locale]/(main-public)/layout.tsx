@@ -1,11 +1,8 @@
 import type { FC } from "react";
+import React from "react";
 import Footer from "./_components/Footer";
 import LinksNavbar from "./_components/Navbar/LinksNavbar";
 import MainNavbar from "./_components/Navbar/MainNavbar";
-import React from "react";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { getServerSession } from "next-auth";
-import { useRouter } from "next/router";
 
 type Props = { children: React.ReactNode };
 

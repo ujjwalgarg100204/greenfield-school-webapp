@@ -1,7 +1,7 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 
-const Page = async () => {
+const Page = async (): Promise<JSX.Element> => {
   const session = await getServerSession(authOptions);
   return (
     <div className="flex min-h-screen items-center justify-center">

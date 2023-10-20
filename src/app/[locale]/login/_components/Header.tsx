@@ -1,12 +1,12 @@
 import { Button, Navbar, NavbarBrand, NavbarContent } from "@lib/next-ui";
 
-import type { FC } from "react";
 import GreenfieldLogo from "@/../public/images/logo.png";
 import LanguageSwitcher from "@/components/ui/LanguageSwither";
 import Lottie from "@/components/ui/Lottie";
-import NextImage from "next/image";
-import { default as NextLink } from "next/link";
 import { getScopedI18n } from "@/locales/server";
+import NextImage from "next/image";
+import NextLink from "next/link";
+import type { FC } from "react";
 
 const Header: FC = async () => {
   const t = await getScopedI18n("Pages.home");

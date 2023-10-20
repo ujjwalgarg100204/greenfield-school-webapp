@@ -1,7 +1,7 @@
 import React from "react";
 import SignOut from "../login/_components/SignOut";
 
-const logout = () => {
+const logout = () : React.JSX.Element => {
   return (
     <div>
       <SignOut />

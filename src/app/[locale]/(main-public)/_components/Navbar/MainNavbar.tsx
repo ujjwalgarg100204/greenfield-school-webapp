@@ -6,14 +6,14 @@ import {
   NavbarItem,
 } from "@lib/next-ui";
 
-import type { FC } from "react";
 import GreenfieldLogo from "@/../public/images/logo.png";
-import Image from "next/image";
-import LanguageSwitcher from "@components/ui/LanguageSwither";
-import NextLink from "next/link";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getScopedI18n } from "@/locales/server";
+import LanguageSwitcher from "@components/ui/LanguageSwither";
 import { getServerSession } from "next-auth";
+import Image from "next/image";
+import NextLink from "next/link";
+import type { FC } from "react";
 
 const MainNavbar: FC = async () => {
   const t = await getScopedI18n("Root.main-navbar");
@@ -64,7 +64,7 @@ const MainNavbar: FC = async () => {
           </Button>
         </NavbarItem>
         <NavbarItem>
-          {session && session.user?.email ? (
+          {session?.user?.email ? (
             <>
               <Button
                 as={NextLink}

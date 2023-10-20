@@ -3,12 +3,16 @@
 import { signOut } from "next-auth/react";
 import { useEffect } from "react";
 
-const SignOut = () => {
+const SignOut = (): null => {
   useEffect(() => {
-    signOut({
-      callbackUrl: "/",
-      redirect: true,
-    });
+    const signOutChecking = async (): Promise<undefined> => {
+      await signOut({
+        callbackUrl: "/",
+        redirect: true,
+      });
+    };
+
+    void signOutChecking();
   }, []);
 
   return null;
