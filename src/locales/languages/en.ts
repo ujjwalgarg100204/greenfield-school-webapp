@@ -31,10 +31,10 @@ export default {
             role: {
               label: "I am a/an",
               roles: {
-                student: "Student",
-                teacher: "Teacher",
-                parent: "Parent",
-                admin: "Admin",
+                STUDENT: "Student",
+                TEACHER: "Teacher",
+                PARENT: "Parent",
+                ADMIN: "Admin",
               },
               error: {
                 "no-input": "Please select one of the option above",
@@ -526,6 +526,7 @@ export default {
     "main-navbar": {
       "admission-portal": "Admission Portal",
       login: "Login",
+      dashboard: "Dashboard",
     },
   },
 } as const;

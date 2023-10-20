@@ -7,6 +7,7 @@ import {
 } from "@lib/next-ui";
 
 import GreenfieldLogo from "@/../public/images/logo.png";
+import { auth } from "@/app/api/auth/[...nextauth]/route";
 import { getScopedI18n } from "@/locales/server";
 import LanguageSwitcher from "@components/ui/LanguageSwither";
 import Image from "next/image";
@@ -15,6 +16,7 @@ import type { FC } from "react";
 
 const MainNavbar: FC = async () => {
   const t = await getScopedI18n("Root.main-navbar");
+  const session = await auth();
 
   return (
     <Navbar position="static" maxWidth="full">
@@ -60,28 +62,57 @@ const MainNavbar: FC = async () => {
           </Button>
         </NavbarItem>
         <NavbarItem>
-          <Button
-            as={NextLink}
-            href="/login"
-            color="primary"
-            variant="solid"
-            className="font-semibold text-white sm:hidden"
-            radius="sm"
-            size="sm"
-          >
-            {t("login")}
-          </Button>
+          {session === null ? (
+            <>
+              <Button
+                as={NextLink}
+                href="/login"
+                color="primary"
+                variant="solid"
+                className="font-semibold text-white sm:hidden"
+                radius="sm"
+                size="sm"
+              >
+                {t("login")}
+              </Button>
 
-          <Button
-            as={NextLink}
-            href="/login"
-            color="primary"
-            variant="solid"
-            className="hidden font-semibold text-white sm:flex"
-            radius="sm"
-          >
-            {t("login")}
-          </Button>
+              <Button
+                as={NextLink}
+                href="/login"
+                color="primary"
+                variant="solid"
+                className="hidden font-semibold text-white sm:flex"
+                radius="sm"
+              >
+                {t("login")}
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button
+                as={NextLink}
+                href="/dashboard"
+                color="primary"
+                variant="solid"
+                className="font-semibold text-white sm:hidden"
+                radius="sm"
+                size="sm"
+              >
+                {t("dashboard")}
+              </Button>
+
+              <Button
+                as={NextLink}
+                href="/dashboard"
+                color="primary"
+                variant="solid"
+                className="hidden font-semibold text-white sm:flex"
+                radius="sm"
+              >
+                {t("dashboard")}
+              </Button>
+            </>
+          )}
         </NavbarItem>
       </NavbarContent>
     </Navbar>

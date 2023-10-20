@@ -13,6 +13,9 @@ const envSchema = z.object({
   NODE_ENV: z
     .enum(["development", "production", "test"])
     .default("development"),
+  // next-auth
+  NEXTAUTH_URL: z.string().url(),
+  NEXTAUTH_SECRET: z.string().min(1),
 
   // client env variables, needs to be appended with NEXT_PUBLIC
   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: z.string().min(1),

@@ -1,25 +1,20 @@
 "use client";
 
+import { UserCreateInputSchema, UserRolesSchema } from "@/types/zod/index";
 import { Button, Input, Link, RadioGroup } from "@lib/next-ui";
 import { Controller, useForm } from "react-hook-form";
 
-import CustomRadio from "./_components/CustomRadio";
-import type { FC } from "react";
-import NextLink from "next/link";
-import SectionHeading from "@components/ui/SectionHeading";
-import type { SubmitHandler } from "react-hook-form";
-import type Translation from "@/locales/languages/en";
 import { useScopedI18n } from "@/locales/client";
-import { z } from "zod";
+import type Translation from "@/locales/languages/en";
+import SectionHeading from "@components/ui/SectionHeading";
 import { zodResolver } from "@hookform/resolvers/zod";
-
-const LoginPageSchema = z.object({
-  role: z.enum(["student", "teacher", "parent", "admin"]),
-  userId: z.string().min(6, "short-input").max(16, "long-input"),
-  password: z.string().min(6, "short-input").max(16, "long-input"),
-});
-
-type TLoginPageSchema = z.infer<typeof LoginPageSchema>;
+import { signIn } from "next-auth/react";
+import NextLink from "next/link";
+import { useRouter } from "next/navigation";
+import type { FC } from "react";
+import type { SubmitHandler } from "react-hook-form";
+import type { z } from "zod";
+import CustomRadio from "./_components/CustomRadio";
 
 type UserIdErrorType =
   keyof (typeof Translation)["login"]["sub-links"]["index"]["content"]["inputs"]["user-id"]["error"];
@@ -33,10 +28,21 @@ const LoginPage: FC = () => {
     control,
     formState: { errors },
     handleSubmit,
-  } = useForm<TLoginPageSchema>({ resolver: zodResolver(LoginPageSchema) });
+  } = useForm<z.infer<typeof UserCreateInputSchema>>({
+    resolver: zodResolver(UserCreateInputSchema),
+  });
+  const router = useRouter();
 
-  const onSubmit: SubmitHandler<TLoginPageSchema> = data => {
-    console.log("data", JSON.stringify(data, null, 2));
+  const onSubmit: SubmitHandler<
+    z.infer<typeof UserCreateInputSchema>
+  > = async data => {
+    const res = await signIn("credentials", {
+      ...data,
+      redirect: false,
+    });
+
+    if (res?.ok) router.push("/dashboard");
+    else alert(res?.error);
   };
 
   return (
@@ -66,7 +72,7 @@ const LoginPage: FC = () => {
                     : ""
                 }
               >
-                {Object.values(LoginPageSchema.shape.role.Values).map(role => (
+                {Object.values(UserRolesSchema.Values).map(role => (
                   <CustomRadio key={role} value={role}>
                     {t(`content.inputs.role.roles.${role}`)}
                   </CustomRadio>
@@ -91,17 +97,17 @@ const LoginPage: FC = () => {
                 variant="bordered"
                 labelPlacement="outside"
                 placeholder={t("content.inputs.user-id.placeholder")}
-                isInvalid={errors.userId !== undefined}
+                isInvalid={errors.username !== undefined}
                 errorMessage={
-                  errors.userId?.message !== undefined
+                  errors.username?.message !== undefined
                     ? t(
                         `content.inputs.user-id.error.${
-                          errors.userId.message as UserIdErrorType
+                          errors.username.message as UserIdErrorType
                         }`,
                       )
                     : ""
                 }
-                {...register("userId")}
+                {...register("username")}
               />
               <Input
                 radius="sm"
