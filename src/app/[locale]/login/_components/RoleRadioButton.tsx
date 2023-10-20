@@ -4,7 +4,7 @@ import { Radio } from "@lib/next-ui";
 import type { RadioProps } from "@nextui-org/react";
 import type { FC } from "react";
 
-const CustomRadio: FC<RadioProps> = ({ children, ...props }) => {
+const RoleRadioButton: FC<RadioProps> = ({ children, ...props }) => {
   return (
     <Radio
       classNames={{
@@ -21,4 +21,4 @@ const CustomRadio: FC<RadioProps> = ({ children, ...props }) => {
   );
 };
 
-export default CustomRadio;
+export default RoleRadioButton;

@@ -10,7 +10,7 @@ import { TRPCClientError } from "@trpc/client";
 import type { FC } from "react";
 import type { SubmitHandler } from "react-hook-form";
 import { z } from "zod";
-import CustomRadio from "../_components/CustomRadio";
+import RoleRadioButton from "../_components/RoleRadioButton";
 
 const RegisterPage: FC = () => {
   const { register, control, handleSubmit, reset } = useForm<
@@ -50,9 +50,9 @@ const RegisterPage: FC = () => {
             errorMessage={fieldState.error?.message}
           >
             {Object.values(UserRolesSchema.Values).map(role => (
-              <CustomRadio key={role} value={role}>
+              <RoleRadioButton key={role} value={role}>
                 {role}
-              </CustomRadio>
+              </RoleRadioButton>
             ))}
           </RadioGroup>
         )}
