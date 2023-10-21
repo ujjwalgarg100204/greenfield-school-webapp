@@ -1,9 +1,8 @@
-import React, { FC } from "react";
-
-import ArticlePage from "../../_components/ArticlePage";
-import { NextPageProps } from "@/types";
 import SectionHeading from "@/components/ui/SectionHeading";
+import { type NextPageProps } from "@/types";
 import { setStaticParamsLocale } from "next-international/server";
+import type { FC } from "react";
+import ArticlePage from "../../_components/ArticlePage";
 
 const SchoolTransferCertificate: FC<NextPageProps> = ({
   params: { locale },
@@ -14,14 +13,10 @@ const SchoolTransferCertificate: FC<NextPageProps> = ({
       linkType="student"
       selected={{ translationKey: "certificate" }}
     >
-      <SectionHeading>Child's Trancfer certificate</SectionHeading>
+      <SectionHeading>Students Trancfer certificate</SectionHeading>
       <ul className="list-disc space-y-6">
-        <li className="text-justified">
-          Transfer Certificat className="list-disc space-y-6"e
-        </li>
-        <li className="text-justified">
-          Transfer Certificat className="list-disc space-y-6"e
-        </li>
+        <li className="text-justified">Transfer Certificat</li>
+        <li className="text-justified">Transfer Certificat</li>
         <li className="text-justified">Transfer Certificate</li>
       </ul>
     </ArticlePage>

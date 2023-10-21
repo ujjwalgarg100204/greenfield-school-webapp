@@ -1,8 +1,8 @@
-import ArticlePage from "../../_components/ArticlePage";
-import { FC } from "react";
-import { NextPageProps } from "@/types";
 import SectionHeading from "@/components/ui/SectionHeading";
+import type { NextPageProps } from "@/types";
 import { setStaticParamsLocale } from "next-international/server";
+import type { FC } from "react";
+import ArticlePage from "../../_components/ArticlePage";
 
 const SpecialRules: FC<NextPageProps> = ({ params: { locale } }) => {
   setStaticParamsLocale(locale);

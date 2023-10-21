@@ -1,9 +1,8 @@
-import React, { FC } from "react";
-
-import ArticlePage from "../../_components/ArticlePage";
-import { NextPageProps } from "@/types";
 import SectionHeading from "@/components/ui/SectionHeading";
+import type { NextPageProps } from "@/types";
 import { setStaticParamsLocale } from "next-international/server";
+import type { FC } from "react";
+import ArticlePage from "../../_components/ArticlePage";
 
 const SchoolPrayer: FC<NextPageProps> = ({ params: { locale } }) => {
   setStaticParamsLocale(locale);
