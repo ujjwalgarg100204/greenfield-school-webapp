@@ -10,7 +10,7 @@ const TrpisAndExcursion: FC<NextPageProps> = ({ params: { locale } }) => {
   setStaticParamsLocale(locale);
   return (
     <ArticlePage linkType="student" selected={{ translationKey: "trips" }}>
-      <SectionHeading>Child's Trancfer certificate</SectionHeading>
+      <SectionHeading>Trips and excursion</SectionHeading>
       <ul className="list-disc space-y-6">
         <li className=" text-justify">Add some text here</li>
         <li className=" text-justify">Add some text here</li>
