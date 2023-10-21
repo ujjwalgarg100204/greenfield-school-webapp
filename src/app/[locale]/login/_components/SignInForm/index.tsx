@@ -32,7 +32,10 @@ const SignInForm: FC = () => {
     });
 
     if (res?.ok) router.replace("/dashboard");
-    else toast.error("Oops, something went wrong!, Can you try again?");
+    else
+      toast.error(
+        "Oops, your credentials might not be right!, Can you try again?",
+      );
   };
 
   return (
