@@ -2,8 +2,11 @@ import ArticlePage from "../../_components/ArticlePage";
 import { FC } from "react";
 import { NextPageProps } from "@/types";
 import SectionHeading from "@/components/ui/SectionHeading";
+import local from "next/font/local";
+import { setStaticParamsLocale } from "next-international/server";
 
 const SchoolTiming: FC<NextPageProps> = ({ params: { locale } }) => {
+  setStaticParamsLocale(locale);
   return (
     <ArticlePage linkType="student" selected={{ translationKey: "timings" }}>
       <SectionHeading>School Timings</SectionHeading>
