@@ -10,7 +10,7 @@ const PositiveBehavior: FC<NextPageProps> = ({ params: { locale } }) => {
   return (
     <ArticlePage
       linkType="student"
-      selected={{ translationKey: "certificate" }}
+      selected={{ translationKey: "+ve-behavior-manage" }}
     >
       <SectionHeading>Positive Behavior Management</SectionHeading>
       <ul className="list-disc space-y-6">
