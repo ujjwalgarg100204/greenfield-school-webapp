@@ -34,12 +34,12 @@ export const NAV_LINKS = {
     { translationKey: "admission-portal", link: "/admission/portal" },
   ],
   academic: [
-    { translationKey: "result", link: "/result-analysis" },
-    { translationKey: "syllabus", link: "/syllabus" },
-    { translationKey: "book-list", link: "/book-list" },
-    { translationKey: "holiday", link: "/holiday-list" },
-    { translationKey: "block-holidays", link: "/block-holidays" },
-    { translationKey: "fees", link: "/fees-structure" },
+    { translationKey: "result", link: "/academics/result-analysis" },
+    { translationKey: "syllabus", link: "/academics/syllabus" },
+    { translationKey: "book-list", link: "/academics/book-list" },
+    { translationKey: "holiday", link: "/academics/holiday-list" },
+    { translationKey: "block-holidays", link: "/academics/block-holidays" },
+    { translationKey: "fees", link: "/academics/fees-structure" },
   ],
   student: [
     { translationKey: "portal", link: "/dashboard" },
