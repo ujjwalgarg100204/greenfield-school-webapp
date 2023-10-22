@@ -1,13 +1,12 @@
-import ArticlePage from "../../_components/ArticlePage";
-import type { FC } from "react";
-import type { NextPageProps } from "@/types";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { getScopedI18n } from "@/locales/server";
+import type { NextPageProps } from "@/types";
 import { setStaticParamsLocale } from "next-international/server";
+import type { FC } from "react";
+import ArticlePage from "../../_components/ArticlePage";
 
-const StudentCounsil: FC<NextPageProps> = async ({ params: { locale } }) => {
+const StudentCounsil: FC<NextPageProps> = ({ params: { locale } }) => {
   setStaticParamsLocale(locale);
-  const t = await getScopedI18n("Pages.student.sub-links.c-rules");
+  // const t = await getScopedI18n("Pages.student.sub-links.c-rules");
   return (
     <ArticlePage linkType="student" selected={{ translationKey: "council" }}>
       <SectionHeading>Student Counsil</SectionHeading>
