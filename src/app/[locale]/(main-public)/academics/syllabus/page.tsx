@@ -8,8 +8,8 @@ const CanteenRules: FC<NextPageProps> = ({ params: { locale } }) => {
   setStaticParamsLocale(locale);
   // const t = await getScopedI18n("Pages.student.sub-links.c-rules");
   return (
-    <ArticlePage linkType="parent" selected={{ translationKey: "fee" }}>
-      <SectionHeading>Online fees Portal</SectionHeading>
+    <ArticlePage linkType="academic" selected={{ translationKey: "syllabus" }}>
+      <SectionHeading>Class vise Syllabus</SectionHeading>
       <ul className="list-disc space-y-6">
         <li className="text-justify">Add text</li>
         <li className="text-justify">Add text</li>
