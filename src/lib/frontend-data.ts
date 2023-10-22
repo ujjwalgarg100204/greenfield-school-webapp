@@ -42,7 +42,7 @@ export const NAV_LINKS = {
     { translationKey: "fees", link: "/fees-structure" },
   ],
   student: [
-    { translationKey: "portal", link: "/student/students-portal" },
+    { translationKey: "portal", link: "/dashboard" },
     { translationKey: "council", link: "/student/student-council" },
     { translationKey: "activities", link: "/student/co-curricular-activities" },
     { translationKey: "timings", link: "/student/school-timings" },

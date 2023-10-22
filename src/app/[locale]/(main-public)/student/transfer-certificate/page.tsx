@@ -3,11 +3,13 @@ import { type NextPageProps } from "@/types";
 import { setStaticParamsLocale } from "next-international/server";
 import type { FC } from "react";
 import ArticlePage from "../../_components/ArticlePage";
+import { getScopedI18n } from "@/locales/server";
 
-const SchoolTransferCertificate: FC<NextPageProps> = ({
+const SchoolTransferCertificate: FC<NextPageProps> =async ({
   params: { locale },
 }) => {
   setStaticParamsLocale(locale);
+  const t = await getScopedI18n("Pages.student.sub-links.c-rules");
   return (
     <ArticlePage
       linkType="student"
