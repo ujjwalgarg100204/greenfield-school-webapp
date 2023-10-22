@@ -1,7 +1,7 @@
 import { auth } from "@/app/api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
 
-const ParentDashboard = async () => {
+const ParentDashboard = async (): Promise<JSX.Element> => {
   const session = await auth();
   if (session === null || session?.user.role !== "PARENT") redirect("/login");
 
