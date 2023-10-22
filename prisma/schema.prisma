@@ -17,10 +17,10 @@ datasource db {
 }
 
 enum UserRoles {
-  STUDENT
-  TEACHER
-  PARENT
-  ADMIN
+  student
+  teacher
+  parent
+  admin
 }
 
 model User {

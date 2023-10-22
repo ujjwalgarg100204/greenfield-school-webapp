@@ -16,7 +16,7 @@ export const UserScalarFieldEnumSchema = z.enum(['id','role','username','passwor
 
 export const SortOrderSchema = z.enum(['asc','desc']);
 
-export const UserRolesSchema = z.enum(['STUDENT','TEACHER','PARENT','ADMIN']);
+export const UserRolesSchema = z.enum(['student','teacher','parent','admin']);
 
 export type UserRolesType = `${z.infer<typeof UserRolesSchema>}`
 
