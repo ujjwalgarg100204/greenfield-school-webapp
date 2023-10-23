@@ -9,9 +9,9 @@ import {
 } from "@lib/next-ui";
 import { signOut, useSession } from "next-auth/react";
 
-import type { FC } from "react";
 import NextLink from "next/link";
 import { useRouter } from "next/navigation";
+import type { FC } from "react";
 
 const AccountMenu: FC = () => {
   const router = useRouter();
@@ -38,7 +38,11 @@ const AccountMenu: FC = () => {
           <p className="font-semibold">Signed in as</p>
           <p className="font-semibold">{data?.user.username}</p>
         </DropdownItem>
-        <DropdownItem key="settings" as={NextLink} href="/dashboard">
+        <DropdownItem
+          key="settings"
+          as={NextLink}
+          href={`/dashboard/${data?.user.role}`}
+        >
           Dashboard
         </DropdownItem>
         <DropdownItem key="team_settings">My Settings</DropdownItem>
