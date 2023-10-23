@@ -31,10 +31,10 @@ export default {
             role: {
               label: "I am a/an",
               roles: {
-                STUDENT: "Student",
-                TEACHER: "Teacher",
-                PARENT: "Parent",
-                ADMIN: "Admin",
+                student: "Student",
+                teacher: "Teacher",
+                parent: "Parent",
+                admin: "Admin",
               },
               error: {
                 "no-input": "Please select one of the option above",

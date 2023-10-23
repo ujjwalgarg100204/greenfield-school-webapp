@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 
 const ParentDashboard = async (): Promise<JSX.Element> => {
   const session = await auth();
-  if (session === null || session?.user.role !== "PARENT") redirect("/login");
+  if (session === null || session?.user.role !== "parent") redirect("/login");
 
   return (
     <div className="flex min-h-screen items-center justify-center">
