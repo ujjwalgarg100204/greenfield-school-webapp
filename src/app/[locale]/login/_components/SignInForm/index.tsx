@@ -31,7 +31,7 @@ const SignInForm: FC = () => {
       redirect: false,
     });
 
-    if (res?.ok) router.replace(`/dashboard/${data.role}-dashboard`);
+    if (res?.ok) router.replace(`/dashboard/${data.role}`);
     else
       toast.error(
         "Oops, your credentials might not be right!, Can you try again?",

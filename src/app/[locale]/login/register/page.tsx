@@ -10,7 +10,7 @@ import { TRPCClientError } from "@trpc/client";
 import type { FC } from "react";
 import type { SubmitHandler } from "react-hook-form";
 import type { z } from "zod";
-import RoleRadioButton from "../_components/RoleRadioButton";
+import RoleRadioButton from "../_components/SignInForm/RoleRadioButton";
 
 const RegisterPage: FC = () => {
   const { register, control, handleSubmit, reset } = useForm<

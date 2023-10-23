@@ -8,7 +8,7 @@ import { useScopedI18n } from "@locales/client";
 import { RadioGroup } from "@nextui-org/react";
 import type { FC } from "react";
 import type { z } from "zod";
-import RoleRadioButton from "../RoleRadioButton";
+import RoleRadioButton from "./RoleRadioButton";
 
 const RoleRadioGroups: FC = () => {
   const t = useScopedI18n("login.sub-links.index");
