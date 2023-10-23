@@ -1,17 +1,17 @@
-import SectionHeading from "@/components/ui/SectionHeading";
-import { getScopedI18n } from "@/locales/server";
-import type { NextPageProps } from "@/types";
-import { setStaticParamsLocale } from "next-international/server";
-import type { FC } from "react";
+import ArticleHeading from "@components/ArticleHeading";
 import ArticlePage from "../../_components/ArticlePage";
+import type { FC } from "react";
+import type { NextPageProps } from "@/src/types";
+import { getScopedI18n } from "@locales/server";
+import { setStaticParamsLocale } from "next-international/server";
 
-const LibraryRules: FC<NextPageProps> = async ({ params: { locale } }) => {
+const LibraryRulesPage: FC<NextPageProps> = async ({ params: { locale } }) => {
   setStaticParamsLocale(locale);
   const t = await getScopedI18n("Pages.student.sub-links.l-rules");
 
   return (
     <ArticlePage linkType="student" selected={{ translationKey: "l-rules" }}>
-      <SectionHeading> {t("title")} </SectionHeading>
+      <ArticleHeading> {t("title")} </ArticleHeading>
       <ul className="list-disc space-y-6">
         <li className="text-justify">{t("content.para-1")}</li>
         <li className="text-justify">{t("content.para-2")}</li>
@@ -26,4 +26,4 @@ const LibraryRules: FC<NextPageProps> = async ({ params: { locale } }) => {
   );
 };
 
-export default LibraryRules;
+export default LibraryRulesPage;

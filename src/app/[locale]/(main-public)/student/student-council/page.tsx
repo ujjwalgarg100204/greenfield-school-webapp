@@ -1,15 +1,15 @@
-import SectionHeading from "@/components/ui/SectionHeading";
-import type { NextPageProps } from "@/types";
+import type { NextPageProps } from "@/src/types";
+import ArticleHeading from "@components/ArticleHeading";
 import { setStaticParamsLocale } from "next-international/server";
 import type { FC } from "react";
 import ArticlePage from "../../_components/ArticlePage";
 
-const StudentCounsil: FC<NextPageProps> = ({ params: { locale } }) => {
+const StudentCouncilPage: FC<NextPageProps> = ({ params: { locale } }) => {
   setStaticParamsLocale(locale);
-  // const t = await getScopedI18n("Pages.student.sub-links.c-rules");
+
   return (
     <ArticlePage linkType="student" selected={{ translationKey: "council" }}>
-      <SectionHeading>Student Counsil</SectionHeading>
+      <ArticleHeading>Student Council</ArticleHeading>
       <ul className=" list-disc space-y-6">
         <li className=" text-justify"></li>
         <li className=" text-justify"></li>
@@ -19,4 +19,4 @@ const StudentCounsil: FC<NextPageProps> = ({ params: { locale } }) => {
   );
 };
 
-export default StudentCounsil;
+export default StudentCouncilPage;

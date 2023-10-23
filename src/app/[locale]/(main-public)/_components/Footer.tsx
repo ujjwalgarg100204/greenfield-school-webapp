@@ -5,7 +5,7 @@ import { MdOutlineLocationOn } from "react-icons/md";
 
 const Footer: FC = () => {
   return (
-    <footer className="grid grid-cols-2 justify-items-center gap-y-8 rounded-t-md bg-primary px-4 py-8 text-sm text-foreground-100 sm:grid-cols-3 md:grid-cols-5 md:px-5 lg:grid-cols-6 lg:px-6 xl:px-7">
+    <footer className="bg-primary text-foreground-100 grid grid-cols-2 justify-items-center gap-y-8 rounded-t-md px-4 py-8 text-sm sm:grid-cols-3 md:grid-cols-5 md:px-5 lg:grid-cols-6 lg:px-6 xl:px-7">
       <section className="col-span-3 max-w-md space-y-4 text-center md:col-span-2 md:justify-self-start md:text-left lg:col-span-3">
         <p className="text-base font-bold">
           Greenfield Public School, Tamil Nadu

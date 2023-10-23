@@ -1,4 +1,4 @@
-import type { NextPageProps } from "@/types";
+import type { NextPageProps } from "@/src/types";
 import { setStaticParamsLocale } from "next-international/server";
 import type { FC } from "react";
 import AboutUs from "./_components/LandingPage/AboutUs";
@@ -8,7 +8,7 @@ import KeyCharacteristics from "./_components/LandingPage/KeyCharacteristics";
 import PhotoGallery from "./_components/LandingPage/PhotoGallery";
 import PremiumFacilities from "./_components/LandingPage/PremiumFacilities";
 
-const IndexPage: FC<NextPageProps> = ({ params: { locale } }) => {
+const LandingPage: FC<NextPageProps> = ({ params: { locale } }) => {
   setStaticParamsLocale(locale);
 
   return (
@@ -27,4 +27,4 @@ const IndexPage: FC<NextPageProps> = ({ params: { locale } }) => {
   );
 };
 
-export default IndexPage;
+export default LandingPage;

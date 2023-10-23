@@ -7,13 +7,13 @@ import {
   DropdownMenu,
   DropdownTrigger,
 } from "@lib/next-ui";
-import { useChangeLocale, useCurrentLocale } from "@/locales/client";
+import { useChangeLocale, useCurrentLocale } from "@locales/client";
 
+import type { Locale } from "@/src/locales";
+import useResponsiveScreen from "@hooks/useResponsiveScreen";
 import type { FC } from "react";
-import type { Locale } from "@/locales";
-import Lottie from "./Lottie";
-import useResponsiveScreen from "@/hooks/useResponsiveScreen";
 import { useTransition } from "react";
+import Lottie from "./Lottie";
 
 const locales = [
   { localeCode: "en", localeName: "English" },

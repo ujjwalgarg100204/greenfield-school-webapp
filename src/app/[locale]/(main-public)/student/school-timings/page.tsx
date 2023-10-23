@@ -1,15 +1,15 @@
-import ArticlePage from "../../_components/ArticlePage";
-import type { FC } from "react";
-import type { NextPageProps } from "@/types";
-import SectionHeading from "@/components/ui/SectionHeading";
+import type { NextPageProps } from "@/src/types";
+import ArticleHeading from "@components/ArticleHeading";
 import { setStaticParamsLocale } from "next-international/server";
+import type { FC } from "react";
+import ArticlePage from "../../_components/ArticlePage";
 
-const SchoolTiming: FC<NextPageProps> = ({ params: { locale } }) => {
+const SchoolTimingsPage: FC<NextPageProps> = ({ params: { locale } }) => {
   setStaticParamsLocale(locale);
-  // const t = await getScopedI18n("Pages.student.sub-links.c-rules");
+
   return (
     <ArticlePage linkType="student" selected={{ translationKey: "timings" }}>
-      <SectionHeading>School Timings</SectionHeading>
+      <ArticleHeading>School Timings</ArticleHeading>
       <ul className=" list-disc space-y-6">
         <li className=" text-justify">8 to 2</li>
         <li className=" text-justify">8 to 2</li>
@@ -19,4 +19,4 @@ const SchoolTiming: FC<NextPageProps> = ({ params: { locale } }) => {
   );
 };
 
-export default SchoolTiming;
+export default SchoolTimingsPage;

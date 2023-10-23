@@ -1,8 +1,0 @@
-{
-  "tabWidth": 2,
-  "arrowParens": "avoid",
-  "endOfLine": "lf",
-  "useTabs": false,
-  "singleQuote": false,
-  "plugins": ["prettier-plugin-tailwindcss"]
-}

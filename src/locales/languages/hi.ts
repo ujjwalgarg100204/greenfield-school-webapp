@@ -32,10 +32,10 @@ export default {
             role: {
               label: "मैं एक/एक हूँ",
               roles: {
-                STUDENT: "विद्यार्थी",
-                TEACHER: "अध्यापक",
-                PARENT: "माता-पिता",
-                ADMIN: "व्यवस्थापक",
+                student: "विद्यार्थी",
+                teacher: "अध्यापक",
+                parent: "माता-पिता",
+                admin: "व्यवस्थापक",
               },
               error: {
                 "no-input": "कृपया ऊपर दिए गए विकल्प में से एक का चयन करें",

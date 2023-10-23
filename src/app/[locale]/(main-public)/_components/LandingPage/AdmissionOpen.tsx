@@ -1,6 +1,6 @@
-import AdmissionBannerImage from "@/../public/images/landing-page-admission-banner.png";
-import { getScopedI18n } from "@/locales/server";
+import AdmissionBannerImage from "@/public/images/landing-page-admission-banner.png";
 import { Button } from "@lib/next-ui";
+import { getScopedI18n } from "@locales/server";
 import NextImage from "next/image";
 import NextLink from "next/link";
 import type { FC } from "react";
@@ -10,15 +10,15 @@ const AdmissionOpen: FC = async () => {
   const currYear = new Date().getFullYear();
 
   return (
-    <section className="grid grid-cols-1 gap-6 rounded-xl bg-primary-400 p-8 text-slate-50 sm:grid-flow-row sm:grid-cols-2 md:p-10 lg:grid-flow-col lg:grid-cols-3 lg:items-center lg:gap-x-16">
+    <section className="bg-primary-400 grid grid-cols-1 gap-6 rounded-xl p-8 text-slate-50 sm:grid-flow-row sm:grid-cols-2 md:p-10 lg:grid-flow-col lg:grid-cols-3 lg:items-center lg:gap-x-16">
       <h3 className="order-1 text-3xl font-bold lg:self-end lg:text-4xl">
         {t("heading", { currYear, nextYear: currYear + 1 })}
       </h3>
       <Button
-        as={NextLink}
         href="#"
-        color="secondary"
+        as={NextLink}
         variant="shadow"
+        color="secondary"
         className="order-3 font-bold text-amber-950 lg:order-2"
       >
         {t("button-text")}

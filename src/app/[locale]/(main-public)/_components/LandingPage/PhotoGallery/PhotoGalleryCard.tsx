@@ -1,7 +1,7 @@
-import { Card, CardHeader, Image } from "@/lib/next-ui";
+import { Card, CardHeader, Image } from "@lib/next-ui";
 
-import type Translation from "@/locales/languages/en";
-import { getScopedI18n } from "@/locales/server";
+import type Translation from "@locales/languages/en";
+import { getScopedI18n } from "@locales/server";
 import NextImage from "next/image";
 import type { FC } from "react";
 
@@ -21,7 +21,7 @@ const PhotoGalleryCard: FC<Props> = async ({ translationKey, image }) => {
   return (
     <Card key={translationKey} className="group h-[300px] w-full">
       <CardHeader className="absolute top-1/2 z-10 w-full -translate-y-1/2 flex-col items-start text-center">
-        <p className="w-full text-center text-tiny font-bold uppercase text-white/60">
+        <p className="text-tiny w-full text-center font-bold uppercase text-white/60">
           {t(`${translationKey}.heading`)}
         </p>
         <h4 className="w-full text-center text-lg font-bold text-slate-50 lg:font-medium">

@@ -6,18 +6,18 @@ import {
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
-} from "@/lib/next-ui";
+} from "@lib/next-ui";
 import { signOut, useSession } from "next-auth/react";
 
+import type { FC } from "react";
 import NextLink from "next/link";
 import { useRouter } from "next/navigation";
-import type { FC } from "react";
 
 const AccountMenu: FC = () => {
-  const { status, data } = useSession();
   const router = useRouter();
+  const { status, data } = useSession();
 
-  const signOutHandler = async (): Promise<void> => {
+  const signOutHandler = async () => {
     await signOut({ redirect: false });
     router.push("/");
   };
@@ -28,8 +28,9 @@ const AccountMenu: FC = () => {
         <Avatar
           isBordered
           as="button"
-          className="transition-transform"
+          color="primary"
           name={data?.user.username}
+          className="transition-transform"
         />
       </DropdownTrigger>
       <DropdownMenu aria-label="Profile Actions" variant="flat">
@@ -48,8 +49,8 @@ const AccountMenu: FC = () => {
         <DropdownItem
           key="logout"
           color="danger"
-          onClick={signOutHandler}
           className="text-danger"
+          onClick={signOutHandler}
           description="Log out of your account"
         >
           Log Out

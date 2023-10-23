@@ -1,4 +1,4 @@
-import { getScopedI18n } from "@/locales/server";
+import { getScopedI18n } from "@locales/server";
 import type { FC } from "react";
 import PremiumFacilitiesCarousel from "./PremiumFacilitiesCarousel";
 

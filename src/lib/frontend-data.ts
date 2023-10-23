@@ -42,7 +42,7 @@ export const NAV_LINKS = {
     { translationKey: "fees", link: "/academics/fees-structure" },
   ],
   student: [
-    { translationKey: "portal", link: "/dashboard/student-dashboard" },
+    { translationKey: "portal", link: "/dashboard/student" },
     { translationKey: "council", link: "/student/student-council" },
     { translationKey: "activities", link: "/student/co-curricular-activities" },
     { translationKey: "timings", link: "/student/school-timings" },
@@ -74,6 +74,6 @@ export const NAV_LINKS = {
     { translationKey: "infirmary", link: "/parent/school-infirmary" },
     { translationKey: "report", link: "/parent/progress-report" },
     { translationKey: "fee", link: "/parent/pay-fee-online" },
-    { translationKey: "login", link: "/dashboard/parent-dashboard" },
+    { translationKey: "login", link: "/dashboard/parent" },
   ],
 } as const;

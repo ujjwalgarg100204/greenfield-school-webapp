@@ -1,10 +1,10 @@
+import type { FC, ReactNode } from "react";
+
 import LoginPageSideImage from "@/../public/images/login-page-side-img.jpg";
 import NextImage from "next/image";
-import type { FC } from "react";
-import React from "react";
 import Header from "./_components/Header";
 
-type Props = { children: React.ReactNode };
+type Props = { children: ReactNode };
 
 const LoginLayout: FC<Props> = ({ children }) => {
   return (

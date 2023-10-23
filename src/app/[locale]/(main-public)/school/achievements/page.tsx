@@ -1,4 +1,4 @@
-import SectionHeading from "@/components/ui/SectionHeading";
+import ArticleHeading from "@components/ArticleHeading";
 import type { FC } from "react";
 import ArticlePage from "../../_components/ArticlePage";
 import AchievementsAccordion from "./_components/AchievementsAccordion";
@@ -9,7 +9,7 @@ const AchievementsPage: FC = () => {
       linkType="school"
       selected={{ translationKey: "achievements" }}
     >
-      <SectionHeading>Our Achievements</SectionHeading>
+      <ArticleHeading>Our Achievements</ArticleHeading>
       <p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim magnam
         hic eveniet totam accusantium modi iusto nemo dolor, veniam eos

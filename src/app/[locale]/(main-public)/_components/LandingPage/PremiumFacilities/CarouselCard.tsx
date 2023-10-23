@@ -2,8 +2,8 @@
 
 import { Card, CardBody, CardHeader, Image } from "@lib/next-ui";
 
-import { useScopedI18n } from "@/locales/client";
-import type Translation from "@/locales/languages/en";
+import { useScopedI18n } from "@locales/client";
+import type Translation from "@locales/languages/en";
 import NextImage from "next/image";
 import type { FC } from "react";
 

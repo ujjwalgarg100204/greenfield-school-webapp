@@ -2,7 +2,7 @@ import type { FC, HTMLAttributes } from "react";
 
 import clsx from "clsx";
 
-const SectionHeading: FC<HTMLAttributes<HTMLHeadingElement>> = ({
+const ArticleHeading: FC<HTMLAttributes<HTMLHeadingElement>> = ({
   children,
   className,
   ...props
@@ -20,4 +20,4 @@ const SectionHeading: FC<HTMLAttributes<HTMLHeadingElement>> = ({
   );
 };
 
-export default SectionHeading;
+export default ArticleHeading;

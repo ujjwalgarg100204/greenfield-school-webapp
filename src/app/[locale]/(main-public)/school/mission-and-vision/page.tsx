@@ -1,6 +1,6 @@
-import SectionHeading from "@/components/ui/SectionHeading";
-import { getScopedI18n } from "@/locales/server";
-import type { NextPageProps } from "@/types";
+import type { NextPageProps } from "@/src/types";
+import ArticleHeading from "@components/ArticleHeading";
+import { getScopedI18n } from "@locales/server";
 import { setStaticParamsLocale } from "next-international/server";
 import type { FC } from "react";
 import ArticlePage from "../../_components/ArticlePage";
@@ -13,7 +13,7 @@ const MissionAndVisionPage: FC<NextPageProps> = async ({
 
   return (
     <ArticlePage linkType="school" selected={{ translationKey: "mission" }}>
-      <SectionHeading>{t("title")}</SectionHeading>
+      <ArticleHeading>{t("title")}</ArticleHeading>
       <div className="space-y-4">
         <p className="text-justify">{t("content.para-1")}</p>
         <p className="text-justify">{t("content.para-2")}</p>

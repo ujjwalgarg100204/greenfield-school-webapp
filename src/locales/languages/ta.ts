@@ -35,10 +35,10 @@ export default {
             role: {
               label: "நான் ஒரு/ஒரு",
               roles: {
-                STUDENT: "மாணவர்",
-                TEACHER: "ஆசிரியர்",
-                PARENT: "பெற்றோர்",
-                ADMIN: "நிர்வாகம்",
+                student: "மாணவர்",
+                teacher: "ஆசிரியர்",
+                parent: "பெற்றோர்",
+                admin: "நிர்வாகம்",
               },
               error: {
                 "no-input": "மேலே உள்ள விருப்பத்தில் ஒன்றைத் தேர்ந்தெடுக்கவும்",

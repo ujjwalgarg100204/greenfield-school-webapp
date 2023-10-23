@@ -1,7 +1,7 @@
-import AboutImage from "@/../public/images/landing-page-about-us.png";
-import { NAV_LINKS } from "@/lib/frontend-data";
-import { getScopedI18n } from "@/locales/server";
+import AboutImage from "@/public/images/landing-page-about-us.png";
+import { NAV_LINKS } from "@lib/frontend-data";
 import { Button } from "@lib/next-ui";
+import { getScopedI18n } from "@locales/server";
 import Image from "next/image";
 import Link from "next/link";
 import type { FC } from "react";
@@ -10,10 +10,8 @@ const AboutUs: FC = async () => {
   const t = await getScopedI18n("Pages.home.sub-links.hero.content");
 
   const aboutUsLink = NAV_LINKS.school.find(
-    link => link.translationKey === "about",
-  );
-
-  if (aboutUsLink === undefined) throw new Error("About us link not found");
+    (link) => link.translationKey === "about",
+  )!;
 
   return (
     <section className="gap-20 rounded-lg border border-gray-200 bg-white p-8 shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 md:flex md:max-w-full md:items-center md:p-10">
@@ -29,23 +27,23 @@ const AboutUs: FC = async () => {
         </p>
         <Button
           as={Link}
-          href={aboutUsLink.link}
+          size="lg"
           color="primary"
           variant="shadow"
           className="font-bold"
-          size="lg"
+          href={aboutUsLink.link}
         >
           {t("button-text")}
         </Button>
       </div>
       <Image
-        className="hidden h-72 w-full rounded-lg object-cover lg:block"
-        src={AboutImage}
-        alt="Girl Studying in Greenfield school"
+        priority
+        quality={95}
         width={500}
         height={500}
-        quality={95}
-        priority
+        src={AboutImage}
+        alt="Girl Studying in Greenfield school"
+        className="hidden h-72 w-full rounded-lg object-cover lg:block"
       />
     </section>
   );

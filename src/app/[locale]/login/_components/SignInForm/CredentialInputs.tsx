@@ -1,9 +1,9 @@
 "use client";
 
-import { useScopedI18n } from "@/locales/client";
-import type Translation from "@/locales/languages/en";
-import type { UserCreateInputSchema } from "@/types/zod/index";
+import type { UserCreateInputSchema } from "@/src/types/zod";
 import { Input } from "@lib/next-ui";
+import { useScopedI18n } from "@locales/client";
+import type Translation from "@locales/languages/en";
 import type { FC } from "react";
 import { useFormContext } from "react-hook-form";
 import type { z } from "zod";

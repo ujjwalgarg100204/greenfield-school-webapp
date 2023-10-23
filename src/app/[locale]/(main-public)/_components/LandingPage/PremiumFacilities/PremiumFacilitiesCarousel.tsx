@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import useResponsiveScreen, {
+  type ScreenSize,
+} from "@hooks/useResponsiveScreen";
+import { useState } from "react";
 
-import Carousel from "@/components/ui/Carousel";
-import useResponsiveScreen from "@/hooks/useResponsiveScreen";
+import Carousel from "@ui/Carousel";
 import type { FC } from "react";
 import CarouselCard from "./CarouselCard";
 import CarouselNextBtn from "./CarouselNextBtn";
@@ -61,71 +63,66 @@ const premiumFacilitiesCards = [
   },
 ] as const;
 
+const getCarouselPercentage = (screenSize: ScreenSize) => {
+  switch (screenSize) {
+    case "sm":
+      return 100;
+    case "md":
+      return 70;
+    case "lg":
+      return 50;
+    default:
+      return 30;
+  }
+};
+
 const PremiumFacilitiesCarousel: FC = () => {
   const screenSize = useResponsiveScreen();
-  const [centerSlidePercentage, setCenterSlidePercentage] = useState(100);
   const [currSlideIndex, setCurrSlideIndex] = useState(0);
+  const centerSlidePercentage = getCarouselPercentage(screenSize);
 
-  useEffect((): void => {
-    let percentage: number;
-    switch (screenSize) {
-      case "sm":
-        percentage = 100;
-        break;
-      case "md":
-        percentage = 70;
-        break;
-      case "lg":
-        percentage = 50;
-        break;
-      default:
-        percentage = 30;
-    }
-    setCenterSlidePercentage(percentage);
-  }, [screenSize]);
-
-  const handleSlideChange = (index: number): void => {
+  const handleSlideChange = (index: number) => {
     setCurrSlideIndex(index);
   };
 
-  const handlePrevSlide = (): void => {
-    setCurrSlideIndex(prev =>
+  const handlePrevSlide = () => {
+    setCurrSlideIndex((prev) =>
       prev - 1 === 0 ? premiumFacilitiesCards.length - 1 : prev - 1,
     );
   };
 
-  const handleNextSlide = (): void => {
-    setCurrSlideIndex(prev => (prev + 1) % premiumFacilitiesCards.length);
+  const handleNextSlide = () => {
+    setCurrSlideIndex((prev) => (prev + 1) % premiumFacilitiesCards.length);
   };
 
   return (
     <div className="flex flex-col items-center justify-between gap-0 sm:flex-row">
-      <CarouselPrevBtn onClick={handlePrevSlide} className="hidden sm:flex" />
+      <CarouselPrevBtn className="hidden sm:flex" onClick={handlePrevSlide} />
       <Carousel
-        onChange={handleSlideChange}
-        selectedItem={currSlideIndex}
         autoPlay
         swipeable
-        transitionTime={200}
-        className="w-full sm:w-[80%] lg:w-[90%]"
-        centerSlidePercentage={centerSlidePercentage}
+        centerMode
+        infiniteLoop
+        emulateTouch
+        useKeyboardArrows
         showArrows={false}
         showStatus={false}
         showThumbs={false}
+        transitionTime={200}
         showIndicators={false}
-        useKeyboardArrows
-        emulateTouch
-        centerMode
-        infiniteLoop
+        onChange={handleSlideChange}
+        selectedItem={currSlideIndex}
+        className="w-full sm:w-[80%] lg:w-[90%]"
+        centerSlidePercentage={centerSlidePercentage}
       >
-        {premiumFacilitiesCards.map(premiumFacility => (
+        {premiumFacilitiesCards.map((premiumFacility) => (
           <CarouselCard
             key={premiumFacility.translationKey}
             {...premiumFacility}
           />
         ))}
       </Carousel>
-      <CarouselNextBtn onClick={handleNextSlide} className="hidden sm:flex" />
+      <CarouselNextBtn className="hidden sm:flex" onClick={handleNextSlide} />
       <div className="space-x-16 sm:hidden">
         <CarouselPrevBtn onClick={handlePrevSlide} />
         <CarouselNextBtn onClick={handleNextSlide} />

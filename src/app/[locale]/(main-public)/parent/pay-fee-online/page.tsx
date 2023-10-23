@@ -1,15 +1,15 @@
-import SectionHeading from "@/components/ui/SectionHeading";
-import type { NextPageProps } from "@/types";
+import type { NextPageProps } from "@/src/types";
+import ArticleHeading from "@components/ArticleHeading";
 import { setStaticParamsLocale } from "next-international/server";
 import type { FC } from "react";
 import ArticlePage from "../../_components/ArticlePage";
 
-const CanteenRules: FC<NextPageProps> = ({ params: { locale } }) => {
+const PayFeeOnlinePage: FC<NextPageProps> = ({ params: { locale } }) => {
   setStaticParamsLocale(locale);
-  // const t = await getScopedI18n("Pages.student.sub-links.c-rules");
+
   return (
     <ArticlePage linkType="parent" selected={{ translationKey: "fee" }}>
-      <SectionHeading>Online fees Portal</SectionHeading>
+      <ArticleHeading>Online fees Portal</ArticleHeading>
       <ul className="list-disc space-y-6">
         <li className="text-justify">Add text</li>
         <li className="text-justify">Add text</li>
@@ -21,4 +21,4 @@ const CanteenRules: FC<NextPageProps> = ({ params: { locale } }) => {
   );
 };
 
-export default CanteenRules;
+export default PayFeeOnlinePage;

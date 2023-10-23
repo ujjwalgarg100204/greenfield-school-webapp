@@ -1,7 +1,7 @@
-import SectionHeading from "@/components/ui/SectionHeading";
-import { getScopedI18n } from "@/locales/server";
-import type { NextPageProps } from "@/types";
+import type { NextPageProps } from "@/src/types";
+import ArticleHeading from "@components/ArticleHeading";
 import { Button } from "@lib/next-ui";
+import { getScopedI18n } from "@locales/server";
 import { setStaticParamsLocale } from "next-international/server";
 import NextLink from "next/link";
 import type { FC } from "react";
@@ -14,9 +14,9 @@ const ForgetPasswordPage: FC<NextPageProps> = async ({
 
   return (
     <>
-      <SectionHeading className="lg:text-center lg:text-2xl">
+      <ArticleHeading className="lg:text-center lg:text-2xl">
         {t("title")}
-      </SectionHeading>
+      </ArticleHeading>
       <main className="space-y-8">
         <p>{t("content.contact")}</p>
         <div>

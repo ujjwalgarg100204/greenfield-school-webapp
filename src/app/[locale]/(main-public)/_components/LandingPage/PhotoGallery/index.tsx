@@ -1,4 +1,4 @@
-import { getScopedI18n } from "@/locales/server";
+import { getScopedI18n } from "@locales/server";
 import type { FC } from "react";
 import PhotoGalleryCard from "./PhotoGalleryCard";
 
@@ -47,7 +47,7 @@ const PhotoGallery: FC = async () => {
         </h1>
       </header>
       <div className="grid max-w-full grid-rows-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
-        {photoGalleryCards.map(card => (
+        {photoGalleryCards.map((card) => (
           <PhotoGalleryCard key={card.translationKey} {...card} />
         ))}
       </div>

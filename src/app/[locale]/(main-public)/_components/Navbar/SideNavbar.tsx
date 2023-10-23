@@ -1,7 +1,7 @@
 import { Button, Divider } from "@lib/next-ui";
 
-import { NAV_LINKS } from "@/lib/frontend-data";
-import { getScopedI18n } from "@/locales/server";
+import { NAV_LINKS } from "@lib/frontend-data";
+import { getScopedI18n } from "@locales/server";
 import NextLink from "next/link";
 import type { FC } from "react";
 

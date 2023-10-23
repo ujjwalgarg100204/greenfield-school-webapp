@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Button,
   Navbar,
@@ -8,18 +6,16 @@ import {
   NavbarItem,
 } from "@lib/next-ui";
 
-import GreenfieldLogo from "@/../public/images/logo.png";
-import { useScopedI18n } from "@/locales/client";
-import LanguageSwitcher from "@components/ui/LanguageSwither";
-import { useSession } from "next-auth/react";
+import GreenfieldLogo from "@/public/images/logo.png";
+import LanguageSwitcher from "@/src/components/ui/LanguageSwitcher";
+import { getScopedI18n } from "@/src/locales/server";
 import Image from "next/image";
 import NextLink from "next/link";
 import type { FC } from "react";
-import AccountMenu from "./AccountMenu";
+import PrimaryAction from "./PrimaryAction";
 
-const MainNavbar: FC = () => {
-  const t = useScopedI18n("Root.main-navbar");
-  const { status, data } = useSession();
+const MainNavbar: FC = async () => {
+  const t = await getScopedI18n("Root.main-navbar");
 
   return (
     <Navbar position="static" maxWidth="full">
@@ -32,7 +28,7 @@ const MainNavbar: FC = () => {
             className="rounded-full"
             priority
           />
-          <p className="hidden text-sm font-bold text-primary md:block md:text-xl">
+          <p className="text-primary hidden text-sm font-bold md:block md:text-xl">
             Greenfield School,
             <br /> Tamil Nadu
           </p>
@@ -65,34 +61,7 @@ const MainNavbar: FC = () => {
           </Button>
         </NavbarItem>
         <NavbarItem>
-          {status === "loading" || data === null ? (
-            <>
-              <Button
-                as={NextLink}
-                href="/login"
-                color="primary"
-                variant="solid"
-                className="font-semibold text-white sm:hidden"
-                radius="sm"
-                size="sm"
-              >
-                {t("login")}
-              </Button>
-
-              <Button
-                as={NextLink}
-                href="/login"
-                color="primary"
-                variant="solid"
-                className="hidden font-semibold text-white sm:flex"
-                radius="sm"
-              >
-                {t("login")}
-              </Button>
-            </>
-          ) : (
-            <AccountMenu />
-          )}
+          <PrimaryAction />
         </NavbarItem>
       </NavbarContent>
     </Navbar>

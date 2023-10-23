@@ -1,14 +1,14 @@
 "use client";
 
-import { Button, Input } from "@/lib/next-ui";
+import { Button, Input } from "@lib/next-ui";
 import { useRouter, useSearchParams } from "next/navigation";
 
+import { useScopedI18n } from "@locales/client";
+import type Translation from "@locales/languages/en";
 import type { FC } from "react";
+import { useFormContext } from "react-hook-form";
 import { FiEdit } from "react-icons/fi";
 import type { TAdmissionPortalSchema } from ".";
-import type Translation from "@/locales/languages/en";
-import { useFormContext } from "react-hook-form";
-import { useScopedI18n } from "@/locales/client";
 
 type MobileNumberErrorType =
   keyof (typeof Translation)["Pages"]["admission"]["sub-links"]["admission-portal"]["sub-links"]["onboarding"]["mobile-input"]["error"];

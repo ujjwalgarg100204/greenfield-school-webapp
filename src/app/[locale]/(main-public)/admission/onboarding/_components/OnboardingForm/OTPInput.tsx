@@ -1,9 +1,9 @@
 "use client";
 
-import { Button, Input } from "@/lib/next-ui";
+import { Button, Input } from "@lib/next-ui";
 
-import { useScopedI18n } from "@/locales/client";
-import type Translation from "@/locales/languages/en";
+import { useScopedI18n } from "@locales/client";
+import type Translation from "@locales/languages/en";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState, type FC } from "react";
 import { useFormContext } from "react-hook-form";

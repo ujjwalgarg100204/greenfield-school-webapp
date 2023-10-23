@@ -1,13 +1,15 @@
-import SectionHeading from "@/components/ui/SectionHeading";
-import { getScopedI18n } from "@/locales/server";
-import type { NextPageProps } from "@/types";
+import type { NextPageProps } from "@/src/types";
+import ArticleHeading from "@components/ArticleHeading";
 import { Avatar } from "@lib/next-ui";
+import { getScopedI18n } from "@locales/server";
 import { setStaticParamsLocale } from "next-international/server";
 import NextImage from "next/image";
 import type { FC } from "react";
 import SideNavbar from "../../_components/Navbar/SideNavbar";
 
-const PrincipalsPage: FC<NextPageProps> = async ({ params: { locale } }) => {
+const PrincipalsMessagePage: FC<NextPageProps> = async ({
+  params: { locale },
+}) => {
   setStaticParamsLocale(locale);
   const t = await getScopedI18n("Pages.school.sub-links.principal");
 
@@ -15,7 +17,7 @@ const PrincipalsPage: FC<NextPageProps> = async ({ params: { locale } }) => {
     <div className="container mx-auto my-12 flex justify-between gap-16 px-6 lg:px-8 xl:px-12 2xl:px-16">
       <div className="flex w-2/3 flex-grow flex-col-reverse gap-12 md:flex-row">
         <section className="max-w-lg flex-grow space-y-4 lg:max-w-2xl">
-          <SectionHeading>{t("title")}</SectionHeading>
+          <ArticleHeading>{t("title")}</ArticleHeading>
           <div className="space-y-4">
             <p className="text-justify">{t("content.para-1")}</p>
             <p className="text-justify">{t("content.para-2")}</p>
@@ -54,4 +56,4 @@ const PrincipalsPage: FC<NextPageProps> = async ({ params: { locale } }) => {
   );
 };
 
-export default PrincipalsPage;
+export default PrincipalsMessagePage;

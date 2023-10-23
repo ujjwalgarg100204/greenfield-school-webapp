@@ -1,35 +1,32 @@
 "use client";
 
-import { FormProvider, useForm } from "react-hook-form";
 import { useCallback, useRef } from "react";
+import { FormProvider, useForm } from "react-hook-form";
 
+import { zodResolver } from "@hookform/resolvers/zod";
+import useUpdateSearchParams from "@hooks/useUpdateSearchParams";
 import { Button } from "@lib/next-ui";
+import { useScopedI18n } from "@locales/client";
+import type { ReadonlyURLSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import type { FC } from "react";
+import type { SubmitHandler } from "react-hook-form";
+import { z } from "zod";
 import MobileNumberInput from "./MobileNumberInput";
 import OTPInput from "./OTPInput";
-import type { ReadonlyURLSearchParams } from "next/navigation";
-import type { SubmitHandler } from "react-hook-form";
-import type Translation from "@/locales/languages/en";
-import { useScopedI18n } from "@/locales/client";
-import { useSearchParams } from "next/navigation";
-import useUpdateSearchParams from "@/hooks/useUpdateSearchParams";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
 
-const generateOTP = async (mobileNumber: string): Promise<void> => {
+const generateOTP = (mobileNumber: string) => {
   // call api to generate OTP
   console.log(mobileNumber.slice(0, 6));
 };
 
-const verifyOTP = async (otp: string): Promise<boolean> => {
+const verifyOTP = (otp: string) => {
   // call api to verify OTP
   console.log(otp);
   return true;
 };
 
-const getButtonText = (
-  searchParams: ReadonlyURLSearchParams,
-): keyof (typeof Translation)["Pages"]["admission"]["sub-links"]["admission-portal"]["sub-links"]["onboarding"]["button-text"] => {
+const getButtonText = (searchParams: ReadonlyURLSearchParams) => {
   const otpGenerated = searchParams.get("otp-generated");
   const otpVerified = searchParams.get("otp-verified");
 
@@ -95,7 +92,7 @@ const OnboardingForm: FC = () => {
         if (formMethods.getFieldState("mobileNumber").invalid) return;
 
         // generate OTP
-        await generateOTP(mobileNumber);
+        generateOTP(mobileNumber);
         // set search param otp-generated to true
         updateSearchParams({ "otp-generated": "true", mobile: mobileNumber });
         break;
@@ -105,7 +102,7 @@ const OnboardingForm: FC = () => {
         if (formMethods.getFieldState("otp").invalid) return;
 
         // verify OTP
-        if (!(await verifyOTP(otp))) {
+        if (!verifyOTP(otp)) {
           formMethods.setError("otp", { message: "Invalid OTP" });
           return;
         }

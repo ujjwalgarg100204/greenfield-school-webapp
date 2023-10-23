@@ -9,8 +9,8 @@ import {
   NavbarItem,
 } from "@lib/next-ui";
 
-import { NAV_LINKS } from "@/lib/frontend-data";
-import { useScopedI18n } from "@/locales/client";
+import { NAV_LINKS } from "@lib/frontend-data";
+import { useScopedI18n } from "@locales/client";
 import Link from "next/link";
 import type { FC } from "react";
 import { BsChevronDown } from "react-icons/bs";
@@ -18,6 +18,7 @@ import { BsChevronDown } from "react-icons/bs";
 type Props = {
   linkType: keyof typeof NAV_LINKS;
 };
+
 const LinksNavbarItem: FC<Props> = ({ linkType }) => {
   const t = useScopedI18n(`Pages.${linkType}`);
 
@@ -45,7 +46,7 @@ const LinksNavbarItem: FC<Props> = ({ linkType }) => {
             key={translationKey}
             href={link}
             as={Link}
-            className="data-[hover=true]:bg-transparent data-[hover=true]:text-primary data-[hover=true]:underline"
+            className="data-[hover=true]:text-primary data-[hover=true]:bg-transparent data-[hover=true]:underline"
           >
             {t(`sub-links.${translationKey}.title`)}
           </DropdownItem>

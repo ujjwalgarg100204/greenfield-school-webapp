@@ -1,18 +1,18 @@
-import SectionHeading from "@/components/ui/SectionHeading";
-import type { NextPageProps } from "@/types";
+import type { NextPageProps } from "@/src/types";
+import ArticleHeading from "@components/ArticleHeading";
 import { setStaticParamsLocale } from "next-international/server";
 import type { FC } from "react";
 import ArticlePage from "../../_components/ArticlePage";
 
-const SchoolPrayer: FC<NextPageProps> = ({ params: { locale } }) => {
+const SchoolPrayerPage: FC<NextPageProps> = ({ params: { locale } }) => {
   setStaticParamsLocale(locale);
-  // const t = await getScopedI18n("Pages.student.sub-links.c-rules");
+
   return (
     <ArticlePage linkType="student" selected={{ translationKey: "prayer" }}>
-      <SectionHeading>School Prayer</SectionHeading>
+      <ArticleHeading>School Prayer</ArticleHeading>
       <p>Itni skti hame dena data</p>
     </ArticlePage>
   );
 };
 
-export default SchoolPrayer;
+export default SchoolPrayerPage;

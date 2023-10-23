@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import useWindowSize from "./useWindowSize";
 
-type ScreenSize = "sm" | "md" | "lg" | "xl" | "2xl";
+export type ScreenSize = "sm" | "md" | "lg" | "xl" | "2xl";
 
 const useResponsiveScreen = (): ScreenSize => {
   const [screenSize, setScreenSize] = useState<ScreenSize>("sm");

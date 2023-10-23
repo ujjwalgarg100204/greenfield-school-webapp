@@ -1,16 +1,18 @@
-import "../globals.css";
+import "@/src/styles/globals.css";
 
-import Providers from "@/contexts";
-import NextAuthSessionProvider from "@/contexts/NextAuthSessionProvider";
-import { I18nProviderClient } from "@/locales/client";
-import { getStaticParams } from "@/locales/server";
+import NextAuthSessionProvider from "@/src/contexts/NextAuthSessionProvider";
+import NextUIProvider from "@/src/contexts/NextUIProvider";
+import { getServerAuthSession } from "@/src/server/auth";
+import { TRPCReactProvider } from "@/src/trpc/react";
+import type { NextPageProps } from "@/src/types";
+import { I18nProviderClient } from "@locales/client";
+import { getStaticParams } from "@locales/server";
 import type { Metadata } from "next";
-import { setStaticParamsLocale } from "next-international/server";
 import localFont from "next/font/local";
+import { headers } from "next/headers";
 import type { FC } from "react";
 import React from "react";
 import { Toaster } from "react-hot-toast";
-import { auth } from "../api/auth/[...nextauth]/route";
 
 export const metadata: Metadata = {
   title: "Greenfield School",
@@ -32,23 +34,23 @@ const satoshiFont = localFont({
   variable: "--font-satoshi",
 });
 
-export const generateStaticParams = (): ReturnType<typeof getStaticParams> =>
-  getStaticParams();
+export const generateStaticParams = () => getStaticParams();
 
-type Props = {
-  params: { locale: string };
+type Props = NextPageProps & {
   children: React.ReactNode;
 };
+
 const LocaleLayout: FC<Props> = async ({ children, params: { locale } }) => {
-  setStaticParamsLocale(locale);
-  const session = await auth();
+  const session = await getServerAuthSession();
 
   return (
     <html lang={locale} className="scroll-smooth">
       <body className={`${satoshiFont.variable} font-satoshi`}>
         <NextAuthSessionProvider session={session} refetchInterval={5 * 60}>
           <I18nProviderClient locale={locale}>
-            <Providers>{children}</Providers>
+            <TRPCReactProvider headers={headers()}>
+              <NextUIProvider>{children}</NextUIProvider>
+            </TRPCReactProvider>
           </I18nProviderClient>
         </NextAuthSessionProvider>
         <Toaster position="top-right" reverseOrder={false} />
