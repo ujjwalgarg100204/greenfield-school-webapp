@@ -10,7 +10,7 @@ const ArticleHeading: FC<HTMLAttributes<HTMLHeadingElement>> = ({
   return (
     <h1
       className={clsx(
-        "text-center text-3xl font-bold md:text-left md:text-4xl",
+        "text-center text-3xl font-bold sm:text-[2rem] md:text-left md:text-4xl",
         className,
       )}
       {...props}
