@@ -7,7 +7,9 @@ import {
   Button,
   Card,
   CardBody,
+  CardFooter,
   CardHeader,
+  Chip,
   CircularProgress,
   Divider,
   Dropdown,
@@ -48,4 +50,6 @@ export {
   NavbarItem,
   Radio,
   RadioGroup,
+  CardFooter,
+  Chip,
 };
