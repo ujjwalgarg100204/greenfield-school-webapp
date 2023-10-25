@@ -265,10 +265,6 @@ export default {
           title: "Newsletter",
           content: {},
         },
-        admission: {
-          title: "Admissions",
-          content: {},
-        },
         contact: {
           title: "Contact Us",
           content: {},

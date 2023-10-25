@@ -16,7 +16,6 @@ export const NAV_LINKS = {
     { translationKey: "news", link: "/school/in-the-news" },
     { translationKey: "transport", link: "/school/school-transport" },
     { translationKey: "news-letter", link: "/school/newsletter" },
-    { translationKey: "admission", link: "/school/admissions" },
     { translationKey: "contact", link: "/school/contact-us" },
   ],
   admission: [
