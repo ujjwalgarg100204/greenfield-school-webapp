@@ -22,7 +22,7 @@ const NewsFilter: FC = () => {
   const paramCategory = params.get("category") ?? "All";
 
   return (
-    <ul>
+    <div role="list">
       {categories.map((category) => (
         <Chip
           as={NextLink}
@@ -35,7 +35,7 @@ const NewsFilter: FC = () => {
           {category}
         </Chip>
       ))}
-    </ul>
+    </div>
   );
 };
 

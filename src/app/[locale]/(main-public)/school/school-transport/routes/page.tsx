@@ -1,6 +1,7 @@
+import ArticleList from "@/src/components/ArticleList";
+import type { FC } from "react";
 import type { NextPageProps } from "@/src/types";
 import { setStaticParamsLocale } from "next-international/server";
-import type { FC } from "react";
 
 const routes = [
   {
@@ -46,16 +47,13 @@ const SchoolTransportRoutesPage: FC<NextPageProps> = ({
 
   return (
     <ul className="space-y-12">
-      {routes.map((route) => (
+      {routes.map(route => (
         <li key={route.title} className="space-y-4">
           <h4 className="text-xl font-semibold">{route.title}</h4>
-          <ul className="list-inside list-disc space-y-4 pl-2">
-            {route.routes.map((routeItem) => (
-              <li key={routeItem} className="pl-2">
-                {routeItem}
-              </li>
-            ))}
-          </ul>
+          <ArticleList
+            list={route.routes}
+            containerClassName="list-disc pl-2"
+          />
         </li>
       ))}
     </ul>

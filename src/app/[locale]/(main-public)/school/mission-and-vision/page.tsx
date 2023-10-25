@@ -1,11 +1,20 @@
-import ArticleHeading from "@components/ArticleHeading";
-import ArticlePage from "../../_components/ArticlePage";
-import type { FC } from "react";
-import { Image } from "@lib/next-ui";
-import NextImage from "next/image";
+import ArticleList from "@/src/components/ArticleList";
 import type { NextPageProps } from "@/src/types";
+import ArticleHeading from "@components/ArticleHeading";
+import { Image } from "@lib/next-ui";
 import { getScopedI18n } from "@locales/server";
 import { setStaticParamsLocale } from "next-international/server";
+import NextImage from "next/image";
+import type { FC } from "react";
+import ArticlePage from "../../_components/ArticlePage";
+
+const missionList = [
+  "Giving the young learners individualized attention and recognizing their latent talent.",
+  "Emphasizing holistic development as we ensure a healthy balance between academic, co-curricular, and extra-curricular activities.",
+  "Catering to the students’ queries, raising the degree of inquisitiveness in them.",
+  "Creating and sustaining an environment of self-learning, analytical thinking and practising social skills.",
+  "Igniting conscience and propensity in the students towards the conservation of nature, maintaining harmony and giving back to the communities",
+] as const;
 
 const MissionAndVisionPage: FC<NextPageProps> = async ({
   params: { locale },
@@ -41,29 +50,7 @@ const MissionAndVisionPage: FC<NextPageProps> = async ({
             />
           </div>
           <p>We strengthen our mission through the following practices:</p>
-          <ul className="list-inside list-decimal space-y-2">
-            <li className="pl-3">
-              Giving the young learners individualized attention and recognizing
-              their latent talent.
-            </li>
-            <li className="pl-3">
-              Emphasizing holistic development as we ensure a healthy balance
-              between academic, co-curricular, and extra-curricular activities.
-            </li>
-            <li className="pl-3">
-              Catering to the students’ queries, raising the degree of
-              inquisitiveness in them.
-            </li>
-            <li className="pl-3">
-              Creating and sustaining an environment of self-learning,
-              analytical thinking and practising social skills.
-            </li>
-            <li className="pl-3">
-              Igniting conscience and propensity in the students towards the
-              conservation of nature, maintaining harmony and giving back to the
-              communities
-            </li>
-          </ul>
+          <ArticleList list={missionList} itemClassName="pl-3" />
         </div>
       </section>
       <section className="space-y-6">
