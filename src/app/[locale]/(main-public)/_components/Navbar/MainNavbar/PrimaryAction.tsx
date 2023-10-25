@@ -2,14 +2,14 @@
 
 import { Button, CircularProgress } from "@lib/next-ui";
 
-import AccountMenu from "./AccountMenu";
-import type { FC } from "react";
-import NextLink from "next/link";
 import { useScopedI18n } from "@/src/locales/client";
 import { useSession } from "next-auth/react";
+import NextLink from "next/link";
+import type { FC } from "react";
+import AccountMenu from "./AccountMenu";
 
 const PrimaryAction: FC = () => {
-  const { status, data } = useSession();
+  const { status } = useSession();
   const t = useScopedI18n("Root.main-navbar");
 
   if (status === "loading")
