@@ -1,3 +1,4 @@
+import GreenfieldLocation from "@/src/components/GreenfieldLocation";
 import Link from "next/link";
 import type { FC } from "react";
 import { BsTelephone } from "react-icons/bs";
@@ -5,16 +6,12 @@ import { MdOutlineLocationOn } from "react-icons/md";
 
 const Footer: FC = () => {
   return (
-    <footer className="bg-primary text-foreground-100 grid grid-cols-2 justify-items-center gap-y-8 rounded-t-md px-4 py-8 text-sm sm:grid-cols-3 md:grid-cols-5 md:px-5 lg:grid-cols-6 lg:px-6 xl:px-7">
+    <footer className="grid grid-cols-2 justify-items-center gap-y-8 rounded-t-md bg-primary px-4 py-8 text-sm text-foreground-100 sm:grid-cols-3 md:grid-cols-5 md:px-5 lg:grid-cols-6 lg:px-6 xl:px-7">
       <section className="col-span-3 max-w-md space-y-4 text-center md:col-span-2 md:justify-self-start md:text-left lg:col-span-3">
         <p className="text-base font-bold">
           Greenfield Public School, Tamil Nadu
         </p>
-        <iframe
-          className="h-32 w-full rounded-md border-0 outline-none"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.7155168074796!2d76.94687797475602!3d11.05994248910661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8f626ffc42147%3A0xf398a88ed4aed02b!2sGreenfields%20Matriculation%20School!5e0!3m2!1sen!2sin!4v1696784362822!5m2!1sen!2sin"
-          loading="lazy"
-        ></iframe>
+        <GreenfieldLocation />
         <p className="flex items-center gap-2">
           <MdOutlineLocationOn className="h-12 w-12" />
           <span>

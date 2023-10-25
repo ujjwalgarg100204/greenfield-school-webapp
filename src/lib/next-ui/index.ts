@@ -33,6 +33,7 @@ import {
   TableHeader,
   TableRow,
   Tabs,
+  Textarea,
 } from "@nextui-org/react";
 
 export {
@@ -68,4 +69,5 @@ export {
   TableHeader,
   TableRow,
   Tabs,
+  Textarea,
 };
