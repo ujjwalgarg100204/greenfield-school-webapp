@@ -26,6 +26,9 @@ jobs:
         with:
           version: 8
 
+      - name: Set up env variables
+        run: echo SKIP_ENV_VALIDATION=true >> .env
+
       - name: Install dependencies
         run: pnpm install --ignore-scripts
         shell: bash
