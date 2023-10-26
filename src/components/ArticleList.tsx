@@ -1,16 +1,19 @@
-import type { FC } from "react";
+import type { FC, ReactNode } from "react";
+
 import { twMerge } from "tailwind-merge";
 
 type Props = {
   list: ReadonlyArray<string>;
   containerClassName?: string;
   itemClassName?: string;
+  children?: ReactNode;
 };
 
 const ArticleList: FC<Props> = ({
   list,
   containerClassName,
   itemClassName,
+  children,
 }) => {
   return (
     <ul
@@ -24,6 +27,7 @@ const ArticleList: FC<Props> = ({
           {listItem}
         </li>
       ))}
+      {children}
     </ul>
   );
 };
