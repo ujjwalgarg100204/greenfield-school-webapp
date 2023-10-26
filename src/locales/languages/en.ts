@@ -278,10 +278,6 @@ export default {
           title: "Admission Notice",
           content: {},
         },
-        prospectus: {
-          title: "Prospectus",
-          content: {},
-        },
         procedure: {
           title: "Admission Procedure",
           content: {},
