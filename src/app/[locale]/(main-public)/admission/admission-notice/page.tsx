@@ -1,15 +1,15 @@
 import { Button, ButtonGroup } from "@lib/next-ui";
 
+import AdmissionNotice from "./_components/AdmissionNotice";
 import ArticleHeading from "@/src/components/ArticleHeading";
 import ArticleList from "@/src/components/ArticleList";
-import type { NextPageProps } from "@/src/types";
-import { setStaticParamsLocale } from "next-international/server";
-import NextLink from "next/link";
+import ArticlePage from "../../_components/ArticlePage";
 import type { FC } from "react";
 import { FiExternalLink } from "react-icons/fi";
-import ArticlePage from "../../_components/ArticlePage";
-import AdmissionNotice from "./_components/AdmissionNotice";
-import NoticeTabs from "./_components/NoticeTabs";
+import NextLink from "next/link";
+import type { NextPageProps } from "@/src/types";
+import StudentsAndNonStudentsTabs from "../_components/StudentsAndNonStudentsTabs";
+import { setStaticParamsLocale } from "next-international/server";
 
 const admissionNoticeList = [
   "Age criteria should be strictly adhered to. If the child’s age does not match the age criteria of the class you cannot proceed further. Please check the age criteria provided by us for selection of class.",
@@ -28,9 +28,9 @@ const AdmissionNoticePage: FC<NextPageProps> = ({ params: { locale } }) => {
       <ArticleHeading>Admission Notice</ArticleHeading>
       <ArticleList list={admissionNoticeList} />
       <div className="pt-4">
-        <NoticeTabs
-          newAdmissionsNotice={<AdmissionNotice type="new" />}
-          oldAdmissionsNotice={<AdmissionNotice type="old" />}
+        <StudentsAndNonStudentsTabs
+          nonGreenfieldStudents={<AdmissionNotice type="new" />}
+          greenFieldStudents={<AdmissionNotice type="old" />}
         />
       </div>
       <section>
