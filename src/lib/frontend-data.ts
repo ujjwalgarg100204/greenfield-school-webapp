@@ -20,7 +20,7 @@ export const NAV_LINKS = {
   ],
   admission: [
     { translationKey: "notice", link: "/admission/admission-notice" },
-    { translationKey: "procedure", link: "/admission/admission-procedure" },
+    { translationKey: "procedure", link: "/admission/procedure" },
     {
       translationKey: "instructions",
       link: "/admission/general-instructions-for-admission",
