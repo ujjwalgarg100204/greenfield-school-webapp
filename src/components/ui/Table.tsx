@@ -88,4 +88,35 @@ const TableRow: FC<
   );
 };
 
-export { Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow };
+const TableCaption: FC<
+  Pick<HTMLAttributes<HTMLTableCaptionElement>, "className"> & {
+    title: string;
+    desc?: string;
+  }
+> = ({ className, title, desc }) => {
+  return (
+    <caption
+      className={twMerge(
+        "bg-white p-5 text-left text-lg font-semibold text-gray-900 dark:bg-gray-800 dark:text-white",
+        className,
+      )}
+    >
+      {title}
+      {desc && (
+        <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
+          {desc}
+        </p>
+      )}
+    </caption>
+  );
+};
+
+export {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHeader,
+  TableHeaderCell,
+  TableRow,
+};
