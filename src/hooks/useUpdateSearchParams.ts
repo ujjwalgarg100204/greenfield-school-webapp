@@ -1,16 +1,16 @@
+"use client";
+
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 import { useCallback } from "react";
 
-const useUpdateSearchParams = (): ((
-  searchParameters: Record<string, string>,
-) => void) => {
+const useUpdateSearchParams = () => {
   const router = useRouter();
   const path = usePathname();
   const searchParams = useSearchParams();
 
   return useCallback(
-    searchParameters => {
+    (searchParameters: Record<string, string>) => {
       const params = new URLSearchParams(searchParams);
       Object.entries(searchParameters).forEach(([key, value]) => {
         params.set(key, value);

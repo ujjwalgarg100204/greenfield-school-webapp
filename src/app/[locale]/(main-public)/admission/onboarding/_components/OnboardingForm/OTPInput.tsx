@@ -2,13 +2,17 @@
 
 import { Button, Input } from "@lib/next-ui";
 
+import type { OtpCreateInputSchema } from "@/src/types/zod";
+import useUpdateSearchParams from "@hooks/useUpdateSearchParams";
 import { useScopedI18n } from "@locales/client";
 import type Translation from "@locales/languages/en";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState, type FC } from "react";
+import type { FC } from "react";
+import { useEffect } from "react";
 import { useFormContext } from "react-hook-form";
 import { TiTick } from "react-icons/ti";
-import type { TAdmissionPortalSchema } from ".";
+import type { z } from "zod";
+import useGenerateOTP from "../../_hooks/useGenerateOTP";
 
 type OTPErrorType =
   keyof (typeof Translation)["Pages"]["admission"]["sub-links"]["admission-portal"]["sub-links"]["onboarding"]["otp-input"]["error"];
@@ -19,29 +23,34 @@ const OTPInput: FC = () => {
   );
   const {
     register,
+    getValues,
+    setError,
     formState: { errors },
-  } = useFormContext<TAdmissionPortalSchema>();
-  const [otpTimer, setOTPTimer] = useState(120);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setOTPTimer(prev => (prev > 0 ? prev - 1 : prev));
-    }, 1000);
-    return (): void => {
-      clearInterval(timer);
-    };
-  }, []);
-
-  // should render when otp is generated and search param is present
+  } = useFormContext<z.infer<typeof OtpCreateInputSchema>>();
   const searchParams = useSearchParams();
-  const shouldRender = searchParams.get("otp-generated");
-  const isVerified = searchParams.get("otp-verified") === "true";
+  const updateSearchParams = useUpdateSearchParams();
+  const { handleGenerateOTP, timeLeft } = useGenerateOTP(getValues("mobile"), {
+    onError(error) {
+      setError("otp", { message: error.message }, { shouldFocus: false });
+    },
+    onSuccess() {
+      updateSearchParams({ "otp-generated": "true" });
+    },
+  });
+
+  // generate new otp on mount
+  useEffect(() => {
+    handleGenerateOTP();
+  }, [handleGenerateOTP]);
+
+  // should disable the input if otp is verified
+  const otpVerified = searchParams.get("otp-verified") === "true";
   const errorMessage =
     errors.otp?.message !== undefined
       ? t(`error.${errors.otp?.message as OTPErrorType}`)
       : "";
 
-  return shouldRender !== null ? (
+  return (
     <div className="flex items-center gap-8">
       <Input
         type="text"
@@ -50,14 +59,14 @@ const OTPInput: FC = () => {
         variant="bordered"
         labelPlacement="outside"
         isInvalid={errors.otp !== undefined}
-        isDisabled={isVerified}
+        isDisabled={otpVerified}
         errorMessage={errorMessage}
         placeholder={t("placeholder")}
         description={t("desc")}
         {...register("otp")}
       />
 
-      {isVerified ? (
+      {otpVerified ? (
         <Button isIconOnly color="success">
           <TiTick className="h-6 w-6 text-white" />
         </Button>
@@ -65,13 +74,20 @@ const OTPInput: FC = () => {
         <Button
           color="primary"
           className="p-6 py-7"
-          isDisabled={otpTimer !== 0}
+          isDisabled={timeLeft > 0}
+          onClick={handleGenerateOTP}
         >
-          {t("timer", { br: <br />, timer: otpTimer })}
+          {timeLeft > 0 ? (
+            <span>
+              Generate new <br /> in {timeLeft} sec(s)
+            </span>
+          ) : (
+            "Generate New"
+          )}
         </Button>
       )}
     </div>
-  ) : null;
+  );
 };
 
 export default OTPInput;

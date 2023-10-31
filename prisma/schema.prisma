@@ -26,3 +26,13 @@ model User {
     username String    @unique /// @zod.string.min(6, { message: "short-input" }).max(16, { message: "long-input" })
     password String /// @zod.string.min(6, { message: "short-input" }).max(16, { message: "long-input" })
 }
+
+model Otp {
+    id        String   @id @default(cuid())
+    mobile    String   @unique /// @zod.string.min(10, { message: "short-input" }).max(10, { message: "long-input" }).regex(/^\d+$/, { message: "wrong-input" }),    
+    otp       String /// @zod.string.min(6, { message: "short-input" }).max(6, { message: "long-input" }).regex(/^\d+$/, { message: "wrong-input" }),
+    updatedAt DateTime @updatedAt
+    expiresAt DateTime /// @zod.custom.omit([input])
+
+    @@index([mobile])
+}
