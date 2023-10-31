@@ -7,3 +7,9 @@ export const formatCurrency = (number: number): string => {
 
   return formatter.format(number).replace("₹", "₹ ");
 };
+
+export const addOrSubtractDays = (date: Date, days: number) => {
+  const result = new Date(date);
+  result.setDate(date.getDate() + days);
+  return result;
+};
