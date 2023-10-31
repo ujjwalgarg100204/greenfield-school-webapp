@@ -2,7 +2,7 @@ import { Card, CardBody } from "@/src/lib/next-ui";
 
 import { addOrSubtractDays } from "@/src/utils";
 import type { FC } from "react";
-import type { holidays } from "../page";
+import type holidaysList from "../holidays-list";
 
 const formatDate = (date: Date) =>
   date.toLocaleDateString("en-US", {
@@ -12,7 +12,7 @@ const formatDate = (date: Date) =>
     day: "numeric",
   });
 
-const HolidayCard: FC<(typeof holidays)[number]> = ({
+const HolidayCard: FC<(typeof holidaysList)[number]> = ({
   title,
   duration,
   endDate,
