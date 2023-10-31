@@ -1,15 +1,15 @@
 import { Button, ButtonGroup } from "@lib/next-ui";
 
-import AdmissionNotice from "./_components/AdmissionNotice";
 import ArticleHeading from "@/src/components/ArticleHeading";
 import ArticleList from "@/src/components/ArticleList";
-import ArticlePage from "../../_components/ArticlePage";
+import type { NextPageProps } from "@/src/types";
+import { setStaticParamsLocale } from "next-international/server";
+import NextLink from "next/link";
 import type { FC } from "react";
 import { FiExternalLink } from "react-icons/fi";
-import NextLink from "next/link";
-import type { NextPageProps } from "@/src/types";
+import ArticlePage from "../../_components/ArticlePage";
 import StudentsAndNonStudentsTabs from "../_components/StudentsAndNonStudentsTabs";
-import { setStaticParamsLocale } from "next-international/server";
+import AdmissionNotice from "./_components/AdmissionNotice";
 
 const admissionNoticeList = [
   "Age criteria should be strictly adhered to. If the child’s age does not match the age criteria of the class you cannot proceed further. Please check the age criteria provided by us for selection of class.",
@@ -37,7 +37,7 @@ const AdmissionNoticePage: FC<NextPageProps> = ({ params: { locale } }) => {
         <ButtonGroup color="primary">
           <Button
             as={NextLink}
-            href="/admission/fees"
+            href="/admission/fee-structure"
             endContent={<FiExternalLink />}
           >
             Fee Structure
