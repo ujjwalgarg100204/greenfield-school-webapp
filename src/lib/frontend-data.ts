@@ -36,7 +36,6 @@ export const NAV_LINKS = {
     { translationKey: "book-list", link: "/academics/book-list" },
     { translationKey: "holiday", link: "/academics/holiday-list" },
     { translationKey: "block-holidays", link: "/academics/block-holidays" },
-    { translationKey: "fees", link: "/academics/fees-structure" },
   ],
   student: [
     { translationKey: "portal", link: "/dashboard/student" },
