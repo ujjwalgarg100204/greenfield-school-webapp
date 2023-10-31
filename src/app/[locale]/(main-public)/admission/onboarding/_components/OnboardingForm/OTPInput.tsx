@@ -2,6 +2,7 @@
 
 import { Button, Input } from "@lib/next-ui";
 
+import useGenerateOTP from "@/src/features/OTP/useGenerateOTP";
 import type { OtpCreateInputSchema } from "@/src/types/zod";
 import useUpdateSearchParams from "@hooks/useUpdateSearchParams";
 import { useScopedI18n } from "@locales/client";
@@ -12,7 +13,6 @@ import { useEffect } from "react";
 import { useFormContext } from "react-hook-form";
 import { TiTick } from "react-icons/ti";
 import type { z } from "zod";
-import useGenerateOTP from "../../_hooks/useGenerateOTP";
 
 type OTPErrorType =
   keyof (typeof Translation)["Pages"]["admission"]["sub-links"]["admission-portal"]["sub-links"]["onboarding"]["otp-input"]["error"];

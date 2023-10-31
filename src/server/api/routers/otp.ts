@@ -45,5 +45,6 @@ export const otpRouter = createTRPCRouter({
           message: res.message,
         });
       }
+      return res;
     }),
 });
