@@ -298,8 +298,8 @@ export default {
           title: "Orientation",
           content: {},
         },
-        registration: {
-          title: "Online Registration",
+        syllabus: {
+          title: "Syllabus for Test",
           content: {},
         },
         "admission-portal": {

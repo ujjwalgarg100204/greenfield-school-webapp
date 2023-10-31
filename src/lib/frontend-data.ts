@@ -27,7 +27,6 @@ export const NAV_LINKS = {
     },
     { translationKey: "age", link: "/admission/age-criteria" },
     { translationKey: "fee", link: "/admission/fee-structure" },
-    { translationKey: "registration", link: "/admission/online-registration" },
     { translationKey: "admission-portal", link: "/admission/portal" },
     { translationKey: "syllabus", link: "/admission/syllabus-for-test" },
   ],
