@@ -2,8 +2,8 @@
 
 import { Accordion, AccordionItem } from "@lib/next-ui";
 
+import DownloadablePdfCard from "@/src/components/DownloadablePdfCard";
 import type { FC } from "react";
-import NewsletterCard from "./NewsletterCard";
 
 const newsletters = [
   {
@@ -65,8 +65,8 @@ const NewsletterAccordion: FC = () => {
             role="list"
             className="flex flex-wrap justify-center gap-4 md:justify-start"
           >
-            {letters.map((letter) => (
-              <NewsletterCard {...letter} key={letter.title} />
+            {letters.map(letter => (
+              <DownloadablePdfCard {...letter} key={letter.title} />
             ))}
           </div>
         </AccordionItem>
