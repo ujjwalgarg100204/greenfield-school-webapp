@@ -22,7 +22,6 @@ export type Props = {
 };
 
 const FeeTable: FC<Props> = ({ subject, tableData }) => {
-  console.log(tableData);
   return (
     <Table>
       {subject && <TableCaption title={subject} className="capitalize" />}
