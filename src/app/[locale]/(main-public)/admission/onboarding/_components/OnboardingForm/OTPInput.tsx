@@ -41,7 +41,8 @@ const OTPInput: FC = () => {
   // generate new otp on mount
   useEffect(() => {
     handleGenerateOTP();
-  }, [handleGenerateOTP]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // should disable the input if otp is verified
   const otpVerified = searchParams.get("otp-verified") === "true";
