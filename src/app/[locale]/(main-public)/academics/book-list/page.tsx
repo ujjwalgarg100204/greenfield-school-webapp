@@ -6,7 +6,7 @@ import { setStaticParamsLocale } from "next-international/server";
 import NextLink from "next/link";
 import type { FC } from "react";
 import ArticlePage from "../../_components/ArticlePage";
-import booklist from "./booklist";
+import BOOK_LIST from "./data";
 
 const BookListPage: FC<NextPageProps> = ({ params: { locale } }) => {
   setStaticParamsLocale(locale);
@@ -15,7 +15,7 @@ const BookListPage: FC<NextPageProps> = ({ params: { locale } }) => {
     <ArticlePage linkType="academic" selected={{ translationKey: "book-list" }}>
       <ArticleHeading>Book List</ArticleHeading>
       <ul className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-        {Object.keys(booklist).map(className => (
+        {Object.keys(BOOK_LIST).map(className => (
           <Card
             key={className}
             isPressable
