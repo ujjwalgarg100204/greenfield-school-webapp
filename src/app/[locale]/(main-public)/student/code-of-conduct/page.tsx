@@ -1,9 +1,11 @@
+import ArticleList from "@/src/components/ArticleList";
 import type { NextPageProps } from "@/src/types";
 import ArticleHeading from "@components/ArticleHeading";
 import { getScopedI18n } from "@locales/server";
 import { setStaticParamsLocale } from "next-international/server";
 import type { FC } from "react";
 import ArticlePage from "../../_components/ArticlePage";
+import CODE_OF_CONDUCT_DATA from "./data";
 
 const CodeOfConductPage: FC<NextPageProps> = async ({ params: { locale } }) => {
   setStaticParamsLocale(locale);
@@ -12,16 +14,7 @@ const CodeOfConductPage: FC<NextPageProps> = async ({ params: { locale } }) => {
   return (
     <ArticlePage linkType="student" selected={{ translationKey: "cc" }}>
       <ArticleHeading>{t("heading")}</ArticleHeading>
-      <ul className="list-disc space-y-6">
-        <li className="text-justify">{t("para-1")}</li>
-        <li className="text-justify">{t("para-2")}</li>
-        <li className="text-justify">{t("para-3")}</li>
-        <li className="text-justify">{t("para-4")}</li>
-        <li className="text-justify">{t("para-5")}</li>
-        <li className="text-justify">{t("para-6")}</li>
-        <li className="text-justify">{t("para-7")}</li>
-        <li className="text-justify">{t("para-8")}</li>
-      </ul>
+      <ArticleList list={CODE_OF_CONDUCT_DATA} />
     </ArticlePage>
   );
 };
