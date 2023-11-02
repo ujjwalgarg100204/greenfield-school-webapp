@@ -4,7 +4,7 @@ import ArticleHeading from "@components/ArticleHeading";
 import { setStaticParamsLocale } from "next-international/server";
 import type { FC } from "react";
 import ArticlePage from "../../_components/ArticlePage";
-import ActivitiesTabs from "./_components/ActivitiesTabs";
+import SinglePageTabs from "../../_components/SinglePageTabs";
 
 const activities = {
   "nursery-to-lower-kg": [
@@ -107,19 +107,39 @@ const activities = {
   ],
 };
 
+const activitiesTabs = [
+  {
+    key: "nursery-to-lower-kg-activities",
+    title: "Class Nursery - Lower KG",
+    component: <ArticleList list={activities["nursery-to-lower-kg"]} />,
+  },
+  {
+    key: "upper-kg-activities",
+    title: "Class UKG",
+    component: <ArticleList list={activities["upper-kg"]} />,
+  },
+  {
+    key: "first-to-tenth",
+    title: "Class I - X",
+    component: <ArticleList list={activities["i-x"]} />,
+  },
+  {
+    key: "eleventh-to-twelfth",
+    title: "Class XI - XII",
+    component: <ArticleList list={activities["xi-xii"]} />,
+  },
+] as const;
+
 const CoCurricularActivities: FC<NextPageProps> = ({ params: { locale } }) => {
   setStaticParamsLocale(locale);
 
   return (
     <ArticlePage linkType="student" selected={{ translationKey: "activities" }}>
       <ArticleHeading>Schools Co-curricular Activities</ArticleHeading>
-      <ActivitiesTabs
-        nurseryToLowerKGActivities={
-          <ArticleList list={activities["nursery-to-lower-kg"]} />
-        }
-        upperKgActivities={<ArticleList list={activities["upper-kg"]} />}
-        firstToTenth={<ArticleList list={activities["i-x"]} />}
-        eleventhToTwelfth={<ArticleList list={activities["xi-xii"]} />}
+      <SinglePageTabs
+        tabs={activitiesTabs}
+        shouldSpanMultipleLinesOnSmallerScreen
+        defaultSelectedKey="nursery-to-lower-kg-activities"
       />
     </ArticlePage>
   );

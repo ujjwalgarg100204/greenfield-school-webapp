@@ -1,6 +1,6 @@
 import type { FC } from "react";
+import SinglePageTabs from "../../../_components/SinglePageTabs";
 import SeniorFeeDetails from "./SeniorFeeDetails";
-import StudentsAndNonStudentsTabs from "../../_components/StudentsAndNonStudentsTabs";
 
 export const fees = {
   science: {
@@ -130,25 +130,38 @@ const rules = [
   "The Management reserves the right to have the last word in all matters relating to admission.",
 ] as const;
 
+const feesTabs = [
+  {
+    key: "non-greenfield-students",
+    title: "Non-Greenfield Students",
+    component: (
+      <SeniorFeeDetails
+        type="non-greenfield-students"
+        feesData={fees}
+        rules={rules}
+      />
+    ),
+  },
+  {
+    key: "greenfield-students",
+    title: "Greenfield Students",
+    component: (
+      <SeniorFeeDetails
+        type="greenfield-students"
+        feesData={fees}
+        rules={rules}
+      />
+    ),
+  },
+] as const;
+
 const SeniorClassesFees: FC = () => {
   return (
     <section>
       <h2 className="mb-6 text-2xl">Class XI - XII</h2>
-      <StudentsAndNonStudentsTabs
-        greenFieldStudents={
-          <SeniorFeeDetails
-            type="greenfield-students"
-            feesData={fees}
-            rules={rules}
-          />
-        }
-        nonGreenfieldStudents={
-          <SeniorFeeDetails
-            type="non-greenfield-students"
-            feesData={fees}
-            rules={rules}
-          />
-        }
+      <SinglePageTabs
+        tabs={feesTabs}
+        defaultSelectedKey="non-greenfield-students"
       />
     </section>
   );

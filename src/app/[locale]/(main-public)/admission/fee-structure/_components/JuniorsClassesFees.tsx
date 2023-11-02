@@ -1,6 +1,6 @@
 import type { FC } from "react";
+import SinglePageTabs from "../../../_components/SinglePageTabs";
 import FeeTable from "./FeeTable";
-import JuniorClassesTabs from "./JuniorClassesTabs";
 
 const fees = {
   "nursery-ukg": [
@@ -62,15 +62,29 @@ const fees = {
   ],
 } as const;
 
+const feeTabs = [
+  {
+    key: "nursery-ukg",
+    title: "Class Nursery - UKG",
+    component: <FeeTable tableData={fees["nursery-ukg"]} />,
+  },
+  {
+    key: "first-fifth",
+    title: "Class I - V",
+    component: <FeeTable tableData={fees["I-V"]} />,
+  },
+  {
+    key: "sixth-tenth",
+    title: "Class VI - X",
+    component: <FeeTable tableData={fees["VI-X"]} />,
+  },
+] as const;
+
 const JuniorsClassesFees: FC = () => {
   return (
     <section>
       <h2 className="mb-6 text-2xl">Class Nursery - Class X</h2>
-      <JuniorClassesTabs
-        nurseryToUkg={<FeeTable tableData={fees["nursery-ukg"]} />}
-        firstToFifth={<FeeTable tableData={fees["I-V"]} />}
-        sixthToTenth={<FeeTable tableData={fees["VI-X"]} />}
-      />
+      <SinglePageTabs tabs={feeTabs} defaultSelectedKey="nursery-ukg" />
     </section>
   );
 };

@@ -8,7 +8,7 @@ import NextLink from "next/link";
 import type { FC } from "react";
 import { FiExternalLink } from "react-icons/fi";
 import ArticlePage from "../../_components/ArticlePage";
-import StudentsAndNonStudentsTabs from "../_components/StudentsAndNonStudentsTabs";
+import SinglePageTabs from "../../_components/SinglePageTabs";
 import AdmissionNotice from "./_components/AdmissionNotice";
 
 const admissionNoticeList = [
@@ -20,6 +20,19 @@ const admissionNoticeList = [
   "To apply for Online Admission of Class Nursery to Class – I Click Here",
 ];
 
+const admissionNoticesTabs = [
+  {
+    key: "non-greenfield-students",
+    title: "Non-Greenfield Students",
+    component: <AdmissionNotice type="new" />,
+  },
+  {
+    key: "greenfield-students",
+    title: "Greenfield Students",
+    component: <AdmissionNotice type="old" />,
+  },
+] as const;
+
 const AdmissionNoticePage: FC<NextPageProps> = ({ params: { locale } }) => {
   setStaticParamsLocale(locale);
 
@@ -28,9 +41,9 @@ const AdmissionNoticePage: FC<NextPageProps> = ({ params: { locale } }) => {
       <ArticleHeading>Admission Notice</ArticleHeading>
       <ArticleList list={admissionNoticeList} />
       <div className="pt-4">
-        <StudentsAndNonStudentsTabs
-          nonGreenfieldStudents={<AdmissionNotice type="new" />}
-          greenFieldStudents={<AdmissionNotice type="old" />}
+        <SinglePageTabs
+          tabs={admissionNoticesTabs}
+          defaultSelectedKey="non-greenfield-students"
         />
       </div>
       <section>
