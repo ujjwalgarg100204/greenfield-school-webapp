@@ -1,8 +1,10 @@
-import type { NextPageProps } from "@/src/types";
 import ArticleHeading from "@components/ArticleHeading";
-import { setStaticParamsLocale } from "next-international/server";
-import type { FC } from "react";
+import ArticleList from "@/src/components/ArticleList";
 import ArticlePage from "../../_components/ArticlePage";
+import type { FC } from "react";
+import type { NextPageProps } from "@/src/types";
+import STUDENT_DISPERSAL_DATA from "./data";
+import { setStaticParamsLocale } from "next-international/server";
 
 const StudentDispersalPage: FC<NextPageProps> = ({ params: { locale } }) => {
   setStaticParamsLocale(locale);
@@ -10,13 +12,11 @@ const StudentDispersalPage: FC<NextPageProps> = ({ params: { locale } }) => {
   return (
     <ArticlePage linkType="parent" selected={{ translationKey: "dispersal" }}>
       <ArticleHeading>Student Dispersal</ArticleHeading>
-      <ul className="list-disc space-y-6">
-        <li className="text-justify">Add text</li>
-        <li className="text-justify">Add text</li>
-        <li className="text-justify">Add text</li>
-        <li className="text-justify">Add text</li>
-        <li className="text-justify">Add text</li>
-      </ul>
+      <p>
+        This page primarily exists for students who don{"'"}t avail school
+        transport services: -
+      </p>
+      <ArticleList list={STUDENT_DISPERSAL_DATA} />
     </ArticlePage>
   );
 };
