@@ -1,13 +1,12 @@
 import { RedirectType, redirect } from "next/navigation";
 
-import { Link } from "@/src/lib/next-ui";
 import { getServerAuthSession } from "@/src/server/auth";
+import { Link } from "@lib/next-ui";
 import NextLink from "next/link";
-import type { FC } from "react";
 
-const StudentDashboardPage: FC = async () => {
+const ParentDashboardPage = async (): Promise<JSX.Element> => {
   const session = await getServerAuthSession();
-  if (!session || session.user.role !== "student")
+  if (!session || session.user.role !== "admin")
     redirect("/login", RedirectType.replace);
 
   return (
@@ -28,4 +27,4 @@ const StudentDashboardPage: FC = async () => {
   );
 };
 
-export default StudentDashboardPage;
+export default ParentDashboardPage;
