@@ -1,10 +1,10 @@
 import { Button, Link } from "@lib/next-ui";
 
-import type { NextPageProps } from "@/src/types";
 import ArticleHeading from "@components/ArticleHeading";
+import type { FC } from "react";
+import type { NextPageProps } from "@/src/types";
 import { getScopedI18n } from "@locales/server";
 import { setStaticParamsLocale } from "next-international/server";
-import type { FC } from "react";
 
 const ForgetPasswordPage: FC<NextPageProps> = async ({
   params: { locale },

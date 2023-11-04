@@ -1,12 +1,12 @@
 import type { DefaultSession, NextAuthOptions } from "next-auth";
 
-import { env } from "@/src/env.mjs";
-import { db } from "@/src/server/db";
-import type { User as PrismaUser } from "@prisma/client";
-import bcrypt from "bcrypt";
-import { getServerSession } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import type { User as PrismaUser } from "@prisma/client";
 import { UserCreateInputSchema } from "../types/zod";
+import bcrypt from "bcrypt";
+import { db } from "@/src/server/db";
+import { env } from "@/src/env.mjs";
+import { getServerSession } from "next-auth";
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`

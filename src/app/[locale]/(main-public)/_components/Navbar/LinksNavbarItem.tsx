@@ -10,10 +10,10 @@ import {
   NavbarItem,
 } from "@lib/next-ui";
 
+import { BsChevronDown } from "react-icons/bs";
+import type { FC } from "react";
 import { NAV_LINKS } from "@lib/frontend-data";
 import { useScopedI18n } from "@locales/client";
-import type { FC } from "react";
-import { BsChevronDown } from "react-icons/bs";
 
 type Props = {
   linkType: keyof typeof NAV_LINKS;

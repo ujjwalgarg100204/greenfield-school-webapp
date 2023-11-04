@@ -1,16 +1,16 @@
 "use client";
 
-import { UserCreateInputSchema, UserRolesSchema } from "@/src/types/zod";
 import { Controller, useForm } from "react-hook-form";
+import { UserCreateInputSchema, UserRolesSchema } from "@/src/types/zod";
 
-import { api } from "@/src/trpc/react";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { RadioGroup } from "@nextui-org/react";
-import { TRPCClientError } from "@trpc/client";
 import type { FC } from "react";
-import type { SubmitHandler } from "react-hook-form";
-import type { z } from "zod";
+import { RadioGroup } from "@nextui-org/react";
 import RoleRadioButton from "../_components/SignInForm/RoleRadioButton";
+import type { SubmitHandler } from "react-hook-form";
+import { TRPCClientError } from "@trpc/client";
+import { api } from "@/src/trpc/react";
+import type { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const RegisterPage: FC = () => {
   const { register, control, handleSubmit, reset } = useForm<
@@ -20,9 +20,9 @@ const RegisterPage: FC = () => {
   });
   const signUp = api.auth.signUp.useMutation();
 
-  const onSubmit: SubmitHandler<z.infer<typeof UserCreateInputSchema>> = (
-    data,
-  ) => {
+  const onSubmit: SubmitHandler<
+    z.infer<typeof UserCreateInputSchema>
+  > = data => {
     try {
       signUp.mutate(data);
       reset();
@@ -49,7 +49,7 @@ const RegisterPage: FC = () => {
             onValueChange={onChange}
             errorMessage={fieldState.error?.message}
           >
-            {Object.values(UserRolesSchema.Values).map((role) => (
+            {Object.values(UserRolesSchema.Values).map(role => (
               <RoleRadioButton key={role} value={role}>
                 {role}
               </RoleRadioButton>
