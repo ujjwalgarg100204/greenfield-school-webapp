@@ -1,16 +1,16 @@
+import { Button, Link } from "@lib/next-ui";
+
 import AboutImage from "@/public/images/landing-page-about-us.png";
 import { NAV_LINKS } from "@lib/frontend-data";
-import { Button } from "@lib/next-ui";
 import { getScopedI18n } from "@locales/server";
 import Image from "next/image";
-import Link from "next/link";
 import type { FC } from "react";
 
 const AboutUs: FC = async () => {
   const t = await getScopedI18n("Pages.home.sub-links.hero.content");
 
   const aboutUsLink = NAV_LINKS.school.find(
-    (link) => link.translationKey === "about",
+    link => link.translationKey === "about",
   )!;
 
   return (

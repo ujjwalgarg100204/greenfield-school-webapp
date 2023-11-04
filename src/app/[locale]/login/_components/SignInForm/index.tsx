@@ -7,7 +7,6 @@ import { UserCreateInputSchema } from "@/src/types/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useScopedI18n } from "@locales/client";
 import { signIn } from "next-auth/react";
-import NextLink from "next/link";
 import { useRouter } from "next/navigation";
 import type { FC } from "react";
 import type { SubmitHandler } from "react-hook-form";
@@ -23,9 +22,9 @@ const SignInForm: FC = () => {
   });
   const router = useRouter();
 
-  const onSubmit: SubmitHandler<z.infer<typeof UserCreateInputSchema>> = async (
-    data,
-  ) => {
+  const onSubmit: SubmitHandler<
+    z.infer<typeof UserCreateInputSchema>
+  > = async data => {
     const res = await signIn("credentials", {
       ...data,
       redirect: false,
@@ -44,23 +43,18 @@ const SignInForm: FC = () => {
         <RoleRadioGroups />
 
         <div className="flex items-center justify-center gap-4">
-          <hr className="bg-default h-0.5 flex-grow rounded-full" />
-          <span className="text-foreground-500 text-sm">&</span>
-          <hr className="bg-default h-0.5 flex-grow rounded-full" />
+          <hr className="h-0.5 flex-grow rounded-full bg-default" />
+          <span className="text-sm text-foreground-500">&</span>
+          <hr className="h-0.5 flex-grow rounded-full bg-default" />
         </div>
 
         <div className="space-y-4 md:space-y-2">
-          <p className="text-foreground-500">{t("content.my-creds")}</p>
+          <p className="pb-2 text-foreground-500">{t("content.my-creds")}</p>
 
           <CredentialInputs />
 
           <div className="flex justify-end">
-            <Link
-              size="sm"
-              as={NextLink}
-              underline="always"
-              href="/login/forget-password"
-            >
+            <Link size="sm" underline="always" href="/login/forget-password">
               {t("content.forget")}
             </Link>
           </div>

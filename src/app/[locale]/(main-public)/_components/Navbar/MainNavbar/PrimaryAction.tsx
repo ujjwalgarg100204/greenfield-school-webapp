@@ -1,10 +1,9 @@
 "use client";
 
-import { Button, CircularProgress } from "@lib/next-ui";
+import { Button, CircularProgress, Link } from "@lib/next-ui";
 
 import { useScopedI18n } from "@/src/locales/client";
 import { useSession } from "next-auth/react";
-import NextLink from "next/link";
 import type { FC } from "react";
 import AccountMenu from "./AccountMenu";
 
@@ -19,7 +18,7 @@ const PrimaryAction: FC = () => {
     return (
       <>
         <Button
-          as={NextLink}
+          as={Link}
           href="/login"
           color="primary"
           variant="solid"
@@ -31,7 +30,7 @@ const PrimaryAction: FC = () => {
         </Button>
 
         <Button
-          as={NextLink}
+          as={Link}
           href="/login"
           color="primary"
           variant="solid"

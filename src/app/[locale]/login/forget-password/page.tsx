@@ -1,9 +1,9 @@
+import { Button, Link } from "@lib/next-ui";
+
 import type { NextPageProps } from "@/src/types";
 import ArticleHeading from "@components/ArticleHeading";
-import { Button } from "@lib/next-ui";
 import { getScopedI18n } from "@locales/server";
 import { setStaticParamsLocale } from "next-international/server";
-import NextLink from "next/link";
 import type { FC } from "react";
 
 const ForgetPasswordPage: FC<NextPageProps> = async ({
@@ -28,7 +28,7 @@ const ForgetPasswordPage: FC<NextPageProps> = async ({
           </p>
           <p>{t("content.details.principal", { number: "+91 XXXXX XXXXX" })}</p>
         </div>
-        <Button as={NextLink} color="primary" className="w-full" href="/login">
+        <Button as={Link} color="primary" className="w-full" href="/login">
           {t("content.button-text")}
         </Button>
       </main>

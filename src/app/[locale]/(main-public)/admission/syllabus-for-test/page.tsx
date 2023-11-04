@@ -1,11 +1,10 @@
-import { Card, CardBody } from "@lib/next-ui";
+import { Card, CardBody, Link } from "@lib/next-ui";
 
 import ArticleHeading from "@/src/components/ArticleHeading";
+import ArticlePage from "../../_components/ArticlePage";
+import type { FC } from "react";
 import type { NextPageProps } from "@/src/types";
 import { setStaticParamsLocale } from "next-international/server";
-import NextLink from "next/link";
-import type { FC } from "react";
-import ArticlePage from "../../_components/ArticlePage";
 
 export const classesInSchool = [
   "i",
@@ -35,7 +34,7 @@ const SyllabusForAdmissionTestPage: FC<NextPageProps> = ({
             key={c}
             isPressable
             shadow="sm"
-            as={NextLink}
+            as={Link}
             href={`/admission/syllabus-for-test/${c}`}
           >
             <CardBody className="grid aspect-square h-[140px] place-content-center text-xl font-bold text-primary-400">

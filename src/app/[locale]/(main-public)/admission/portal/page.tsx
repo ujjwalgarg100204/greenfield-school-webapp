@@ -1,9 +1,9 @@
+import { Button, Link } from "@lib/next-ui";
+
 import type { NextPageProps } from "@/src/types";
 import ArticleHeading from "@components/ArticleHeading";
-import { Button } from "@lib/next-ui";
 import { getScopedI18n } from "@locales/server";
 import { setStaticParamsLocale } from "next-international/server";
-import NextLink from "next/link";
 import type { FC } from "react";
 import ArticlePage from "../../_components/ArticlePage";
 
@@ -26,7 +26,7 @@ const AdmissionPortal: FC<NextPageProps> = async ({ params: { locale } }) => {
       <Button
         size="md"
         radius="sm"
-        as={NextLink}
+        as={Link}
         color="primary"
         href="/admission/onboarding"
         className="w-full font-semibold"

@@ -1,8 +1,7 @@
 "use client";
 
-import { Tab, Tabs } from "@lib/next-ui";
+import { Tab, Tabs, Link } from "@lib/next-ui";
 
-import NextLink from "next/link";
 import { usePathname } from "next/navigation";
 import type { FC } from "react";
 
@@ -48,7 +47,7 @@ const TransportTabs: FC = () => {
       }}
     >
       {tabs.map(({ title, key, href }) => (
-        <Tab key={key} title={title} as={NextLink} href={href} />
+        <Tab key={key} title={title} as={Link} href={href} />
       ))}
     </Tabs>
   );

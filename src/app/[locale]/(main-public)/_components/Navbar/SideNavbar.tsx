@@ -1,8 +1,7 @@
-import { Button, Divider } from "@lib/next-ui";
+import { Button, Divider, Link } from "@lib/next-ui";
 
 import { NAV_LINKS } from "@lib/frontend-data";
 import { getScopedI18n } from "@locales/server";
-import NextLink from "next/link";
 import type { FC } from "react";
 
 export type Props = {
@@ -38,7 +37,7 @@ const SideNavbar: FC<Props> = async ({ linkType, selected }) => {
                 </Button>
               ) : (
                 <Button
-                  as={NextLink}
+                  as={Link}
                   href={link}
                   variant="light"
                   color="default"

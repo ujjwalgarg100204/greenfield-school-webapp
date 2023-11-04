@@ -1,10 +1,9 @@
-import { Button, ButtonGroup } from "@lib/next-ui";
+import { Button, ButtonGroup, Link } from "@lib/next-ui";
 
 import ArticleHeading from "@/src/components/ArticleHeading";
 import ArticleList from "@/src/components/ArticleList";
 import type { NextPageProps } from "@/src/types";
 import { setStaticParamsLocale } from "next-international/server";
-import NextLink from "next/link";
 import type { FC } from "react";
 import { FiExternalLink } from "react-icons/fi";
 import ArticlePage from "../../_components/ArticlePage";
@@ -49,26 +48,25 @@ const AdmissionNoticePage: FC<NextPageProps> = ({ params: { locale } }) => {
       <section>
         <ButtonGroup color="primary">
           <Button
-            as={NextLink}
+            as={Link}
             href="/admission/fee-structure"
             endContent={<FiExternalLink />}
           >
             Fee Structure
           </Button>
           <Button
-            as={NextLink}
+            as={Link}
             href="/admission/portal"
             endContent={<FiExternalLink />}
           >
             Apply <span className="hidden md:block">Online</span>
           </Button>
           <Button
-            as={NextLink}
+            as={Link}
             href="/school/contact-us"
             endContent={<FiExternalLink />}
           >
-            <span className="hidden md:block">Admission</span>
-            Enquiry
+            <span className="hidden md:block">Admission</span> Enquiry
           </Button>
         </ButtonGroup>
       </section>

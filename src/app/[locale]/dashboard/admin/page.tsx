@@ -2,7 +2,6 @@ import { RedirectType, redirect } from "next/navigation";
 
 import { getServerAuthSession } from "@/src/server/auth";
 import { Link } from "@lib/next-ui";
-import NextLink from "next/link";
 
 const ParentDashboardPage = async (): Promise<JSX.Element> => {
   const session = await getServerAuthSession();
@@ -19,7 +18,7 @@ const ParentDashboardPage = async (): Promise<JSX.Element> => {
           <p>Your Details as received by client:</p>
           <p>{JSON.stringify(session, null, 2)}</p>
         </div>
-        <Link href="/" as={NextLink} underline="always">
+        <Link href="/" underline="always">
           Go to Home
         </Link>
       </div>
