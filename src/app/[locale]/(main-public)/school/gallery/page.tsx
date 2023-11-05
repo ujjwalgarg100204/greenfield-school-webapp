@@ -3,8 +3,8 @@ import { type NextPageProps } from "@/src/types";
 import { setStaticParamsLocale } from "next-international/server";
 import { type FC } from "react";
 import ArticlePage from "../../_components/ArticlePage";
-import GallaryImageFetching from "./GallaryImageFetching";
-
+import GallaryImageFetching from "./_component/GallaryImageFetching";
+import Card from "./_component/Card";
 const Gallery: FC<NextPageProps> = ({ params: { locale } }) => {
   setStaticParamsLocale(locale);
 
@@ -14,7 +14,8 @@ const Gallery: FC<NextPageProps> = ({ params: { locale } }) => {
         <ArticleHeading id="gallery">Gallery</ArticleHeading>
       </div>
       <div>
-        <GallaryImageFetching />
+        <Card />
+        {/* <GallaryImageFetching /> */}
       </div>
     </ArticlePage>
   );
