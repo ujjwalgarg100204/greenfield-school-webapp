@@ -22,6 +22,10 @@ const config = {
         protocol: "https",
         hostname: "images.unsplash.com",
       },
+      {
+        protocol: "https",
+        hostname: "greenfield-internationls.s3.us-west-2.amazonaws.com",
+      },
     ],
   },
   eslint: { ignoreDuringBuilds: true },
