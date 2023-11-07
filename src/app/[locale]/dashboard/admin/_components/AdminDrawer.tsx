@@ -16,13 +16,12 @@ import { GiTakeMyMoney } from "react-icons/gi";
 import { GoNumber } from "react-icons/go";
 import { GrMoney } from "react-icons/gr";
 import { MdWorkOutline } from "react-icons/md";
-import type { NextPageProps } from "@/src/types";
 import { RiSettings2Line } from "react-icons/ri";
 
 const drawerItems: DrawerItem[] = [
   {
     title: "Home",
-    href: "/drawer",
+    href: "/dashboard/admin",
     icon: <BiHome className="h-[1.265rem] w-[1.265rem]" />,
   },
   {
@@ -32,34 +31,34 @@ const drawerItems: DrawerItem[] = [
       {
         title: "Attendance",
         icon: <FaUserClock className="h-[1.265rem] w-[1.265rem]" />,
-        href: "/drawer/academics/attendance",
+        href: "/dashboard/admin/academics/attendance",
       },
       {
         title: "Timetable",
         icon: <AiOutlineClockCircle className="h-[1.265rem] w-[1.265rem]" />,
-        href: "/drawer/academics/timetable",
+        href: "/dashboard/admin/academics/timetable",
       },
       {
         title: "Class Material",
         icon: <FiFolder className="h-[1.265rem] w-[1.265rem]" />,
-        href: "/drawer/academics/class-material",
+        href: "/dashboard/admin/academics/class-material",
       },
       {
         title: "Academic Calendar",
         icon: <BsCalendar2Check className="h-[1.265rem] w-[1.265rem]" />,
-        href: "/drawer/academics/academic-calendar",
+        href: "/dashboard/admin/academics/academic-calendar",
       },
       {
         title: "Home Work",
         icon: <MdWorkOutline className="h-[1.265rem] w-[1.265rem]" />,
-        href: "/drawer/academics/homework",
+        href: "/dashboard/admin/academics/homework",
       },
       {
         title: "Teacher Info",
         icon: (
           <LiaChalkboardTeacherSolid className="h-[1.265rem] w-[1.265rem]" />
         ),
-        href: "/drawer/academics/teacher-info",
+        href: "/dashboard/admin/academics/teacher-info",
       },
     ],
   },
@@ -70,17 +69,17 @@ const drawerItems: DrawerItem[] = [
       {
         title: "Schedule",
         icon: <AiOutlineClockCircle className="h-[1.265rem] w-[1.265rem]" />,
-        href: "/drawer/exams/schedule",
+        href: "/dashboard/admin/exams/schedule",
       },
       {
         title: "Marks",
         icon: <GoNumber className="h-[1.265rem] w-[1.265rem]" />,
-        href: "/drawer/exams/marks",
+        href: "/dashboard/admin/exams/marks",
       },
       {
         title: "Report Card",
         icon: <TbReportAnalytics className="h-[1.265rem] w-[1.265rem]" />,
-        href: "/drawer/exams/report-card",
+        href: "/dashboard/admin/exams/report-card",
       },
     ],
   },
@@ -91,12 +90,12 @@ const drawerItems: DrawerItem[] = [
       {
         title: "Fees",
         icon: <GiTakeMyMoney className="h-[1.265rem] w-[1.265rem]" />,
-        href: "/drawer/money/fees",
+        href: "/dashboard/admin/money/fees",
       },
       {
         title: "Fines",
         icon: <GrMoney className="h-[1.265rem] w-[1.265rem]" />,
-        href: "/drawer/money/fines",
+        href: "/dashboard/admin/money/fines",
       },
     ],
   },
@@ -107,28 +106,19 @@ const drawerItems: DrawerItem[] = [
       {
         title: "Personal Info",
         icon: <PiUserListBold className="h-[1.265rem] w-[1.265rem]" />,
-        href: "/drawer/profile/personal-info",
+        href: "/dashboard/admin/profile/personal-info",
       },
       {
         title: "Settings",
         icon: <RiSettings2Line className="h-[1.265rem] w-[1.265rem]" />,
-        href: "/drawer/profile/settings",
+        href: "/dashboard/admin/profile/settings",
       },
     ],
   },
 ];
 
-const DrawerTestingPage: FC<NextPageProps> = ({ params: { locale } }) => {
-  return (
-    <div className="flex min-h-screen flex-col">
-      <header className="h-20 bg-slate-500">Navbar</header>
-      <div className="flex flex-grow">
-        <Drawer items={drawerItems} />
-        <main className="w-full bg-rose-300">Main Content</main>
-      </div>
-      <footer className="h-20 bg-slate-500">Footer</footer>
-    </div>
-  );
+const AdminDrawer: FC = () => {
+  return <Drawer items={drawerItems} />;
 };
 
-export default DrawerTestingPage;
+export default AdminDrawer;

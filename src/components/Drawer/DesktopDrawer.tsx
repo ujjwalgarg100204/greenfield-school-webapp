@@ -40,7 +40,7 @@ const DesktopDrawer: FC<DrawerProps> = ({ items }) => {
           ))}
       </Listbox>
 
-      <Accordion variant="splitted">
+      <Accordion variant="splitted" selectionMode="single">
         {items
           .filter(item => "subItems" in item)
           .map(item => (
