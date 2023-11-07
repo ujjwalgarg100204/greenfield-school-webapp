@@ -13,20 +13,22 @@ const useResponsiveScreen = (): ScreenSize => {
   useEffect(() => {
     if (typeof width !== "number") return;
 
-    let screenSize: ScreenSize = "2xl";
+    let screenSize: ScreenSize;
     switch (true) {
-      case width <= 640:
+      case width > 0 && width <= 768:
         screenSize = "sm";
         break;
-      case width <= 768:
+      case width <= 1024:
         screenSize = "md"; // mobile screen
         break;
-      case width <= 1024:
+      case width <= 1280:
         screenSize = "lg"; // tabs
         break;
-      case width <= 1280:
+      case width <= 1536:
         screenSize = "xl"; // desktop & laptop
         break;
+      default:
+        screenSize = "2xl";
     }
     setScreenSize(screenSize);
   }, [width]);
