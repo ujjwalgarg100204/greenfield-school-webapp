@@ -3,6 +3,7 @@
 import { BiHome, BiSolidPencil } from "react-icons/bi";
 import { FaQuestion, FaQuoteLeft } from "react-icons/fa";
 import { HiMiniDocumentDuplicate, HiMiniDocumentPlus } from "react-icons/hi2";
+import { RiParentFill } from "react-icons/ri";
 
 import type { DrawerItem } from "@/src/components/Drawer";
 import Drawer from "@/src/components/Drawer";
@@ -34,6 +35,11 @@ const drawerItems: DrawerItem[] = [
     title: "All Applications",
     icon: <HiMiniDocumentDuplicate className="h-[1.265rem] w-[1.265rem]" />,
     href: "/dashboard/admission/all",
+  },
+  {
+    title: "Parent Dashboard",
+    icon: <RiParentFill className="h-[1.265rem] w-[1.265rem]" />,
+    href: "/dashboard/parent",
   },
   {
     title: "FAQs",
