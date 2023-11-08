@@ -37,6 +37,7 @@ import {
   TableRow,
   Tabs,
   Textarea,
+  User,
 } from "@nextui-org/react";
 
 export {
@@ -76,4 +77,5 @@ export {
   TableRow,
   Tabs,
   Textarea,
+  User,
 };

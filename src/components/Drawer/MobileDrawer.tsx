@@ -18,7 +18,7 @@ const MobileDrawer: FC<DrawerProps> = ({ items }) => {
     useSelectedDrawerItem(items);
 
   return (
-    <aside className="flex w-12 flex-col items-center gap-4 bg-primary-50 py-8 md:w-16">
+    <aside className="flex w-12 flex-col items-center gap-4 rounded-md bg-primary-50 py-8 md:w-16">
       {items
         .filter(item => !("subItems" in item))
         .map(item => (

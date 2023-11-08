@@ -2,11 +2,11 @@
 
 import { Accordion, AccordionItem, Listbox, ListboxItem } from "@lib/next-ui";
 
-import type { DrawerProps } from ".";
+import NextLink from "next/link";
 import type { FC } from "react";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
-import NextLink from "next/link";
 import { twMerge } from "tailwind-merge";
+import type { DrawerProps } from ".";
 import useSelectedDrawerItem from "./useSelectedOption";
 
 const DesktopDrawer: FC<DrawerProps> = ({ items }) => {
@@ -14,12 +14,13 @@ const DesktopDrawer: FC<DrawerProps> = ({ items }) => {
     useSelectedDrawerItem(items);
 
   return (
-    <aside className="flex w-56 flex-col items-center gap-4 bg-primary-50 py-8 xl:w-60">
+    <aside className="flex w-56 flex-col items-center gap-4 rounded-md bg-primary-50 py-8 xl:w-60">
       <Listbox
         color="primary"
-        className="-mb-2 gap-0 px-2 py-0"
+        className="-mb-2 px-2 py-0"
         selectionMode="single"
         selectedKeys={[selectedItem.title]}
+        classNames={{ list: "gap-2" }}
       >
         {items
           .filter(item => !("subItems" in item))
