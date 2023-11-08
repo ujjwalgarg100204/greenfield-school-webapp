@@ -1,17 +1,17 @@
 "use client";
 
 import {
-  Avatar,
   Dropdown,
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
   Link,
+  User,
 } from "@lib/next-ui";
 import { signOut, useSession } from "next-auth/react";
 
-import type { FC } from "react";
 import { useRouter } from "next/navigation";
+import type { FC } from "react";
 
 const AccountMenu: FC = () => {
   const router = useRouter();
@@ -19,18 +19,26 @@ const AccountMenu: FC = () => {
 
   const signOutHandler = async () => {
     await signOut({ redirect: false });
-    router.push("/");
+    router.replace("/login");
   };
 
   return (
     <Dropdown placement="bottom-end" isDisabled={status === "loading"}>
       <DropdownTrigger>
-        <Avatar
-          isBordered
+        <User
           as="button"
-          color="primary"
-          name={data?.user.username}
+          avatarProps={{
+            isBordered: true,
+            color: "primary",
+            name: data?.user.username,
+          }}
           className="transition-transform"
+          description={`${data?.user.role}`}
+          name={`Mr. ${data?.user.username}`}
+          classNames={{
+            name: "font-semibold capitalize",
+            description: "uppercase tracking-wider text-[0.7rem] leading-4",
+          }}
         />
       </DropdownTrigger>
       <DropdownMenu aria-label="Profile Actions" variant="flat">
