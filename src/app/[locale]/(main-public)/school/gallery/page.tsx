@@ -7,7 +7,7 @@ import { setStaticParamsLocale } from "next-international/server";
 import NextLink from "next/link";
 import { type FC } from "react";
 import ArticlePage from "../../_components/ArticlePage";
-import GalleryCard from "./_component/GalleryCard";
+import GalleryCard from "./_component/GalleryCardImages";
 
 const Gallery: FC<NextPageProps> = async ({ params: { locale } }) => {
   setStaticParamsLocale(locale);
