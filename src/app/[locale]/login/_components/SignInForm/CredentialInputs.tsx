@@ -1,11 +1,11 @@
 "use client";
 
-import type { UserCreateInputSchema } from "@/src/types/zod";
-import { Input } from "@lib/next-ui";
-import { useScopedI18n } from "@locales/client";
-import type Translation from "@locales/languages/en";
 import type { FC } from "react";
+import { Input } from "@lib/next-ui";
+import type Translation from "@locales/languages/en";
+import type { UserCreateInputSchema } from "@/src/types/zod";
 import { useFormContext } from "react-hook-form";
+import { useScopedI18n } from "@locales/client";
 import type { z } from "zod";
 
 type UserIdErrorType =
@@ -21,7 +21,7 @@ const CredentialInputs: FC = () => {
   } = useFormContext<z.infer<typeof UserCreateInputSchema>>();
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-9">
       <Input
         type="text"
         radius="sm"
@@ -39,6 +39,7 @@ const CredentialInputs: FC = () => {
               )
             : ""
         }
+        classNames={{ label: "font-semibold" }}
         {...register("username")}
       />
       <Input
@@ -58,6 +59,7 @@ const CredentialInputs: FC = () => {
               )
             : ""
         }
+        classNames={{ label: "font-semibold" }}
         {...register("password")}
       />
     </div>

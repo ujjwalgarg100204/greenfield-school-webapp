@@ -1,6 +1,8 @@
 import ArticleHeading from "@components/ArticleHeading";
+import ArticleList from "@/src/components/ArticleList";
 import ArticlePage from "../../_components/ArticlePage";
 import type { FC } from "react";
+import LIBRARY_RULES_DATA from "./data";
 import type { NextPageProps } from "@/src/types";
 import { getScopedI18n } from "@locales/server";
 import { setStaticParamsLocale } from "next-international/server";
@@ -12,16 +14,7 @@ const LibraryRulesPage: FC<NextPageProps> = async ({ params: { locale } }) => {
   return (
     <ArticlePage linkType="student" selected={{ translationKey: "l-rules" }}>
       <ArticleHeading> {t("title")} </ArticleHeading>
-      <ul className="list-disc space-y-6">
-        <li className="text-justify">{t("content.para-1")}</li>
-        <li className="text-justify">{t("content.para-2")}</li>
-        <li className="text-justify">{t("content.para-3")}</li>
-        <li className="text-justify">{t("content.para-4")}</li>
-        <li className="text-justify">{t("content.para-5")}</li>
-        <li className="text-justify">{t("content.para-6")}</li>
-        <li className="text-justify">{t("content.para-7")}</li>
-        <li className="text-justify">{t("content.para-8")}</li>
-      </ul>
+      <ArticleList list={LIBRARY_RULES_DATA} containerClassName="space-y-1.5" />
     </ArticlePage>
   );
 };

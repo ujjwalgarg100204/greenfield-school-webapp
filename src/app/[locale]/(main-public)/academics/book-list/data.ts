@@ -4,7 +4,7 @@ export default {
       subject: "English",
       books: [
         {
-          title: "Gulmohar Grammer& Language .Skills",
+          title: "Gulmohar Grammer & Language .Skills",
           publisher: "Orient Black Swan",
         },
         {

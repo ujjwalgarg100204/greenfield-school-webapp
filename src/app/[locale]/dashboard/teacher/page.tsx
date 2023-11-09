@@ -1,5 +1,6 @@
 import { RedirectType, redirect } from "next/navigation";
 
+import { Link } from "@/src/lib/next-ui";
 import { getServerAuthSession } from "@/src/server/auth";
 import type { FC } from "react";
 
@@ -18,6 +19,9 @@ const TeacherDashboardPage: FC = async () => {
           <p>Your Details as received by client:</p>
           <p>{JSON.stringify(session, null, 2)}</p>
         </div>
+        <Link href="/" underline="always">
+          Go to Home
+        </Link>
       </div>
     </div>
   );

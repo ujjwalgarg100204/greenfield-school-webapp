@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@lib/next-ui";
-import { useRouter } from "next/navigation";
-import type { FC } from "react";
 import { BiArrowBack } from "react-icons/bi";
+import { Button } from "@lib/next-ui";
+import type { FC } from "react";
+import { useRouter } from "next/navigation";
 
 const BackButton: FC = () => {
   const router = useRouter();
@@ -13,7 +13,7 @@ const BackButton: FC = () => {
 
   return (
     <Button variant="light" isIconOnly onClick={clickHandler} size="sm">
-      <BiArrowBack className="text-foreground h-4/5 w-4/5" />
+      <BiArrowBack className="h-4/5 w-4/5 text-foreground" />
     </Button>
   );
 };

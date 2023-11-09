@@ -1,18 +1,17 @@
-import { Navbar, NavbarBrand, NavbarContent } from "@lib/next-ui";
+import { Link, Navbar, NavbarBrand, NavbarContent } from "@lib/next-ui";
 
+import BackButton from "./BackButton";
+import type { FC } from "react";
 import GreenfieldLogo from "@/../public/images/logo.png";
 import LanguageSwitcher from "@/src/components/ui/LanguageSwitcher";
 import NextImage from "next/image";
-import NextLink from "next/link";
-import type { FC } from "react";
-import BackButton from "./BackButton";
 
 const Header: FC = () => {
   return (
     <Navbar position="static">
       <NavbarContent>
         <BackButton />
-        <NavbarBrand as={NextLink} href="/" className="gap-4">
+        <NavbarBrand as={Link} href="/" className="gap-4">
           <NextImage
             src={GreenfieldLogo}
             alt="Greenfield Logo"

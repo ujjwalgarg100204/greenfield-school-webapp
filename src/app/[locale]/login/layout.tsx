@@ -1,8 +1,8 @@
 import type { FC, ReactNode } from "react";
 
+import Header from "./_components/Header";
 import LoginPageSideImage from "@/../public/images/login-page-side-img.jpg";
 import NextImage from "next/image";
-import Header from "./_components/Header";
 
 type Props = { children: ReactNode };
 

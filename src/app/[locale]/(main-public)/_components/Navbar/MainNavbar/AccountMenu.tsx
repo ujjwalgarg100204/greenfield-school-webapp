@@ -6,12 +6,12 @@ import {
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
+  Link,
 } from "@lib/next-ui";
 import { signOut, useSession } from "next-auth/react";
 
-import NextLink from "next/link";
-import { useRouter } from "next/navigation";
 import type { FC } from "react";
+import { useRouter } from "next/navigation";
 
 const AccountMenu: FC = () => {
   const router = useRouter();
@@ -40,7 +40,7 @@ const AccountMenu: FC = () => {
         </DropdownItem>
         <DropdownItem
           key="settings"
-          as={NextLink}
+          as={Link}
           href={`/dashboard/${data?.user.role}`}
         >
           Dashboard

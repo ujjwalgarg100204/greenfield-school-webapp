@@ -1,14 +1,13 @@
-import { Button, ButtonGroup } from "@lib/next-ui";
+import { Button, ButtonGroup, Link } from "@lib/next-ui";
 
 import ArticleHeading from "@/src/components/ArticleHeading";
 import ArticleList from "@/src/components/ArticleList";
 import type { NextPageProps } from "@/src/types";
 import { setStaticParamsLocale } from "next-international/server";
-import NextLink from "next/link";
 import type { FC } from "react";
 import { FiExternalLink } from "react-icons/fi";
 import ArticlePage from "../../_components/ArticlePage";
-import StudentsAndNonStudentsTabs from "../_components/StudentsAndNonStudentsTabs";
+import SinglePageTabs from "../../_components/SinglePageTabs";
 import AdmissionNotice from "./_components/AdmissionNotice";
 
 const admissionNoticeList = [
@@ -20,6 +19,19 @@ const admissionNoticeList = [
   "To apply for Online Admission of Class Nursery to Class – I Click Here",
 ];
 
+const admissionNoticesTabs = [
+  {
+    key: "non-greenfield-students",
+    title: "Non-Greenfield Students",
+    component: <AdmissionNotice type="new" />,
+  },
+  {
+    key: "greenfield-students",
+    title: "Greenfield Students",
+    component: <AdmissionNotice type="old" />,
+  },
+] as const;
+
 const AdmissionNoticePage: FC<NextPageProps> = ({ params: { locale } }) => {
   setStaticParamsLocale(locale);
 
@@ -28,34 +40,33 @@ const AdmissionNoticePage: FC<NextPageProps> = ({ params: { locale } }) => {
       <ArticleHeading>Admission Notice</ArticleHeading>
       <ArticleList list={admissionNoticeList} />
       <div className="pt-4">
-        <StudentsAndNonStudentsTabs
-          nonGreenfieldStudents={<AdmissionNotice type="new" />}
-          greenFieldStudents={<AdmissionNotice type="old" />}
+        <SinglePageTabs
+          tabs={admissionNoticesTabs}
+          defaultSelectedKey="non-greenfield-students"
         />
       </div>
       <section>
         <ButtonGroup color="primary">
           <Button
-            as={NextLink}
+            as={Link}
             href="/admission/fee-structure"
             endContent={<FiExternalLink />}
           >
             Fee Structure
           </Button>
           <Button
-            as={NextLink}
+            as={Link}
             href="/admission/portal"
             endContent={<FiExternalLink />}
           >
             Apply <span className="hidden md:block">Online</span>
           </Button>
           <Button
-            as={NextLink}
+            as={Link}
             href="/school/contact-us"
             endContent={<FiExternalLink />}
           >
-            <span className="hidden md:block">Admission</span>
-            Enquiry
+            <span className="hidden md:block">Admission</span> Enquiry
           </Button>
         </ButtonGroup>
       </section>

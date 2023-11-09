@@ -1,8 +1,7 @@
-import { Button, Navbar, NavbarContent } from "@lib/next-ui";
+import { Button, Link, Navbar, NavbarContent } from "@lib/next-ui";
 
 import { NAV_LINKS } from "@lib/frontend-data";
 import { getScopedI18n } from "@locales/server";
-import NextLink from "next/link";
 import type { FC } from "react";
 import LinksNavbarItem from "./LinksNavbarItem";
 
@@ -21,7 +20,7 @@ const LinksNavbar: FC = async () => {
         justify="center"
       >
         <Button
-          as={NextLink}
+          as={Link}
           href="/"
           disableRipple
           className="bg-slate-400 bg-transparent p-0 text-xs data-[hover=true]:bg-transparent sm:text-sm md:text-base"
@@ -29,7 +28,7 @@ const LinksNavbar: FC = async () => {
           {t("title")}
         </Button>
         {(Object.keys(NAV_LINKS) as Array<keyof typeof NAV_LINKS>).map(
-          (navLink) =>
+          navLink =>
             navLink === "home" ? null : (
               <LinksNavbarItem key={navLink} linkType={navLink} />
             ),

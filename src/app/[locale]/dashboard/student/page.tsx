@@ -1,12 +1,13 @@
 import { RedirectType, redirect } from "next/navigation";
 
+import { Link } from "@/src/lib/next-ui";
 import { getServerAuthSession } from "@/src/server/auth";
 import type { FC } from "react";
 
 const StudentDashboardPage: FC = async () => {
   const session = await getServerAuthSession();
   if (!session || session.user.role !== "student")
-    redirect("/login", RedirectType.push);
+    redirect("/login", RedirectType.replace);
 
   return (
     <div className="flex min-h-screen items-center justify-center">
@@ -18,6 +19,9 @@ const StudentDashboardPage: FC = async () => {
           <p>Your Details as received by client:</p>
           <p>{JSON.stringify(session, null, 2)}</p>
         </div>
+        <Link href="/" underline="always">
+          Go to Home
+        </Link>
       </div>
     </div>
   );

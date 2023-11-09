@@ -42,7 +42,6 @@ export const NAV_LINKS = {
     { translationKey: "council", link: "/student/student-council" },
     { translationKey: "activities", link: "/student/co-curricular-activities" },
     { translationKey: "timings", link: "/student/school-timings" },
-    { translationKey: "certificate", link: "/student/transfer-certificate" },
     { translationKey: "prayer", link: "/student/school-prayer" },
     { translationKey: "trips", link: "/student/trips-and-excursions" },
     { translationKey: "cc", link: "/student/code-of-conduct" },
@@ -69,7 +68,7 @@ export const NAV_LINKS = {
     },
     { translationKey: "infirmary", link: "/parent/school-infirmary" },
     { translationKey: "report", link: "/parent/progress-report" },
-    { translationKey: "fee", link: "/parent/pay-fee-online" },
+    { translationKey: "fee", link: "/dashboard/parent" },
     { translationKey: "login", link: "/dashboard/parent" },
   ],
 } as const;

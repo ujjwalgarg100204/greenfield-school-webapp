@@ -1,14 +1,13 @@
 import ArticleHeading from "@/src/components/ArticleHeading";
-import GreenfieldLocation from "@/src/components/GreenfieldLocation";
-import type { NextPageProps } from "@/src/types";
-import { Link } from "@lib/next-ui";
-import { setStaticParamsLocale } from "next-international/server";
-import NextLink from "next/link";
+import ArticlePage from "../../_components/ArticlePage";
 import type { FC } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
+import GreenfieldLocation from "@/src/components/GreenfieldLocation";
 import { HiMail } from "react-icons/hi";
-import ArticlePage from "../../_components/ArticlePage";
+import { Link } from "@lib/next-ui";
+import type { NextPageProps } from "@/src/types";
 import QueryForm from "./_components/QueryForm";
+import { setStaticParamsLocale } from "next-international/server";
 
 const SchoolContactPage: FC<NextPageProps> = ({ params: { locale } }) => {
   setStaticParamsLocale(locale);
@@ -25,7 +24,7 @@ const SchoolContactPage: FC<NextPageProps> = ({ params: { locale } }) => {
           </p>
           <p className="mt-2 flex items-center gap-4">
             <HiMail className="h-7 w-7 fill-primary" />
-            <Link as={NextLink} href="mailto:greenfieldschool@gmail.com">
+            <Link href="mailto:greenfieldschool@gmail.com">
               greenfieldschool@gmail.com
             </Link>
           </p>

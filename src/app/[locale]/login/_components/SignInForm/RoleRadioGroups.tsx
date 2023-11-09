@@ -2,13 +2,13 @@
 
 import { Controller, useFormContext } from "react-hook-form";
 
+import type { FC } from "react";
+import { RadioGroup } from "@nextui-org/react";
+import RoleRadioButton from "./RoleRadioButton";
 import type { UserCreateInputSchema } from "@/src/types/zod";
 import { UserRolesSchema } from "@/src/types/zod";
 import { useScopedI18n } from "@locales/client";
-import { RadioGroup } from "@nextui-org/react";
-import type { FC } from "react";
 import type { z } from "zod";
-import RoleRadioButton from "./RoleRadioButton";
 
 const RoleRadioGroups: FC = () => {
   const t = useScopedI18n("login.sub-links.index");
@@ -33,7 +33,7 @@ const RoleRadioGroups: FC = () => {
             fieldState.invalid ? t("content.inputs.role.error.no-input") : ""
           }
         >
-          {Object.values(UserRolesSchema.Values).map((role) => (
+          {Object.values(UserRolesSchema.Values).map(role => (
             <RoleRadioButton key={role} value={role}>
               {t(`content.inputs.role.roles.${role}`)}
             </RoleRadioButton>

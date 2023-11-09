@@ -1,9 +1,9 @@
 "use client";
 
-import { Chip } from "@lib/next-ui";
-import type { FC } from "react";
-import NextLink from "next/link";
+import { Chip, Link } from "@lib/next-ui";
+
 import { useSearchParams } from "next/navigation";
+import type { FC } from "react";
 
 const categories = [
   "All",
@@ -22,20 +22,20 @@ const NewsFilter: FC = () => {
   const paramCategory = params.get("category") ?? "All";
 
   return (
-    <div role="list">
-      {categories.map((category) => (
+    <menu role="list">
+      {categories.map(category => (
         <Chip
-          as={NextLink}
+          as={Link}
           radius="sm"
           color={category === paramCategory ? "primary" : "default"}
           href={`/school/in-the-news?category=${category}`}
           key={category}
-          className="hover:bg-primary lg:text-medium m-1 transition hover:text-slate-100 lg:h-8 lg:px-2"
+          className="m-1 transition hover:bg-primary hover:text-slate-100 lg:h-8 lg:px-2 lg:text-medium"
         >
           {category}
         </Chip>
       ))}
-    </div>
+    </menu>
   );
 };
 
