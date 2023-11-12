@@ -28,11 +28,11 @@ export const env = createEnv({
       // VERCEL_URL doesn't include `https` so it cant be validated as a URL
       process.env.VERCEL ? z.string() : z.string().url(),
     ),
-
-    AWS_S3_REGION_KEY: z.string().min(1),
-    AWS_S3_ACCESSKEY_ID: z.string().min(1),
-    AWS_S3_SECRET_ACCESS_KEY: z.string().min(1),
-    AWS_S3_BUCKET: z.string().min(1),
+    // AWS
+    AWS_USER_ACCESS_KEY: z.string().min(1),
+    AWS_SECRET_ACCESS_KEY: z.string().min(1),
+    AWS_S3_BUCKET_NAME: z.string().min(1),
+    AWS_S3_REGION_NAME: z.string().min(1),
   },
 
   /**
@@ -53,10 +53,10 @@ export const env = createEnv({
     NODE_ENV: process.env.NODE_ENV,
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
-    AWS_S3_REGION_KEY: process.env.AWS_S3_REGION_KEY,
-    AWS_S3_ACCESSKEY_ID: process.env.AWS_S3_ACCESSKEY_ID,
-    AWS_S3_SECRET_ACCESS_KEY: process.env.AWS_S3_SECRET_ACCESS_KEY,
-    AWS_S3_BUCKET: process.env.AWS_S3_BUCKET,
+    AWS_USER_ACCESS_KEY: process.env.AWS_USER_ACCESS_KEY,
+    AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
+    AWS_S3_BUCKET_NAME: process.env.AWS_S3_BUCKET_NAME,
+    AWS_S3_REGION_NAME: process.env.AWS_S3_REGION_NAME,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

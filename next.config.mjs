@@ -1,3 +1,5 @@
+import { env } from "./src/env.mjs";
+
 /**
  * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially useful
  * for Docker builds.
@@ -25,6 +27,10 @@ const config = {
       {
         protocol: "https",
         hostname: "greenfield-internationls.s3.us-west-2.amazonaws.com",
+      },
+      {
+        protocol: "https",
+        hostname: `${env.AWS_S3_BUCKET_NAME}.s3.${env.AWS_S3_REGION_NAME}.amazonaws.com`,
       },
     ],
   },
