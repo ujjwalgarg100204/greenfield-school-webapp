@@ -1,4 +1,5 @@
 import ArticleHeading from "@/src/components/ArticleHeading";
+import { db } from "@/src/server/db";
 import SchoolEventsGallery from "@/src/services/SchoolEventsGallery";
 import type { NextPageProps } from "@/src/types";
 import { Image } from "@lib/next-ui";
@@ -10,8 +11,10 @@ import ArticlePage from "../../../_components/ArticlePage";
 const gallery = new SchoolEventsGallery();
 
 export const generateStaticParams = async () => {
-  const folders = await gallery.getGalleryFolders();
-  return folders.map(folder => ({
+  const folderNames = await db.galleryFolder.findMany({
+    select: { name: true },
+  });
+  return folderNames.map(folder => ({
     event: folder.name,
   }));
 };
