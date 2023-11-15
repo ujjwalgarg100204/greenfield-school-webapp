@@ -10,8 +10,8 @@ generator zod {
     createInputTypes                 = true
     createModelTypes                 = false
     addInputTypeValidation           = true
-    addIncludeType                   = false
-    addSelectType                    = false
+    addIncludeType                   = true
+    addSelectType                    = true
     validateWhereUniqueInput         = false
     createOptionalDefaultValuesTypes = true
     createRelationValuesTypes        = false
@@ -42,25 +42,44 @@ model User {
     password String /// @zod.string.min(6, { message: "short-input" }).max(16, { message: "long-input" })
 }
 
-model GalleryFolder {
-    id        String         @id @default(cuid())
-    name      String         @unique
-    thumbnail String
-    images    GalleryImage[]
-    createdAt DateTime       @default(now())
-    updatedAt DateTime       @updatedAt
+// schema.prisma
 
-    @@index([name])
+model GalleryFolder {
+    id   String @id @default(cuid())
+    name String @unique
+
+    // Define the one-to-many relationship with GalleryImage
+    images GalleryImage[] @relation("GalleryImages")
+
+    // Define the one-to-one relationship with GalleryImage for the thumbnail
+    thumbnail   GalleryImage? @relation("Thumbnail", fields: [thumbnailId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+    thumbnailId String?       @unique
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
 }
 
 model GalleryImage {
-    id        String        @id @default(cuid())
-    filename  String
-    folder    GalleryFolder @relation(fields: [folderId], references: [id])
-    folderId  String
-    createdAt DateTime      @default(now())
-    updatedAt DateTime      @updatedAt
+    id       String @id @default(cuid())
+    filename String
 
-    @@unique([filename, folderId])
+    // Define the many-to-one relationship with GalleryFolder
+    folder   GalleryFolder @relation("GalleryImages", fields: [folderId], references: [id])
+    folderId String
+
+    // Define the one-to-one relationship with GalleryFolder for serving as a thumbnail
+    thumbnailFor GalleryFolder? @relation("Thumbnail")
+
     @@index([folderId])
+}
+
+model S3UploadTransaction {
+    id           String   @id @default(cuid())
+    s3Path       String   @unique
+    errorMessage String?
+    errorCode    String?
+    createdAt    DateTime @default(now())
+    updatedAt    DateTime @updatedAt
+
+    @@index([s3Path])
 }

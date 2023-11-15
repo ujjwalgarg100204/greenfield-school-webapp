@@ -1,0 +1,12 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "pnpm run build",
+  "devCommand": "pnpm run build",
+  "installCommand": "pnpm install",
+  "crons": [
+    {
+      "path": "/api/cron/s3-cleanup",
+      "schedule": "* 2 * * *"
+    }
+  ]
+}
