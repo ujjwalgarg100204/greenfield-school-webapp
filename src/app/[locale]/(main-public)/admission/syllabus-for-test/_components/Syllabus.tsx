@@ -2,7 +2,7 @@ import ArticleList from "@/src/components/ArticleList";
 import type { FC } from "react";
 
 type Props = {
-  syllabus: Record<string, string[]>;
+  syllabus: Record<string, ReadonlyArray<string>>;
 };
 
 const Syllabus: FC<Props> = ({ syllabus }) => {
