@@ -5,7 +5,20 @@ import type { NextPageProps } from "@/src/types";
 import { setStaticParamsLocale } from "next-international/server";
 import type { FC } from "react";
 import ArticlePage from "../../_components/ArticlePage";
-import SYLLABUS_DATA from "./data";
+
+const classesInSchool = [
+  "i",
+  "ii",
+  "iii",
+  "iv",
+  "v",
+  "vi",
+  "vii",
+  "viii",
+  "ix",
+  "x",
+  "xi",
+] as const;
 
 const SyllabusForAdmissionTestPage: FC<NextPageProps> = ({
   params: { locale },
