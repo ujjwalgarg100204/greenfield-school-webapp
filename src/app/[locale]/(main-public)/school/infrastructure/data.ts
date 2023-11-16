@@ -1,7 +1,6 @@
-export const infrastructureCards = [
+export default [
   {
-    big_screen: false,
-
+    bigScreen: false,
     title: "Smart Classes rooms",
     description: "Modern & spacious classrooms with Interactive TV",
     image: {
@@ -10,7 +9,7 @@ export const infrastructureCards = [
     },
   },
   {
-    big_screen: true,
+    bigScreen: true,
     title: "Sports facilities",
     description:
       "Outdoor Facility for Football, Basketball and Cricket. Indoor Facility for Chess, Gymnastics, Badminton, Yoga & Table Tennis.",
@@ -20,7 +19,7 @@ export const infrastructureCards = [
     },
   },
   {
-    big_screen: true,
+    bigScreen: true,
     title: "Dance Room",
     description:
       "Indian Classical, Folk Dance, Contemporary and Modern Creative Dance etc.",
@@ -30,7 +29,7 @@ export const infrastructureCards = [
     },
   },
   {
-    big_screen: false,
+    bigScreen: false,
     title: "Art Room",
     description:
       "Spacious Air-conditioned well equipped Art Studio to enlarge the creative minds.",
@@ -40,7 +39,7 @@ export const infrastructureCards = [
     },
   },
   {
-    big_screen: false,
+    bigScreen: false,
     title: "Music Room",
     description:
       "Facilities for learning Piano, Guitar, Tabla, Violin, Vocal - Indian & Western",
@@ -50,7 +49,7 @@ export const infrastructureCards = [
     },
   },
   {
-    big_screen: true,
+    bigScreen: true,
     title: "Computer Lab",
     description:
       "7 fully Air-conditioned Computer Labs with 1:1 computer for every student. tie-up with NIIT",
@@ -60,7 +59,7 @@ export const infrastructureCards = [
     },
   },
   {
-    big_screen: true,
+    bigScreen: true,
     title: "Library",
     description:
       "5 airconditioned library to cater 200 students at a time. It is well equipped with 50,000 books, numerous magazines, journals and newspapers with more than 1000 DVDs / CDs to browse through. It has excellent collection of latest Reference books for Competitive Entrance Examinations.",
@@ -70,7 +69,7 @@ export const infrastructureCards = [
     },
   },
   {
-    big_screen: false,
+    bigScreen: false,
     title: "CCTV surveillance system",
     description:
       "School is under CCTV surveillance & 24×7 Security Guards to take care of the safety of students. School also has the latest system for fire safety and detection.",
@@ -80,7 +79,7 @@ export const infrastructureCards = [
     },
   },
   {
-    big_screen: false,
+    bigScreen: false,
     title: "Science Lab",
     description:
       "Twenty-First Century Science Labs to emphasise the modern infrastructure of the school",
@@ -90,7 +89,7 @@ export const infrastructureCards = [
     },
   },
   {
-    big_screen: true,
+    bigScreen: true,
     title: "Infirmary",
     description:
       "An airconditioned efficient Infirmary with trained nurse to cater daily medical emergencies. Provision for online medical consultation with trained Doctors of the city.",
@@ -100,7 +99,7 @@ export const infrastructureCards = [
     },
   },
   {
-    big_screen: true,
+    bigScreen: true,
     title: "Internet and WIFI facility",
     description:
       "Wi-Fi Campus for conducting Online Exams to prepare students for Competitive Exams.",
@@ -110,7 +109,7 @@ export const infrastructureCards = [
     },
   },
   {
-    big_screen: false,
+    bigScreen: false,
     title: "Fire-Fighting Devices",
     description:
       "Fire Control Panel, Smoke Detectors, Hooters, Manual Call Point, Water Pump, Reservoir.",
@@ -119,4 +118,4 @@ export const infrastructureCards = [
       alt: "Fire-Fighting Devices",
     },
   },
-];
+] as const;

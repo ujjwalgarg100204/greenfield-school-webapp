@@ -5,7 +5,7 @@ import ArticlePage from "../../_components/ArticlePage";
 import type { FC } from "react";
 import NextImage from "next/image";
 import type { NextPageProps } from "@/src/types";
-import { infrastructureCards } from "./data";
+import INFRASTRUCTURE_DATA from "./data";
 import { setStaticParamsLocale } from "next-international/server";
 
 const Infrastructure: FC<NextPageProps> = ({ params: { locale } }) => {
@@ -17,16 +17,16 @@ const Infrastructure: FC<NextPageProps> = ({ params: { locale } }) => {
       selected={{ translationKey: "infrastructure" }}
     >
       <div className="flex justify-between">
-        <ArticleHeading id="infrastructure">Infrastructure</ArticleHeading>
+        <ArticleHeading>Infrastructure</ArticleHeading>
       </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2  ">
-        {infrastructureCards.map(card => (
+        {INFRASTRUCTURE_DATA.map(card => (
           <div
             key={card.image.alt}
             className="rounded p-2 transition-all duration-700 hover:scale-110"
           >
             <Card>
-              {card.big_screen === false ? (
+              {!card.bigScreen ? (
                 <>
                   <CardHeader className=" flex justify-center ">
                     <Image

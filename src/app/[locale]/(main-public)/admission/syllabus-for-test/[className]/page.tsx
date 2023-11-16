@@ -24,4 +24,5 @@ const SyllabusPage: FC<
     </ArticlePage>
   );
 };
+
 export default SyllabusPage;
