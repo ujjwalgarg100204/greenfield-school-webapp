@@ -118,3 +118,37 @@ export const createGalleryFolder = async (
     return createdFolder;
   });
 };
+
+export const addImageToFolder = async (
+  folderName: string,
+  imageFileName: string,
+) => {
+  // create image in db
+  return await db.galleryImage.create({
+    data: {
+      filename: imageFileName,
+      folder: { connect: { name: folderName } },
+    },
+  });
+};
+
+export const addImagesToFolder = async (
+  folderName: string,
+  images: string[],
+) => {
+  return await db.$transaction(async tx => {
+    const folder = await tx.galleryFolder.findUnique({
+      where: { name: folderName },
+      select: { id: true },
+    });
+    if (!folder) throw new Error("Folder not found");
+
+    // create images and connect them to folder
+    return await tx.galleryImage.createMany({
+      data: images.map(img => ({
+        filename: img,
+        folderId: folder.id,
+      })),
+    });
+  });
+};

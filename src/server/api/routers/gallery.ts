@@ -1,4 +1,6 @@
 import {
+  addImageToFolder,
+  addImagesToFolder,
   createGalleryFolder,
   createGalleryImgS3Path,
   getGalleryInfoFromS3Path,
@@ -118,7 +120,7 @@ export const galleryRouter = createTRPCRouter({
           return;
         }
 
-        // verify that transaction exists and find the incomplete transaction
+        // verify that transaction exists
         const transaction = await db.s3UploadTransaction.findUnique({
           where: { id: thumbnailTransactionId },
         });
@@ -146,6 +148,173 @@ export const galleryRouter = createTRPCRouter({
         // delete transaction record signifying successful transaction
         await db.s3UploadTransaction.delete({
           where: { id: thumbnailTransactionId },
+        });
+      },
+    ),
+
+  addImageToGalleryFolder: publicProcedure
+    .input(
+      z.object({
+        folderName: z.string().min(1),
+        imageTransactionId: z.string().cuid(),
+      }),
+    )
+    .mutation(
+      async ({ input: { folderName, imageTransactionId }, ctx: { db } }) => {
+        // verify that transaction exists
+        const transaction = await db.s3UploadTransaction.findUnique({
+          where: { id: imageTransactionId },
+        });
+        if (!transaction)
+          throw new TRPCError({
+            code: "NOT_FOUND",
+            message: "No transaction found with provided id",
+          });
+
+        try {
+          const { imgName } = getGalleryInfoFromS3Path(transaction.s3Path);
+          await addImageToFolder(folderName, imgName);
+        } catch (err) {
+          console.error(
+            `Error while adding image to gallery folder "${folderName}": ${
+              (err as Error).message
+            }`,
+          );
+          throw new TRPCError({
+            code: "INTERNAL_SERVER_ERROR",
+            message: "Error adding image to gallery folder",
+          });
+        }
+
+        // delete transaction record signifying successful transaction
+        await db.s3UploadTransaction.delete({
+          where: { id: imageTransactionId },
+        });
+      },
+    ),
+  createImagesPresignedPost: publicProcedure
+    .input(
+      z.object({
+        folderName: z.string().min(1),
+        images: z
+          .array(
+            z.object({
+              key: z.string().min(1),
+              fileType: z
+                .string()
+                .refine(
+                  type => ["image/png", "image/jpeg"].includes(type),
+                  "Invalid file type, only PNG and JPEG allowed",
+                ),
+              fileSize: z
+                .number()
+                .max(UPLOAD_MAX_IMG_SIZE, "File size too large"),
+            }),
+          )
+          .max(50, "Too many images")
+          .refine(images => {
+            const uniqueKeys = new Set<string>();
+            for (const image of images) {
+              if (uniqueKeys.has(image.key)) return false; // duplicate key found
+              uniqueKeys.add(image.key);
+            }
+            return true; // all keys are unique
+          }, "Duplicate keys found"),
+      }),
+    )
+    .mutation(async ({ input: { folderName, images }, ctx: { db } }) => {
+      const presignedPostWithTransactions = await Promise.all(
+        images.map(async image => {
+          const imgUniqueName = uuid();
+          const s3Path = createGalleryImgS3Path(folderName, imgUniqueName);
+
+          try {
+            return {
+              key: image.key,
+              transaction: {
+                id: uuid(),
+                s3Path,
+              },
+              presignedPost: await S3.getInstance().createPresignedObjPost({
+                Key: s3Path,
+                Expires: UPLOAD_LINK_EXPIRE_TIME,
+                Conditions: [
+                  ["starts-with", "$Content-Type", image.fileType],
+                  ["content-length-range", 1, image.fileSize],
+                ],
+              }),
+            };
+          } catch (err) {
+            throw new TRPCError({
+              code: "INTERNAL_SERVER_ERROR",
+              message: "Error creating presigned post",
+            });
+          }
+        }),
+      );
+      try {
+        await db.s3UploadTransaction.createMany({
+          data: presignedPostWithTransactions.map(({ transaction }) => ({
+            ...transaction,
+          })),
+        });
+      } catch (err) {
+        console.error(
+          `Error while creating transactions for images: ${
+            (err as Error).message
+          }`,
+        );
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message: "Error creating transactions for images",
+        });
+      }
+      return presignedPostWithTransactions.map(
+        ({ key, presignedPost, transaction }) => ({
+          key,
+          presignedPost,
+          transactionId: transaction.id,
+        }),
+      );
+    }),
+  addImagesToFolder: publicProcedure
+    .input(
+      z.object({
+        folderName: z.string().min(1),
+        transactionIds: z.array(z.string().min(1)),
+      }),
+    )
+    .mutation(
+      async ({ input: { folderName, transactionIds }, ctx: { db } }) => {
+        const transactions = await db.s3UploadTransaction.findMany({
+          where: { id: { in: transactionIds } },
+        });
+        if (transactions.length !== transactionIds.length)
+          throw new TRPCError({
+            code: "BAD_REQUEST",
+            message: "Some of the transactions do not exist",
+          });
+
+        try {
+          await addImagesToFolder(
+            folderName,
+            transactions.map(t => getGalleryInfoFromS3Path(t.s3Path).imgName),
+          );
+        } catch (err) {
+          console.error(
+            `Error while adding images to gallery folder "${folderName}": ${
+              (err as Error).message
+            }`,
+          );
+          throw new TRPCError({
+            code: "INTERNAL_SERVER_ERROR",
+            message: "Error adding images to gallery folder",
+          });
+        }
+
+        // delete transaction records signifying successful transactions
+        await db.s3UploadTransaction.deleteMany({
+          where: { id: { in: transactionIds } },
         });
       },
     ),

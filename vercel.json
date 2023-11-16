@@ -6,7 +6,7 @@
   "crons": [
     {
       "path": "/api/cron/s3-cleanup",
-      "schedule": "* 2 * * *"
+      "schedule": "0 0 * * 0"
     }
   ]
 }
