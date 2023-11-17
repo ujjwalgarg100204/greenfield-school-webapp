@@ -34,9 +34,9 @@ const QueryForm: FC = () => {
   };
 
   return (
-    <section className="space-y-6">
+    <section className="space-y-10">
       <h3 className="text-2xl font-bold">Got a Query?</h3>
-      <div className="space-y-4">
+      <div className="space-y-10">
         <Input
           isRequired
           type="text"
@@ -61,18 +61,21 @@ const QueryForm: FC = () => {
           errorMessage={errors.phone?.message}
           {...register("phone")}
         />
-        <Textarea
-          isRequired
-          type="text"
-          radius="sm"
-          label="Query"
-          variant="bordered"
-          labelPlacement="outside"
-          placeholder="Your query"
-          isInvalid={!!errors.query}
-          errorMessage={errors.query?.message}
-          {...register("query")}
-        />
+        <div>
+          <Textarea
+            isRequired
+            type="text"
+            radius="sm"
+            label="Query"
+            variant="bordered"
+            labelPlacement="outside"
+            placeholder="Your query"
+            isInvalid={!!errors.query}
+            errorMessage={errors.query?.message}
+            className="-mt-6"
+            {...register("query")}
+          />
+        </div>
         <Button
           color="primary"
           className="w-full font-semibold"
