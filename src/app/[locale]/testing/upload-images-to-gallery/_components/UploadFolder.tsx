@@ -10,7 +10,7 @@ import type { GalleryFolder } from "@prisma/client";
 import { type FC } from "react";
 import toast from "react-hot-toast";
 import { v4 as uuid } from "uuid";
-import { array, z } from "zod";
+import { z } from "zod";
 import { uploadFileToS3 } from "../../utils";
 
 const ACCEPTED_FILE_TYPES = ["image/png", "image/jpeg"];
