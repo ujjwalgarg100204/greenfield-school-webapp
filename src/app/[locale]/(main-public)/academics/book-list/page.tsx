@@ -1,11 +1,11 @@
 import { Card, CardBody, Link } from "@/src/lib/next-ui";
 
+import type { NextPageProps } from "@/src/types";
 import ArticleHeading from "@components/ArticleHeading";
+import { setStaticParamsLocale } from "next-international/server";
+import type { FC } from "react";
 import ArticlePage from "../../_components/ArticlePage";
 import BOOK_LIST from "./data";
-import type { FC } from "react";
-import type { NextPageProps } from "@/src/types";
-import { setStaticParamsLocale } from "next-international/server";
 
 const BookListPage: FC<NextPageProps> = ({ params: { locale } }) => {
   setStaticParamsLocale(locale);

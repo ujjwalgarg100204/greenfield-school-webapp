@@ -42,8 +42,6 @@ model User {
     password String /// @zod.string.min(6, { message: "short-input" }).max(16, { message: "long-input" })
 }
 
-// schema.prisma
-
 model GalleryFolder {
     id   String @id @default(cuid())
     name String @unique
