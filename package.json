@@ -9,7 +9,8 @@
     "dev": "next dev",
     "postinstall": "prisma generate",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "node": "node server.js"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.449.0",
@@ -26,6 +27,7 @@
     "@trpc/next": "^10.43.3",
     "@trpc/react-query": "^10.43.3",
     "@trpc/server": "^10.43.3",
+  
     "bcrypt": "^5.1.1",
     "clsx": "^2.0.0",
     "framer-motion": "^10.16.4",
@@ -39,6 +41,8 @@
     "react-icons": "^4.11.0",
     "react-responsive-carousel": "^3.2.23",
     "sharp": "^0.32.6",
+    "socket.io": "^4.7.2",
+    "socket.io-client": "^4.7.2",
     "superjson": "^2.2.1",
     "uuid": "^9.0.1",
     "zod": "^3.22.4"

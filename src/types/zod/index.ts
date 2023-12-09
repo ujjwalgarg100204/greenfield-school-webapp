@@ -20,6 +20,8 @@ export const GalleryImageScalarFieldEnumSchema = z.enum(['id','filename','folder
 
 export const S3UploadTransactionScalarFieldEnumSchema = z.enum(['id','s3Path','errorMessage','errorCode','createdAt','updatedAt']);
 
+export const OtpScalarFieldEnumSchema = z.enum(['id','mobile','otp','updatedAt','expiresAt']);
+
 export const SortOrderSchema = z.enum(['asc','desc']);
 
 export const NullsOrderSchema = z.enum(['first','last']);
@@ -107,6 +109,17 @@ export const S3UploadTransactionSelectSchema: z.ZodType<Prisma.S3UploadTransacti
   errorCode: z.boolean().optional(),
   createdAt: z.boolean().optional(),
   updatedAt: z.boolean().optional(),
+}).strict()
+
+// OTP
+//------------------------------------------------------
+
+export const OtpSelectSchema: z.ZodType<Prisma.OtpSelect> = z.object({
+  id: z.boolean().optional(),
+  mobile: z.boolean().optional(),
+  otp: z.boolean().optional(),
+  updatedAt: z.boolean().optional(),
+  expiresAt: z.boolean().optional(),
 }).strict()
 
 
@@ -379,6 +392,70 @@ export const S3UploadTransactionScalarWhereWithAggregatesInputSchema: z.ZodType<
   updatedAt: z.union([ z.lazy(() => DateTimeWithAggregatesFilterSchema),z.coerce.date() ]).optional(),
 }).strict() as z.ZodType<Prisma.S3UploadTransactionScalarWhereWithAggregatesInput>;
 
+export const OtpWhereInputSchema: z.ZodType<Prisma.OtpWhereInput> = z.object({
+  AND: z.union([ z.lazy(() => OtpWhereInputSchema),z.lazy(() => OtpWhereInputSchema).array() ]).optional(),
+  OR: z.lazy(() => OtpWhereInputSchema).array().optional(),
+  NOT: z.union([ z.lazy(() => OtpWhereInputSchema),z.lazy(() => OtpWhereInputSchema).array() ]).optional(),
+  id: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  mobile: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  otp: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  updatedAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
+  expiresAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
+}).strict() as z.ZodType<Prisma.OtpWhereInput>;
+
+export const OtpOrderByWithRelationInputSchema: z.ZodType<Prisma.OtpOrderByWithRelationInput> = z.object({
+  id: z.lazy(() => SortOrderSchema).optional(),
+  mobile: z.lazy(() => SortOrderSchema).optional(),
+  otp: z.lazy(() => SortOrderSchema).optional(),
+  updatedAt: z.lazy(() => SortOrderSchema).optional(),
+  expiresAt: z.lazy(() => SortOrderSchema).optional()
+}).strict() as z.ZodType<Prisma.OtpOrderByWithRelationInput>;
+
+export const OtpWhereUniqueInputSchema: z.ZodType<Omit<Prisma.OtpWhereUniqueInput, "expiresAt">> = z.union([
+  z.object({
+    id: z.string().cuid(),
+    mobile: z.string().min(10, { message: "short-input" }).max(10, { message: "long-input" }).regex(/^\d+$/, { message: "wrong-input" })
+  }),
+  z.object({
+    id: z.string().cuid(),
+  }),
+  z.object({
+    mobile: z.string().min(10, { message: "short-input" }).max(10, { message: "long-input" }).regex(/^\d+$/, { message: "wrong-input" }),
+  }),
+])
+.and(z.object({
+  id: z.string().cuid().optional(),
+  mobile: z.string().min(10, { message: "short-input" }).max(10, { message: "long-input" }).regex(/^\d+$/, { message: "wrong-input" }).optional(),
+  AND: z.union([ z.lazy(() => OtpWhereInputSchema),z.lazy(() => OtpWhereInputSchema).array() ]).optional(),
+  OR: z.lazy(() => OtpWhereInputSchema).array().optional(),
+  NOT: z.union([ z.lazy(() => OtpWhereInputSchema),z.lazy(() => OtpWhereInputSchema).array() ]).optional(),
+  otp: z.union([ z.lazy(() => StringFilterSchema),z.string().min(6, { message: "short-input" }).max(6, { message: "long-input" }).regex(/^\d+$/, { message: "wrong-input" }) ]).optional(),
+  updatedAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
+  // omitted: expiresAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
+}).strict()) as z.ZodType<Omit<Prisma.OtpWhereUniqueInput, "expiresAt">>;
+
+export const OtpOrderByWithAggregationInputSchema: z.ZodType<Prisma.OtpOrderByWithAggregationInput> = z.object({
+  id: z.lazy(() => SortOrderSchema).optional(),
+  mobile: z.lazy(() => SortOrderSchema).optional(),
+  otp: z.lazy(() => SortOrderSchema).optional(),
+  updatedAt: z.lazy(() => SortOrderSchema).optional(),
+  expiresAt: z.lazy(() => SortOrderSchema).optional(),
+  _count: z.lazy(() => OtpCountOrderByAggregateInputSchema).optional(),
+  _max: z.lazy(() => OtpMaxOrderByAggregateInputSchema).optional(),
+  _min: z.lazy(() => OtpMinOrderByAggregateInputSchema).optional()
+}).strict() as z.ZodType<Prisma.OtpOrderByWithAggregationInput>;
+
+export const OtpScalarWhereWithAggregatesInputSchema: z.ZodType<Prisma.OtpScalarWhereWithAggregatesInput> = z.object({
+  AND: z.union([ z.lazy(() => OtpScalarWhereWithAggregatesInputSchema),z.lazy(() => OtpScalarWhereWithAggregatesInputSchema).array() ]).optional(),
+  OR: z.lazy(() => OtpScalarWhereWithAggregatesInputSchema).array().optional(),
+  NOT: z.union([ z.lazy(() => OtpScalarWhereWithAggregatesInputSchema),z.lazy(() => OtpScalarWhereWithAggregatesInputSchema).array() ]).optional(),
+  id: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  mobile: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  otp: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  updatedAt: z.union([ z.lazy(() => DateTimeWithAggregatesFilterSchema),z.coerce.date() ]).optional(),
+  expiresAt: z.union([ z.lazy(() => DateTimeWithAggregatesFilterSchema),z.coerce.date() ]).optional(),
+}).strict() as z.ZodType<Prisma.OtpScalarWhereWithAggregatesInput>;
+
 export const UserCreateInputSchema: z.ZodType<Prisma.UserCreateInput> = z.object({
   id: z.string().cuid().optional(),
   role: z.lazy(() => UserRolesSchema),
@@ -594,6 +671,62 @@ export const S3UploadTransactionUncheckedUpdateManyInputSchema: z.ZodType<Prisma
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
 }).strict() as z.ZodType<Prisma.S3UploadTransactionUncheckedUpdateManyInput>;
+
+export const OtpCreateInputSchema: z.ZodType<Omit<Prisma.OtpCreateInput, "expiresAt">> = z.object({
+  id: z.string().cuid().optional(),
+  mobile: z.string().min(10, { message: "short-input" }).max(10, { message: "long-input" }).regex(/^\d+$/, { message: "wrong-input" }),
+  otp: z.string().min(6, { message: "short-input" }).max(6, { message: "long-input" }).regex(/^\d+$/, { message: "wrong-input" }),
+  updatedAt: z.coerce.date().optional(),
+  // omitted: expiresAt: z.coerce.date()
+}).strict() as z.ZodType<Omit<Prisma.OtpCreateInput, "expiresAt">>;
+
+export const OtpUncheckedCreateInputSchema: z.ZodType<Omit<Prisma.OtpUncheckedCreateInput, "expiresAt">> = z.object({
+  id: z.string().cuid().optional(),
+  mobile: z.string().min(10, { message: "short-input" }).max(10, { message: "long-input" }).regex(/^\d+$/, { message: "wrong-input" }),
+  otp: z.string().min(6, { message: "short-input" }).max(6, { message: "long-input" }).regex(/^\d+$/, { message: "wrong-input" }),
+  updatedAt: z.coerce.date().optional(),
+  // omitted: expiresAt: z.coerce.date()
+}).strict() as z.ZodType<Omit<Prisma.OtpUncheckedCreateInput, "expiresAt">>;
+
+export const OtpUpdateInputSchema: z.ZodType<Omit<Prisma.OtpUpdateInput, "expiresAt">> = z.object({
+  id: z.union([ z.string().cuid(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  mobile: z.union([ z.string().min(10, { message: "short-input" }).max(10, { message: "long-input" }).regex(/^\d+$/, { message: "wrong-input" }),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  otp: z.union([ z.string().min(6, { message: "short-input" }).max(6, { message: "long-input" }).regex(/^\d+$/, { message: "wrong-input" }),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
+  // omitted: expiresAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
+}).strict() as z.ZodType<Omit<Prisma.OtpUpdateInput, "expiresAt">>;
+
+export const OtpUncheckedUpdateInputSchema: z.ZodType<Omit<Prisma.OtpUncheckedUpdateInput, "expiresAt">> = z.object({
+  id: z.union([ z.string().cuid(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  mobile: z.union([ z.string().min(10, { message: "short-input" }).max(10, { message: "long-input" }).regex(/^\d+$/, { message: "wrong-input" }),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  otp: z.union([ z.string().min(6, { message: "short-input" }).max(6, { message: "long-input" }).regex(/^\d+$/, { message: "wrong-input" }),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
+  // omitted: expiresAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
+}).strict() as z.ZodType<Omit<Prisma.OtpUncheckedUpdateInput, "expiresAt">>;
+
+export const OtpCreateManyInputSchema: z.ZodType<Omit<Prisma.OtpCreateManyInput, "expiresAt">> = z.object({
+  id: z.string().cuid().optional(),
+  mobile: z.string().min(10, { message: "short-input" }).max(10, { message: "long-input" }).regex(/^\d+$/, { message: "wrong-input" }),
+  otp: z.string().min(6, { message: "short-input" }).max(6, { message: "long-input" }).regex(/^\d+$/, { message: "wrong-input" }),
+  updatedAt: z.coerce.date().optional(),
+  // omitted: expiresAt: z.coerce.date()
+}).strict() as z.ZodType<Omit<Prisma.OtpCreateManyInput, "expiresAt">>;
+
+export const OtpUpdateManyMutationInputSchema: z.ZodType<Omit<Prisma.OtpUpdateManyMutationInput, "expiresAt">> = z.object({
+  id: z.union([ z.string().cuid(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  mobile: z.union([ z.string().min(10, { message: "short-input" }).max(10, { message: "long-input" }).regex(/^\d+$/, { message: "wrong-input" }),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  otp: z.union([ z.string().min(6, { message: "short-input" }).max(6, { message: "long-input" }).regex(/^\d+$/, { message: "wrong-input" }),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
+  // omitted: expiresAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
+}).strict() as z.ZodType<Omit<Prisma.OtpUpdateManyMutationInput, "expiresAt">>;
+
+export const OtpUncheckedUpdateManyInputSchema: z.ZodType<Omit<Prisma.OtpUncheckedUpdateManyInput, "expiresAt">> = z.object({
+  id: z.union([ z.string().cuid(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  mobile: z.union([ z.string().min(10, { message: "short-input" }).max(10, { message: "long-input" }).regex(/^\d+$/, { message: "wrong-input" }),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  otp: z.union([ z.string().min(6, { message: "short-input" }).max(6, { message: "long-input" }).regex(/^\d+$/, { message: "wrong-input" }),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
+  // omitted: expiresAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
+}).strict() as z.ZodType<Omit<Prisma.OtpUncheckedUpdateManyInput, "expiresAt">>;
 
 export const StringFilterSchema: z.ZodType<Prisma.StringFilter> = z.object({
   equals: z.string().optional(),
@@ -818,6 +951,30 @@ export const S3UploadTransactionMinOrderByAggregateInputSchema: z.ZodType<Prisma
   createdAt: z.lazy(() => SortOrderSchema).optional(),
   updatedAt: z.lazy(() => SortOrderSchema).optional()
 }).strict() as z.ZodType<Prisma.S3UploadTransactionMinOrderByAggregateInput>;
+
+export const OtpCountOrderByAggregateInputSchema: z.ZodType<Prisma.OtpCountOrderByAggregateInput> = z.object({
+  id: z.lazy(() => SortOrderSchema).optional(),
+  mobile: z.lazy(() => SortOrderSchema).optional(),
+  otp: z.lazy(() => SortOrderSchema).optional(),
+  updatedAt: z.lazy(() => SortOrderSchema).optional(),
+  expiresAt: z.lazy(() => SortOrderSchema).optional()
+}).strict() as z.ZodType<Prisma.OtpCountOrderByAggregateInput>;
+
+export const OtpMaxOrderByAggregateInputSchema: z.ZodType<Prisma.OtpMaxOrderByAggregateInput> = z.object({
+  id: z.lazy(() => SortOrderSchema).optional(),
+  mobile: z.lazy(() => SortOrderSchema).optional(),
+  otp: z.lazy(() => SortOrderSchema).optional(),
+  updatedAt: z.lazy(() => SortOrderSchema).optional(),
+  expiresAt: z.lazy(() => SortOrderSchema).optional()
+}).strict() as z.ZodType<Prisma.OtpMaxOrderByAggregateInput>;
+
+export const OtpMinOrderByAggregateInputSchema: z.ZodType<Prisma.OtpMinOrderByAggregateInput> = z.object({
+  id: z.lazy(() => SortOrderSchema).optional(),
+  mobile: z.lazy(() => SortOrderSchema).optional(),
+  otp: z.lazy(() => SortOrderSchema).optional(),
+  updatedAt: z.lazy(() => SortOrderSchema).optional(),
+  expiresAt: z.lazy(() => SortOrderSchema).optional()
+}).strict() as z.ZodType<Prisma.OtpMinOrderByAggregateInput>;
 
 export const StringFieldUpdateOperationsInputSchema: z.ZodType<Prisma.StringFieldUpdateOperationsInput> = z.object({
   set: z.string().optional()
@@ -1512,6 +1669,63 @@ export const S3UploadTransactionFindUniqueOrThrowArgsSchema: z.ZodType<Prisma.S3
   where: S3UploadTransactionWhereUniqueInputSchema,
 }).strict() as z.ZodType<Prisma.S3UploadTransactionFindUniqueOrThrowArgs>;
 
+export const OtpFindFirstArgsSchema: z.ZodType<Prisma.OtpFindFirstArgs> = z.object({
+  select: OtpSelectSchema.optional(),
+  where: OtpWhereInputSchema.optional(),
+  orderBy: z.union([ OtpOrderByWithRelationInputSchema.array(),OtpOrderByWithRelationInputSchema ]).optional(),
+  cursor: OtpWhereUniqueInputSchema.optional(),
+  take: z.number().optional(),
+  skip: z.number().optional(),
+  distinct: z.union([ OtpScalarFieldEnumSchema,OtpScalarFieldEnumSchema.array() ]).optional(),
+}).strict() as z.ZodType<Prisma.OtpFindFirstArgs>;
+
+export const OtpFindFirstOrThrowArgsSchema: z.ZodType<Prisma.OtpFindFirstOrThrowArgs> = z.object({
+  select: OtpSelectSchema.optional(),
+  where: OtpWhereInputSchema.optional(),
+  orderBy: z.union([ OtpOrderByWithRelationInputSchema.array(),OtpOrderByWithRelationInputSchema ]).optional(),
+  cursor: OtpWhereUniqueInputSchema.optional(),
+  take: z.number().optional(),
+  skip: z.number().optional(),
+  distinct: z.union([ OtpScalarFieldEnumSchema,OtpScalarFieldEnumSchema.array() ]).optional(),
+}).strict() as z.ZodType<Prisma.OtpFindFirstOrThrowArgs>;
+
+export const OtpFindManyArgsSchema: z.ZodType<Prisma.OtpFindManyArgs> = z.object({
+  select: OtpSelectSchema.optional(),
+  where: OtpWhereInputSchema.optional(),
+  orderBy: z.union([ OtpOrderByWithRelationInputSchema.array(),OtpOrderByWithRelationInputSchema ]).optional(),
+  cursor: OtpWhereUniqueInputSchema.optional(),
+  take: z.number().optional(),
+  skip: z.number().optional(),
+  distinct: z.union([ OtpScalarFieldEnumSchema,OtpScalarFieldEnumSchema.array() ]).optional(),
+}).strict() as z.ZodType<Prisma.OtpFindManyArgs>;
+
+export const OtpAggregateArgsSchema: z.ZodType<Prisma.OtpAggregateArgs> = z.object({
+  where: OtpWhereInputSchema.optional(),
+  orderBy: z.union([ OtpOrderByWithRelationInputSchema.array(),OtpOrderByWithRelationInputSchema ]).optional(),
+  cursor: OtpWhereUniqueInputSchema.optional(),
+  take: z.number().optional(),
+  skip: z.number().optional(),
+}).strict() as z.ZodType<Prisma.OtpAggregateArgs>;
+
+export const OtpGroupByArgsSchema: z.ZodType<Prisma.OtpGroupByArgs> = z.object({
+  where: OtpWhereInputSchema.optional(),
+  orderBy: z.union([ OtpOrderByWithAggregationInputSchema.array(),OtpOrderByWithAggregationInputSchema ]).optional(),
+  by: OtpScalarFieldEnumSchema.array(),
+  having: OtpScalarWhereWithAggregatesInputSchema.optional(),
+  take: z.number().optional(),
+  skip: z.number().optional(),
+}).strict() as z.ZodType<Prisma.OtpGroupByArgs>;
+
+export const OtpFindUniqueArgsSchema: z.ZodType<Prisma.OtpFindUniqueArgs> = z.object({
+  select: OtpSelectSchema.optional(),
+  where: OtpWhereUniqueInputSchema,
+}).strict() as z.ZodType<Prisma.OtpFindUniqueArgs>;
+
+export const OtpFindUniqueOrThrowArgsSchema: z.ZodType<Prisma.OtpFindUniqueOrThrowArgs> = z.object({
+  select: OtpSelectSchema.optional(),
+  where: OtpWhereUniqueInputSchema,
+}).strict() as z.ZodType<Prisma.OtpFindUniqueOrThrowArgs>;
+
 export const UserCreateArgsSchema: z.ZodType<Prisma.UserCreateArgs> = z.object({
   select: UserSelectSchema.optional(),
   data: z.union([ UserCreateInputSchema,UserUncheckedCreateInputSchema ]),
@@ -1667,3 +1881,40 @@ export const S3UploadTransactionUpdateManyArgsSchema: z.ZodType<Prisma.S3UploadT
 export const S3UploadTransactionDeleteManyArgsSchema: z.ZodType<Prisma.S3UploadTransactionDeleteManyArgs> = z.object({
   where: S3UploadTransactionWhereInputSchema.optional(),
 }).strict() as z.ZodType<Prisma.S3UploadTransactionDeleteManyArgs>;
+
+export const OtpCreateArgsSchema: z.ZodType<Omit<Prisma.OtpCreateArgs, "data"> & { data: z.infer<typeof OtpCreateInputSchema> | z.infer<typeof OtpUncheckedCreateInputSchema> }> = z.object({
+  select: OtpSelectSchema.optional(),
+  data: z.union([ OtpCreateInputSchema,OtpUncheckedCreateInputSchema ]),
+}).strict() as z.ZodType<Omit<Prisma.OtpCreateArgs, "data"> & { data: z.infer<typeof OtpCreateInputSchema> | z.infer<typeof OtpUncheckedCreateInputSchema> }>;
+
+export const OtpUpsertArgsSchema: z.ZodType<Omit<Prisma.OtpUpsertArgs, "create" | "update"> & { create: z.infer<typeof OtpCreateInputSchema> | z.infer<typeof OtpUncheckedCreateInputSchema>, update: z.infer<typeof OtpUpdateInputSchema> | z.infer<typeof OtpUncheckedUpdateInputSchema> }> = z.object({
+  select: OtpSelectSchema.optional(),
+  where: OtpWhereUniqueInputSchema,
+  create: z.union([ OtpCreateInputSchema,OtpUncheckedCreateInputSchema ]),
+  update: z.union([ OtpUpdateInputSchema,OtpUncheckedUpdateInputSchema ]),
+}).strict() as z.ZodType<Omit<Prisma.OtpUpsertArgs, "create" | "update"> & { create: z.infer<typeof OtpCreateInputSchema> | z.infer<typeof OtpUncheckedCreateInputSchema>, update: z.infer<typeof OtpUpdateInputSchema> | z.infer<typeof OtpUncheckedUpdateInputSchema> }>;
+
+export const OtpCreateManyArgsSchema: z.ZodType<Omit<Prisma.OtpCreateManyArgs, "data"> & { data: z.infer<typeof OtpCreateManyInputSchema> | z.infer<typeof OtpCreateManyInputSchema>[] }> = z.object({
+  data: z.union([ OtpCreateManyInputSchema,OtpCreateManyInputSchema.array() ]),
+  skipDuplicates: z.boolean().optional(),
+}).strict() as z.ZodType<Omit<Prisma.OtpCreateManyArgs, "data"> & { data: z.infer<typeof OtpCreateManyInputSchema> | z.infer<typeof OtpCreateManyInputSchema>[] }>;
+
+export const OtpDeleteArgsSchema: z.ZodType<Prisma.OtpDeleteArgs> = z.object({
+  select: OtpSelectSchema.optional(),
+  where: OtpWhereUniqueInputSchema,
+}).strict() as z.ZodType<Prisma.OtpDeleteArgs>;
+
+export const OtpUpdateArgsSchema: z.ZodType<Omit<Prisma.OtpUpdateArgs, "data"> & { data: z.infer<typeof OtpUpdateInputSchema> | z.infer<typeof OtpUncheckedUpdateInputSchema> }> = z.object({
+  select: OtpSelectSchema.optional(),
+  data: z.union([ OtpUpdateInputSchema,OtpUncheckedUpdateInputSchema ]),
+  where: OtpWhereUniqueInputSchema,
+}).strict() as z.ZodType<Omit<Prisma.OtpUpdateArgs, "data"> & { data: z.infer<typeof OtpUpdateInputSchema> | z.infer<typeof OtpUncheckedUpdateInputSchema> }>;
+
+export const OtpUpdateManyArgsSchema: z.ZodType<Omit<Prisma.OtpUpdateManyArgs, "data"> & { data: z.infer<typeof OtpUpdateManyMutationInputSchema> | z.infer<typeof OtpUncheckedUpdateManyInputSchema> }> = z.object({
+  data: z.union([ OtpUpdateManyMutationInputSchema,OtpUncheckedUpdateManyInputSchema ]),
+  where: OtpWhereInputSchema.optional(),
+}).strict() as z.ZodType<Omit<Prisma.OtpUpdateManyArgs, "data"> & { data: z.infer<typeof OtpUpdateManyMutationInputSchema> | z.infer<typeof OtpUncheckedUpdateManyInputSchema> }>;
+
+export const OtpDeleteManyArgsSchema: z.ZodType<Prisma.OtpDeleteManyArgs> = z.object({
+  where: OtpWhereInputSchema.optional(),
+}).strict() as z.ZodType<Prisma.OtpDeleteManyArgs>;
