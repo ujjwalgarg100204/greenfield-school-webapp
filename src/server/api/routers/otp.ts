@@ -1,118 +1,3 @@
-// import { createTRPCRouter, publicProcedure } from "../trpc";
-
-// import { io } from "socket.io-client";
-// import { z } from "zod";
-
-// const socket = io("http://localhost:3001/", {
-//   transports: ["websocket", "polling"],
-//   auth: {
-//     token: "abcd",
-//   },
-//   withCredentials: true,
-//   extraHeaders: {
-//     "my-custom-header": "abcd",
-//   },
-// });
-
-// socket.on("connect", () => {
-//   console.log("Connected to the server");
-// });
-
-// socket.on("disconnect", reason => {
-//   if (reason === "io server disconnect") {
-//     // the disconnection was initiated by the server, you need to reconnect manually
-//     socket.connect();
-//   }
-// });
-
-// export const otpRouter = createTRPCRouter({
-//   generateOtp: publicProcedure
-//     .input(
-//       z.object({
-//         mobileNumber: z
-//           .string()
-//           .min(10, "short-input")
-//           .max(10, "long-input")
-//           .regex(/^\d+$/, "wrong-input"),
-//         // otp: z.string(),
-//       }),
-//     )
-//     .mutation(({ ctx: { db }, input: { mobileNumber } }) => {
-//       socket.emit("connected", "Hello from client");
-//       socket.emit("mobilenumber", mobileNumber);
-//       // socket.emit("mobilenumber", mobileNumber);
-//       console.log(
-//         "Checking the id of the socket in the client side",
-//         socket.id,
-//       );
-
-//       socket.on("client", data => {
-//         console.log("logging the data from the server", data);
-//       });
-
-//       const expiry = 60 * 15 * 1000;
-
-//       socket.on("client_otp", async (otp: string) => {
-//         console.log("Logging otp from the server side to the client", otp);
-
-//         try {
-//           await db.otp.upsert({
-//             where: { mobile: mobileNumber },
-//             create: {
-//               otp,
-//               mobile: mobileNumber,
-//               expiresAt: new Date(Date.now() + expiry),
-//             },
-//             update: {
-//               expiresAt: new Date(Date.now() + expiry),
-//             },
-//           });
-
-//           // send otp to mobile number
-//           console.log(`OTP sent to ${mobileNumber}: ${otp}`);
-//           return {
-//             message: "OTP sent to mobile number",
-//             success: true,
-//           } as const;
-//         } catch (err) {
-//           console.log(err);
-
-//           return {
-//             message: "Something went wrong, please try again",
-//             success: false,
-//           } as const;
-//         }
-//       });
-//       console.log(
-//         "Displaying mobilenumber and the otp inside the otp trpc section",
-//         mobileNumber,
-//       );
-//       // await db.otp.create({
-//       //   data: { mobile: mobileNumber, otp: otp },
-//       // });
-
-//       const expiretime = new Date();
-//       // const newUser = await db.otp.create({
-//       //   data: { otp: otp, mobile: mobileNumber,expiresAt:expiretime },
-//       // });
-
-//       // return newUser;
-//     }),
-//     verifyOtp: publicProcedure.input(
-//       z.object({
-//         mobileNumber: z
-//           .string()
-//           .min(10, "short-input")
-//           .max(10, "long-input")
-//           .regex(/^\d+$/, "wrong-input"),
-//         otp: z.string().min(6,"short-input").max(6,"long-input").regex(/^\d+$/, "wrong-input"),
-//       },
-
-//     )
-
-//     )
-// }),
-
 import { createTRPCRouter, publicProcedure } from "../trpc";
 
 import { io } from "socket.io-client";
@@ -163,7 +48,7 @@ export const otpRouter = createTRPCRouter({
         console.log("logging the data from the server", data);
       });
 
-      const expiry = 20 * 1000;
+      const expiry = 60 * 2 * 1000;
 
       socket.on("client_otp", async (otp: string, newmobileNumber: string) => {
         console.log("Logging otp from the server side to the client", otp);
@@ -195,11 +80,6 @@ export const otpRouter = createTRPCRouter({
           } as const;
         }
       });
-
-      console.log(
-        "Displaying mobilenumber and the otp inside the otp trpc section",
-        mobileNumber,
-      );
     }),
 
   verifyOtp: publicProcedure
@@ -231,7 +111,7 @@ export const otpRouter = createTRPCRouter({
           existingOtp,
         );
 
-        if (!existingOtp || existingOtp.otp !== otp) {
+        if (!existingOtp) {
           return {
             message: "OTP record does not exist",
             success: false,
@@ -251,7 +131,7 @@ export const otpRouter = createTRPCRouter({
           await db.otp.delete({ where: { mobile: mobileNumber } });
           return { message: "OTP verified", success: true } as const;
         } else {
-          return { message: "OTP does not match", success: false } as const;
+          return { message: "Wrong OTP", success: false } as const;
         }
       } catch (err) {
         return {

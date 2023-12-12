@@ -1,77 +1,21 @@
 "use client";
 
-import { FormProvider, useForm } from "react-hook-form";
 import { useCallback, useRef } from "react";
+import { FormProvider, useForm } from "react-hook-form";
 
+import { api } from "@/src/trpc/react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import useUpdateSearchParams from "@hooks/useUpdateSearchParams";
 import { Button } from "@lib/next-ui";
+import { useScopedI18n } from "@locales/client";
+import type { ReadonlyURLSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import type { FC } from "react";
+import type { SubmitHandler } from "react-hook-form";
+import toast from "react-hot-toast";
+import { z } from "zod";
 import MobileNumberInput from "./MobileNumberInput";
 import OTPInput from "./OTPInput";
-import type { ReadonlyURLSearchParams } from "next/navigation";
-import type { SubmitHandler } from "react-hook-form";
-import { api } from "@/src/trpc/react";
-import { useScopedI18n } from "@locales/client";
-import { useSearchParams } from "next/navigation";
-import useUpdateSearchParams from "@hooks/useUpdateSearchParams";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-
-// const connectionOptions: {
-//   "force new connection": boolean;
-//   reconnectionAttempts: string;
-//   timeout: number;
-//   transports: string[];
-// } = {
-//   "force new connection": true,
-//   reconnectionAttempts: "Infinity",
-//   timeout: 10000,
-//   transports: ["websocket"],
-// };
-
-interface OtpData {
-  otp: string;
-}
-
-interface MutationResult {
-  data?: {
-    success?: boolean;
-    // other fields if present
-  };
-  // other properties if present
-}
-// const socket = io("http://localhost:3001/", {
-//   transports: ["websocket", "polling"],
-//   auth: {
-//     token: "abcd",
-//   },
-//   withCredentials: true,
-//   extraHeaders: {
-//     "my-custom-header": "abcd",
-//   },
-// });
-
-// socket.on("connect", () => {
-//   console.log("Connected to the server");
-// });
-
-// socket.on("disconnect", reason => {
-//   if (reason === "io server disconnect") {
-//     // the disconnection was initiated by the server, you need to reconnect manually
-//     socket.connect();
-//   }
-// });
-
-// const generateOtp = api.otp.generateOtp.useMutation();
-
-// const verifyOTP = (otpp: string, callback: (isValid: boolean) => void) => {
-//   socket.once("otp", (data: OtpData) => {
-//     const { otp } = data;
-//     console.log("Received OTP from server:", otp);
-
-//     const isValid = otp === otpp;
-//     callback(isValid);
-//   });
-// };
 
 const getButtonText = (searchParams: ReadonlyURLSearchParams) => {
   const otpGenerated = searchParams.get("otp-generated");
@@ -110,37 +54,13 @@ const OnboardingForm: FC = () => {
   const generateOtpMutation = api.otp.generateOtp.useMutation();
 
   const generateOTP = (mobileNumber: string) => {
-    // call api to generate OTP
-
-    // socket.emit("connected", "Hello from client");
-    // socket.emit("mobilenumber", mobileNumber);
-    // // socket.emit("mobilenumber", mobileNumber);
-    // console.log("Checking the id of the socket in the client side", socket.id);
-
-    // socket.on("client", data => {
-    //   console.log("logging the data from the server", data);
-    // });
-    // socket.on("client_otp", (otp: string) => {
-    //   console.log("Logging otp from the server side to the client", otp);
-    // });
     generateOtpMutation.mutate({ mobileNumber });
+    toast.success(`WhatsApp OTP sent to ${mobileNumber}`);
 
-    // generateOtp.mutate(mobileNumber);
-
-    // const generateOtp = api.otp.generateOtp.mutat  e(mobileNumber);
     console.log(mobileNumber.slice(0, 6));
   };
 
-  // const { mutate, data, isSuccess } = api.otp.verifyOtp.useMutation();
-
   const otpVerified = api.otp.verifyOtp.useMutation({
-    // onError(error) {
-    //   formMethods.setError(
-    //     "otp",
-    //     { message: error.message },
-    //     { shouldFocus: true },
-    //   );
-    // },
     onSuccess(data) {
       console.log("successfull logging the data", data);
     },
@@ -149,32 +69,30 @@ const OnboardingForm: FC = () => {
   const verifyOTP = async (otp: string, mobileNumber: string) => {
     const result = await otpVerified.mutateAsync({ mobileNumber, otp });
 
-    console.log(result.success);
-    
+    console.log(result.success, result.message);
+    switch (result.message) {
+      case "OTP record does not exist":
+        toast("Failed to verify OTP please try again !!", {
+          icon: "ℹ️",
+        });
+
+        break;
+
+      case "OTP expired, please generate a new one":
+        toast.error("OTP expired, please generate a new one");
+        break;
+
+      case "OTP verified":
+        toast.success("Successfully verified OTP");
+        break;
+
+      case "Wrong OTP":
+        toast.error("Wrong OTP please check again !!");
+        break;
+    }
+
     return result.success;
   };
-
-  // const verifyOTP = (otp: string, mobileNumber: string) => {
-  //   try {
-  //     mutate({
-  //       mobileNumber,
-  //       otp,
-  //     });
-
-  //     if (data) {
-  //       console.log(
-  //         "Displaying result from the verify otp function",
-  //         data?.success,
-  //         data?.message,
-  //       );
-
-  //       // Any additional logic you want to perform after a successful mutation
-  //     }
-  //   } catch (error) {
-  //     console.error("Error during OTP verification:", error);
-  //     // Handle the error if needed
-  //   }
-  // };
 
   const searchParams = useSearchParams();
   const formMethods = useForm<TAdmissionPortalSchema>({
@@ -225,13 +143,6 @@ const OnboardingForm: FC = () => {
           return;
         }
 
-        // verifyOTP(otp, isValid => {
-        //   if (isValid) {
-        //     console.log("OTP is valid");
-        //   } else {
-        //     console.log("Invalid OTP");
-        //   }
-        // });
         // set search param otp-verified to true
         updateSearchParams({ "otp-verified": "true", otp });
         break;
