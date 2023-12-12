@@ -321,8 +321,8 @@ export default {
                 "fill-form": "Complete Application by filling form",
               },
               "mobile-input": {
-                label: "Mobile Number",
-                placeholder: "Enter your mobile number",
+                label: "Whatsapp Number",
+                placeholder: "Enter your whatsapp number",
                 error: {
                   "short-input":
                     "Mobile Number must contain at least 10 digit(s)",
@@ -332,9 +332,10 @@ export default {
               },
               "otp-input": {
                 label: "OTP",
-                placeholder: "Enter OTP received on your mobile",
+                placeholder: "Enter OTP received on your whatsapp number",
                 desc: "Check your inbox for an OTP from Greenfield International School, OTP is valid for 5 minutes",
                 timer: "Generate New {br} in {timer} sec(s)",
+                newtimer: "Generate New OTP",
                 error: {
                   "short-input": "OTP must contain at least 6 digit(s)",
                   "long-input": "OTP must contain at most 6 digit(s)",

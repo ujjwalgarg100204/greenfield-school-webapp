@@ -1,12 +1,13 @@
 "use client";
 
+import { api } from "@/src/trpc/react";
 import { Button, Input } from "@lib/next-ui";
-
 import { useScopedI18n } from "@locales/client";
 import type Translation from "@locales/languages/en";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState, type FC } from "react";
 import { useFormContext } from "react-hook-form";
+import toast from "react-hot-toast";
 import { TiTick } from "react-icons/ti";
 import type { TAdmissionPortalSchema } from ".";
 
@@ -14,6 +15,8 @@ type OTPErrorType =
   keyof (typeof Translation)["Pages"]["admission"]["sub-links"]["admission-portal"]["sub-links"]["onboarding"]["otp-input"]["error"];
 
 const OTPInput: FC = () => {
+  const generateOtpMutation = api.otp.generateOtp.useMutation();
+
   const t = useScopedI18n(
     "Pages.admission.sub-links.admission-portal.sub-links.onboarding.otp-input",
   );
@@ -22,6 +25,7 @@ const OTPInput: FC = () => {
     formState: { errors },
   } = useFormContext<TAdmissionPortalSchema>();
   const [otpTimer, setOTPTimer] = useState(120);
+  const [otpValue, setOtpValue] = useState("");
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -36,6 +40,17 @@ const OTPInput: FC = () => {
   const searchParams = useSearchParams();
   const shouldRender = searchParams.get("otp-generated");
   const isVerified = searchParams.get("otp-verified") === "true";
+
+  const generateNewOtp = () => {
+    // logic to generate a new OTP
+    // reset the timer and update the state accordingly
+    const mobileNumber: string = searchParams.get("mobile")!;
+    generateOtpMutation.mutate({ mobileNumber });
+    setOTPTimer(120);
+    toast.success("OTP regenerated please check your Whatsapp again");
+    setOtpValue(""); // Clear the input value
+  };
+
   const errorMessage =
     errors.otp?.message !== undefined
       ? t(`error.${errors.otp?.message as OTPErrorType}`)
@@ -64,10 +79,13 @@ const OTPInput: FC = () => {
       ) : (
         <Button
           color="primary"
-          className="p-6 py-7"
+          className="p-9 py-7"
           isDisabled={otpTimer !== 0}
+          onClick={generateNewOtp}
         >
-          {t("timer", { br: <br />, timer: otpTimer })}
+          {otpTimer > 0
+            ? t("timer", { br: <br />, timer: otpTimer })
+            : t("newtimer")}
         </Button>
       )}
     </div>

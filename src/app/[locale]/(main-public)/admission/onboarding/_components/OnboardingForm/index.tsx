@@ -3,6 +3,7 @@
 import { useCallback, useRef } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
+import { api } from "@/src/trpc/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import useUpdateSearchParams from "@hooks/useUpdateSearchParams";
 import { Button } from "@lib/next-ui";
@@ -11,20 +12,10 @@ import type { ReadonlyURLSearchParams } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import type { FC } from "react";
 import type { SubmitHandler } from "react-hook-form";
+import toast from "react-hot-toast";
 import { z } from "zod";
 import MobileNumberInput from "./MobileNumberInput";
 import OTPInput from "./OTPInput";
-
-const generateOTP = (mobileNumber: string) => {
-  // call api to generate OTP
-  console.log(mobileNumber.slice(0, 6));
-};
-
-const verifyOTP = (otp: string) => {
-  // call api to verify OTP
-  console.log(otp);
-  return true;
-};
 
 const getButtonText = (searchParams: ReadonlyURLSearchParams) => {
   const otpGenerated = searchParams.get("otp-generated");
@@ -59,6 +50,50 @@ const OnboardingForm: FC = () => {
   const t = useScopedI18n(
     "Pages.admission.sub-links.admission-portal.sub-links.onboarding",
   );
+
+  const generateOtpMutation = api.otp.generateOtp.useMutation();
+
+  const generateOTP = (mobileNumber: string) => {
+    generateOtpMutation.mutate({ mobileNumber });
+    toast.success(`WhatsApp OTP sent to ${mobileNumber}`);
+
+    console.log(mobileNumber.slice(0, 6));
+  };
+
+  const otpVerified = api.otp.verifyOtp.useMutation({
+    onSuccess(data) {
+      console.log("successfull logging the data", data);
+    },
+  });
+
+  const verifyOTP = async (otp: string, mobileNumber: string) => {
+    const result = await otpVerified.mutateAsync({ mobileNumber, otp });
+
+    console.log(result.success, result.message);
+    switch (result.message) {
+      case "OTP record does not exist":
+        toast("Failed to verify OTP please try again !!", {
+          icon: "ℹ️",
+        });
+
+        break;
+
+      case "OTP expired, please generate a new one":
+        toast.error("OTP expired, please generate a new one");
+        break;
+
+      case "OTP verified":
+        toast.success("Successfully verified OTP");
+        break;
+
+      case "Wrong OTP":
+        toast.error("Wrong OTP please check again !!");
+        break;
+    }
+
+    return result.success;
+  };
+
   const searchParams = useSearchParams();
   const formMethods = useForm<TAdmissionPortalSchema>({
     mode: "onBlur",
@@ -102,10 +137,12 @@ const OnboardingForm: FC = () => {
         if (formMethods.getFieldState("otp").invalid) return;
 
         // verify OTP
-        if (!verifyOTP(otp)) {
+        const otpResult = await verifyOTP(otp, mobileNumber);
+        if (!otpResult) {
           formMethods.setError("otp", { message: "Invalid OTP" });
           return;
         }
+
         // set search param otp-verified to true
         updateSearchParams({ "otp-verified": "true", otp });
         break;

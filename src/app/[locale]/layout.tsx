@@ -1,18 +1,18 @@
 import "@/src/styles/globals.css";
 
-import NextAuthSessionProvider from "@/src/contexts/NextAuthSessionProvider";
-import NextUIProvider from "@/src/contexts/NextUIProvider";
-import { getServerAuthSession } from "@/src/server/auth";
-import { TRPCReactProvider } from "@/src/trpc/react";
-import type { NextPageProps } from "@/src/types";
-import { I18nProviderClient } from "@locales/client";
-import { getStaticParams } from "@locales/server";
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import { headers } from "next/headers";
 import type { FC } from "react";
+import { I18nProviderClient } from "@locales/client";
+import type { Metadata } from "next";
+import NextAuthSessionProvider from "@/src/contexts/NextAuthSessionProvider";
+import type { NextPageProps } from "@/src/types";
+import NextUIProvider from "@/src/contexts/NextUIProvider";
 import React from "react";
+import { TRPCReactProvider } from "@/src/trpc/react";
 import { Toaster } from "react-hot-toast";
+import { getServerAuthSession } from "@/src/server/auth";
+import { getStaticParams } from "@locales/server";
+import { headers } from "next/headers";
+import localFont from "next/font/local";
 
 export const metadata: Metadata = {
   title: "Greenfield School",
@@ -54,7 +54,7 @@ const LocaleLayout: FC<Props> = async ({ children, params: { locale } }) => {
             </TRPCReactProvider>
           </I18nProviderClient>
         </NextAuthSessionProvider>
-        <Toaster position="top-right" reverseOrder={false} />
+        <Toaster position="top-center" reverseOrder={false} />
       </body>
     </html>
   );
