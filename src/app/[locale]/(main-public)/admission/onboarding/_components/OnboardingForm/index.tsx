@@ -1,21 +1,22 @@
 "use client";
 
-import { useCallback, useRef } from "react";
 import { FormProvider, useForm } from "react-hook-form";
+import { useCallback, useRef } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
-import { api } from "@/src/trpc/react";
-import { zodResolver } from "@hookform/resolvers/zod";
-import useUpdateSearchParams from "@hooks/useUpdateSearchParams";
 import { Button } from "@lib/next-ui";
-import { useScopedI18n } from "@locales/client";
-import type { ReadonlyURLSearchParams } from "next/navigation";
-import { useSearchParams } from "next/navigation";
 import type { FC } from "react";
-import type { SubmitHandler } from "react-hook-form";
-import toast from "react-hot-toast";
-import { z } from "zod";
 import MobileNumberInput from "./MobileNumberInput";
 import OTPInput from "./OTPInput";
+import type { ReadonlyURLSearchParams } from "next/navigation";
+import Router from "next/router";
+import type { SubmitHandler } from "react-hook-form";
+import { api } from "@/src/trpc/react";
+import toast from "react-hot-toast";
+import { useScopedI18n } from "@locales/client";
+import useUpdateSearchParams from "@hooks/useUpdateSearchParams";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const getButtonText = (searchParams: ReadonlyURLSearchParams) => {
   const otpGenerated = searchParams.get("otp-generated");
@@ -47,6 +48,7 @@ const AdmissionPortalSchema = z.object({
 export type TAdmissionPortalSchema = z.infer<typeof AdmissionPortalSchema>;
 
 const OnboardingForm: FC = () => {
+  const router = useRouter();
   const t = useScopedI18n(
     "Pages.admission.sub-links.admission-portal.sub-links.onboarding",
   );
@@ -110,6 +112,7 @@ const OnboardingForm: FC = () => {
 
   const submitHandler: SubmitHandler<TAdmissionPortalSchema> = data => {
     console.log("data", JSON.stringify(data, null, 2));
+    router.push("admission-application");
   };
 
   const clickHandler = useCallback(async (): Promise<void> => {

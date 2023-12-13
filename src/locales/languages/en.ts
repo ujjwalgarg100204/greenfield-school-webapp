@@ -313,6 +313,9 @@ export default {
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc faucibus a pellentesque sit amet porttitor eget dolor morbi. Lorem donec massa sapien faucibus. Leo vel fringilla est",
               "button-text": "Get Started",
             },
+            admission_application: {
+              heading: "Application for Admission",
+            },
             onboarding: {
               heading: "Admission Application Registration",
               "button-text": {
