@@ -3,19 +3,16 @@ import { createTRPCRouter, publicProcedure } from "../trpc";
 import { io } from "socket.io-client";
 import { z } from "zod";
 
-const socket = io(
-  "http://whatsappmessages-env.eba-m8hedks9.ap-south-1.elasticbeanstalk.com/",
-  {
-    transports: ["websocket", "polling"],
-    auth: {
-      token: "abcd",
-    },
-    withCredentials: true,
-    extraHeaders: {
-      "my-custom-header": "abcd",
-    },
+const socket = io("http://localhost:8080/", {
+  transports: ["websocket", "polling"],
+  auth: {
+    token: "abcd",
   },
-);
+  withCredentials: true,
+  extraHeaders: {
+    "my-custom-header": "abcd",
+  },
+});
 
 socket.on("connect", () => {
   console.log("Connected to the server");
