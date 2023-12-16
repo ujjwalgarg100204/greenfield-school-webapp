@@ -3,7 +3,7 @@ import { createTRPCRouter, publicProcedure } from "../trpc";
 import { io } from "socket.io-client";
 import { z } from "zod";
 
-const socket = io("http://localhost:8080/", {
+const socket = io("https://whatsapp-otp-service-ftm2.onrender.com", {
   transports: ["websocket", "polling"],
   auth: {
     token: "abcd",
