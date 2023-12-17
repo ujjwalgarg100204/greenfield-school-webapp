@@ -20,7 +20,7 @@ const Footer: FC = () => {
           </span>
         </p>
         <p className="flex items-center gap-3">
-          <BsTelephone className="h-5 w-5" />
+          <BsTelephone />
           <span>+91 935 441 6441</span>
         </p>
       </section>
