@@ -1,7 +1,7 @@
+import { BsTelephone } from "react-icons/bs";
+import type { FC } from "react";
 import GreenfieldLocation from "@/src/components/GreenfieldLocation";
 import { Link } from "@lib/next-ui";
-import type { FC } from "react";
-import { BsTelephone } from "react-icons/bs";
 import { MdOutlineLocationOn } from "react-icons/md";
 
 const Footer: FC = () => {
@@ -13,7 +13,7 @@ const Footer: FC = () => {
         </p>
         <GreenfieldLocation />
         <p className="flex items-center gap-2">
-          <MdOutlineLocationOn className="h-12 w-12" />
+          <MdOutlineLocationOn />
           <span>
             11/34B, Udayampalayam Rd, Pallakattu Thottam, Gounder Mills,
             Coimbatore, Tamil Nadu 641029
