@@ -1,7 +1,38 @@
 "use client";
 
+import { useForm, type SubmitHandler } from "react-hook-form";
+
+import { Button, Spinner } from "@nextui-org/react";
 import React from "react";
-import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+
+type FormData = {
+  declaration: string;
+  saddress: string;
+  saadhar: string;
+  smobilenumber: number;
+  spob: Date;
+  sdob: Date;
+  sgender: string;
+  smothertoungue: string;
+  sbg: string;
+  scaste: string;
+  scommunity: string;
+  sreligion: string;
+  snationality: string;
+  sname: string;
+  class: string;
+  academic_year: string;
+  maadhar: number;
+  memail: string;
+  mmobilenumber: string;
+  mothers_name: string;
+  faadhar: string;
+  fmaiil: string;
+  fmobilenumber: string;
+  fprofession: string;
+  fathers_name: string;
+};
 
 const ApplicationForm = () => {
   // ------ this is for dropdown -----
@@ -17,16 +48,26 @@ const ApplicationForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, isSubmitSuccessful },
     reset,
-    getValues,
-  } = useForm();
+    // getValues,
+  } = useForm<FormData>();
 
-  const onSubmit = data => {
+  const onSubmit: SubmitHandler<FormData> = data => {
     // Handle form submission logic here
-    console.log(data.sreligion, data.saadhar);
+    console.log(data.fathers_name);
+    if (isSubmitting) {
+      <Spinner />;
+    }
+    reset();
     // data.mm
   };
+  React.useEffect(() => {
+    if (isSubmitSuccessful) {
+      toast.success("Successfully submitted!");
+      reset();
+    }
+  }, [reset, isSubmitSuccessful]);
 
   return (
     <>
@@ -298,7 +339,6 @@ const ApplicationForm = () => {
                         className=" border-3"
                         type="number"
                         {...register("maadhar", {
-                          required: true,
                           pattern: /^\d{12}$/,
                         })}
                       />
@@ -800,10 +840,11 @@ const ApplicationForm = () => {
                 <p className="my-3 text-danger-500">Please check this box</p>
               )}
             </div>
-          </div>
-          <div className="form-control">
-            <label></label>
-            <button type="submit">Login</button>
+            <div className=" form-control mb-3 text-center text-xs md:text-base">
+              <Button color="primary" type="submit">
+                Submit form
+              </Button>
+            </div>
           </div>
         </form>
       </div>
