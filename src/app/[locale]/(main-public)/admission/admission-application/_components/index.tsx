@@ -1,5 +1,6 @@
 "use client";
 
+import { api } from "@/src/trpc/react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 
 import { Button, Spinner } from "@nextui-org/react";
@@ -9,10 +10,10 @@ import toast from "react-hot-toast";
 type FormData = {
   declaration: string;
   saddress: string;
-  saadhar: string;
-  smobilenumber: number;
-  spob: Date;
-  sdob: Date;
+  saadhar: string ;
+  smobilenumber: string;
+  spob: string;
+  sdob: string;
   sgender: string;
   smothertoungue: string;
   sbg: string;
@@ -21,9 +22,9 @@ type FormData = {
   sreligion: string;
   snationality: string;
   sname: string;
-  class: string;
+  sclass: string;
   academic_year: string;
-  maadhar: number;
+  maadhar: string ;
   memail: string;
   mmobilenumber: string;
   mothers_name: string;
@@ -50,14 +51,42 @@ const ApplicationForm = () => {
     handleSubmit,
     formState: { errors, isSubmitting, isSubmitSuccessful },
     reset,
-    // getValues,
   } = useForm<FormData>();
+
+  const admissionFormMutation = api.admissionForm.submitHandler.useMutation();
 
   const onSubmit: SubmitHandler<FormData> = data => {
     // Handle form submission logic here
     console.log(data.fathers_name);
     if (isSubmitting) {
       <Spinner />;
+    } else {
+      admissionFormMutation.mutate({
+        fathers_name: data.fathers_name,
+        faadhar: data.faadhar,
+        saddress: data.saddress,
+        saadhar: data.saadhar,
+        smobilenumber: data.smobilenumber,
+        spob: data.spob,
+        sdob: data.sdob,
+        sgender: data.sgender,
+        smothertoungue: data.smothertoungue,
+        sbg: data.sbg,
+        scaste: data.scaste,
+        scommunity: data.scommunity,
+        sreligion: data.sreligion,
+        snationality: data.snationality,
+        sname: data.sname,
+        sclass: data.sclass,
+        academic_year: data.academic_year,
+        maadhar: data.maadhar,
+        memail: data.memail,
+        mmobilenumber: data.mmobilenumber,
+        mothers_name: data.mothers_name,
+        fmaiil: data.fmaiil,
+        fmobilenumber: data.fmobilenumber,
+        fprofession: data.fprofession,
+      });
     }
     reset();
     // data.mm
@@ -162,7 +191,7 @@ const ApplicationForm = () => {
                     <td>
                       <input
                         className=" border-3"
-                        type="number"
+                        type="text"
                         {...register("fmobilenumber", {
                           required: true,
                           pattern: /^\+?[1-9]\d{9}$/,
@@ -222,7 +251,7 @@ const ApplicationForm = () => {
                     <td>
                       <input
                         className=" border-3"
-                        type="number"
+                        type="text"
                         {...register("faadhar", {
                           required: true,
                           pattern: /^\d{12}$/,
@@ -292,7 +321,7 @@ const ApplicationForm = () => {
                     <td>
                       <input
                         className=" border-3"
-                        type="number"
+                        type="text"
                         {...register("mmobilenumber", {
                           pattern: /^\+?[1-9]\d{9}$/,
                         })}
@@ -337,7 +366,7 @@ const ApplicationForm = () => {
                     <td>
                       <input
                         className=" border-3"
-                        type="number"
+                        type="text"
                         {...register("maadhar", {
                           pattern: /^\d{12}$/,
                         })}
@@ -416,7 +445,7 @@ const ApplicationForm = () => {
                         className="custom-select rounded-sm border border-black text-xs md:text-sm"
                         id="selectmethod"
                         defaultValue=""
-                        {...register("class", { required: true })}
+                        {...register("sclass", { required: true })}
                       >
                         <option
                           className="text-xs md:text-sm"
@@ -518,7 +547,7 @@ const ApplicationForm = () => {
                           12
                         </option>
                       </select>
-                      {errors.class && errors.class.type === "required" && (
+                      {errors.sclass && errors.sclass.type === "required" && (
                         <p className="text-xs text-danger-500 md:text-sm">
                           Select class
                         </p>
@@ -747,7 +776,7 @@ const ApplicationForm = () => {
                     <td className="text-xs md:text-sm">
                       <input
                         className="border-3 text-xs md:text-sm"
-                        type="number"
+                        type="text"
                         {...register("smobilenumber", {
                           required: true,
                           pattern: /^\+?[1-9]\d{9}$/,
@@ -777,7 +806,7 @@ const ApplicationForm = () => {
                     <td className="text-xs md:text-sm">
                       <input
                         className="w-fit border-3 "
-                        type="number"
+                        type="text"
                         {...register("saadhar", {
                           pattern: /^\d{12}$/,
                         })}
