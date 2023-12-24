@@ -1,12 +1,11 @@
-import { Button, Link } from "@lib/next-ui";
-import React, { type FC } from "react";
-
+import { type FC } from "react";
+import ApplicaionFormComponent from "./_components/index";
 import ArticleHeading from "@/src/components/ArticleHeading";
-import ArticlePage from "../../_components/ArticlePage";
+import { getScopedI18n } from "@/src/locales/server";
 import { type NextPageProps } from "@/src/types";
 import { setStaticParamsLocale } from "next-international/server";
-import { getScopedI18n } from "@locales/server";
 import { useForm } from "react-hook-form";
+import ArticlePage from "../../_components/ArticlePage";
 
 const AdmissionApplicationForm: FC<NextPageProps> = async ({
   params: { locale },
@@ -16,13 +15,6 @@ const AdmissionApplicationForm: FC<NextPageProps> = async ({
   );
   setStaticParamsLocale(locale);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-    reset, getValues
-  } = useForm();
-
   return (
     <div>
       <ArticlePage
@@ -30,9 +22,7 @@ const AdmissionApplicationForm: FC<NextPageProps> = async ({
         selected={{ translationKey: "admission-portal" }}
       >
         <ArticleHeading>{t("heading")}</ArticleHeading>
-        <form>
-            
-        </form>
+        <ApplicaionFormComponent />
       </ArticlePage>
     </div>
   );

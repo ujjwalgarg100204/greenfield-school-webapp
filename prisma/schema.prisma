@@ -88,7 +88,34 @@ model Otp {
     otp       String /// @zod.string.min(6, { message: "short-input" }).max(6, { message: "long-input" }).regex(/^\d+$/, { message: "wrong-input" }),
     updatedAt DateTime @updatedAt
     expiresAt DateTime /// @zod.custom.omit([input])
+
     @@index([mobile])
 }
 
-
+model AdmissionForm {
+    id             String @id @default(cuid())
+    saddress       String
+    saadhar        String
+    smobilenumber  String
+    spob           String
+    sdob           String
+    sgender        String
+    smothertoungue String
+    sbg            String
+    scaste         String
+    scommunity     String
+    sreligion      String
+    snationality   String
+    sname          String
+    sclass         String
+    academic_year  String
+    maadhar        String
+    memail         String
+    mmobilenumber  String
+    mothers_name   String
+    faadhar        String @unique
+    fmaiil         String
+    fmobilenumber  String @unique
+    fprofession    String
+    fathers_name   String
+}
