@@ -93,10 +93,10 @@ model Otp {
 }
 
 model AdmissionForm {
-    id             String   @id @default(cuid())
+    id             String @id @default(cuid())
     saddress       String
-    saadhar        String   @unique
-    smobilenumber  String   @unique
+    saadhar        String
+    smobilenumber  String
     spob           String
     sdob           String
     sgender        String
@@ -107,15 +107,15 @@ model AdmissionForm {
     sreligion      String
     snationality   String
     sname          String
-    sclass          String
+    sclass         String
     academic_year  String
-    maadhar        String   @unique 
+    maadhar        String
     memail         String
-    mmobilenumber  String   @unique
+    mmobilenumber  String
     mothers_name   String
-    faadhar        String   @unique
+    faadhar        String @unique
     fmaiil         String
-    fmobilenumber  String   @unique
+    fmobilenumber  String @unique
     fprofession    String
     fathers_name   String
 }

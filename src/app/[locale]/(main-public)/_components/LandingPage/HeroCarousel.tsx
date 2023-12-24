@@ -2,14 +2,14 @@
 
 import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
 
+import Carousel from "@ui/Carousel";
+import type { FC } from "react";
 import MainCarouselImage1 from "@/public/images/hero-carousel/1.png";
 import MainCarouselImage2 from "@/public/images/hero-carousel/2.png";
 import MainCarouselImage3 from "@/public/images/hero-carousel/3.png";
 import MainCarouselImage4 from "@/public/images/hero-carousel/4.png";
 import MainCarouselImage5 from "@/public/images/hero-carousel/5.png";
-import Carousel from "@ui/Carousel";
 import NextImage from "next/image";
-import type { FC } from "react";
 import { v4 as uuid } from "uuid";
 
 const imagesLinks = [
@@ -50,7 +50,7 @@ const HeroCarousel: FC = () => {
       )}
     >
       {imagesLinks.map((image) => (
-        <div key={uuid()} className="relative h-64 sm:h-72 md:h-[26rem]">
+        <div key={uuid()} className="relative h-64 sm:h-72 md:py-20 md:h-[35rem]">
           <NextImage
             src={image}
             alt="bear"

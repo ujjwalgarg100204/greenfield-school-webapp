@@ -5,6 +5,14 @@ import useResponsiveScreen, {
 } from "@hooks/useResponsiveScreen";
 import { useState } from "react";
 
+import one from "@/public/images/premium-facilities-landingPage/1.jpg";
+import two from "@/public/images/premium-facilities-landingPage/2.jpg";
+import three from "@/public/images/premium-facilities-landingPage/3.jpg";
+import four from "@/public/images/premium-facilities-landingPage/4.jpg";
+import five from "@/public/images/premium-facilities-landingPage/5.jpg";
+import six from "@/public/images/premium-facilities-landingPage/6.jpg";
+import seven from "@/public/images/premium-facilities-landingPage/7.jpg";
+
 import Carousel from "@ui/Carousel";
 import type { FC } from "react";
 import CarouselCard from "./CarouselCard";
@@ -15,49 +23,49 @@ const premiumFacilitiesCards = [
   {
     translationKey: 1,
     img: {
-      url: "https://picsum.photos/id/1020/1920/1080",
+      url: one,
       alt: "image",
     },
   },
   {
     translationKey: 2,
     img: {
-      url: "https://picsum.photos/id/1025/1920/1080",
+      url: two,
       alt: "image",
     },
   },
   {
     translationKey: 3,
     img: {
-      url: "https://picsum.photos/id/642/1920/1080",
+      url: three,
       alt: "image",
     },
   },
   {
     translationKey: 4,
     img: {
-      url: "https://picsum.photos/id/743/1920/1080",
+      url: four,
       alt: "image",
     },
   },
   {
     translationKey: 5,
     img: {
-      url: "https://picsum.photos/id/1060/1920/1080",
+      url: five,
       alt: "image",
     },
   },
   {
     translationKey: 6,
     img: {
-      url: "https://picsum.photos/id/377/1920/1080",
+      url: six,
       alt: "image",
     },
   },
   {
     translationKey: 7,
     img: {
-      url: "https://picsum.photos/id/684/1920/1080",
+      url: seven,
       alt: "image",
     },
   },
@@ -86,13 +94,13 @@ const PremiumFacilitiesCarousel: FC = () => {
   };
 
   const handlePrevSlide = () => {
-    setCurrSlideIndex((prev) =>
+    setCurrSlideIndex(prev =>
       prev - 1 === 0 ? premiumFacilitiesCards.length - 1 : prev - 1,
     );
   };
 
   const handleNextSlide = () => {
-    setCurrSlideIndex((prev) => (prev + 1) % premiumFacilitiesCards.length);
+    setCurrSlideIndex(prev => (prev + 1) % premiumFacilitiesCards.length);
   };
 
   return (
@@ -115,7 +123,7 @@ const PremiumFacilitiesCarousel: FC = () => {
         className="w-full sm:w-[80%] lg:w-[90%]"
         centerSlidePercentage={centerSlidePercentage}
       >
-        {premiumFacilitiesCards.map((premiumFacility) => (
+        {premiumFacilitiesCards.map(premiumFacility => (
           <CarouselCard
             key={premiumFacility.translationKey}
             {...premiumFacility}

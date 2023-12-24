@@ -1,15 +1,15 @@
 "use client";
 
-import { Card, CardBody, CardHeader, Image } from "@lib/next-ui";
+import { Card, CardBody, CardHeader } from "@lib/next-ui";
+import NextImage, { type StaticImageData } from "next/image";
 
 import { useScopedI18n } from "@locales/client";
 import type Translation from "@locales/languages/en";
-import NextImage from "next/image";
 import type { FC } from "react";
 
 type Props = {
   translationKey: keyof (typeof Translation)["Pages"]["home"]["sub-links"]["premium-facilities"]["content"]["cards"];
-  img: { url: string; alt: string };
+  img: { url: StaticImageData; alt: string };
 };
 
 const CarouselCard: FC<Props> = ({ translationKey, img }) => {
@@ -31,8 +31,7 @@ const CarouselCard: FC<Props> = ({ translationKey, img }) => {
         </h4>
       </CardHeader>
       <CardBody className="overflow-visible py-2">
-        <Image
-          as={NextImage}
+        <NextImage
           alt={img.alt}
           className="rounded-xl object-cover"
           src={img.url}

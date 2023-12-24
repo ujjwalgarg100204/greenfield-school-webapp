@@ -1,33 +1,37 @@
-import { getScopedI18n } from "@locales/server";
 import type { FC } from "react";
 import PhotoGalleryCard from "./PhotoGalleryCard";
+import four from "@/public/images/photo-gallery-landingPage/4.jpg";
+import { getScopedI18n } from "@locales/server";
+import one from "@/public/images/photo-gallery-landingPage/1.jpg";
+import three from "@/public/images/photo-gallery-landingPage/3.jpg";
+import two from "@/public/images/photo-gallery-landingPage/2.jpg";
 
 const photoGalleryCards = [
   {
     translationKey: 1,
     image: {
-      url: "https://picsum.photos/id/1025/1920/1080",
+      url: one,
       alt: "adorable dog",
     },
   },
   {
     translationKey: 2,
     image: {
-      url: "https://images.pexels.com/photos/5212344/pexels-photo-5212344.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      url: two,
       alt: "boy studying",
     },
   },
   {
     translationKey: 3,
     image: {
-      url: "https://images.pexels.com/photos/3494806/pexels-photo-3494806.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      url: three,
       alt: "students in classroom",
     },
   },
   {
     translationKey: 4,
     image: {
-      url: "https://images.pexels.com/photos/3494806/pexels-photo-3494806.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      url: four,
       alt: "students in classroom",
     },
   },
@@ -47,7 +51,7 @@ const PhotoGallery: FC = async () => {
         </h1>
       </header>
       <div className="grid max-w-full grid-rows-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
-        {photoGalleryCards.map((card) => (
+        {photoGalleryCards.map(card => (
           <PhotoGalleryCard key={card.translationKey} {...card} />
         ))}
       </div>

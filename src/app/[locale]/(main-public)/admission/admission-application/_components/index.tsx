@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 type FormData = {
   declaration: string;
   saddress: string;
-  saadhar: string ;
+  saadhar: string;
   smobilenumber: string;
   spob: string;
   sdob: string;
@@ -24,7 +24,7 @@ type FormData = {
   sname: string;
   sclass: string;
   academic_year: string;
-  maadhar: string ;
+  maadhar: string;
   memail: string;
   mmobilenumber: string;
   mothers_name: string;
@@ -53,15 +53,19 @@ const ApplicationForm = () => {
     reset,
   } = useForm<FormData>();
 
-  const admissionFormMutation = api.admissionForm.submitHandler.useMutation();
+  const admissionFormMutation = api.admissionForm.submitHandler.useMutation({
+    onSuccess(data) {
+      console.log("successfull logging the data", data);
+    },
+  });
 
-  const onSubmit: SubmitHandler<FormData> = data => {
+  const onSubmit: SubmitHandler<FormData> = async data => {
     // Handle form submission logic here
     console.log(data.fathers_name);
     if (isSubmitting) {
       <Spinner />;
     } else {
-      admissionFormMutation.mutate({
+      const result = await admissionFormMutation.mutateAsync({
         fathers_name: data.fathers_name,
         faadhar: data.faadhar,
         saddress: data.saddress,
@@ -87,13 +91,23 @@ const ApplicationForm = () => {
         fmobilenumber: data.fmobilenumber,
         fprofession: data.fprofession,
       });
+
+      if (
+        result.message ===
+        "School already have your data. Please wait for the confirmation !"
+      ) {
+        toast(result.message, {
+          icon: "⚠️",
+        });
+      } else {
+        toast.success(result.message);
+      }
     }
     reset();
     // data.mm
   };
   React.useEffect(() => {
     if (isSubmitSuccessful) {
-      toast.success("Successfully submitted!");
       reset();
     }
   }, [reset, isSubmitSuccessful]);
@@ -117,272 +131,6 @@ const ApplicationForm = () => {
               </ul>
             </div>
           </div>
-
-          {/* Parent's particular */}
-          <div className="my-7  w-full border-3 ">
-            <div className="flex justify-between border-3 bg-green-50 py-2 pl-2 font-bold ">
-              <h4>Parent{"'s"} particular</h4>
-              <p className="mr-1 md:mr-2">
-                <span className="text-danger-500">*</span>Indicates Mandatory
-                Fields
-              </p>
-            </div>
-
-            <div className="flex justify-center  py-4 ">
-              <table className=" w-full table-auto border-separate text-xs md:border-spacing-4  md:text-lg ">
-                <thead className="border">
-                  <tr>
-                    <th>Father{"'s"} details</th>
-                  </tr>
-                </thead>
-
-                <tbody className="text-sm">
-                  <tr>
-                    <td className="">
-                      <label className="text-xs  md:text-base" htmlFor="">
-                        <span className="text-danger-500">*</span>Father{"'s"}{" "}
-                        Name :-{" "}
-                      </label>{" "}
-                    </td>
-                    <td>
-                      <input
-                        className=" border-3 "
-                        type="text"
-                        {...register("fathers_name", {
-                          required: true,
-                        })}
-                      />
-                      {errors.fathers_name &&
-                        errors.fathers_name.type === "required" && (
-                          <p className="my-1 text-xs text-danger-500 md:text-sm">
-                            Father name required.
-                          </p>
-                        )}{" "}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <label className="text-xs md:text-base" htmlFor="">
-                        <span className="text-danger-500">*</span>Father{"'s"}{" "}
-                        Profession :-{" "}
-                      </label>{" "}
-                    </td>
-                    <td>
-                      <input
-                        className=" border-3"
-                        type="text"
-                        {...register("fprofession", { required: true })}
-                      />
-                      {errors.fprofession &&
-                        errors.fprofession.type === "required" && (
-                          <p className="my-1 text-xs text-danger-500 md:text-sm">
-                            Father proffession required
-                          </p>
-                        )}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <label className="text-xs md:text-base" htmlFor="">
-                        <span className="text-danger-500">*</span>Father{"'s"}{" "}
-                        mobileNumber :-
-                      </label>{" "}
-                    </td>
-                    <td>
-                      <input
-                        className=" border-3"
-                        type="text"
-                        {...register("fmobilenumber", {
-                          required: true,
-                          pattern: /^\+?[1-9]\d{9}$/,
-                        })}
-                      />
-                      {errors.fmobilenumber &&
-                        errors.fmobilenumber.type === "required" && (
-                          <p className="my-1 text-xs text-danger-500 md:text-sm">
-                            Father mobileNumber required
-                          </p>
-                        )}
-                      {errors.fmobilenumber &&
-                        errors.fmobilenumber.type === "pattern" && (
-                          <p className="my-1 text-xs text-danger-500 md:text-sm">
-                            Invalid mobileNumber
-                          </p>
-                        )}
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <label className="text-xs md:text-base" htmlFor="">
-                        <span className="text-danger-500">*</span>Father{"'s"}{" "}
-                        EmailId :-
-                      </label>{" "}
-                    </td>
-                    <td>
-                      <input
-                        className=" border-3"
-                        type="email"
-                        {...register("fmaiil", {
-                          required: true,
-                          pattern: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
-                        })}
-                      />
-                      {errors.fmaiil && errors.fmaiil.type === "required" && (
-                        <p className="my-1 text-xs text-danger-500 md:text-sm">
-                          Father EmailId required
-                        </p>
-                      )}
-                      {errors.fmaiil && errors.fmaiil.type === "pattern" && (
-                        <p className="my-1 text-xs text-danger-500 md:text-sm">
-                          Invalid EmailId
-                        </p>
-                      )}
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <label className="text-xs md:text-base" htmlFor="">
-                        <span className="text-danger-500">*</span>
-                        Aadhar Number :-
-                      </label>{" "}
-                    </td>
-                    <td>
-                      <input
-                        className=" border-3"
-                        type="text"
-                        {...register("faadhar", {
-                          required: true,
-                          pattern: /^\d{12}$/,
-                        })}
-                      />
-                      {errors.faadhar && errors.faadhar.type === "required" && (
-                        <p className="my-1 text-xs text-danger-500 md:text-sm">
-                          Father Aadhar card required
-                        </p>
-                      )}
-                      {errors.faadhar && errors.faadhar.type === "pattern" && (
-                        <p className="my-1 text-xs text-danger-500 md:text-sm">
-                          Invalid Aadhar number
-                        </p>
-                      )}
-                    </td>
-                  </tr>
-                </tbody>
-                {/* </div> */}
-
-                <thead className="flex justify-center ">
-                  <tr>
-                    <th>Mother{"'s"} details</th>
-                  </tr>
-                </thead>
-
-                <tbody className="text-sm">
-                  <tr>
-                    <td className="">
-                      <label className="text-xs md:text-base" htmlFor="">
-                        <span className="text-danger-500">*</span>Mother{"'s"}{" "}
-                        Name :-{" "}
-                      </label>{" "}
-                    </td>
-                    <td>
-                      <input
-                        className=" border-3"
-                        type="text"
-                        {...register("mothers_name", { required: true })}
-                      />
-                      {errors.mothers_name &&
-                        errors.mothers_name.type === "required" && (
-                          <p className="my-1 text-xs text-danger-500 md:text-sm">
-                            Mother name required.
-                          </p>
-                        )}
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <label className="text-xs md:text-base" htmlFor="">
-                        Mother{"'s"} Profession :-{" "}
-                      </label>{" "}
-                    </td>
-                    <td>
-                      <input className=" border-3" type="text" />
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <label className="text-xs md:text-base" htmlFor="">
-                        Mother{"'s"} mobileNumber :-{" "}
-                      </label>{" "}
-                    </td>
-                    <td>
-                      <input
-                        className=" border-3"
-                        type="text"
-                        {...register("mmobilenumber", {
-                          pattern: /^\+?[1-9]\d{9}$/,
-                        })}
-                      />
-                      {errors.mmobilenumber &&
-                        errors.mmobilenumber.type === "pattern" && (
-                          <p className="my-1 text-xs text-danger-500 md:text-sm">
-                            Invalid mobileNumber
-                          </p>
-                        )}
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <label className="text-xs md:text-base" htmlFor="">
-                        Mother{"'s"} EmailId :-{" "}
-                      </label>{" "}
-                    </td>
-                    <td>
-                      <input
-                        className=" border-3"
-                        type="email"
-                        {...register("memail", {
-                          pattern: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
-                        })}
-                      />
-                      {errors.memail && errors.memail.type === "pattern" && (
-                        <p className="my-1 text-xs text-danger-500 md:text-sm">
-                          Invalid EmailId
-                        </p>
-                      )}
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <label className="text-xs md:text-base" htmlFor="">
-                        Aadhar Number :-
-                      </label>{" "}
-                    </td>
-                    <td>
-                      <input
-                        className=" border-3"
-                        type="text"
-                        {...register("maadhar", {
-                          pattern: /^\d{12}$/,
-                        })}
-                      />
-                      {errors.maadhar && errors.maadhar.type === "pattern" && (
-                        <p className="my-1 text-xs text-danger-500 md:text-sm">
-                          Invalid Aadhar number
-                        </p>
-                      )}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
           {/* Student's particular */}
           <div className="my-7 w-full border-3 ">
             <div className="flex justify-between border-3 bg-green-50 py-2 pl-2 font-bold ">
@@ -837,6 +585,271 @@ const ApplicationForm = () => {
                             Address Required
                           </p>
                         )}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Parent's particular */}
+          <div className="my-7  w-full border-3 ">
+            <div className="flex justify-between border-3 bg-green-50 py-2 pl-2 font-bold ">
+              <h4>Parent{"'s"} particular</h4>
+              <p className="mr-1 md:mr-2">
+                <span className="text-danger-500">*</span>Indicates Mandatory
+                Fields
+              </p>
+            </div>
+
+            <div className="flex justify-center  py-4 ">
+              <table className=" w-full table-auto border-separate text-xs md:border-spacing-4  md:text-lg ">
+                <thead className="border">
+                  <tr>
+                    <th>Father{"'s"} details</th>
+                  </tr>
+                </thead>
+
+                <tbody className="text-sm">
+                  <tr>
+                    <td className="">
+                      <label className="text-xs  md:text-base" htmlFor="">
+                        <span className="text-danger-500">*</span>Father{"'s"}{" "}
+                        Name :-{" "}
+                      </label>{" "}
+                    </td>
+                    <td>
+                      <input
+                        className=" border-3 "
+                        type="text"
+                        {...register("fathers_name", {
+                          required: true,
+                        })}
+                      />
+                      {errors.fathers_name &&
+                        errors.fathers_name.type === "required" && (
+                          <p className="my-1 text-xs text-danger-500 md:text-sm">
+                            Father name required.
+                          </p>
+                        )}{" "}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label className="text-xs md:text-base" htmlFor="">
+                        <span className="text-danger-500">*</span>Father{"'s"}{" "}
+                        Profession :-{" "}
+                      </label>{" "}
+                    </td>
+                    <td>
+                      <input
+                        className=" border-3"
+                        type="text"
+                        {...register("fprofession", { required: true })}
+                      />
+                      {errors.fprofession &&
+                        errors.fprofession.type === "required" && (
+                          <p className="my-1 text-xs text-danger-500 md:text-sm">
+                            Father proffession required
+                          </p>
+                        )}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label className="text-xs md:text-base" htmlFor="">
+                        <span className="text-danger-500">*</span>Father{"'s"}{" "}
+                        mobileNumber :-
+                      </label>{" "}
+                    </td>
+                    <td>
+                      <input
+                        className=" border-3"
+                        type="text"
+                        {...register("fmobilenumber", {
+                          required: true,
+                          pattern: /^\+?[1-9]\d{9}$/,
+                        })}
+                      />
+                      {errors.fmobilenumber &&
+                        errors.fmobilenumber.type === "required" && (
+                          <p className="my-1 text-xs text-danger-500 md:text-sm">
+                            Father mobileNumber required
+                          </p>
+                        )}
+                      {errors.fmobilenumber &&
+                        errors.fmobilenumber.type === "pattern" && (
+                          <p className="my-1 text-xs text-danger-500 md:text-sm">
+                            Invalid mobileNumber
+                          </p>
+                        )}
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <label className="text-xs md:text-base" htmlFor="">
+                        <span className="text-danger-500">*</span>Father{"'s"}{" "}
+                        EmailId :-
+                      </label>{" "}
+                    </td>
+                    <td>
+                      <input
+                        className=" border-3"
+                        type="email"
+                        {...register("fmaiil", {
+                          required: true,
+                          pattern: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
+                        })}
+                      />
+                      {errors.fmaiil && errors.fmaiil.type === "required" && (
+                        <p className="my-1 text-xs text-danger-500 md:text-sm">
+                          Father EmailId required
+                        </p>
+                      )}
+                      {errors.fmaiil && errors.fmaiil.type === "pattern" && (
+                        <p className="my-1 text-xs text-danger-500 md:text-sm">
+                          Invalid EmailId
+                        </p>
+                      )}
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <label className="text-xs md:text-base" htmlFor="">
+                        <span className="text-danger-500">*</span>
+                        Aadhar Number :-
+                      </label>{" "}
+                    </td>
+                    <td>
+                      <input
+                        className=" border-3"
+                        type="text"
+                        {...register("faadhar", {
+                          required: true,
+                          pattern: /^\d{12}$/,
+                        })}
+                      />
+                      {errors.faadhar && errors.faadhar.type === "required" && (
+                        <p className="my-1 text-xs text-danger-500 md:text-sm">
+                          Father Aadhar card required
+                        </p>
+                      )}
+                      {errors.faadhar && errors.faadhar.type === "pattern" && (
+                        <p className="my-1 text-xs text-danger-500 md:text-sm">
+                          Invalid Aadhar number
+                        </p>
+                      )}
+                    </td>
+                  </tr>
+                </tbody>
+                {/* </div> */}
+
+                <thead className="flex justify-center ">
+                  <tr>
+                    <th>Mother{"'s"} details</th>
+                  </tr>
+                </thead>
+
+                <tbody className="text-sm">
+                  <tr>
+                    <td className="">
+                      <label className="text-xs md:text-base" htmlFor="">
+                        <span className="text-danger-500">*</span>Mother{"'s"}{" "}
+                        Name :-{" "}
+                      </label>{" "}
+                    </td>
+                    <td>
+                      <input
+                        className=" border-3"
+                        type="text"
+                        {...register("mothers_name", { required: true })}
+                      />
+                      {errors.mothers_name &&
+                        errors.mothers_name.type === "required" && (
+                          <p className="my-1 text-xs text-danger-500 md:text-sm">
+                            Mother name required.
+                          </p>
+                        )}
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <label className="text-xs md:text-base" htmlFor="">
+                        Mother{"'s"} Profession :-{" "}
+                      </label>{" "}
+                    </td>
+                    <td>
+                      <input className=" border-3" type="text" />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <label className="text-xs md:text-base" htmlFor="">
+                        Mother{"'s"} mobileNumber :-{" "}
+                      </label>{" "}
+                    </td>
+                    <td>
+                      <input
+                        className=" border-3"
+                        type="text"
+                        {...register("mmobilenumber", {
+                          pattern: /^\+?[1-9]\d{9}$/,
+                        })}
+                      />
+                      {errors.mmobilenumber &&
+                        errors.mmobilenumber.type === "pattern" && (
+                          <p className="my-1 text-xs text-danger-500 md:text-sm">
+                            Invalid mobileNumber
+                          </p>
+                        )}
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <label className="text-xs md:text-base" htmlFor="">
+                        Mother{"'s"} EmailId :-{" "}
+                      </label>{" "}
+                    </td>
+                    <td>
+                      <input
+                        className=" border-3"
+                        type="email"
+                        {...register("memail", {
+                          pattern: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
+                        })}
+                      />
+                      {errors.memail && errors.memail.type === "pattern" && (
+                        <p className="my-1 text-xs text-danger-500 md:text-sm">
+                          Invalid EmailId
+                        </p>
+                      )}
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <label className="text-xs md:text-base" htmlFor="">
+                        Aadhar Number :-
+                      </label>{" "}
+                    </td>
+                    <td>
+                      <input
+                        className=" border-3"
+                        type="text"
+                        {...register("maadhar", {
+                          pattern: /^\d{12}$/,
+                        })}
+                      />
+                      {errors.maadhar && errors.maadhar.type === "pattern" && (
+                        <p className="my-1 text-xs text-danger-500 md:text-sm">
+                          Invalid Aadhar number
+                        </p>
+                      )}
                     </td>
                   </tr>
                 </tbody>

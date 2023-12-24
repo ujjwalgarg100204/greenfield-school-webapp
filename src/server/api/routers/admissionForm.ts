@@ -8,7 +8,7 @@ export const admissionForm = createTRPCRouter({
       z.object({
         saddress: z.string(),
         saadhar: z.string(),
-        
+
         smobilenumber: z
           .string()
           .min(10, { message: "short-input" })
@@ -26,16 +26,16 @@ export const admissionForm = createTRPCRouter({
         sclass: z.string(),
         academic_year: z.string(),
         maadhar: z.string(),
-        
+
         memail: z.string(),
         mmobilenumber: z.string(),
-        
+
         mothers_name: z.string(),
         faadhar: z
           .string()
           .min(12, { message: "short-input" })
           .max(12, { message: "long-input" }),
-       
+
         fmaiil: z.string(),
         fmobilenumber: z
           .string()
@@ -75,34 +75,49 @@ export const admissionForm = createTRPCRouter({
           sreligion,
         },
       }) => {
-        await db.admissionForm.create({
-          data: {
-            academic_year,
-            faadhar,
-            fathers_name,
-            fmaiil,
-            fmobilenumber,
-            fprofession,
-            maadhar,
-            memail,
-            mmobilenumber,
-            mothers_name,
-            saadhar,
-            saddress,
-            sbg,
-            scaste,
-            sclass,
-            scommunity,
-            sdob,
-            sgender,
-            smobilenumber,
-            smothertoungue,
-            sname,
-            snationality,
-            spob,
-            sreligion,
-          },
+        const existingFormData = await db.admissionForm.findUnique({
+          where: { fmobilenumber },
         });
+
+        if (!existingFormData) {
+          await db.admissionForm.create({
+            data: {
+              academic_year,
+              faadhar,
+              fathers_name,
+              fmaiil,
+              fmobilenumber,
+              fprofession,
+              maadhar,
+              memail,
+              mmobilenumber,
+              mothers_name,
+              saadhar,
+              saddress,
+              sbg,
+              scaste,
+              sclass,
+              scommunity,
+              sdob,
+              sgender,
+              smobilenumber,
+              smothertoungue,
+              sname,
+              snationality,
+              spob,
+              sreligion,
+            },
+          });
+
+          return {
+            message: "Submitted successfully 🎉",
+          };
+        } else {
+          return {
+            message:
+              "School already have your data. Please wait for the confirmation !",
+          };
+        }
       },
     ),
 });
