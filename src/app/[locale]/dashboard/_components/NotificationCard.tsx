@@ -1,13 +1,13 @@
 import { Card, CardBody, CardHeader } from "@lib/next-ui";
 
-import type { Notification } from "@/src/types";
-import type { FC } from "react";
 import { AiOutlineInfoCircle } from "react-icons/ai";
+import type { FC } from "react";
+import type { Notification } from "@/src/types";
 import { twMerge } from "tailwind-merge";
 
 const NotificationCard: FC<Notification> = ({
   title,
-  description,
+  description,  
   isUrgent,
 }) => {
   return (

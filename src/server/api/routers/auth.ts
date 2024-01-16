@@ -1,7 +1,7 @@
 import { createTRPCRouter, publicProcedure } from "../trpc";
 
-import { UserCreateInputSchema } from "@/src/types/zod";
 import { TRPCError } from "@trpc/server";
+import { UserCreateInputSchema } from "@/src/types/zod";
 import bcrypt from "bcrypt";
 
 export const authRouter = createTRPCRouter({
