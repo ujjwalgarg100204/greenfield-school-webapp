@@ -1,16 +1,16 @@
 "use client";
 
-import { Controller, useForm } from "react-hook-form";
-import { RadioGroup, button } from "@nextui-org/react";
 import { UserCreateInputSchema, UserRolesSchema } from "@/src/types/zod";
+import { RadioGroup } from "@nextui-org/react";
+import { Controller, useForm } from "react-hook-form";
 
-import type { FC } from "react";
-import RoleRadioButton from "../_components/SignInForm/RoleRadioButton";
-import type { SubmitHandler } from "react-hook-form";
-import { TRPCClientError } from "@trpc/client";
 import { api } from "@/src/trpc/react";
-import type { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { TRPCClientError } from "@trpc/client";
+import type { FC } from "react";
+import type { SubmitHandler } from "react-hook-form";
+import type { z } from "zod";
+import RoleRadioButton from "../_components/SignInForm/RoleRadioButton";
 
 const RegisterPage: FC = () => {
   const { register, control, handleSubmit, reset } = useForm<

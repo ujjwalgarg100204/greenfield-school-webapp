@@ -29,8 +29,8 @@ const MainNavbar: FC = async () => {
             priority
           />
           <p className="hidden text-sm font-bold text-primary md:block md:text-xl">
-            Greenfield School,
-            <br /> Tamil Nadu
+            Greenfield Campus
+            <br /> [V.C.S.M matric. Hr. sec. School]
           </p>
         </Link>
       </NavbarBrand>
