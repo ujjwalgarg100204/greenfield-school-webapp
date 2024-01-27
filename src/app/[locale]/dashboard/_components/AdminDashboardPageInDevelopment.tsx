@@ -3,7 +3,7 @@ import { getServerAuthSession } from "@/src/server/auth";
 import { type FC } from "react";
 import Academic from "../section/Academics/page";
 import Exams from "../section/Exams/page";
-import Money from "../section/Money/page";
+import Fees from "../section/Money/page";
 import Profile from "../section/Profile/page";
 import LinkNavbar from "./LinkNavbar";
 
@@ -26,7 +26,7 @@ const DashboardPageInDevelopment: FC = async () => {
             <Exams />
           </div>
           <div className="my-7 h-fit  text-center md:m-5 md:h-fit md:p-4">
-            <Money />
+            <Fees />
           </div>
           <div className="my-7 h-[83vh] bg-violet-400 text-center md:m-5 md:h-[83vh] md:p-4">
             <Profile />

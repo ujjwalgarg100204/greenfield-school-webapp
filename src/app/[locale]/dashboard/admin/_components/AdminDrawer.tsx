@@ -1,20 +1,21 @@
 "use client";
 
 import { BiHome, BiUserCircle } from "react-icons/bi";
+import { FaMoneyCheckAlt, FaUserClock } from "react-icons/fa";
 import { LiaChalkboardTeacherSolid, LiaMoneyBillSolid } from "react-icons/lia";
 import { PiExamLight, PiUserListBold } from "react-icons/pi";
 import { TbLamp2, TbReportAnalytics } from "react-icons/tb";
+import { TbPigMoney, TbReportMoney } from "react-icons/tb";
 
-import type { DrawerItem } from "@/src/components/Drawer";
-import Drawer from "@/src/components/Drawer";
-import type { FC } from "react";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { BsCalendar2Check } from "react-icons/bs";
-import { FaUserClock } from "react-icons/fa";
+import Drawer from "@/src/components/Drawer";
+import type { DrawerItem } from "@/src/components/Drawer";
+import type { FC } from "react";
+import { FaMoneyBillTransfer } from "react-icons/fa6";
 import { FiFolder } from "react-icons/fi";
 import { GiTakeMyMoney } from "react-icons/gi";
 import { GoNumber } from "react-icons/go";
-import { GrMoney } from "react-icons/gr";
 import { MdWorkOutline } from "react-icons/md";
 import { RiSettings2Line } from "react-icons/ri";
 
@@ -84,18 +85,33 @@ const drawerItems: DrawerItem[] = [
     ],
   },
   {
-    title: "Money",
+    title: "Fees",
     icon: <LiaMoneyBillSolid className="h-[1.265rem] w-[1.265rem]" />,
     subItems: [
       {
-        title: "Fees",
+        title: "Collect",
         icon: <GiTakeMyMoney className="h-[1.265rem] w-[1.265rem]" />,
-        href: "/dashboard/admin/money/fees",
+        href: "/dashboard/admin/money/collect",
       },
       {
-        title: "Fines",
-        icon: <GrMoney className="h-[1.265rem] w-[1.265rem]" />,
-        href: "/dashboard/admin/money/fines",
+        title: "Ledger",
+        icon: <FaMoneyCheckAlt className="h-[1.265rem] w-[1.265rem]" />,
+        href: "/dashboard/admin/money/ledger",
+      },
+      {
+        title: "Transaction Missory",
+        icon: <FaMoneyBillTransfer className="h-[1.265rem] w-[1.265rem]" />,
+        href: "/dashboard/admin/money/transaction_missory",
+      },
+      {
+        title: "Settlement",
+        icon: <TbPigMoney className="h-[1.265rem] w-[1.265rem]" />,
+        href: "/dashboard/admin/money/settlement",
+      },
+      {
+        title: "Setup",
+        icon: <TbReportMoney className="h-[1.265rem] w-[1.265rem]" />,
+        href: "/dashboard/admin/money/setup",
       },
     ],
   },
