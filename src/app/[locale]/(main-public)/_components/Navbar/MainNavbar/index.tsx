@@ -28,9 +28,10 @@ const MainNavbar: FC = async () => {
             className="rounded-full"
             priority
           />
-          <p className="hidden text-sm font-bold text-primary md:block md:text-xl">
+          <p className="hidden text-sm font-bold text-primary md:block md:text-2xl">
             Greenfield Campus
-            <br /> [V.C.S.M matric. Hr. sec. School]
+            <br />
+            <p> V.C.S.M matric. Hr. sec. School</p>
           </p>
         </Link>
       </NavbarBrand>

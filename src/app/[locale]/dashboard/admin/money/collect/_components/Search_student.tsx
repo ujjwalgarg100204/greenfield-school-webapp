@@ -3,7 +3,7 @@
 import { api } from "@/src/trpc/react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 
-import { Button, Spinner } from "@nextui-org/react";
+import { Button, Spinner, Textarea } from "@nextui-org/react";
 import Link from "next/link";
 import React from "react";
 import toast from "react-hot-toast";
@@ -47,19 +47,19 @@ const Search_student = () => {
 
   const onSubmit: SubmitHandler<FormData> = async data => {
     // Handle form submission logic here
-    // console.log(data.fathers_name);
+    // console.log(data.recept_number);
     if (isSubmitting) {
       <Spinner />;
     } else {
       const result = await admissionFormMutation.mutateAsync({
-        // fathers_name: data.fathers_name,
+        // recept_number: data.recept_number,
         // faadhar: data.faadhar,
         // saddress: data.saddress,
         // saadhar: data.saadhar,
         // smobilenumber: data.smobilenumber,
         // spob: data.spob,
-        // sdob: data.sdob,
-        // sgender: data.sgender,
+        // payment_date: data.payment_date,
+        // mode_of_payment: data.mode_of_payment,
         // smothertoungue: data.smothertoungue,
         // sbg: data.sbg,
         // scaste: data.scaste,
@@ -100,32 +100,24 @@ const Search_student = () => {
 
   return (
     <>
-      <div className="container mx-auto my-8 text-xs md:text-lg">
+      <div className="container mx-auto my-8 text-xs md:text-lg ">
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* General instruction */}
           <div className="mb-3 w-full border-3 ">
             <div className="border-3 bg-green-50 py-2 pl-2 font-bold ">
               <h4>Search Student</h4>
             </div>
-            <div className="h-full py-4 pl-7 pr-10">
-              {/* <ul className="list-disc">
-                <li>Registration does not guarantee admission.</li>
-                <li>
-                  Application will not be considered on First Come First Served
-                  basis.
-                </li>
-              </ul> */}
-
+            <div className="flex h-full py-4 pl-7 pr-10 ">
               <input
-                className="w-1/2 border-2"
+                className="w-full border-2"
                 type="text"
                 {...register("search_student", { required: true })}
               />
               <Button
                 isIconOnly
-                className="border border-slate-300 bg-white md:ml-3"
+                className="ml-3 border border-slate-300 bg-white p-0 md:ml-3 "
               >
-                <CiSearch />
+                <CiSearch className="w-3" />
               </Button>
               {errors.search_student &&
                 errors.search_student.type === "required" && (
@@ -136,7 +128,7 @@ const Search_student = () => {
             </div>
           </div>
           {/* Student's particular */}
-          <div className="my-7 w-full border-3 ">
+          {/* <div className="my-7 w-full border-3 ">
             <div className="flex justify-between border-3 bg-green-50 py-2 pl-2 font-bold ">
               <Link href="#" className="border  border-b-black">
                 Payment
@@ -147,170 +139,11 @@ const Search_student = () => {
               </p>
             </div>
 
-            <div className="flex justify-center  py-4 ">
-              <table className=" w-full table-auto border-separate text-xs md:border-spacing-5 md:text-lg ">
+            <div className="  py-4 ">
+              <table className=" w-full table-auto border-separate text-xs md:border-spacing-4  md:text-lg ">
                 <tbody>
-                  {/* <tr className="">
-                    <td>
-                      <label htmlFor="" className="text-xs md:text-base">
-                        {" "}
-                        <span className="text-danger-500">*</span>Academic Year{" "}
-                      </label>
-                    </td>
-                    <td>
-                      <select
-                        className="custom-select rounded-sm border border-black text-xs md:text-sm"
-                        id="selectmethod"
-                        defaultValue=""
-                        {...register("academic_year", { required: true })}
-                      >
-                        <option
-                          className="text-xs md:text-sm"
-                          value=""
-                          disabled
-                        >
-                          Select Year
-                        </option>
-                        <option
-                          value="2023-2024"
-                          className="text-xs md:text-sm"
-                        >
-                          2023-2024
-                        </option>
-                      </select>
-                      {errors.academic_year &&
-                        errors.academic_year.type === "required" && (
-                          <p className="text-xs text-danger-500 md:text-sm">
-                            Select academic year
-                          </p>
-                        )}
-                    </td>
-                  </tr>
-
                   <tr>
-                    <td>
-                      <label htmlFor="" className="text-xs md:text-base">
-                        {" "}
-                        <span className="text-danger-500">*</span>Class/Grade
-                      </label>
-                    </td>
-                    <td>
-                      <select
-                        className="custom-select rounded-sm border border-black text-xs md:text-sm"
-                        id="selectmethod"
-                        defaultValue=""
-                        {...register("sclass", { required: true })}
-                      >
-                        <option
-                          className="text-xs md:text-sm"
-                          value=""
-                          disabled
-                        >
-                          Select Class
-                        </option>
-                        <option
-                          value="2023-2024"
-                          className="text-xs md:text-sm"
-                        >
-                          PKG
-                        </option>
-                        <option
-                          value="2023-2024"
-                          className="text-xs md:text-sm"
-                        >
-                          LKG
-                        </option>
-                        <option
-                          value="2023-2024"
-                          className="text-xs md:text-sm"
-                        >
-                          UKG
-                        </option>
-                        <option
-                          value="2023-2024"
-                          className="text-xs md:text-sm"
-                        >
-                          1
-                        </option>
-                        <option
-                          value="2023-2024"
-                          className="text-xs md:text-sm"
-                        >
-                          2
-                        </option>
-                        <option
-                          value="2023-2024"
-                          className="text-xs md:text-sm"
-                        >
-                          3
-                        </option>
-                        <option
-                          value="2023-2024"
-                          className="text-xs md:text-sm"
-                        >
-                          4
-                        </option>
-                        <option
-                          value="2023-2024"
-                          className="text-xs md:text-sm"
-                        >
-                          5
-                        </option>
-                        <option
-                          value="2023-2024"
-                          className="text-xs md:text-sm"
-                        >
-                          6
-                        </option>
-                        <option
-                          value="2023-2024"
-                          className="text-xs md:text-sm"
-                        >
-                          7
-                        </option>
-                        <option
-                          value="2023-2024"
-                          className="text-xs md:text-sm"
-                        >
-                          8
-                        </option>
-                        <option
-                          value="2023-2024"
-                          className="text-xs md:text-sm"
-                        >
-                          9
-                        </option>
-                        <option
-                          value="2023-2024"
-                          className="text-xs md:text-sm"
-                        >
-                          10
-                        </option>
-
-                        <option
-                          value="2023-2024"
-                          className="text-xs md:text-sm"
-                        >
-                          11
-                        </option>
-
-                        <option
-                          value="2023-2024"
-                          className="text-xs md:text-sm"
-                        >
-                          12
-                        </option>
-                      </select>
-                      {errors.sclass && errors.sclass.type === "required" && (
-                        <p className="text-xs text-danger-500 md:text-sm">
-                          Select class
-                        </p>
-                      )}
-                    </td>
-                  </tr> */}
-
-                  <tr>
-                    <td className="flex justify-start">
+                    <td className="">
                       <label htmlFor="" className="text-xs md:text-base">
                         {" "}
                         <span className="text-danger-500">*</span>Recept Number{" "}
@@ -318,7 +151,7 @@ const Search_student = () => {
                     </td>
                     <td>
                       <input
-                        className="w-fit border-2"
+                        className="w-full border-2"
                         type="text"
                         {...register("recept_number", { required: true })}
                       />
@@ -368,45 +201,50 @@ const Search_student = () => {
                             </th>
                           </tr>
                         </div>
-                        <tr className="flex justify-between md:p-3 ">
-                          <td className="flex justify-start">
-                            <label htmlFor="" className="text-xs md:text-base">
-                              {" "}
-                              <span className="text-danger-500">*</span>
-                              Nationality{" "}
-                            </label>
-                          </td>
-                          <td>
-                            <input
-                              className="w-fit border-2"
-                              type="text"
-                              {...register("snationality", {
-                                required: true,
-                              })}
-                            />
-                            {errors.snationality &&
-                              errors.snationality.type === "required" && (
-                                <p className="text-xs text-danger-500 md:text-sm">
-                                  Nationality required
-                                </p>
-                              )}
-                          </td>
-                          <td>
-                            <input
-                              className="w-fit border-2"
-                              type="text"
-                              {...register("snationality", {
-                                required: true,
-                              })}
-                            />
-                            {errors.snationality &&
-                              errors.snationality.type === "required" && (
-                                <p className="text-xs text-danger-500 md:text-sm">
-                                  Nationality required
-                                </p>
-                              )}
-                          </td>
-                        </tr>
+                        <div>
+                          <tr className="flex justify-between md:p-3 ">
+                            <td className="flex justify-start">
+                              <label
+                                htmlFor=""
+                                className="text-xs md:text-base"
+                              >
+                                {" "}
+                                <span className="text-danger-500">*</span>
+                                Nationality{" "}
+                              </label>
+                            </td>
+                            <td>
+                              <input
+                                className="w-fit border-2"
+                                type="text"
+                                {...register("snationality", {
+                                  required: true,
+                                })}
+                              />
+                              {errors.snationality &&
+                                errors.snationality.type === "required" && (
+                                  <p className="text-xs text-danger-500 md:text-sm">
+                                    Nationality required
+                                  </p>
+                                )}
+                            </td>
+                            <td>
+                              <input
+                                className="w-fit border-2"
+                                type="text"
+                                {...register("snationality", {
+                                  required: true,
+                                })}
+                              />
+                              {errors.snationality &&
+                                errors.snationality.type === "required" && (
+                                  <p className="text-xs text-danger-500 md:text-sm">
+                                    Nationality required
+                                  </p>
+                                )}
+                            </td>
+                          </tr>
+                        </div>
                       </tbody>
                     </table>
                   </div>
@@ -535,7 +373,7 @@ const Search_student = () => {
                             className="form-radio"
                             id="gender"
                             value="male"
-                            {...register("sgender", { required: true })}
+                            {...register("mode_of_payment", { required: true })}
                           />
                           <span className="ml-2">Male</span>
                         </label>
@@ -545,13 +383,13 @@ const Search_student = () => {
                             className="form-radio"
                             id="gender"
                             value="female"
-                            {...register("sgender", { required: true })}
+                            {...register("mode_of_payment", { required: true })}
                           />
                           <span className="ml-2">Female</span>
                         </label>
                       </div>
 
-                      {errors.sgender && errors.sgender.type === "required" && (
+                      {errors.mode_of_payment && errors.mode_of_payment.type === "required" && (
                         <p className="text-xs text-danger-500 md:text-sm">
                           Gender required
                         </p>
@@ -570,9 +408,9 @@ const Search_student = () => {
                       <input
                         className="w-fit border-2"
                         type="date"
-                        {...register("sdob", { required: true })}
+                        {...register("payment_date", { required: true })}
                       />
-                      {errors.sdob && errors.sdob.type === "required" && (
+                      {errors.payment_date && errors.payment_date.type === "required" && (
                         <p className="text-xs text-danger-500 md:text-sm">
                           Date of Birth required
                         </p>
@@ -677,67 +515,134 @@ const Search_student = () => {
                 </tbody>
               </table>
             </div>
-          </div>
+          </div> */}
 
           {/* Parent's particular */}
           <div className="my-7  w-full border-3 ">
             <div className="flex justify-between border-3 bg-green-50 py-2 pl-2 font-bold ">
-              <h4>Parent{"'s"} particular</h4>
+              <Link href="#" className="border  border-b-black">
+                Payment
+              </Link>
+              <Link href="#" className="border  border-b-black">
+                Refund
+              </Link>
               <p className="mr-1 md:mr-2">
                 <span className="text-danger-500">*</span>Indicates Mandatory
                 Fields
               </p>
             </div>
 
-            <div className="flex justify-center  py-4 ">
-              <table className=" w-full table-auto border-separate text-xs md:border-spacing-4  md:text-lg ">
-                <thead className="border">
+            <div className=" py-4 ">
+              <table className=" w-fit table-auto border-separate text-xs md:border-spacing-4  md:text-lg ">
+                {/* <thead className="border">
                   <tr>
                     <th>Father{"'s"} details</th>
                   </tr>
-                </thead>
+                </thead> */}
 
                 <tbody className="text-sm">
                   <tr>
                     <td className="">
                       <label className="text-xs  md:text-base" htmlFor="">
-                        <span className="text-danger-500">*</span>Father{"'s"}{" "}
-                        Name :-{" "}
+                        <span className="text-danger-500">*</span>Receipt Number
                       </label>{" "}
                     </td>
+                    {/* <br /> */}
                     <td>
                       <input
                         className=" border-3 "
                         type="text"
-                        {...register("fathers_name", {
+                        {...register("recept_number", {
                           required: true,
                         })}
                       />
-                      {errors.fathers_name &&
-                        errors.fathers_name.type === "required" && (
+                      {errors.recept_number &&
+                        errors.recept_number.type === "required" && (
                           <p className="my-1 text-xs text-danger-500 md:text-sm">
-                            Father name required.
+                            Receipt number required.
                           </p>
                         )}{" "}
                     </td>
                   </tr>
+
                   <tr>
+                    <td className="flex justify-start">
+                      <label htmlFor="" className="text-xs md:text-base">
+                        {" "}
+                        <span className="text-danger-500">*</span>Mode of
+                        Payment
+                      </label>
+                    </td>
                     <td>
-                      <label className="text-xs md:text-base" htmlFor="">
-                        <span className="text-danger-500">*</span>Father{"'s"}{" "}
-                        Profession :-{" "}
-                      </label>{" "}
+                      <div className="mt-2">
+                        <label className="inline-flex items-center">
+                          <input
+                            type="radio"
+                            className="form-radio"
+                            id="mode_payment"
+                            value="Cheque"
+                            {...register("mode_of_payment", { required: true })}
+                          />
+                          <span className="ml-2">Cheque</span>
+                        </label>
+                        <label className="ml-6 inline-flex items-center">
+                          <input
+                            type="radio"
+                            className="form-radio"
+                            id="mode_payment"
+                            value="Digital Payment"
+                            {...register("mode_of_payment", { required: true })}
+                          />
+                          <span className="ml-2">Digital Payment</span>
+                        </label>
+                        <label className="ml-6 inline-flex items-center">
+                          <input
+                            type="radio"
+                            className="form-radio"
+                            id="mode_payment"
+                            value="Cash"
+                            {...register("mode_of_payment", { required: true })}
+                          />
+                          <span className="ml-2">Cash</span>
+                        </label>
+                        <label className="ml-6 inline-flex items-center">
+                          <input
+                            type="radio"
+                            className="form-radio"
+                            id="mode_payment"
+                            value="Challan"
+                            {...register("mode_of_payment", { required: true })}
+                          />
+                          <span className="ml-2">Challan</span>
+                        </label>
+                      </div>
+
+                      {errors.mode_of_payment &&
+                        errors.mode_of_payment.type === "required" && (
+                          <p className="text-xs text-danger-500 md:text-sm">
+                            Mode of Payment required
+                          </p>
+                        )}
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className="flex justify-start">
+                      <label htmlFor="" className="text-xs md:text-base">
+                        {" "}
+                        <span className="text-danger-500">*</span>Payment Date
+                      </label>
                     </td>
                     <td>
                       <input
-                        className=" border-3"
-                        type="text"
-                        {...register("fprofession", { required: true })}
+                        className="w-fit border-2"
+                        type="date"
+                        {...register("payment_date", { required: true })}
                       />
-                      {errors.fprofession &&
-                        errors.fprofession.type === "required" && (
-                          <p className="my-1 text-xs text-danger-500 md:text-sm">
-                            Father proffession required
+                      {errors.payment_date &&
+                        errors.payment_date.type === "required" && (
+                          <p className="text-xs text-danger-500 md:text-sm">
+                            Payment date required
                           </p>
                         )}
                     </td>
@@ -745,198 +650,17 @@ const Search_student = () => {
                   <tr>
                     <td>
                       <label className="text-xs md:text-base" htmlFor="">
-                        <span className="text-danger-500">*</span>Father{"'s"}{" "}
-                        mobileNumber :-
+                        Remarks
                       </label>{" "}
                     </td>
                     <td>
-                      <input
+                      <Textarea
                         className=" border-3"
-                        type="text"
+                        type=""
                         {...register("fmobilenumber", {
                           required: true,
-                          pattern: /^\+?[1-9]\d{9}$/,
                         })}
                       />
-                      {errors.fmobilenumber &&
-                        errors.fmobilenumber.type === "required" && (
-                          <p className="my-1 text-xs text-danger-500 md:text-sm">
-                            Father mobileNumber required
-                          </p>
-                        )}
-                      {errors.fmobilenumber &&
-                        errors.fmobilenumber.type === "pattern" && (
-                          <p className="my-1 text-xs text-danger-500 md:text-sm">
-                            Invalid mobileNumber
-                          </p>
-                        )}
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <label className="text-xs md:text-base" htmlFor="">
-                        <span className="text-danger-500">*</span>Father{"'s"}{" "}
-                        EmailId :-
-                      </label>{" "}
-                    </td>
-                    <td>
-                      <input
-                        className=" border-3"
-                        type="email"
-                        {...register("fmaiil", {
-                          required: true,
-                          pattern: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
-                        })}
-                      />
-                      {errors.fmaiil && errors.fmaiil.type === "required" && (
-                        <p className="my-1 text-xs text-danger-500 md:text-sm">
-                          Father EmailId required
-                        </p>
-                      )}
-                      {errors.fmaiil && errors.fmaiil.type === "pattern" && (
-                        <p className="my-1 text-xs text-danger-500 md:text-sm">
-                          Invalid EmailId
-                        </p>
-                      )}
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <label className="text-xs md:text-base" htmlFor="">
-                        <span className="text-danger-500">*</span>
-                        Aadhar Number :-
-                      </label>{" "}
-                    </td>
-                    <td>
-                      <input
-                        className=" border-3"
-                        type="text"
-                        {...register("faadhar", {
-                          required: true,
-                          pattern: /^\d{12}$/,
-                        })}
-                      />
-                      {errors.faadhar && errors.faadhar.type === "required" && (
-                        <p className="my-1 text-xs text-danger-500 md:text-sm">
-                          Father Aadhar card required
-                        </p>
-                      )}
-                      {errors.faadhar && errors.faadhar.type === "pattern" && (
-                        <p className="my-1 text-xs text-danger-500 md:text-sm">
-                          Invalid Aadhar number
-                        </p>
-                      )}
-                    </td>
-                  </tr>
-                </tbody>
-                {/* </div> */}
-
-                <thead className="flex justify-center ">
-                  <tr>
-                    <th>Mother{"'s"} details</th>
-                  </tr>
-                </thead>
-
-                <tbody className="text-sm">
-                  <tr>
-                    <td className="">
-                      <label className="text-xs md:text-base" htmlFor="">
-                        <span className="text-danger-500">*</span>Mother{"'s"}{" "}
-                        Name :-{" "}
-                      </label>{" "}
-                    </td>
-                    <td>
-                      <input
-                        className=" border-3"
-                        type="text"
-                        {...register("mothers_name", { required: true })}
-                      />
-                      {errors.mothers_name &&
-                        errors.mothers_name.type === "required" && (
-                          <p className="my-1 text-xs text-danger-500 md:text-sm">
-                            Mother name required.
-                          </p>
-                        )}
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <label className="text-xs md:text-base" htmlFor="">
-                        Mother{"'s"} Profession :-{" "}
-                      </label>{" "}
-                    </td>
-                    <td>
-                      <input className=" border-3" type="text" />
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <label className="text-xs md:text-base" htmlFor="">
-                        Mother{"'s"} mobileNumber :-{" "}
-                      </label>{" "}
-                    </td>
-                    <td>
-                      <input
-                        className=" border-3"
-                        type="text"
-                        {...register("mmobilenumber", {
-                          pattern: /^\+?[1-9]\d{9}$/,
-                        })}
-                      />
-                      {errors.mmobilenumber &&
-                        errors.mmobilenumber.type === "pattern" && (
-                          <p className="my-1 text-xs text-danger-500 md:text-sm">
-                            Invalid mobileNumber
-                          </p>
-                        )}
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <label className="text-xs md:text-base" htmlFor="">
-                        Mother{"'s"} EmailId :-{" "}
-                      </label>{" "}
-                    </td>
-                    <td>
-                      <input
-                        className=" border-3"
-                        type="email"
-                        {...register("memail", {
-                          pattern: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
-                        })}
-                      />
-                      {errors.memail && errors.memail.type === "pattern" && (
-                        <p className="my-1 text-xs text-danger-500 md:text-sm">
-                          Invalid EmailId
-                        </p>
-                      )}
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <label className="text-xs md:text-base" htmlFor="">
-                        Aadhar Number :-
-                      </label>{" "}
-                    </td>
-                    <td>
-                      <input
-                        className=" border-3"
-                        type="text"
-                        {...register("maadhar", {
-                          pattern: /^\d{12}$/,
-                        })}
-                      />
-                      {errors.maadhar && errors.maadhar.type === "pattern" && (
-                        <p className="my-1 text-xs text-danger-500 md:text-sm">
-                          Invalid Aadhar number
-                        </p>
-                      )}
                     </td>
                   </tr>
                 </tbody>
@@ -945,36 +669,12 @@ const Search_student = () => {
           </div>
 
           {/* Declaration */}
-          <div className="mb-3 w-full border-3 ">
-            <div className="border-3 bg-green-50 py-2 pl-2 font-bold text-danger-500">
-              <h4 className="text-center">DECLARATION :-</h4>
-            </div>
-            <div className="h-full py-4 pl-7">
-              <span className="text-danger-500">*</span>
-              <input
-                type="checkbox"
-                {...register("declaration", { required: true })}
-              />
-
-              <label
-                htmlFor=""
-                className="mx-3 text-xs font-bold md:text-base "
-              >
-                I Agree
-              </label>
-              <p className="mx-8 text-xs font-bold md:text-base ">
-                I certify that all the information furnished above are true.
-              </p>
-              {errors.declaration && errors.declaration.type === "required" && (
-                <p className="my-3 text-danger-500">Please check this box</p>
-              )}
-            </div>
+         
             <div className=" form-control mb-3 text-center text-xs md:text-base">
               <Button color="primary" type="submit">
                 Submit form
               </Button>
             </div>
-          </div>
         </form>
       </div>
     </>
