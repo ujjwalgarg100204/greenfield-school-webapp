@@ -1,26 +1,30 @@
 "use client";
 
 import {
-    Button,
-    Dropdown,
-    DropdownItem,
-    DropdownMenu,
-    DropdownTrigger,
+  Button,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownTrigger,
 } from "@nextui-org/react";
+import React, { useState } from "react";
 
-import React from "react";
 import useResponsiveScreen from "@hooks/useResponsiveScreen";
+
+type Selection = Set<string>;
 
 export default function App() {
   const screen = useResponsiveScreen();
-  const [selectedKeys, setSelectedKeys] = React.useState(
-    new Set(["Acedemic Year"]),
-  );
+  const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set(['Acedemic year']));
 
   const selectedValue = React.useMemo(
     () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
     [selectedKeys],
   );
+
+  // const handleSelectionChange = (keys: string[]) => {
+  //   setSelectedKeys(new Set(keys));
+  // };
 
   return (
     <Dropdown>
@@ -54,7 +58,8 @@ export default function App() {
         disallowEmptySelection
         selectionMode="single"
         selectedKeys={selectedKeys}
-        onSelectionChange={setSelectedKeys}
+        // onSelectionChange={setSelectedKeys}
+        // onSelectionChange={handleSelectionChange}
       >
         <DropdownItem key="2023-2024">2023-2024</DropdownItem>
         <DropdownItem key="2022-2023">2022-2023</DropdownItem>
