@@ -57,8 +57,8 @@ dependencies:
     specifier: ^2.0.0
     version: 2.0.0
   faker:
-    specifier: ^6.6.6
-    version: 6.6.6
+    specifier: ^5.5.3
+    version: 5.5.3
   framer-motion:
     specifier: ^10.16.4
     version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
@@ -5380,8 +5380,8 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /faker@6.6.6:
-    resolution: {integrity: sha512-9tCqYEDHI5RYFQigXFwF1hnCwcWCOJl/hmll0lr5D2Ljjb0o4wphb69wikeJDz5qCEzXCoPvG6ss5SDP6IfOdg==}
+  /faker@5.5.3:
+    resolution: {integrity: sha512-wLTv2a28wjUyWkbnX7u/ABZBkUkIF2fCd73V6P2oFqEGEktDfzWx4UxrSqtPRw0xPRAcjeAOIiJWqZm3pP4u3g==}
     dev: false
 
   /fast-deep-equal@3.1.3:

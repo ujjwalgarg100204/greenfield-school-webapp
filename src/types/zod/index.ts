@@ -24,6 +24,8 @@ export const OtpScalarFieldEnumSchema = z.enum(['id','mobile','otp','updatedAt',
 
 export const AdmissionFormScalarFieldEnumSchema = z.enum(['id','saddress','saadhar','smobilenumber','spob','sdob','sgender','smothertoungue','sbg','scaste','scommunity','sreligion','snationality','sname','sclass','academic_year','maadhar','memail','mmobilenumber','mothers_name','faadhar','fmaiil','fmobilenumber','fprofession','fathers_name']);
 
+export const Admin_Student_ApplicationScalarFieldEnumSchema = z.enum(['id','saddress','saadhar','smobilenumber','spob','sdob','sgender','smothertoungue','sbg','scaste','scommunity','sreligion','snationality','sname','sclass','academic_year','maadhar','memail','mmobilenumber','mothers_name','faadhar','fmaiil','fmobilenumber','fprofession','fathers_name']);
+
 export const SortOrderSchema = z.enum(['asc','desc']);
 
 export const NullsOrderSchema = z.enum(['first','last']);
@@ -128,6 +130,37 @@ export const OtpSelectSchema: z.ZodType<Prisma.OtpSelect> = z.object({
 //------------------------------------------------------
 
 export const AdmissionFormSelectSchema: z.ZodType<Prisma.AdmissionFormSelect> = z.object({
+  id: z.boolean().optional(),
+  saddress: z.boolean().optional(),
+  saadhar: z.boolean().optional(),
+  smobilenumber: z.boolean().optional(),
+  spob: z.boolean().optional(),
+  sdob: z.boolean().optional(),
+  sgender: z.boolean().optional(),
+  smothertoungue: z.boolean().optional(),
+  sbg: z.boolean().optional(),
+  scaste: z.boolean().optional(),
+  scommunity: z.boolean().optional(),
+  sreligion: z.boolean().optional(),
+  snationality: z.boolean().optional(),
+  sname: z.boolean().optional(),
+  sclass: z.boolean().optional(),
+  academic_year: z.boolean().optional(),
+  maadhar: z.boolean().optional(),
+  memail: z.boolean().optional(),
+  mmobilenumber: z.boolean().optional(),
+  mothers_name: z.boolean().optional(),
+  faadhar: z.boolean().optional(),
+  fmaiil: z.boolean().optional(),
+  fmobilenumber: z.boolean().optional(),
+  fprofession: z.boolean().optional(),
+  fathers_name: z.boolean().optional(),
+}).strict()
+
+// ADMIN STUDENT APPLICATION
+//------------------------------------------------------
+
+export const Admin_Student_ApplicationSelectSchema: z.ZodType<Prisma.Admin_Student_ApplicationSelect> = z.object({
   id: z.boolean().optional(),
   saddress: z.boolean().optional(),
   saadhar: z.boolean().optional(),
@@ -669,6 +702,186 @@ export const AdmissionFormScalarWhereWithAggregatesInputSchema: z.ZodType<Prisma
   fathers_name: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
 }).strict() as z.ZodType<Prisma.AdmissionFormScalarWhereWithAggregatesInput>;
 
+export const Admin_Student_ApplicationWhereInputSchema: z.ZodType<Prisma.Admin_Student_ApplicationWhereInput> = z.object({
+  AND: z.union([ z.lazy(() => Admin_Student_ApplicationWhereInputSchema),z.lazy(() => Admin_Student_ApplicationWhereInputSchema).array() ]).optional(),
+  OR: z.lazy(() => Admin_Student_ApplicationWhereInputSchema).array().optional(),
+  NOT: z.union([ z.lazy(() => Admin_Student_ApplicationWhereInputSchema),z.lazy(() => Admin_Student_ApplicationWhereInputSchema).array() ]).optional(),
+  id: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  saddress: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  saadhar: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  smobilenumber: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  spob: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  sdob: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  sgender: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  smothertoungue: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  sbg: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  scaste: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  scommunity: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  sreligion: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  snationality: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  sname: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  sclass: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  academic_year: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  maadhar: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  memail: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  mmobilenumber: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  mothers_name: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  faadhar: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  fmaiil: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  fmobilenumber: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  fprofession: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  fathers_name: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationWhereInput>;
+
+export const Admin_Student_ApplicationOrderByWithRelationInputSchema: z.ZodType<Prisma.Admin_Student_ApplicationOrderByWithRelationInput> = z.object({
+  id: z.lazy(() => SortOrderSchema).optional(),
+  saddress: z.lazy(() => SortOrderSchema).optional(),
+  saadhar: z.lazy(() => SortOrderSchema).optional(),
+  smobilenumber: z.lazy(() => SortOrderSchema).optional(),
+  spob: z.lazy(() => SortOrderSchema).optional(),
+  sdob: z.lazy(() => SortOrderSchema).optional(),
+  sgender: z.lazy(() => SortOrderSchema).optional(),
+  smothertoungue: z.lazy(() => SortOrderSchema).optional(),
+  sbg: z.lazy(() => SortOrderSchema).optional(),
+  scaste: z.lazy(() => SortOrderSchema).optional(),
+  scommunity: z.lazy(() => SortOrderSchema).optional(),
+  sreligion: z.lazy(() => SortOrderSchema).optional(),
+  snationality: z.lazy(() => SortOrderSchema).optional(),
+  sname: z.lazy(() => SortOrderSchema).optional(),
+  sclass: z.lazy(() => SortOrderSchema).optional(),
+  academic_year: z.lazy(() => SortOrderSchema).optional(),
+  maadhar: z.lazy(() => SortOrderSchema).optional(),
+  memail: z.lazy(() => SortOrderSchema).optional(),
+  mmobilenumber: z.lazy(() => SortOrderSchema).optional(),
+  mothers_name: z.lazy(() => SortOrderSchema).optional(),
+  faadhar: z.lazy(() => SortOrderSchema).optional(),
+  fmaiil: z.lazy(() => SortOrderSchema).optional(),
+  fmobilenumber: z.lazy(() => SortOrderSchema).optional(),
+  fprofession: z.lazy(() => SortOrderSchema).optional(),
+  fathers_name: z.lazy(() => SortOrderSchema).optional()
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationOrderByWithRelationInput>;
+
+export const Admin_Student_ApplicationWhereUniqueInputSchema: z.ZodType<Prisma.Admin_Student_ApplicationWhereUniqueInput> = z.union([
+  z.object({
+    id: z.string().cuid(),
+    faadhar: z.string(),
+    fmobilenumber: z.string()
+  }),
+  z.object({
+    id: z.string().cuid(),
+    faadhar: z.string(),
+  }),
+  z.object({
+    id: z.string().cuid(),
+    fmobilenumber: z.string(),
+  }),
+  z.object({
+    id: z.string().cuid(),
+  }),
+  z.object({
+    faadhar: z.string(),
+    fmobilenumber: z.string(),
+  }),
+  z.object({
+    faadhar: z.string(),
+  }),
+  z.object({
+    fmobilenumber: z.string(),
+  }),
+])
+.and(z.object({
+  id: z.string().cuid().optional(),
+  faadhar: z.string().optional(),
+  fmobilenumber: z.string().optional(),
+  AND: z.union([ z.lazy(() => Admin_Student_ApplicationWhereInputSchema),z.lazy(() => Admin_Student_ApplicationWhereInputSchema).array() ]).optional(),
+  OR: z.lazy(() => Admin_Student_ApplicationWhereInputSchema).array().optional(),
+  NOT: z.union([ z.lazy(() => Admin_Student_ApplicationWhereInputSchema),z.lazy(() => Admin_Student_ApplicationWhereInputSchema).array() ]).optional(),
+  saddress: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  saadhar: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  smobilenumber: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  spob: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  sdob: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  sgender: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  smothertoungue: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  sbg: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  scaste: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  scommunity: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  sreligion: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  snationality: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  sname: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  sclass: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  academic_year: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  maadhar: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  memail: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  mmobilenumber: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  mothers_name: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  fmaiil: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  fprofession: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  fathers_name: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+}).strict()) as z.ZodType<Prisma.Admin_Student_ApplicationWhereUniqueInput>;
+
+export const Admin_Student_ApplicationOrderByWithAggregationInputSchema: z.ZodType<Prisma.Admin_Student_ApplicationOrderByWithAggregationInput> = z.object({
+  id: z.lazy(() => SortOrderSchema).optional(),
+  saddress: z.lazy(() => SortOrderSchema).optional(),
+  saadhar: z.lazy(() => SortOrderSchema).optional(),
+  smobilenumber: z.lazy(() => SortOrderSchema).optional(),
+  spob: z.lazy(() => SortOrderSchema).optional(),
+  sdob: z.lazy(() => SortOrderSchema).optional(),
+  sgender: z.lazy(() => SortOrderSchema).optional(),
+  smothertoungue: z.lazy(() => SortOrderSchema).optional(),
+  sbg: z.lazy(() => SortOrderSchema).optional(),
+  scaste: z.lazy(() => SortOrderSchema).optional(),
+  scommunity: z.lazy(() => SortOrderSchema).optional(),
+  sreligion: z.lazy(() => SortOrderSchema).optional(),
+  snationality: z.lazy(() => SortOrderSchema).optional(),
+  sname: z.lazy(() => SortOrderSchema).optional(),
+  sclass: z.lazy(() => SortOrderSchema).optional(),
+  academic_year: z.lazy(() => SortOrderSchema).optional(),
+  maadhar: z.lazy(() => SortOrderSchema).optional(),
+  memail: z.lazy(() => SortOrderSchema).optional(),
+  mmobilenumber: z.lazy(() => SortOrderSchema).optional(),
+  mothers_name: z.lazy(() => SortOrderSchema).optional(),
+  faadhar: z.lazy(() => SortOrderSchema).optional(),
+  fmaiil: z.lazy(() => SortOrderSchema).optional(),
+  fmobilenumber: z.lazy(() => SortOrderSchema).optional(),
+  fprofession: z.lazy(() => SortOrderSchema).optional(),
+  fathers_name: z.lazy(() => SortOrderSchema).optional(),
+  _count: z.lazy(() => Admin_Student_ApplicationCountOrderByAggregateInputSchema).optional(),
+  _max: z.lazy(() => Admin_Student_ApplicationMaxOrderByAggregateInputSchema).optional(),
+  _min: z.lazy(() => Admin_Student_ApplicationMinOrderByAggregateInputSchema).optional()
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationOrderByWithAggregationInput>;
+
+export const Admin_Student_ApplicationScalarWhereWithAggregatesInputSchema: z.ZodType<Prisma.Admin_Student_ApplicationScalarWhereWithAggregatesInput> = z.object({
+  AND: z.union([ z.lazy(() => Admin_Student_ApplicationScalarWhereWithAggregatesInputSchema),z.lazy(() => Admin_Student_ApplicationScalarWhereWithAggregatesInputSchema).array() ]).optional(),
+  OR: z.lazy(() => Admin_Student_ApplicationScalarWhereWithAggregatesInputSchema).array().optional(),
+  NOT: z.union([ z.lazy(() => Admin_Student_ApplicationScalarWhereWithAggregatesInputSchema),z.lazy(() => Admin_Student_ApplicationScalarWhereWithAggregatesInputSchema).array() ]).optional(),
+  id: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  saddress: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  saadhar: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  smobilenumber: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  spob: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  sdob: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  sgender: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  smothertoungue: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  sbg: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  scaste: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  scommunity: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  sreligion: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  snationality: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  sname: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  sclass: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  academic_year: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  maadhar: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  memail: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  mmobilenumber: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  mothers_name: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  faadhar: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  fmaiil: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  fmobilenumber: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  fprofession: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  fathers_name: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationScalarWhereWithAggregatesInput>;
+
 export const UserCreateInputSchema: z.ZodType<Prisma.UserCreateInput> = z.object({
   id: z.string().cuid().optional(),
   role: z.lazy(() => UserRolesSchema),
@@ -1137,6 +1350,202 @@ export const AdmissionFormUncheckedUpdateManyInputSchema: z.ZodType<Prisma.Admis
   fathers_name: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
 }).strict() as z.ZodType<Prisma.AdmissionFormUncheckedUpdateManyInput>;
 
+export const Admin_Student_ApplicationCreateInputSchema: z.ZodType<Prisma.Admin_Student_ApplicationCreateInput> = z.object({
+  id: z.string().cuid().optional(),
+  saddress: z.string(),
+  saadhar: z.string(),
+  smobilenumber: z.string(),
+  spob: z.string(),
+  sdob: z.string(),
+  sgender: z.string(),
+  smothertoungue: z.string(),
+  sbg: z.string(),
+  scaste: z.string(),
+  scommunity: z.string(),
+  sreligion: z.string(),
+  snationality: z.string(),
+  sname: z.string(),
+  sclass: z.string(),
+  academic_year: z.string(),
+  maadhar: z.string(),
+  memail: z.string(),
+  mmobilenumber: z.string(),
+  mothers_name: z.string(),
+  faadhar: z.string(),
+  fmaiil: z.string(),
+  fmobilenumber: z.string(),
+  fprofession: z.string(),
+  fathers_name: z.string()
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationCreateInput>;
+
+export const Admin_Student_ApplicationUncheckedCreateInputSchema: z.ZodType<Prisma.Admin_Student_ApplicationUncheckedCreateInput> = z.object({
+  id: z.string().cuid().optional(),
+  saddress: z.string(),
+  saadhar: z.string(),
+  smobilenumber: z.string(),
+  spob: z.string(),
+  sdob: z.string(),
+  sgender: z.string(),
+  smothertoungue: z.string(),
+  sbg: z.string(),
+  scaste: z.string(),
+  scommunity: z.string(),
+  sreligion: z.string(),
+  snationality: z.string(),
+  sname: z.string(),
+  sclass: z.string(),
+  academic_year: z.string(),
+  maadhar: z.string(),
+  memail: z.string(),
+  mmobilenumber: z.string(),
+  mothers_name: z.string(),
+  faadhar: z.string(),
+  fmaiil: z.string(),
+  fmobilenumber: z.string(),
+  fprofession: z.string(),
+  fathers_name: z.string()
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationUncheckedCreateInput>;
+
+export const Admin_Student_ApplicationUpdateInputSchema: z.ZodType<Prisma.Admin_Student_ApplicationUpdateInput> = z.object({
+  id: z.union([ z.string().cuid(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  saddress: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  saadhar: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  smobilenumber: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  spob: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  sdob: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  sgender: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  smothertoungue: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  sbg: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  scaste: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  scommunity: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  sreligion: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  snationality: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  sname: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  sclass: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  academic_year: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  maadhar: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  memail: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  mmobilenumber: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  mothers_name: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  faadhar: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  fmaiil: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  fmobilenumber: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  fprofession: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  fathers_name: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationUpdateInput>;
+
+export const Admin_Student_ApplicationUncheckedUpdateInputSchema: z.ZodType<Prisma.Admin_Student_ApplicationUncheckedUpdateInput> = z.object({
+  id: z.union([ z.string().cuid(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  saddress: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  saadhar: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  smobilenumber: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  spob: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  sdob: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  sgender: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  smothertoungue: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  sbg: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  scaste: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  scommunity: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  sreligion: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  snationality: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  sname: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  sclass: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  academic_year: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  maadhar: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  memail: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  mmobilenumber: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  mothers_name: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  faadhar: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  fmaiil: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  fmobilenumber: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  fprofession: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  fathers_name: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationUncheckedUpdateInput>;
+
+export const Admin_Student_ApplicationCreateManyInputSchema: z.ZodType<Prisma.Admin_Student_ApplicationCreateManyInput> = z.object({
+  id: z.string().cuid().optional(),
+  saddress: z.string(),
+  saadhar: z.string(),
+  smobilenumber: z.string(),
+  spob: z.string(),
+  sdob: z.string(),
+  sgender: z.string(),
+  smothertoungue: z.string(),
+  sbg: z.string(),
+  scaste: z.string(),
+  scommunity: z.string(),
+  sreligion: z.string(),
+  snationality: z.string(),
+  sname: z.string(),
+  sclass: z.string(),
+  academic_year: z.string(),
+  maadhar: z.string(),
+  memail: z.string(),
+  mmobilenumber: z.string(),
+  mothers_name: z.string(),
+  faadhar: z.string(),
+  fmaiil: z.string(),
+  fmobilenumber: z.string(),
+  fprofession: z.string(),
+  fathers_name: z.string()
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationCreateManyInput>;
+
+export const Admin_Student_ApplicationUpdateManyMutationInputSchema: z.ZodType<Prisma.Admin_Student_ApplicationUpdateManyMutationInput> = z.object({
+  id: z.union([ z.string().cuid(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  saddress: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  saadhar: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  smobilenumber: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  spob: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  sdob: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  sgender: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  smothertoungue: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  sbg: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  scaste: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  scommunity: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  sreligion: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  snationality: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  sname: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  sclass: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  academic_year: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  maadhar: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  memail: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  mmobilenumber: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  mothers_name: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  faadhar: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  fmaiil: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  fmobilenumber: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  fprofession: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  fathers_name: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationUpdateManyMutationInput>;
+
+export const Admin_Student_ApplicationUncheckedUpdateManyInputSchema: z.ZodType<Prisma.Admin_Student_ApplicationUncheckedUpdateManyInput> = z.object({
+  id: z.union([ z.string().cuid(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  saddress: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  saadhar: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  smobilenumber: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  spob: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  sdob: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  sgender: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  smothertoungue: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  sbg: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  scaste: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  scommunity: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  sreligion: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  snationality: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  sname: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  sclass: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  academic_year: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  maadhar: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  memail: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  mmobilenumber: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  mothers_name: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  faadhar: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  fmaiil: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  fmobilenumber: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  fprofession: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  fathers_name: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationUncheckedUpdateManyInput>;
+
 export const StringFilterSchema: z.ZodType<Prisma.StringFilter> = z.object({
   equals: z.string().optional(),
   in: z.string().array().optional(),
@@ -1468,6 +1877,90 @@ export const AdmissionFormMinOrderByAggregateInputSchema: z.ZodType<Prisma.Admis
   fprofession: z.lazy(() => SortOrderSchema).optional(),
   fathers_name: z.lazy(() => SortOrderSchema).optional()
 }).strict() as z.ZodType<Prisma.AdmissionFormMinOrderByAggregateInput>;
+
+export const Admin_Student_ApplicationCountOrderByAggregateInputSchema: z.ZodType<Prisma.Admin_Student_ApplicationCountOrderByAggregateInput> = z.object({
+  id: z.lazy(() => SortOrderSchema).optional(),
+  saddress: z.lazy(() => SortOrderSchema).optional(),
+  saadhar: z.lazy(() => SortOrderSchema).optional(),
+  smobilenumber: z.lazy(() => SortOrderSchema).optional(),
+  spob: z.lazy(() => SortOrderSchema).optional(),
+  sdob: z.lazy(() => SortOrderSchema).optional(),
+  sgender: z.lazy(() => SortOrderSchema).optional(),
+  smothertoungue: z.lazy(() => SortOrderSchema).optional(),
+  sbg: z.lazy(() => SortOrderSchema).optional(),
+  scaste: z.lazy(() => SortOrderSchema).optional(),
+  scommunity: z.lazy(() => SortOrderSchema).optional(),
+  sreligion: z.lazy(() => SortOrderSchema).optional(),
+  snationality: z.lazy(() => SortOrderSchema).optional(),
+  sname: z.lazy(() => SortOrderSchema).optional(),
+  sclass: z.lazy(() => SortOrderSchema).optional(),
+  academic_year: z.lazy(() => SortOrderSchema).optional(),
+  maadhar: z.lazy(() => SortOrderSchema).optional(),
+  memail: z.lazy(() => SortOrderSchema).optional(),
+  mmobilenumber: z.lazy(() => SortOrderSchema).optional(),
+  mothers_name: z.lazy(() => SortOrderSchema).optional(),
+  faadhar: z.lazy(() => SortOrderSchema).optional(),
+  fmaiil: z.lazy(() => SortOrderSchema).optional(),
+  fmobilenumber: z.lazy(() => SortOrderSchema).optional(),
+  fprofession: z.lazy(() => SortOrderSchema).optional(),
+  fathers_name: z.lazy(() => SortOrderSchema).optional()
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationCountOrderByAggregateInput>;
+
+export const Admin_Student_ApplicationMaxOrderByAggregateInputSchema: z.ZodType<Prisma.Admin_Student_ApplicationMaxOrderByAggregateInput> = z.object({
+  id: z.lazy(() => SortOrderSchema).optional(),
+  saddress: z.lazy(() => SortOrderSchema).optional(),
+  saadhar: z.lazy(() => SortOrderSchema).optional(),
+  smobilenumber: z.lazy(() => SortOrderSchema).optional(),
+  spob: z.lazy(() => SortOrderSchema).optional(),
+  sdob: z.lazy(() => SortOrderSchema).optional(),
+  sgender: z.lazy(() => SortOrderSchema).optional(),
+  smothertoungue: z.lazy(() => SortOrderSchema).optional(),
+  sbg: z.lazy(() => SortOrderSchema).optional(),
+  scaste: z.lazy(() => SortOrderSchema).optional(),
+  scommunity: z.lazy(() => SortOrderSchema).optional(),
+  sreligion: z.lazy(() => SortOrderSchema).optional(),
+  snationality: z.lazy(() => SortOrderSchema).optional(),
+  sname: z.lazy(() => SortOrderSchema).optional(),
+  sclass: z.lazy(() => SortOrderSchema).optional(),
+  academic_year: z.lazy(() => SortOrderSchema).optional(),
+  maadhar: z.lazy(() => SortOrderSchema).optional(),
+  memail: z.lazy(() => SortOrderSchema).optional(),
+  mmobilenumber: z.lazy(() => SortOrderSchema).optional(),
+  mothers_name: z.lazy(() => SortOrderSchema).optional(),
+  faadhar: z.lazy(() => SortOrderSchema).optional(),
+  fmaiil: z.lazy(() => SortOrderSchema).optional(),
+  fmobilenumber: z.lazy(() => SortOrderSchema).optional(),
+  fprofession: z.lazy(() => SortOrderSchema).optional(),
+  fathers_name: z.lazy(() => SortOrderSchema).optional()
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationMaxOrderByAggregateInput>;
+
+export const Admin_Student_ApplicationMinOrderByAggregateInputSchema: z.ZodType<Prisma.Admin_Student_ApplicationMinOrderByAggregateInput> = z.object({
+  id: z.lazy(() => SortOrderSchema).optional(),
+  saddress: z.lazy(() => SortOrderSchema).optional(),
+  saadhar: z.lazy(() => SortOrderSchema).optional(),
+  smobilenumber: z.lazy(() => SortOrderSchema).optional(),
+  spob: z.lazy(() => SortOrderSchema).optional(),
+  sdob: z.lazy(() => SortOrderSchema).optional(),
+  sgender: z.lazy(() => SortOrderSchema).optional(),
+  smothertoungue: z.lazy(() => SortOrderSchema).optional(),
+  sbg: z.lazy(() => SortOrderSchema).optional(),
+  scaste: z.lazy(() => SortOrderSchema).optional(),
+  scommunity: z.lazy(() => SortOrderSchema).optional(),
+  sreligion: z.lazy(() => SortOrderSchema).optional(),
+  snationality: z.lazy(() => SortOrderSchema).optional(),
+  sname: z.lazy(() => SortOrderSchema).optional(),
+  sclass: z.lazy(() => SortOrderSchema).optional(),
+  academic_year: z.lazy(() => SortOrderSchema).optional(),
+  maadhar: z.lazy(() => SortOrderSchema).optional(),
+  memail: z.lazy(() => SortOrderSchema).optional(),
+  mmobilenumber: z.lazy(() => SortOrderSchema).optional(),
+  mothers_name: z.lazy(() => SortOrderSchema).optional(),
+  faadhar: z.lazy(() => SortOrderSchema).optional(),
+  fmaiil: z.lazy(() => SortOrderSchema).optional(),
+  fmobilenumber: z.lazy(() => SortOrderSchema).optional(),
+  fprofession: z.lazy(() => SortOrderSchema).optional(),
+  fathers_name: z.lazy(() => SortOrderSchema).optional()
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationMinOrderByAggregateInput>;
 
 export const StringFieldUpdateOperationsInputSchema: z.ZodType<Prisma.StringFieldUpdateOperationsInput> = z.object({
   set: z.string().optional()
@@ -2276,6 +2769,63 @@ export const AdmissionFormFindUniqueOrThrowArgsSchema: z.ZodType<Prisma.Admissio
   where: AdmissionFormWhereUniqueInputSchema,
 }).strict() as z.ZodType<Prisma.AdmissionFormFindUniqueOrThrowArgs>;
 
+export const Admin_Student_ApplicationFindFirstArgsSchema: z.ZodType<Prisma.Admin_Student_ApplicationFindFirstArgs> = z.object({
+  select: Admin_Student_ApplicationSelectSchema.optional(),
+  where: Admin_Student_ApplicationWhereInputSchema.optional(),
+  orderBy: z.union([ Admin_Student_ApplicationOrderByWithRelationInputSchema.array(),Admin_Student_ApplicationOrderByWithRelationInputSchema ]).optional(),
+  cursor: Admin_Student_ApplicationWhereUniqueInputSchema.optional(),
+  take: z.number().optional(),
+  skip: z.number().optional(),
+  distinct: z.union([ Admin_Student_ApplicationScalarFieldEnumSchema,Admin_Student_ApplicationScalarFieldEnumSchema.array() ]).optional(),
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationFindFirstArgs>;
+
+export const Admin_Student_ApplicationFindFirstOrThrowArgsSchema: z.ZodType<Prisma.Admin_Student_ApplicationFindFirstOrThrowArgs> = z.object({
+  select: Admin_Student_ApplicationSelectSchema.optional(),
+  where: Admin_Student_ApplicationWhereInputSchema.optional(),
+  orderBy: z.union([ Admin_Student_ApplicationOrderByWithRelationInputSchema.array(),Admin_Student_ApplicationOrderByWithRelationInputSchema ]).optional(),
+  cursor: Admin_Student_ApplicationWhereUniqueInputSchema.optional(),
+  take: z.number().optional(),
+  skip: z.number().optional(),
+  distinct: z.union([ Admin_Student_ApplicationScalarFieldEnumSchema,Admin_Student_ApplicationScalarFieldEnumSchema.array() ]).optional(),
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationFindFirstOrThrowArgs>;
+
+export const Admin_Student_ApplicationFindManyArgsSchema: z.ZodType<Prisma.Admin_Student_ApplicationFindManyArgs> = z.object({
+  select: Admin_Student_ApplicationSelectSchema.optional(),
+  where: Admin_Student_ApplicationWhereInputSchema.optional(),
+  orderBy: z.union([ Admin_Student_ApplicationOrderByWithRelationInputSchema.array(),Admin_Student_ApplicationOrderByWithRelationInputSchema ]).optional(),
+  cursor: Admin_Student_ApplicationWhereUniqueInputSchema.optional(),
+  take: z.number().optional(),
+  skip: z.number().optional(),
+  distinct: z.union([ Admin_Student_ApplicationScalarFieldEnumSchema,Admin_Student_ApplicationScalarFieldEnumSchema.array() ]).optional(),
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationFindManyArgs>;
+
+export const Admin_Student_ApplicationAggregateArgsSchema: z.ZodType<Prisma.Admin_Student_ApplicationAggregateArgs> = z.object({
+  where: Admin_Student_ApplicationWhereInputSchema.optional(),
+  orderBy: z.union([ Admin_Student_ApplicationOrderByWithRelationInputSchema.array(),Admin_Student_ApplicationOrderByWithRelationInputSchema ]).optional(),
+  cursor: Admin_Student_ApplicationWhereUniqueInputSchema.optional(),
+  take: z.number().optional(),
+  skip: z.number().optional(),
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationAggregateArgs>;
+
+export const Admin_Student_ApplicationGroupByArgsSchema: z.ZodType<Prisma.Admin_Student_ApplicationGroupByArgs> = z.object({
+  where: Admin_Student_ApplicationWhereInputSchema.optional(),
+  orderBy: z.union([ Admin_Student_ApplicationOrderByWithAggregationInputSchema.array(),Admin_Student_ApplicationOrderByWithAggregationInputSchema ]).optional(),
+  by: Admin_Student_ApplicationScalarFieldEnumSchema.array(),
+  having: Admin_Student_ApplicationScalarWhereWithAggregatesInputSchema.optional(),
+  take: z.number().optional(),
+  skip: z.number().optional(),
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationGroupByArgs>;
+
+export const Admin_Student_ApplicationFindUniqueArgsSchema: z.ZodType<Prisma.Admin_Student_ApplicationFindUniqueArgs> = z.object({
+  select: Admin_Student_ApplicationSelectSchema.optional(),
+  where: Admin_Student_ApplicationWhereUniqueInputSchema,
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationFindUniqueArgs>;
+
+export const Admin_Student_ApplicationFindUniqueOrThrowArgsSchema: z.ZodType<Prisma.Admin_Student_ApplicationFindUniqueOrThrowArgs> = z.object({
+  select: Admin_Student_ApplicationSelectSchema.optional(),
+  where: Admin_Student_ApplicationWhereUniqueInputSchema,
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationFindUniqueOrThrowArgs>;
+
 export const UserCreateArgsSchema: z.ZodType<Prisma.UserCreateArgs> = z.object({
   select: UserSelectSchema.optional(),
   data: z.union([ UserCreateInputSchema,UserUncheckedCreateInputSchema ]),
@@ -2505,3 +3055,40 @@ export const AdmissionFormUpdateManyArgsSchema: z.ZodType<Prisma.AdmissionFormUp
 export const AdmissionFormDeleteManyArgsSchema: z.ZodType<Prisma.AdmissionFormDeleteManyArgs> = z.object({
   where: AdmissionFormWhereInputSchema.optional(),
 }).strict() as z.ZodType<Prisma.AdmissionFormDeleteManyArgs>;
+
+export const Admin_Student_ApplicationCreateArgsSchema: z.ZodType<Prisma.Admin_Student_ApplicationCreateArgs> = z.object({
+  select: Admin_Student_ApplicationSelectSchema.optional(),
+  data: z.union([ Admin_Student_ApplicationCreateInputSchema,Admin_Student_ApplicationUncheckedCreateInputSchema ]),
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationCreateArgs>;
+
+export const Admin_Student_ApplicationUpsertArgsSchema: z.ZodType<Prisma.Admin_Student_ApplicationUpsertArgs> = z.object({
+  select: Admin_Student_ApplicationSelectSchema.optional(),
+  where: Admin_Student_ApplicationWhereUniqueInputSchema,
+  create: z.union([ Admin_Student_ApplicationCreateInputSchema,Admin_Student_ApplicationUncheckedCreateInputSchema ]),
+  update: z.union([ Admin_Student_ApplicationUpdateInputSchema,Admin_Student_ApplicationUncheckedUpdateInputSchema ]),
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationUpsertArgs>;
+
+export const Admin_Student_ApplicationCreateManyArgsSchema: z.ZodType<Prisma.Admin_Student_ApplicationCreateManyArgs> = z.object({
+  data: z.union([ Admin_Student_ApplicationCreateManyInputSchema,Admin_Student_ApplicationCreateManyInputSchema.array() ]),
+  skipDuplicates: z.boolean().optional(),
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationCreateManyArgs>;
+
+export const Admin_Student_ApplicationDeleteArgsSchema: z.ZodType<Prisma.Admin_Student_ApplicationDeleteArgs> = z.object({
+  select: Admin_Student_ApplicationSelectSchema.optional(),
+  where: Admin_Student_ApplicationWhereUniqueInputSchema,
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationDeleteArgs>;
+
+export const Admin_Student_ApplicationUpdateArgsSchema: z.ZodType<Prisma.Admin_Student_ApplicationUpdateArgs> = z.object({
+  select: Admin_Student_ApplicationSelectSchema.optional(),
+  data: z.union([ Admin_Student_ApplicationUpdateInputSchema,Admin_Student_ApplicationUncheckedUpdateInputSchema ]),
+  where: Admin_Student_ApplicationWhereUniqueInputSchema,
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationUpdateArgs>;
+
+export const Admin_Student_ApplicationUpdateManyArgsSchema: z.ZodType<Prisma.Admin_Student_ApplicationUpdateManyArgs> = z.object({
+  data: z.union([ Admin_Student_ApplicationUpdateManyMutationInputSchema,Admin_Student_ApplicationUncheckedUpdateManyInputSchema ]),
+  where: Admin_Student_ApplicationWhereInputSchema.optional(),
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationUpdateManyArgs>;
+
+export const Admin_Student_ApplicationDeleteManyArgsSchema: z.ZodType<Prisma.Admin_Student_ApplicationDeleteManyArgs> = z.object({
+  where: Admin_Student_ApplicationWhereInputSchema.optional(),
+}).strict() as z.ZodType<Prisma.Admin_Student_ApplicationDeleteManyArgs>;
