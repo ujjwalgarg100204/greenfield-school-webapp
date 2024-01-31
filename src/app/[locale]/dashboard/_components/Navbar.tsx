@@ -6,12 +6,13 @@ import {
   Navbar as NextUINavbar,
 } from "@lib/next-ui";
 
-import GreenfieldLogo from "@/public/images/logo.png";
-import LanguageSwitcher from "@/src/components/ui/LanguageSwitcher";
-import Image from "next/image";
-import type { FC } from "react";
 import AccountMenu from "../../(main-public)/_components/Navbar/MainNavbar/AccountMenu";
+import type { FC } from "react";
+import GreenfieldLogo from "@/public/images/logo.png";
+import Image from "next/image";
+import LanguageSwitcher from "@/src/components/ui/LanguageSwitcher";
 import NotificationButton from "./NotificationButton";
+import YearDropdown from "./YearDropdown";
 
 const Navbar: FC = () => {
   return (
@@ -26,13 +27,16 @@ const Navbar: FC = () => {
             priority
           />
           <p className="hidden text-sm font-bold text-primary md:block md:text-xl">
-            Greenfield School,
-            <br /> Tamil Nadu
+          Greenfield Campus
+            <br />  [V.C.S.M matric. Hr. sec. School]
           </p>
         </Link>
       </NavbarBrand>
 
       <NavbarContent justify="end" className="items-center gap-4 lg:gap-5">
+        <NavbarItem>
+          <YearDropdown />
+        </NavbarItem>
         <NavbarItem>
           <LanguageSwitcher />
         </NavbarItem>

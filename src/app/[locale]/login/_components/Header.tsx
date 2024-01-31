@@ -8,10 +8,10 @@ import NextImage from "next/image";
 
 const Header: FC = () => {
   return (
-    <Navbar position="static">
-      <NavbarContent>
+    <Navbar position="static" className="bg-yellow-400 flex">
+      <NavbarContent className="flex items-center justify-between px-4 py-2 bg-red-500">
         <BackButton />
-        <NavbarBrand as={Link} href="/" className="gap-4">
+        <NavbarBrand as={Link} href="/" className="flex items-center gap-4">
           <NextImage
             src={GreenfieldLogo}
             alt="Greenfield Logo"
@@ -19,11 +19,9 @@ const Header: FC = () => {
             priority
           />
           <h1 className="flex-grow font-bold text-black/80 md:text-xl">
-            Greenfield School <br /> Tamil Nadu
+            Greenfield Campus <br /> [V.C.S.M matric. Hr. sec. School]
           </h1>
         </NavbarBrand>
-      </NavbarContent>
-      <NavbarContent justify="end">
         <LanguageSwitcher />
       </NavbarContent>
     </Navbar>

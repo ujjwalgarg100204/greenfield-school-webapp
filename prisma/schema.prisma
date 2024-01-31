@@ -119,3 +119,31 @@ model AdmissionForm {
     fprofession    String
     fathers_name   String
 }
+
+model Admin_Student_Application {
+    id             String @id @default(cuid())
+    saddress       String
+    saadhar        String
+    smobilenumber  String
+    spob           String
+    sdob           String
+    sgender        String
+    smothertoungue String
+    sbg            String
+    scaste         String
+    scommunity     String
+    sreligion      String
+    snationality   String
+    sname          String
+    sclass         String
+    academic_year  String
+    maadhar        String
+    memail         String
+    mmobilenumber  String
+    mothers_name   String
+    faadhar        String @unique
+    fmaiil         String
+    fmobilenumber  String @unique
+    fprofession    String
+    fathers_name   String
+}

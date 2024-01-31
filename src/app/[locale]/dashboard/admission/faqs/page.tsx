@@ -1,7 +1,7 @@
 import type { NextPageProps } from "@/src/types";
 import { setStaticParamsLocale } from "next-international/server";
 import type { FC } from "react";
-import DashboardPageInDevelopment from "../../_components/DashboardPageInDevelopment";
+import DashboardPageInDevelopment from "../../_components/AdminDashboardPageInDevelopment";
 
 const FAQOfAdmissionPage: FC<NextPageProps> = ({ params: { locale } }) => {
   setStaticParamsLocale(locale);
