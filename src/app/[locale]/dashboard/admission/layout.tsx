@@ -7,16 +7,16 @@ import AdmissionDrawer from "./_components/AdmissionDrawer";
 type Props = { children: ReactNode };
 
 const AdmissionDashboardLayout: FC<Props> = async ({ children }) => {
-  const session = await getServerAuthSession();
-  if (!session || session.user.role !== "parent")
-    redirect("/login", RedirectType.replace);
+    const session = await getServerAuthSession();
+    if (!session || session.user.role !== "parent")
+        redirect("/login", RedirectType.replace);
 
-  return (
-    <>
-      <AdmissionDrawer />
-      {children}
-    </>
-  );
+    return (
+        <>
+            <AdmissionDrawer />
+            {children}
+        </>
+    );
 };
 
 export default AdmissionDashboardLayout;

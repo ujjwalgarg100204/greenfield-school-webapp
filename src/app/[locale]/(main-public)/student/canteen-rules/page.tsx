@@ -7,14 +7,20 @@ import type { NextPageProps } from "@/src/types";
 import { setStaticParamsLocale } from "next-international/server";
 
 const CanteenRules: FC<NextPageProps> = ({ params: { locale } }) => {
-  setStaticParamsLocale(locale);
+    setStaticParamsLocale(locale);
 
-  return (
-    <ArticlePage linkType="student" selected={{ translationKey: "c-rules" }}>
-      <ArticleHeading>School canteen rules</ArticleHeading>
-      <ArticleList list={CANTEEN_RULES_DATA} containerClassName="space-y-1.5" />
-    </ArticlePage>
-  );
+    return (
+        <ArticlePage
+            linkType="student"
+            selected={{ translationKey: "c-rules" }}
+        >
+            <ArticleHeading>School canteen rules</ArticleHeading>
+            <ArticleList
+                list={CANTEEN_RULES_DATA}
+                containerClassName="space-y-1.5"
+            />
+        </ArticlePage>
+    );
 };
 
 export default CanteenRules;

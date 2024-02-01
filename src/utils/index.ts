@@ -5,17 +5,17 @@
  * @returns The formatted currency string.
  */
 export const formatCurrency = (
-  number: number,
-  options?: Intl.NumberFormatOptions,
+    number: number,
+    options?: Intl.NumberFormatOptions,
 ): string => {
-  const formatter = new Intl.NumberFormat("en-IN", {
-    style: "currency",
-    currency: "INR",
-    maximumSignificantDigits: 2,
-    ...options,
-  });
+    const formatter = new Intl.NumberFormat("en-IN", {
+        style: "currency",
+        currency: "INR",
+        maximumSignificantDigits: 2,
+        ...options,
+    });
 
-  return formatter.format(number).replace("₹", "₹ ");
+    return formatter.format(number).replace("₹", "₹ ");
 };
 
 /**
@@ -25,9 +25,9 @@ export const formatCurrency = (
  * @returns A new Date object with the specified number of days added or subtracted.
  */
 export const addOrSubtractDays = (date: Date, days: number) => {
-  const result = new Date(date);
-  result.setDate(date.getDate() + days);
-  return result;
+    const result = new Date(date);
+    result.setDate(date.getDate() + days);
+    return result;
 };
 
 /**
@@ -37,7 +37,7 @@ export const addOrSubtractDays = (date: Date, days: number) => {
  * @returns The kebab-cased string.
  */
 export const toKebabCase = (str: string, separator?: string) => {
-  return str.replaceAll(separator ?? /\s/g, "-").toLowerCase();
+    return str.replaceAll(separator ?? /\s/g, "-").toLowerCase();
 };
 
 /**
@@ -47,5 +47,5 @@ export const toKebabCase = (str: string, separator?: string) => {
  * @returns The sentence-cased string.
  */
 export const toSentenceCase = (str: string, separator?: string) => {
-  return str.replaceAll(separator ?? /\s/g, " ").toLowerCase();
+    return str.replaceAll(separator ?? /\s/g, " ").toLowerCase();
 };

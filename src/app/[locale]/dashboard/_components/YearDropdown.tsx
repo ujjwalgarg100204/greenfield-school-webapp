@@ -12,56 +12,60 @@ import React from "react";
 import useResponsiveScreen from "@hooks/useResponsiveScreen";
 
 export default function App() {
-  const screen = useResponsiveScreen();
-  const [selectedKeys, setSelectedKeys] = React.useState(
-    new Set(["Acedemic Year"]),
-  );
+    const screen = useResponsiveScreen();
+    const [selectedKeys, setSelectedKeys] = React.useState(
+        new Set(["Acedemic Year"]),
+    );
 
-  const selectedValue = React.useMemo(
-    () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
-    [selectedKeys],
-  );
+    const selectedValue = React.useMemo(
+        () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
+        [selectedKeys],
+    );
 
-  return (
-    <Dropdown>
-      {/* <DropdownTrigger>
+    return (
+        <Dropdown>
+            {/* <DropdownTrigger>
         <Button variant="bordered" className="border-green-700  capitalize  ">
           {selectedValue}
         </Button>
       </DropdownTrigger> */}
 
-      <DropdownTrigger>
-        {screen === "sm" ? (
-          <Button
-            color="primary"
-            variant="bordered"
-            // isDisabled={isPending}
-            size="sm"
-            isIconOnly
-          >
-            📅
-          </Button>
-        ) : (
-          <Button color="primary" variant="bordered" className="font-semibold">
-            {selectedValue}
-          </Button>
-        )}
-      </DropdownTrigger>
+            <DropdownTrigger>
+                {screen === "sm" ? (
+                    <Button
+                        color="primary"
+                        variant="bordered"
+                        // isDisabled={isPending}
+                        size="sm"
+                        isIconOnly
+                    >
+                        📅
+                    </Button>
+                ) : (
+                    <Button
+                        color="primary"
+                        variant="bordered"
+                        className="font-semibold"
+                    >
+                        {selectedValue}
+                    </Button>
+                )}
+            </DropdownTrigger>
 
-      <DropdownMenu
-        aria-label="Single selection example"
-        variant="flat"
-        disallowEmptySelection
-        selectionMode="single"
-        selectedKeys={selectedKeys}
-        onSelectionChange={setSelectedKeys}
-      >
-        <DropdownItem key="2023-2024">2023-2024</DropdownItem>
-        <DropdownItem key="2022-2023">2022-2023</DropdownItem>
-        <DropdownItem key="2021-2022">2021-2022</DropdownItem>
-      </DropdownMenu>
-    </Dropdown>
-  );
+            <DropdownMenu
+                aria-label="Single selection example"
+                variant="flat"
+                disallowEmptySelection
+                selectionMode="single"
+                selectedKeys={selectedKeys}
+                onSelectionChange={setSelectedKeys}
+            >
+                <DropdownItem key="2023-2024">2023-2024</DropdownItem>
+                <DropdownItem key="2022-2023">2022-2023</DropdownItem>
+                <DropdownItem key="2021-2022">2021-2022</DropdownItem>
+            </DropdownMenu>
+        </Dropdown>
+    );
 }
 
 // "use client";

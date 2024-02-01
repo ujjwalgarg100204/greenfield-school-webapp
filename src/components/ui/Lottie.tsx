@@ -5,7 +5,7 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import type { FC } from "react";
 
 const Lottie: FC<IPlayerProps> = props => {
-  return <Player {...props} />;
+    return <Player {...props} />;
 };
 
 export default Lottie;

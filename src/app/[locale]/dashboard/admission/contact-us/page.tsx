@@ -4,9 +4,9 @@ import type { FC } from "react";
 import DashboardPageInDevelopment from "../../_components/AdminDashboardPageInDevelopment";
 
 const AdmissionContactUsPage: FC<NextPageProps> = ({ params: { locale } }) => {
-  setStaticParamsLocale(locale);
+    setStaticParamsLocale(locale);
 
-  return <DashboardPageInDevelopment />;
+    return <DashboardPageInDevelopment />;
 };
 
 export default AdmissionContactUsPage;

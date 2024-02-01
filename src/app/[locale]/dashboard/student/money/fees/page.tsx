@@ -4,9 +4,9 @@ import type { FC } from "react";
 import DashboardPageInDevelopment from "../../../_components/AdminDashboardPageInDevelopment";
 
 const FeesPage: FC<NextPageProps> = ({ params: { locale } }) => {
-  setStaticParamsLocale(locale);
+    setStaticParamsLocale(locale);
 
-  return <DashboardPageInDevelopment />;
+    return <DashboardPageInDevelopment />;
 };
 
 export default FeesPage;

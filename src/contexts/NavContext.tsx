@@ -11,27 +11,29 @@
 import { Dispatch, SetStateAction, createContext, useState } from "react";
 
 interface NavContextProps {
-  activeLinkId: string;
-  setActiveLinkId: Dispatch<SetStateAction<string>>;
+    activeLinkId: string;
+    setActiveLinkId: Dispatch<SetStateAction<string>>;
 }
 
 export const NavContext = createContext<NavContextProps | undefined>(undefined);
 
 interface NavProviderProps {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }
 
 const NavProvider: React.FC<NavProviderProps> = ({ children }) => {
-  const [activeLinkId, setActiveLinkId] = useState("");
+    const [activeLinkId, setActiveLinkId] = useState("");
 
-  const providerValue: NavContextProps = {
-    activeLinkId,
-    setActiveLinkId,
-  };
+    const providerValue: NavContextProps = {
+        activeLinkId,
+        setActiveLinkId,
+    };
 
-  return (
-    <NavContext.Provider value={providerValue}>{children}</NavContext.Provider>
-  );
+    return (
+        <NavContext.Provider value={providerValue}>
+            {children}
+        </NavContext.Provider>
+    );
 };
 
 export default NavProvider;

@@ -8,11 +8,13 @@ import { useRouter } from "next/navigation";
 type Props = { children: ReactNode };
 
 const NextUIProvider: FC<Props> = ({ children }) => {
-  const router = useRouter();
+    const router = useRouter();
 
-  return (
-    <NextProvider navigate={router.push.bind(null)}>{children}</NextProvider>
-  );
+    return (
+        <NextProvider navigate={router.push.bind(null)}>
+            {children}
+        </NextProvider>
+    );
 };
 
 export default NextUIProvider;

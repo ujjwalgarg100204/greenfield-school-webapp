@@ -7,21 +7,21 @@ import ArticlePage from "../../_components/ArticlePage";
 import GalleryEventCard from "./_components/GalleryEventCard";
 
 const Gallery: FC<NextPageProps> = async ({ params: { locale } }) => {
-  setStaticParamsLocale(locale);
-  const galleryFolders = await getGalleryFoldersWithSignedThumbnailUrls();
+    setStaticParamsLocale(locale);
+    const galleryFolders = await getGalleryFoldersWithSignedThumbnailUrls();
 
-  return (
-    <ArticlePage linkType="school" selected={{ translationKey: "gallery" }}>
-      <div className="flex justify-between">
-        <ArticleHeading id="gallery">Gallery</ArticleHeading>
-      </div>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {galleryFolders.map(folder => (
-          <GalleryEventCard key={folder.id} {...folder} />
-        ))}
-      </div>
-    </ArticlePage>
-  );
+    return (
+        <ArticlePage linkType="school" selected={{ translationKey: "gallery" }}>
+            <div className="flex justify-between">
+                <ArticleHeading id="gallery">Gallery</ArticleHeading>
+            </div>
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                {galleryFolders.map(folder => (
+                    <GalleryEventCard key={folder.id} {...folder} />
+                ))}
+            </div>
+        </ArticlePage>
+    );
 };
 
 export default Gallery;

@@ -7,14 +7,17 @@ import ArticlePage from "../../_components/ArticlePage";
 import SPECIAL_RULES_DATA from "./data";
 
 const SpecialRulesPage: FC<NextPageProps> = ({ params: { locale } }) => {
-  setStaticParamsLocale(locale);
+    setStaticParamsLocale(locale);
 
-  return (
-    <ArticlePage linkType="student" selected={{ translationKey: "s-rules" }}>
-      <ArticleHeading>Students special rules</ArticleHeading>
-      <ArticleList list={SPECIAL_RULES_DATA} />
-    </ArticlePage>
-  );
+    return (
+        <ArticlePage
+            linkType="student"
+            selected={{ translationKey: "s-rules" }}
+        >
+            <ArticleHeading>Students special rules</ArticleHeading>
+            <ArticleList list={SPECIAL_RULES_DATA} />
+        </ArticlePage>
+    );
 };
 
 export default SpecialRulesPage;

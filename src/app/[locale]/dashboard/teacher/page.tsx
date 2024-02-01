@@ -4,9 +4,9 @@ import type { FC } from "react";
 import DashboardPageInDevelopment from "../_components/AdminDashboardPageInDevelopment";
 
 const TeacherDashboardPage: FC<NextPageProps> = ({ params: { locale } }) => {
-  setStaticParamsLocale(locale);
+    setStaticParamsLocale(locale);
 
-  return <DashboardPageInDevelopment />;
+    return <DashboardPageInDevelopment />;
 };
 
 export default TeacherDashboardPage;
