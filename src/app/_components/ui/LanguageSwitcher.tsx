@@ -1,5 +1,7 @@
 "use client";
 
+import useResponsiveScreen from "@/src/app/_hooks/useResponsiveScreen";
+import type { Locale } from "@/src/app/_locales";
 import { useChangeLocale, useCurrentLocale } from "@/src/app/_locales/client";
 import {
     Button,
@@ -8,12 +10,9 @@ import {
     DropdownMenu,
     DropdownTrigger,
 } from "@lib/next-ui";
-
-import useResponsiveScreen from "@/src/app/_hooks/useResponsiveScreen";
-import type { Locale } from "@/src/app/_locales";
 import type { FC } from "react";
 import { useTransition } from "react";
-import Lottie from "./Lottie";
+import { IoLanguageSharp } from "react-icons/io5";
 
 const LOCALES = [
     { localeCode: "en", localeName: "English" },
@@ -51,25 +50,13 @@ const LanguageSwitcher: FC = () => {
                         size="sm"
                         isIconOnly
                     >
-                        <Lottie
-                            src="https://lottie.host/1afca697-eafa-49ec-acd4-799d4e67bb66/qGhFOY2OJm.json"
-                            className="w-9"
-                            autoplay
-                            loop
-                        />
+                        <IoLanguageSharp size={15} />
                     </Button>
                 ) : (
                     <Button
                         color="primary"
                         variant="bordered"
-                        startContent={
-                            <Lottie
-                                src="https://lottie.host/1afca697-eafa-49ec-acd4-799d4e67bb66/qGhFOY2OJm.json"
-                                className="w-11"
-                                autoplay
-                                loop
-                            />
-                        }
+                        startContent={<IoLanguageSharp size={23} />}
                         isDisabled={isPending}
                         className="font-semibold"
                     >
