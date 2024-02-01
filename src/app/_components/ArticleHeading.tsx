@@ -1,6 +1,6 @@
 import type { FC, HTMLAttributes } from "react";
 
-import clsx from "clsx";
+import { twMerge } from "tailwind-merge";
 
 const ArticleHeading: FC<HTMLAttributes<HTMLHeadingElement>> = ({
     children,
@@ -9,7 +9,7 @@ const ArticleHeading: FC<HTMLAttributes<HTMLHeadingElement>> = ({
 }) => {
     return (
         <h1
-            className={clsx(
+            className={twMerge(
                 "text-center text-3xl font-bold sm:text-[2rem] md:text-left md:text-4xl",
                 className,
             )}
