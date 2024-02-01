@@ -1,6 +1,6 @@
-import { Card, CardBody, Link } from "@lib/next-ui";
+import { Card, CardBody, Link } from "@/src/app/_lib/next-ui";
 
-import ArticleHeading from "@/src/components/ArticleHeading";
+import ArticleHeading from "@/src/app/_components/ArticleHeading";
 import type { NextPageProps } from "@/src/types";
 import { setStaticParamsLocale } from "next-international/server";
 import type { FC } from "react";

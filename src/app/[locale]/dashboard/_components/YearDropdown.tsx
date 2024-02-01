@@ -8,8 +8,8 @@ import {
     DropdownTrigger,
 } from "@nextui-org/react";
 
+import useResponsiveScreen from "@/src/app/_hooks/useResponsiveScreen";
 import React from "react";
-import useResponsiveScreen from "@hooks/useResponsiveScreen";
 
 export default function App() {
     const screen = useResponsiveScreen();

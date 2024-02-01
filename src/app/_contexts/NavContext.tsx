@@ -1,14 +1,11 @@
 "use client";
 
-// Use 'next' instead of 'use' in the import statement
-
-// NavProvider.tsx
-
-// NavProvider.tsx
-
-// NavProvider.tsx
-
-import { Dispatch, SetStateAction, createContext, useState } from "react";
+import {
+    createContext,
+    useState,
+    type Dispatch,
+    type SetStateAction,
+} from "react";
 
 interface NavContextProps {
     activeLinkId: string;

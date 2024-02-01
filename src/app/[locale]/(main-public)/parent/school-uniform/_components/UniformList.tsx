@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, CardFooter, Chip, Image } from "@lib/next-ui";
+import { Card, CardFooter, Chip, Image } from "@/src/app/_lib/next-ui";
 
 import NextImage from "next/image";
 import type { FC } from "react";

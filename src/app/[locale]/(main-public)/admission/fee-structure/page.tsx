@@ -1,13 +1,13 @@
-import ArticleHeading from "@/src/components/ArticleHeading";
-import ArticlePage from "../../_components/ArticlePage";
-import type { FC } from "react";
-import FEE_DETAILS from "./data";
+import ArticleHeading from "@/src/app/_components/ArticleHeading";
+import StaticTable from "@/src/app/_components/ui/StaticTable";
 import type { NextPageProps } from "@/src/types";
-import SeniorFeeDetails from "./_components/SeniorFeeDetails";
-import SinglePageTabs from "../../_components/SinglePageTabs";
-import StaticTable from "@/src/components/ui/StaticTable";
-import { formatCurrency } from "@/src/utils";
+import { formatCurrency } from "@/src/utils/currency";
 import { setStaticParamsLocale } from "next-international/server";
+import type { FC } from "react";
+import ArticlePage from "../../_components/ArticlePage";
+import SinglePageTabs from "../../_components/SinglePageTabs";
+import SeniorFeeDetails from "./_components/SeniorFeeDetails";
+import FEE_DETAILS from "./data";
 
 const seniorFeeTabs = [
     {

@@ -5,7 +5,7 @@ import {
     CardFooter,
     CardHeader,
     Chip,
-} from "@lib/next-ui";
+} from "@/src/app/_lib/next-ui";
 
 import type { FC } from "react";
 import NextImage from "next/image";

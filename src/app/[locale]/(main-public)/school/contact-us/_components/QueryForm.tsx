@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Input, Textarea } from "@lib/next-ui";
+import { Button, Input, Textarea } from "@/src/app/_lib/next-ui";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { FC } from "react";

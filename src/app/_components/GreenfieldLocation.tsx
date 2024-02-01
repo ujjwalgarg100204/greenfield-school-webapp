@@ -8,6 +8,7 @@ type Props = {
 const GreenfieldLocation: FC<Props> = ({ className }) => {
     return (
         <iframe
+            title="Google Map pin of Greenfield School"
             className={twMerge(
                 "h-32 w-full rounded-md border-0 outline-none",
                 className,

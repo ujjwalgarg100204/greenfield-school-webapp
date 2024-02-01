@@ -1,7 +1,7 @@
-import { Card, CardBody, CardHeader } from "@lib/next-ui";
+import { Card, CardBody, CardHeader } from "@/src/app/_lib/next-ui";
 
-import { getScopedI18n } from "@locales/server";
-import Lottie from "@ui/Lottie";
+import Lottie from "@/src/app/_components/ui/Lottie";
+import { getScopedI18n } from "@/src/app/_locales/server";
 import type { FC } from "react";
 
 const keyCharacteristicsCards = [

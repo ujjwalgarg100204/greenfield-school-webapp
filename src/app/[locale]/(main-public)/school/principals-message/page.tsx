@@ -1,7 +1,7 @@
+import ArticleHeading from "@/src/app/_components/ArticleHeading";
+import { Avatar } from "@/src/app/_lib/next-ui";
+import { getScopedI18n } from "@/src/app/_locales/server";
 import type { NextPageProps } from "@/src/types";
-import ArticleHeading from "@components/ArticleHeading";
-import { Avatar } from "@lib/next-ui";
-import { getScopedI18n } from "@locales/server";
 import { setStaticParamsLocale } from "next-international/server";
 import NextImage from "next/image";
 import type { FC } from "react";

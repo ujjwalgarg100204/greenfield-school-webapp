@@ -4,10 +4,10 @@ import {
     createGalleryFolder,
     createGalleryImgS3Path,
     getGalleryInfoFromS3Path,
-} from "@/src/services/SchoolEventsGallery";
+} from "@/src/server/services/SchoolEventsGallery";
 import { createTRPCRouter, publicProcedure } from "../trpc";
 
-import S3 from "@/src/services/AWS/S3";
+import S3 from "@/src/server/services/AWS/S3";
 import { type PresignedPost } from "@aws-sdk/s3-presigned-post";
 import { TRPCError } from "@trpc/server";
 import { v4 as uuid } from "uuid";

@@ -1,6 +1,6 @@
 import type { FC, ReactNode } from "react";
 
-import ArticleHeading from "@/src/components/ArticleHeading";
+import ArticleHeading from "@/src/app/_components/ArticleHeading";
 import ArticlePage from "../../_components/ArticlePage";
 import TransportTabs from "./_components/TransportTabs";
 

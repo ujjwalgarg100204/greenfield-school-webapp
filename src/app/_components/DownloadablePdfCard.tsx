@@ -1,4 +1,4 @@
-import { Card, CardBody, Link } from "@/src/lib/next-ui";
+import { Card, CardBody, Link } from "@/src/app/_lib/next-ui";
 
 import type { FC } from "react";
 import { BsFillFileEarmarkPdfFill } from "react-icons/bs";

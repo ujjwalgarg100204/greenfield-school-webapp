@@ -1,6 +1,6 @@
 "use client";
 
-import { Accordion, AccordionItem } from "@lib/next-ui";
+import { Accordion, AccordionItem } from "@/src/app/_lib/next-ui";
 
 import type { FC } from "react";
 import UniformList from "./UniformList";

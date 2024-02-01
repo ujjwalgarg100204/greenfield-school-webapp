@@ -1,6 +1,6 @@
 "use client";
 
-import useNav from "@/src/hooks/useNav";
+import useNav from "@/src/app/_hooks/useNav";
 
 const Profile = () => {
     const ProfileRef = useNav("Profile");

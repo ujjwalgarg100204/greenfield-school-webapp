@@ -1,5 +1,6 @@
 "use client";
 
+import { useChangeLocale, useCurrentLocale } from "@/src/app/_locales/client";
 import {
     Button,
     Dropdown,
@@ -7,15 +8,14 @@ import {
     DropdownMenu,
     DropdownTrigger,
 } from "@lib/next-ui";
-import { useChangeLocale, useCurrentLocale } from "@locales/client";
 
-import type { Locale } from "@/src/locales";
-import useResponsiveScreen from "@hooks/useResponsiveScreen";
+import useResponsiveScreen from "@/src/app/_hooks/useResponsiveScreen";
+import type { Locale } from "@/src/app/_locales";
 import type { FC } from "react";
 import { useTransition } from "react";
 import Lottie from "./Lottie";
 
-const locales = [
+const LOCALES = [
     { localeCode: "en", localeName: "English" },
     { localeCode: "hi", localeName: "Hindi" },
     { localeCode: "ta", localeName: "Tamil" },
@@ -35,7 +35,7 @@ const LanguageSwitcher: FC = () => {
         });
     };
 
-    const currentLocaleName = locales.find(
+    const currentLocaleName = LOCALES.find(
         ({ localeCode }) => localeCode === locale,
     );
     if (currentLocaleName === undefined) throw new Error("Invalid locale code");
@@ -79,7 +79,7 @@ const LanguageSwitcher: FC = () => {
             </DropdownTrigger>
 
             <DropdownMenu aria-label="Static Actions" className="text-center">
-                {locales.map(({ localeCode, localeName }) => (
+                {LOCALES.map(({ localeCode, localeName }) => (
                     <DropdownItem
                         key={localeCode}
                         onClick={handleLangChange.bind(null, localeCode)}

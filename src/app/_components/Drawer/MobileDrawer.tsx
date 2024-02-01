@@ -6,11 +6,12 @@ import {
     DropdownItem,
     DropdownMenu,
     DropdownTrigger,
-} from "@lib/next-ui";
-import { default as Link, default as NextLink } from "next/link";
+    Link,
+} from "@/src/app/_lib/next-ui";
+import NextLink from "next/link";
 
-import type { DrawerProps } from ".";
 import type { FC } from "react";
+import type { DrawerProps } from ".";
 import useSelectedDrawerItem from "./useSelectedOption";
 
 const MobileDrawer: FC<DrawerProps> = ({ items }) => {

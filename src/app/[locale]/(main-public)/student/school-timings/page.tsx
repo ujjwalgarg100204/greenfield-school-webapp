@@ -1,8 +1,8 @@
+import ArticleHeading from "@/src/app/_components/ArticleHeading";
 import type { NextPageProps } from "@/src/types";
-import ArticleHeading from "@components/ArticleHeading";
 import { setStaticParamsLocale } from "next-international/server";
 import type { FC } from "react";
-import StaticTable from "../../../../../components/ui/StaticTable";
+import StaticTable from "../../../../_components/ui/StaticTable";
 import ArticlePage from "../../_components/ArticlePage";
 import SinglePageTabs from "../../_components/SinglePageTabs";
 import SCHOOL_TIMINGS from "./data";

@@ -1,6 +1,6 @@
 "use client";
 
-import { Input } from "@/src/lib/next-ui";
+import { Input } from "@/src/app/_lib/next-ui";
 import { api } from "@/src/trpc/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { FC } from "react";

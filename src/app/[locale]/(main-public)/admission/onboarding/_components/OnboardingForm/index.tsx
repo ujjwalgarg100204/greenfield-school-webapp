@@ -4,11 +4,11 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useRef } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
+import useUpdateSearchParams from "@/src/app/_hooks/useUpdateSearchParams";
+import { Button } from "@/src/app/_lib/next-ui";
+import { useScopedI18n } from "@/src/app/_locales/client";
 import { api } from "@/src/trpc/react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import useUpdateSearchParams from "@hooks/useUpdateSearchParams";
-import { Button } from "@lib/next-ui";
-import { useScopedI18n } from "@locales/client";
 import type { ReadonlyURLSearchParams } from "next/navigation";
 import type { FC } from "react";
 import type { SubmitHandler } from "react-hook-form";

@@ -1,7 +1,7 @@
 import { type GalleryFolder, type GalleryImage } from "@prisma/client";
 
 import { db } from "@/src/server/db";
-import { toKebabCase } from "../utils";
+import { toKebabCase } from "@/src/utils/string";
 import S3 from "./AWS/S3";
 
 const s3 = S3.getInstance();

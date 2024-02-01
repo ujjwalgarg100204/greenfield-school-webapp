@@ -1,6 +1,11 @@
 "use client";
 
-import { Accordion, AccordionItem, Listbox, ListboxItem } from "@lib/next-ui";
+import {
+    Accordion,
+    AccordionItem,
+    Listbox,
+    ListboxItem,
+} from "@/src/app/_lib/next-ui";
 
 import NextLink from "next/link";
 import type { FC } from "react";

@@ -1,8 +1,8 @@
 "use client";
 
-import { Accordion, AccordionItem } from "@lib/next-ui";
+import { Accordion, AccordionItem } from "@/src/app/_lib/next-ui";
 
-import { useScopedI18n } from "@locales/client";
+import { useScopedI18n } from "@/src/app/_locales/client";
 import type { FC } from "react";
 
 const achievementsDataTranslationKeys = [1, 2, 3, 4] as const;

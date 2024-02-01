@@ -1,4 +1,4 @@
-import { Card, CardBody, CardHeader } from "@lib/next-ui";
+import { Card, CardBody, CardHeader } from "@/src/app/_lib/next-ui";
 
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import type { FC } from "react";

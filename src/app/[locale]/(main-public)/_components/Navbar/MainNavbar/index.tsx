@@ -5,14 +5,13 @@ import {
     NavbarBrand,
     NavbarContent,
     NavbarItem,
-} from "@lib/next-ui";
+} from "@/src/app/_lib/next-ui";
 
-import type { FC } from "react";
-import GreenfieldLogo from "@/public/images/logo.png";
+import LanguageSwitcher from "@/src/app/_components/ui/LanguageSwitcher";
+import { getScopedI18n } from "@/src/app/_locales/server";
 import Image from "next/image";
-import LanguageSwitcher from "@/src/components/ui/LanguageSwitcher";
+import type { FC } from "react";
 import PrimaryAction from "./PrimaryAction";
-import { getScopedI18n } from "@/src/locales/server";
 
 const MainNavbar: FC = async () => {
     const t = await getScopedI18n("Root.main-navbar");
@@ -22,9 +21,11 @@ const MainNavbar: FC = async () => {
             <NavbarBrand>
                 <Link href="/" className="flex h-full w-full gap-4">
                     <Image
-                        src={GreenfieldLogo}
+                        src={"/images/logo.png"}
                         alt="Greenfield School Logo"
                         quality={95}
+                        width={50}
+                        height={50}
                         className="rounded-full"
                         priority
                     />

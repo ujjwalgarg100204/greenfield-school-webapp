@@ -5,8 +5,8 @@ import { FaQuestion, FaQuoteLeft } from "react-icons/fa";
 import { HiMiniDocumentDuplicate, HiMiniDocumentPlus } from "react-icons/hi2";
 import { RiParentFill } from "react-icons/ri";
 
-import type { DrawerItem } from "@/src/components/Drawer";
-import Drawer from "@/src/components/Drawer";
+import type { DrawerItem } from "@/src/app/_components/Drawer";
+import Drawer from "@/src/app/_components/Drawer";
 import type { FC } from "react";
 import { BsFillTelephoneForwardFill } from "react-icons/bs";
 

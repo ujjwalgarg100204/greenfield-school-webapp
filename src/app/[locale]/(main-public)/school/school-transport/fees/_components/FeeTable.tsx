@@ -5,7 +5,7 @@ import {
     TableHeader,
     TableHeaderCell,
     TableRow,
-} from "@ui/Table";
+} from "@/src/app/_components/ui/Table";
 
 import type { FC } from "react";
 

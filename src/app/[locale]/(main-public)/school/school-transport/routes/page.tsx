@@ -1,7 +1,7 @@
-import ArticleList from "@/src/components/ArticleList";
-import type { FC } from "react";
+import ArticleList from "@/src/app/_components/ArticleList";
 import type { NextPageProps } from "@/src/types";
 import { setStaticParamsLocale } from "next-international/server";
+import type { FC } from "react";
 
 const routes = [
     {

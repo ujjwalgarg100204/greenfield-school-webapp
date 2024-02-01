@@ -1,11 +1,10 @@
-import { type FC } from "react";
-import ApplicaionFormComponent from "./_components/index";
-import ArticleHeading from "@/src/components/ArticleHeading";
-import { getScopedI18n } from "@/src/locales/server";
+import ArticleHeading from "@/src/app/_components/ArticleHeading";
+import { getScopedI18n } from "@/src/app/_locales/server";
 import { type NextPageProps } from "@/src/types";
 import { setStaticParamsLocale } from "next-international/server";
-import { useForm } from "react-hook-form";
+import { type FC } from "react";
 import ArticlePage from "../../_components/ArticlePage";
+import ApplicaionFormComponent from "./_components/index";
 
 const AdmissionApplicationForm: FC<NextPageProps> = async ({
     params: { locale },

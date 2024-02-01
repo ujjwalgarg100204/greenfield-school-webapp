@@ -2,18 +2,10 @@
 
 import useResponsiveScreen, {
     type ScreenSize,
-} from "@hooks/useResponsiveScreen";
+} from "@/src/app/_hooks/useResponsiveScreen";
 import { useState } from "react";
 
-import one from "@/public/images/premium-facilities-landingPage/1.jpg";
-import two from "@/public/images/premium-facilities-landingPage/2.jpg";
-import three from "@/public/images/premium-facilities-landingPage/3.jpg";
-import four from "@/public/images/premium-facilities-landingPage/4.jpg";
-import five from "@/public/images/premium-facilities-landingPage/5.jpg";
-import six from "@/public/images/premium-facilities-landingPage/6.jpg";
-import seven from "@/public/images/premium-facilities-landingPage/7.jpg";
-
-import Carousel from "@ui/Carousel";
+import Carousel from "@/src/app/_components/ui/Carousel";
 import type { FC } from "react";
 import CarouselCard from "./CarouselCard";
 import CarouselNextBtn from "./CarouselNextBtn";
@@ -23,49 +15,49 @@ const premiumFacilitiesCards = [
     {
         translationKey: 1,
         img: {
-            url: one,
+            url: "/images/premium-facilities-landingPage/1.jpg",
             alt: "image",
         },
     },
     {
         translationKey: 2,
         img: {
-            url: two,
+            url: "/images/premium-facilities-landingPage/2.jpg",
             alt: "image",
         },
     },
     {
         translationKey: 3,
         img: {
-            url: three,
+            url: "/images/premium-facilities-landingPage/3.jpg",
             alt: "image",
         },
     },
     {
         translationKey: 4,
         img: {
-            url: four,
+            url: "/images/premium-facilities-landingPage/4.jpg",
             alt: "image",
         },
     },
     {
         translationKey: 5,
         img: {
-            url: five,
+            url: "/images/premium-facilities-landingPage/5.jpg",
             alt: "image",
         },
     },
     {
         translationKey: 6,
         img: {
-            url: six,
+            url: "/images/premium-facilities-landingPage/6.jpg",
             alt: "image",
         },
     },
     {
         translationKey: 7,
         img: {
-            url: seven,
+            url: "/images/premium-facilities-landingPage/7.jpg",
             alt: "image",
         },
     },

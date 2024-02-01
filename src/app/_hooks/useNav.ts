@@ -1,10 +1,7 @@
 "use client";
-// useNav.ts
-// useNav.ts
-
 import { useContext, useEffect, useRef } from "react";
 
-import { NavContext } from "../contexts/NavContext";
+import { NavContext } from "@/src/app/_contexts/NavContext";
 import useOnScreen from "./useOnScreen";
 
 const useNav = (navLinkId: string) => {

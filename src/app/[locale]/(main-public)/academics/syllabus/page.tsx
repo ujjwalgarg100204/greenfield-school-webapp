@@ -1,6 +1,6 @@
-import DownloadablePdfCard from "@/src/components/DownloadablePdfCard";
+import ArticleHeading from "@/src/app/_components/ArticleHeading";
+import DownloadablePdfCard from "@/src/app/_components/DownloadablePdfCard";
 import type { NextPageProps } from "@/src/types";
-import ArticleHeading from "@components/ArticleHeading";
 import { setStaticParamsLocale } from "next-international/server";
 import type { FC } from "react";
 import ArticlePage from "../../_components/ArticlePage";

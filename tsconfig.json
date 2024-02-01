@@ -19,11 +19,11 @@
         "baseUrl": ".",
         "paths": {
             "@/*": ["./*"],
-            "@components/*": ["./src/components/*"],
-            "@ui/*": ["./src/components/ui/*"],
-            "@lib/*": ["./src/lib/*"],
-            "@hooks/*": ["./src/hooks/*"],
-            "@locales/*": ["./src/locales/*"]
+            "@components/*": ["./src/app/_components/*"],
+            "@ui/*": ["src/app/_components/ui/*"],
+            "@lib/*": ["./src/app/_lib/*"],
+            "@hooks/*": ["./src/app/_hooks/*"],
+            "@locales/*": ["src/app/_locales/*"]
         },
         "plugins": [{ "name": "next" }]
     },

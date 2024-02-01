@@ -1,16 +1,16 @@
 "use client";
 
-import { Card, CardBody, CardHeader } from "@lib/next-ui";
-import NextImage, { type StaticImageData } from "next/image";
+import { Card, CardBody, CardHeader } from "@/src/app/_lib/next-ui";
+import NextImage from "next/image";
 
-import { useScopedI18n } from "@locales/client";
-import type Translation from "@locales/languages/en";
+import { useScopedI18n } from "@/src/app/_locales/client";
+import type Translation from "@/src/app/_locales/languages/en";
 import type { FC } from "react";
 
-type Props = {
+type Props = Readonly<{
     translationKey: keyof (typeof Translation)["Pages"]["home"]["sub-links"]["premium-facilities"]["content"]["cards"];
-    img: { url: StaticImageData; alt: string };
-};
+    img: { url: string; alt: string };
+}>;
 
 const CarouselCard: FC<Props> = ({ translationKey, img }) => {
     const t = useScopedI18n(

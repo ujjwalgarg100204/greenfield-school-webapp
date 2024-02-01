@@ -1,8 +1,8 @@
 "use client";
 
-import { Accordion, AccordionItem } from "@lib/next-ui";
+import { Accordion, AccordionItem } from "@/src/app/_lib/next-ui";
 
-import DownloadablePdfCard from "@/src/components/DownloadablePdfCard";
+import DownloadablePdfCard from "@/src/app/_components/DownloadablePdfCard";
 import type { FC } from "react";
 
 const newsletters = [

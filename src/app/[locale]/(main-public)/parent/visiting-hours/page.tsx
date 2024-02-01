@@ -1,10 +1,10 @@
-import ArticleHeading from "@components/ArticleHeading";
-import ArticlePage from "../../_components/ArticlePage";
-import type { FC } from "react";
+import ArticleHeading from "@/src/app/_components/ArticleHeading";
+import StaticTable from "@/src/app/_components/ui/StaticTable";
 import type { NextPageProps } from "@/src/types";
-import StaticTable from "@/src/components/ui/StaticTable";
-import VISITING_HOURS_DATA from "./data";
 import { setStaticParamsLocale } from "next-international/server";
+import type { FC } from "react";
+import ArticlePage from "../../_components/ArticlePage";
+import VISITING_HOURS_DATA from "./data";
 
 const VisitingHoursPage: FC<NextPageProps> = ({ params: { locale } }) => {
     setStaticParamsLocale(locale);

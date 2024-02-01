@@ -1,20 +1,34 @@
 "use client";
 
-import { Button, Link } from "@lib/next-ui";
+import { Button, Link } from "@/src/app/_lib/next-ui";
 import { FormProvider, useForm } from "react-hook-form";
 
-import CredentialInputs from "./CredentialInputs";
-import type { FC } from "react";
-import RoleRadioGroups from "./RoleRadioGroups";
-import type { SubmitHandler } from "react-hook-form";
-import { UserCreateInputSchema } from "@/src/types/zod";
-import { signIn } from "next-auth/react";
-import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
-import { useScopedI18n } from "@locales/client";
-import type { z } from "zod";
+import { useScopedI18n } from "@/src/app/_locales/client";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { type Prisma } from "@prisma/client";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import type { FC } from "react";
+import type { SubmitHandler } from "react-hook-form";
+import toast from "react-hot-toast";
+import { z } from "zod";
+import CredentialInputs from "./CredentialInputs";
+import RoleRadioGroups from "./RoleRadioGroups";
 
+const UserCreateInputSchema: z.ZodType<Prisma.UserCreateInput> = z
+    .object({
+        id: z.string().cuid().optional(),
+        role: z.enum(["student", "teacher", "admin", "parent"]),
+        username: z
+            .string()
+            .min(6, { message: "short-input" })
+            .max(16, { message: "long-input" }),
+        password: z
+            .string()
+            .min(6, { message: "short-input" })
+            .max(16, { message: "long-input" }),
+    })
+    .strict();
 const SignInForm: FC = () => {
     const t = useScopedI18n("login.sub-links.index");
     const formMethods = useForm<z.infer<typeof UserCreateInputSchema>>({

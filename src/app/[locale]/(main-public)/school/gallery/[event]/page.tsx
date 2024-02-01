@@ -1,13 +1,13 @@
-import ArticleHeading from "@/src/components/ArticleHeading";
-import ArticlePage from "../../../_components/ArticlePage";
-import type { FC } from "react";
-import { Image } from "@lib/next-ui";
-import NextImage from "next/image";
-import type { NextPageProps } from "@/src/types";
+import ArticleHeading from "@/src/app/_components/ArticleHeading";
+import { Image } from "@/src/app/_lib/next-ui";
 import { db } from "@/src/server/db";
-import { getImagesByFolderNameWithSignedUrl } from "@/src/services/SchoolEventsGallery";
+import { getImagesByFolderNameWithSignedUrl } from "@/src/server/services/SchoolEventsGallery";
+import type { NextPageProps } from "@/src/types";
+import { toSentenceCase } from "@/src/utils/string";
 import { setStaticParamsLocale } from "next-international/server";
-import { toSentenceCase } from "@/src/utils";
+import NextImage from "next/image";
+import type { FC } from "react";
+import ArticlePage from "../../../_components/ArticlePage";
 
 export const generateStaticParams = async () => {
     const folderNames = await db.galleryFolder.findMany({

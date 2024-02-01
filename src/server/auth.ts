@@ -1,12 +1,27 @@
 import type { DefaultSession, NextAuthOptions } from "next-auth";
 
-import CredentialsProvider from "next-auth/providers/credentials";
-import type { User as PrismaUser } from "@prisma/client";
-import { UserCreateInputSchema } from "../types/zod";
-import bcrypt from "bcrypt";
-import { db } from "@/src/server/db";
 import { env } from "@/src/env.mjs";
+import { db } from "@/src/server/db";
+import type { Prisma, User as PrismaUser } from "@prisma/client";
+import bcrypt from "bcrypt";
 import { getServerSession } from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
+import { z } from "zod";
+
+const UserCreateInputSchema: z.ZodType<Prisma.UserCreateInput> = z
+    .object({
+        id: z.string().cuid().optional(),
+        role: z.enum(["student", "teacher", "admin", "parent"]),
+        username: z
+            .string()
+            .min(6, { message: "short-input" })
+            .max(16, { message: "long-input" }),
+        password: z
+            .string()
+            .min(6, { message: "short-input" })
+            .max(16, { message: "long-input" }),
+    })
+    .strict();
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`

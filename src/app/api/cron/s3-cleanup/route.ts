@@ -2,7 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 
 import { env } from "@/src/env.mjs";
 import { db } from "@/src/server/db";
-import S3 from "@/src/services/AWS/S3";
+import S3 from "@/src/server/services/AWS/S3";
 
 // cleans up all the failed transactions to s3
 export const GET = async (req: NextRequest) => {

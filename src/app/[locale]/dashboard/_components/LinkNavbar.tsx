@@ -1,6 +1,6 @@
 "use client";
 
-import { NavContext } from "@/src/contexts/NavContext";
+import { NavContext } from "@/src/app/_contexts/NavContext";
 import { useContext } from "react";
 
 const LinkNavbar = () => {

@@ -1,8 +1,8 @@
-import ArticleList from "@/src/components/ArticleList";
+import ArticleList from "@/src/app/_components/ArticleList";
+import StaticTable from "@/src/app/_components/ui/StaticTable";
+import { formatCurrency } from "@/src/utils/currency";
 import type { FC } from "react";
 import FEE_DETAILS from "../data";
-import StaticTable from "@/src/components/ui/StaticTable";
-import { formatCurrency } from "@/src/utils";
 
 type Props = {
     type: "greenfield-students" | "non-greenfield-students";

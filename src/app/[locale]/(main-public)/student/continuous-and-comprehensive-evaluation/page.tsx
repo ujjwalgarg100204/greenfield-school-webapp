@@ -4,10 +4,10 @@ import {
     subjectViseHomeworkActivityEvaluationPlan,
 } from "./data";
 
-import ArticleList from "@/src/components/ArticleList";
-import StaticTable from "@/src/components/ui/StaticTable";
+import ArticleHeading from "@/src/app/_components/ArticleHeading";
+import ArticleList from "@/src/app/_components/ArticleList";
+import StaticTable from "@/src/app/_components/ui/StaticTable";
 import type { NextPageProps } from "@/src/types";
-import ArticleHeading from "@components/ArticleHeading";
 import { setStaticParamsLocale } from "next-international/server";
 import type { FC } from "react";
 import ArticlePage from "../../_components/ArticlePage";

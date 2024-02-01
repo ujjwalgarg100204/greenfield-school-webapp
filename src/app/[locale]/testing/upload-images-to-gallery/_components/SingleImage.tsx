@@ -3,9 +3,9 @@
 import { Select, SelectItem } from "@nextui-org/react";
 import { Controller, useForm } from "react-hook-form";
 
-import { Input } from "@/src/lib/next-ui";
+import { Input } from "@/src/app/_lib/next-ui";
 import { api } from "@/src/trpc/react";
-import { toSentenceCase } from "@/src/utils";
+import { toSentenceCase } from "@/src/utils/string";
 import { type GalleryFolder } from "@prisma/client";
 import type { FC } from "react";
 import toast from "react-hot-toast";

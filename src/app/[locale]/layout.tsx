@@ -1,18 +1,18 @@
-import "@/src/styles/globals.css";
+import "@/src/app/globals.css";
 
-import type { FC } from "react";
-import { I18nProviderClient } from "@locales/client";
-import type { Metadata } from "next";
-import NextAuthSessionProvider from "@/src/contexts/NextAuthSessionProvider";
-import type { NextPageProps } from "@/src/types";
-import NextUIProvider from "@/src/contexts/NextUIProvider";
-import React from "react";
-import { TRPCReactProvider } from "@/src/trpc/react";
-import { Toaster } from "react-hot-toast";
+import NextAuthSessionProvider from "@/src/app/_contexts/NextAuthSessionProvider";
+import NextUIProvider from "@/src/app/_contexts/NextUIProvider";
+import { I18nProviderClient } from "@/src/app/_locales/client";
+import { getStaticParams } from "@/src/app/_locales/server";
 import { getServerAuthSession } from "@/src/server/auth";
-import { getStaticParams } from "@locales/server";
-import { headers } from "next/headers";
+import { TRPCReactProvider } from "@/src/trpc/react";
+import type { NextPageProps } from "@/src/types";
+import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { headers } from "next/headers";
+import type { FC } from "react";
+import React from "react";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
     title: "Greenfield School",

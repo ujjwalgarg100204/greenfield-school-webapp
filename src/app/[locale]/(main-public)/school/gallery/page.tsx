@@ -1,5 +1,5 @@
-import ArticleHeading from "@/src/components/ArticleHeading";
-import { getGalleryFoldersWithSignedThumbnailUrls } from "@/src/services/SchoolEventsGallery";
+import ArticleHeading from "@/src/app/_components/ArticleHeading";
+import { getGalleryFoldersWithSignedThumbnailUrls } from "@/src/server/services/SchoolEventsGallery";
 import type { NextPageProps } from "@/src/types";
 import { setStaticParamsLocale } from "next-international/server";
 import type { FC } from "react";

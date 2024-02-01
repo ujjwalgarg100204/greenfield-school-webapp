@@ -1,4 +1,4 @@
-import ArticleHeading from "@components/ArticleHeading";
+import ArticleHeading from "@/src/app/_components/ArticleHeading";
 import type { FC } from "react";
 import ArticlePage from "../../_components/ArticlePage";
 import AchievementsAccordion from "./_components/AchievementsAccordion";

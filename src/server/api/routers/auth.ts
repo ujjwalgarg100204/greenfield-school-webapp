@@ -1,8 +1,24 @@
+import { type Prisma } from "@prisma/client";
 import { createTRPCRouter, publicProcedure } from "../trpc";
 
 import { TRPCError } from "@trpc/server";
-import { UserCreateInputSchema } from "@/src/types/zod";
 import bcrypt from "bcrypt";
+import { z } from "zod";
+
+const UserCreateInputSchema: z.ZodType<Prisma.UserCreateInput> = z
+    .object({
+        id: z.string().cuid().optional(),
+        role: z.enum(["student", "teacher", "admin", "parent"]),
+        username: z
+            .string()
+            .min(6, { message: "short-input" })
+            .max(16, { message: "long-input" }),
+        password: z
+            .string()
+            .min(6, { message: "short-input" })
+            .max(16, { message: "long-input" }),
+    })
+    .strict();
 
 export const authRouter = createTRPCRouter({
     signUp: publicProcedure

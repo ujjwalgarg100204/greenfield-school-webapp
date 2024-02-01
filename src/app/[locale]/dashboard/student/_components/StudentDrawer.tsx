@@ -5,8 +5,8 @@ import { LiaChalkboardTeacherSolid, LiaMoneyBillSolid } from "react-icons/lia";
 import { PiExamLight, PiUserListBold } from "react-icons/pi";
 import { TbLamp2, TbReportAnalytics } from "react-icons/tb";
 
-import type { DrawerItem } from "@/src/components/Drawer";
-import Drawer from "@/src/components/Drawer";
+import type { DrawerItem } from "@/src/app/_components/Drawer";
+import Drawer from "@/src/app/_components/Drawer";
 import type { FC } from "react";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { BsCalendar2Check } from "react-icons/bs";

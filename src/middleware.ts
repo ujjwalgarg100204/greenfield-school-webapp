@@ -1,4 +1,4 @@
-import { defaultLocale, locales } from "./locales";
+import { defaultLocale, locales } from "./app/_locales";
 
 import { createI18nMiddleware } from "next-international/middleware";
 import type { NextRequest } from "next/server";

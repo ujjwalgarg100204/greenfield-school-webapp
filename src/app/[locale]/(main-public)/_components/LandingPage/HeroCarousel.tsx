@@ -2,22 +2,17 @@
 
 import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
 
-import Carousel from "@ui/Carousel";
-import type { FC } from "react";
-import MainCarouselImage1 from "@/public/images/hero-carousel/1.png";
-import MainCarouselImage2 from "@/public/images/hero-carousel/2.png";
-import MainCarouselImage3 from "@/public/images/hero-carousel/3.png";
-import MainCarouselImage4 from "@/public/images/hero-carousel/4.png";
-import MainCarouselImage5 from "@/public/images/hero-carousel/5.png";
+import Carousel from "@/src/app/_components/ui/Carousel";
 import NextImage from "next/image";
+import type { FC } from "react";
 import { v4 as uuid } from "uuid";
 
 const imagesLinks = [
-    MainCarouselImage5,
-    MainCarouselImage1,
-    MainCarouselImage2,
-    MainCarouselImage3,
-    MainCarouselImage4,
+    "/images/hero-carousel/1.png",
+    "/images/hero-carousel/2.png",
+    "/images/hero-carousel/3.png",
+    "/images/hero-carousel/4.png",
+    "/images/hero-carousel/5.png",
 ] as const;
 
 const HeroCarousel: FC = () => {

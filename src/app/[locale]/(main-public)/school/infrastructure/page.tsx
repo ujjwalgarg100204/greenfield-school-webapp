@@ -1,12 +1,12 @@
 import { Card, CardBody, CardHeader, Image } from "@nextui-org/react";
 
-import ArticleHeading from "@/src/components/ArticleHeading";
-import ArticlePage from "../../_components/ArticlePage";
-import type { FC } from "react";
-import NextImage from "next/image";
+import ArticleHeading from "@/src/app/_components/ArticleHeading";
 import type { NextPageProps } from "@/src/types";
-import INFRASTRUCTURE_DATA from "./data";
 import { setStaticParamsLocale } from "next-international/server";
+import NextImage from "next/image";
+import type { FC } from "react";
+import ArticlePage from "../../_components/ArticlePage";
+import INFRASTRUCTURE_DATA from "./data";
 
 const Infrastructure: FC<NextPageProps> = ({ params: { locale } }) => {
     setStaticParamsLocale(locale);

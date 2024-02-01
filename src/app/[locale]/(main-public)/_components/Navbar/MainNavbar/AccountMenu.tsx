@@ -7,7 +7,7 @@ import {
     DropdownTrigger,
     Link,
     User,
-} from "@lib/next-ui";
+} from "@/src/app/_lib/next-ui";
 import { signOut, useSession } from "next-auth/react";
 
 import { useRouter } from "next/navigation";

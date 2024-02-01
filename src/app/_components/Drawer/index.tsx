@@ -2,9 +2,9 @@
 
 import type { FC, ReactNode } from "react";
 
+import useResponsiveScreen from "@/src/app/_hooks/useResponsiveScreen";
 import DesktopDrawer from "./DesktopDrawer";
 import MobileDrawer from "./MobileDrawer";
-import useResponsiveScreen from "@/src/hooks/useResponsiveScreen";
 
 export type SubDrawerItem = {
     title: string;
@@ -25,9 +25,13 @@ export type DrawerProps = {
 const Drawer: FC<DrawerProps> = ({ items }) => {
     const screen = useResponsiveScreen();
 
-    if (screen === "sm" || screen === "md")
-        return <MobileDrawer items={items} />;
-    else return <DesktopDrawer items={items} />;
+    switch (screen) {
+        case "sm":
+        case "md":
+            return <MobileDrawer items={items} />;
+        default:
+            return <DesktopDrawer items={items} />;
+    }
 };
 
 export default Drawer;

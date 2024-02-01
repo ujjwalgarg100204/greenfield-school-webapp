@@ -1,7 +1,6 @@
-import { Button, Link } from "@lib/next-ui";
+import { Button, Link } from "@/src/app/_lib/next-ui";
 
-import AdmissionBannerImage from "@/public/images/landing-page-admission-banner.png";
-import { getScopedI18n } from "@locales/server";
+import { getScopedI18n } from "@/src/app/_locales/server";
 import NextImage from "next/image";
 import type { FC } from "react";
 
@@ -32,7 +31,7 @@ const AdmissionOpen: FC = async () => {
                 width={500}
                 height={500}
                 quality={95}
-                src={AdmissionBannerImage}
+                src={"/images/landing-page-admission-banner.png"}
                 alt="Students Studying"
                 className="order-4 row-span-2 ml-auto hidden max-w-xs rounded-lg object-cover object-center shadow-2xl lg:block"
             />

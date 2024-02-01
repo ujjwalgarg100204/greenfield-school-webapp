@@ -19,23 +19,17 @@ export const NAV_LINKS = {
         { translationKey: "contact", link: "/school/contact-us" },
     ],
     admission: [
-        // { translationKey: "notice", link: "/admission/admission-notice" },
         { translationKey: "procedure", link: "/admission/procedure" },
         {
             translationKey: "instructions",
             link: "/admission/general-instructions-for-admission",
         },
-        // { translationKey: "age", link: "/admission/age-criteria" },
-        // { translationKey: "fee", link: "/admission/fee-structure" },
         { translationKey: "admission-portal", link: "/admission/portal" },
-        // { translationKey: "syllabus", link: "/admission/syllabus-for-test" },
     ],
     academic: [
         { translationKey: "result", link: "/academics/result-analysis" },
         { translationKey: "syllabus", link: "/academics/syllabus" },
-        // { translationKey: "book-list", link: "/academics/book-list" },
         { translationKey: "holiday", link: "/academics/holiday-list" },
-        // { translationKey: "block-holidays", link: "/academics/block-holidays" },
     ],
     student: [
         { translationKey: "portal", link: "/dashboard/student" },

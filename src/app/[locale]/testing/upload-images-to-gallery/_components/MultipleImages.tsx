@@ -4,7 +4,7 @@ import { Input, Select, SelectItem } from "@nextui-org/react";
 import { Controller, useForm } from "react-hook-form";
 
 import { api } from "@/src/trpc/react";
-import { toSentenceCase } from "@/src/utils";
+import { toSentenceCase } from "@/src/utils/string";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { GalleryFolder } from "@prisma/client";
 import type { FC } from "react";

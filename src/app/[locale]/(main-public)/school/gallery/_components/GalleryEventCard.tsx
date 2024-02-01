@@ -1,4 +1,10 @@
-import { Card, CardBody, CardHeader, Image, Link } from "@/src/lib/next-ui";
+import {
+    Card,
+    CardBody,
+    CardHeader,
+    Image,
+    Link,
+} from "@/src/app/_lib/next-ui";
 
 import NextImage from "next/image";
 import type { FC } from "react";

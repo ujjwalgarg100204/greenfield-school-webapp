@@ -1,16 +1,31 @@
 "use client";
 
-import { UserCreateInputSchema, UserRolesSchema } from "@/src/types/zod";
 import { RadioGroup } from "@nextui-org/react";
 import { Controller, useForm } from "react-hook-form";
 
 import { api } from "@/src/trpc/react";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { type Prisma } from "@prisma/client";
 import { TRPCClientError } from "@trpc/client";
 import type { FC } from "react";
 import type { SubmitHandler } from "react-hook-form";
-import type { z } from "zod";
+import { z } from "zod";
 import RoleRadioButton from "../_components/SignInForm/RoleRadioButton";
+
+const UserCreateInputSchema: z.ZodType<Prisma.UserCreateInput> = z
+    .object({
+        id: z.string().cuid().optional(),
+        role: z.enum(["student", "teacher", "admin", "parent"]),
+        username: z
+            .string()
+            .min(6, { message: "short-input" })
+            .max(16, { message: "long-input" }),
+        password: z
+            .string()
+            .min(6, { message: "short-input" })
+            .max(16, { message: "long-input" }),
+    })
+    .strict();
 
 const RegisterPage: FC = () => {
     const { register, control, handleSubmit, reset } = useForm<
@@ -49,7 +64,7 @@ const RegisterPage: FC = () => {
                         onValueChange={onChange}
                         errorMessage={fieldState.error?.message}
                     >
-                        {Object.values(UserRolesSchema.Values).map(role => (
+                        {["student", "admin", "parent", "teacher"].map(role => (
                             <RoleRadioButton key={role} value={role}>
                                 {role}
                             </RoleRadioButton>

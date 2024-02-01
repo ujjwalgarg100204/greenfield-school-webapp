@@ -4,13 +4,13 @@ import {
     NavbarContent,
     NavbarItem,
     Navbar as NextUINavbar,
-} from "@lib/next-ui";
+} from "@/src/app/_lib/next-ui";
 
-import AccountMenu from "../../(main-public)/_components/Navbar/MainNavbar/AccountMenu";
-import type { FC } from "react";
 import GreenfieldLogo from "@/public/images/logo.png";
+import LanguageSwitcher from "@/src/app/_components/ui/LanguageSwitcher";
 import Image from "next/image";
-import LanguageSwitcher from "@/src/components/ui/LanguageSwitcher";
+import type { FC } from "react";
+import AccountMenu from "../../(main-public)/_components/Navbar/MainNavbar/AccountMenu";
 import NotificationButton from "./NotificationButton";
 import YearDropdown from "./YearDropdown";
 

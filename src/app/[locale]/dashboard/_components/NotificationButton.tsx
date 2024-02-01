@@ -6,7 +6,7 @@ import {
     DropdownItem,
     DropdownMenu,
     DropdownTrigger,
-} from "@lib/next-ui";
+} from "@/src/app/_lib/next-ui";
 import { MdNotifications, MdNotificationsActive } from "react-icons/md";
 
 import type { Notification } from "@/src/types";

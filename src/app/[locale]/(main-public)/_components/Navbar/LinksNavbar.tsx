@@ -1,7 +1,7 @@
-import { Button, Link, Navbar, NavbarContent } from "@lib/next-ui";
+import { Button, Link, Navbar, NavbarContent } from "@/src/app/_lib/next-ui";
 
-import { NAV_LINKS } from "@lib/frontend-data";
-import { getScopedI18n } from "@locales/server";
+import { NAV_LINKS } from "@/src/app/_lib/frontend-data";
+import { getScopedI18n } from "@/src/app/_locales/server";
 import type { FC } from "react";
 import LinksNavbarItem from "./LinksNavbarItem";
 

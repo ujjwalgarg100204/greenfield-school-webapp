@@ -1,13 +1,13 @@
-import ArticleHeading from "@/src/components/ArticleHeading";
-import ArticlePage from "../../_components/ArticlePage";
+import ArticleHeading from "@/src/app/_components/ArticleHeading";
+import GreenfieldLocation from "@/src/app/_components/GreenfieldLocation";
+import type { NextPageProps } from "@/src/types";
+import { Link } from "@/src/app/_lib/next-ui";
+import { setStaticParamsLocale } from "next-international/server";
 import type { FC } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
-import GreenfieldLocation from "@/src/components/GreenfieldLocation";
 import { HiMail } from "react-icons/hi";
-import { Link } from "@lib/next-ui";
-import type { NextPageProps } from "@/src/types";
+import ArticlePage from "../../_components/ArticlePage";
 import QueryForm from "./_components/QueryForm";
-import { setStaticParamsLocale } from "next-international/server";
 
 const SchoolContactPage: FC<NextPageProps> = ({ params: { locale } }) => {
     setStaticParamsLocale(locale);

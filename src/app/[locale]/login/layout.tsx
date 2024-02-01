@@ -1,8 +1,7 @@
 import type { FC, ReactNode } from "react";
 
-import Header from "./_components/Header";
-import LoginPageSideImage from "@/../public/images/login-page-side-img.jpg";
 import NextImage from "next/image";
+import Header from "./_components/Header";
 
 type Props = { children: ReactNode };
 
@@ -11,7 +10,7 @@ const LoginLayout: FC<Props> = ({ children }) => {
         <div className="relative h-screen w-full">
             <div className="absolute inset-0">
                 <NextImage
-                    src={LoginPageSideImage}
+                    src={"images/login-page-side-img.jpg"}
                     alt="Login Page Side Image"
                     layout="fill"
                     objectFit="cover"

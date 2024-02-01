@@ -1,10 +1,10 @@
 import { RedirectType, redirect } from "next/navigation";
 
-import ArticleHeading from "@components/ArticleHeading";
+import ArticleHeading from "@/src/app/_components/ArticleHeading";
+import { getScopedI18n } from "@/src/app/_locales/server";
+import { getServerAuthSession } from "@/src/server/auth";
 import type { FC } from "react";
 import SignInForm from "./_components/SignInForm";
-import { getScopedI18n } from "@locales/server";
-import { getServerAuthSession } from "@/src/server/auth";
 
 const LoginPage: FC = async () => {
     const t = await getScopedI18n("login.sub-links.index");

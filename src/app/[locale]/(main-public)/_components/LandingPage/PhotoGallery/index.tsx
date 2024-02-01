@@ -1,37 +1,33 @@
+import { getScopedI18n } from "@/src/app/_locales/server";
 import type { FC } from "react";
 import PhotoGalleryCard from "./PhotoGalleryCard";
-import four from "@/public/images/photo-gallery-landingPage/4.jpg";
-import { getScopedI18n } from "@locales/server";
-import one from "@/public/images/photo-gallery-landingPage/1.jpg";
-import three from "@/public/images/photo-gallery-landingPage/3.jpg";
-import two from "@/public/images/photo-gallery-landingPage/2.jpg";
 
 const photoGalleryCards = [
     {
         translationKey: 1,
         image: {
-            url: one,
+            url: "/images/photo-gallery-landingPage/1.jpg",
             alt: "adorable dog",
         },
     },
     {
         translationKey: 2,
         image: {
-            url: two,
+            url: "/images/photo-gallery-landingPage/2.jpg",
             alt: "boy studying",
         },
     },
     {
         translationKey: 3,
         image: {
-            url: three,
+            url: "/images/photo-gallery-landingPage/3.jpg",
             alt: "students in classroom",
         },
     },
     {
         translationKey: 4,
         image: {
-            url: four,
+            url: "/images/photo-gallery-landingPage/4.jpg",
             alt: "students in classroom",
         },
     },

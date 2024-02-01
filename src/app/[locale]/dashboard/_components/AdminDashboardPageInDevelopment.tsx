@@ -1,4 +1,4 @@
-import NavProvider from "@/src/contexts/NavContext";
+import NavProvider from "@/src/app/_contexts/NavContext";
 import { getServerAuthSession } from "@/src/server/auth";
 import { type FC } from "react";
 import Academic from "../section/Academics/page";

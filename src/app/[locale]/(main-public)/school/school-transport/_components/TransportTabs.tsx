@@ -1,6 +1,6 @@
 "use client";
 
-import { Link, Tab, Tabs } from "@lib/next-ui";
+import { Link, Tab, Tabs } from "@/src/app/_lib/next-ui";
 
 import { usePathname } from "next/navigation";
 import type { FC } from "react";

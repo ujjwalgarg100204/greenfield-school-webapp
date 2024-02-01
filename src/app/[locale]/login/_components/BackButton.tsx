@@ -1,7 +1,7 @@
 "use client";
 
 import { BiArrowBack } from "react-icons/bi";
-import { Button } from "@lib/next-ui";
+import { Button } from "@/src/app/_lib/next-ui";
 import type { FC } from "react";
 import { useRouter } from "next/navigation";
 

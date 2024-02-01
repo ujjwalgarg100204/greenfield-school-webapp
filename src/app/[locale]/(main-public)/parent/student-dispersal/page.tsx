@@ -1,10 +1,10 @@
-import ArticleHeading from "@components/ArticleHeading";
-import ArticleList from "@/src/components/ArticleList";
-import ArticlePage from "../../_components/ArticlePage";
-import type { FC } from "react";
+import ArticleHeading from "@/src/app/_components/ArticleHeading";
+import ArticleList from "@/src/app/_components/ArticleList";
 import type { NextPageProps } from "@/src/types";
-import STUDENT_DISPERSAL_DATA from "./data";
 import { setStaticParamsLocale } from "next-international/server";
+import type { FC } from "react";
+import ArticlePage from "../../_components/ArticlePage";
+import STUDENT_DISPERSAL_DATA from "./data";
 
 const StudentDispersalPage: FC<NextPageProps> = ({ params: { locale } }) => {
     setStaticParamsLocale(locale);

@@ -1,10 +1,10 @@
 "use client";
 
-import { Button, Input } from "@lib/next-ui";
+import { Button, Input } from "@/src/app/_lib/next-ui";
 import { useRouter, useSearchParams } from "next/navigation";
 
-import { useScopedI18n } from "@locales/client";
-import type Translation from "@locales/languages/en";
+import { useScopedI18n } from "@/src/app/_locales/client";
+import type Translation from "@/src/app/_locales/languages/en";
 import type { FC } from "react";
 import { useFormContext } from "react-hook-form";
 import { FiEdit } from "react-icons/fi";

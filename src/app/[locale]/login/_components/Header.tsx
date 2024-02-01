@@ -1,10 +1,14 @@
-import { Link, Navbar, NavbarBrand, NavbarContent } from "@lib/next-ui";
+import {
+    Link,
+    Navbar,
+    NavbarBrand,
+    NavbarContent,
+} from "@/src/app/_lib/next-ui";
 
-import BackButton from "./BackButton";
-import type { FC } from "react";
-import GreenfieldLogo from "@/../public/images/logo.png";
-import LanguageSwitcher from "@/src/components/ui/LanguageSwitcher";
+import LanguageSwitcher from "@/src/app/_components/ui/LanguageSwitcher";
 import NextImage from "next/image";
+import type { FC } from "react";
+import BackButton from "./BackButton";
 
 const Header: FC = () => {
     return (
@@ -17,7 +21,7 @@ const Header: FC = () => {
                     className="flex items-center gap-4"
                 >
                     <NextImage
-                        src={GreenfieldLogo}
+                        src={"images/logo.png"}
                         alt="Greenfield Logo"
                         className="h-12 w-12 rounded-full object-cover object-center"
                         priority

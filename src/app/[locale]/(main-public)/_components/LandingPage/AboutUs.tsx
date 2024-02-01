@@ -1,8 +1,7 @@
-import { Button, Link } from "@lib/next-ui";
+import { Button, Link } from "@/src/app/_lib/next-ui";
 
-import AboutImage from "@/public/images/landing-page-about-us.png";
-import { NAV_LINKS } from "@lib/frontend-data";
-import { getScopedI18n } from "@locales/server";
+import { NAV_LINKS } from "@/src/app/_lib/frontend-data";
+import { getScopedI18n } from "@/src/app/_locales/server";
 import Image from "next/image";
 import type { FC } from "react";
 
@@ -41,7 +40,7 @@ const AboutUs: FC = async () => {
                 quality={95}
                 width={500}
                 height={500}
-                src={AboutImage}
+                src={"/images/landing-page-about-us.png"}
                 alt="Girl Studying in Greenfield school"
                 className="hidden h-72 w-full rounded-lg object-cover lg:block"
             />

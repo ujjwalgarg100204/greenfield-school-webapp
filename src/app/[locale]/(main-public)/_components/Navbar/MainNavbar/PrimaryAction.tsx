@@ -1,8 +1,8 @@
 "use client";
 
-import { Button, CircularProgress, Link } from "@lib/next-ui";
+import { Button, CircularProgress, Link } from "@/src/app/_lib/next-ui";
 
-import { useScopedI18n } from "@/src/locales/client";
+import { useScopedI18n } from "@/src/app/_locales/client";
 import { useSession } from "next-auth/react";
 import type { FC } from "react";
 import AccountMenu from "./AccountMenu";

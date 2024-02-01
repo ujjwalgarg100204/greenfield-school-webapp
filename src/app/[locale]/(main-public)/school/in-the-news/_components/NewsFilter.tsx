@@ -1,6 +1,6 @@
 "use client";
 
-import { Chip, Link } from "@lib/next-ui";
+import { Chip, Link } from "@/src/app/_lib/next-ui";
 
 import { useSearchParams } from "next/navigation";
 import type { FC } from "react";

@@ -1,9 +1,9 @@
-import ArticleHeading from "@/src/components/ArticleHeading";
-import ArticleList from "@/src/components/ArticleList";
-import ArticlePage from "../../_components/ArticlePage";
-import type { FC } from "react";
+import ArticleHeading from "@/src/app/_components/ArticleHeading";
+import ArticleList from "@/src/app/_components/ArticleList";
 import type { NextPageProps } from "@/src/types";
 import { setStaticParamsLocale } from "next-international/server";
+import type { FC } from "react";
+import ArticlePage from "../../_components/ArticlePage";
 
 const procedure = [
     "The Admission procedure will be intimated to the parents of the selected candidates. It is mandatory for both the parents and local / legal guardian to be present to complete various admission formalities.",

@@ -1,6 +1,6 @@
 "use client";
 
-import { Tabs as NextUITabs, Tab } from "@lib/next-ui";
+import { Tabs as NextUITabs, Tab } from "@/src/app/_lib/next-ui";
 import type { TabItemProps, TabsProps } from "@nextui-org/react";
 import type { FC, ReactNode } from "react";
 
