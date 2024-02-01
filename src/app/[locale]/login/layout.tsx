@@ -1,30 +1,28 @@
 import type { FC, ReactNode } from "react";
 
-import NextImage from "next/image";
 import Header from "./_components/Header";
+import NextImage from "next/image";
 
 type Props = { children: ReactNode };
 
 const LoginLayout: FC<Props> = ({ children }) => {
     return (
-        <div className="relative h-screen w-full">
-            <div className="absolute inset-0">
+        <div className="relative h-screen w-full md:grid md:place-content-center">
+            <div className="inset-0 -z-10 hidden md:absolute md:block">
                 <NextImage
-                    src={"images/login-page-side-img.jpg"}
+                    src={"/images/login-page-side-img.jpg"}
                     alt="Login Page Side Image"
-                    layout="fill"
                     objectFit="cover"
                     priority
+                    fill
                     quality={95}
-                    className="opacity-30"
+                    className="opacity-90 blur-sm"
                 />
             </div>
-            <div className=" h-full w-full">
-                <div className="w-full ">
-                    <div className="mx-auto h-full w-full bg-white bg-opacity-80 p-8">
-                        <Header />
-                        <div className="space-y-8">{children}</div>
-                    </div>
+            <div className="h-full w-full md:z-10 md:rounded-xl md:bg-white md:p-2">
+                <div className="mx-auto h-full w-full bg-opacity-80 p-8 md:space-y-4">
+                    <Header />
+                    <div className="space-y-8">{children}</div>
                 </div>
             </div>
         </div>

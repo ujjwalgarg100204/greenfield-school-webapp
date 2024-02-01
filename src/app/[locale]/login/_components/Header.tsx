@@ -12,25 +12,41 @@ import BackButton from "./BackButton";
 
 const Header: FC = () => {
     return (
-        <Navbar position="static" className="flex bg-yellow-400">
-            <NavbarContent className="flex items-center justify-between bg-red-500 px-4 py-2">
+        <Navbar
+            position="static"
+            className=""
+            classNames={{ wrapper: "pl-0 justify-start lg:gap-12" }}
+        >
+            <NavbarContent className="flex flex-grow" justify="start">
                 <BackButton />
                 <NavbarBrand
                     as={Link}
                     href="/"
-                    className="flex items-center gap-4"
+                    className="flex items-center gap-3 md:gap-4"
                 >
                     <NextImage
-                        src={"images/logo.png"}
+                        src={"/images/logo.png"}
                         alt="Greenfield Logo"
-                        className="h-12 w-12 rounded-full object-cover object-center"
+                        className="h-10 w-10 rounded-full object-cover object-center md:h-12 md:w-12"
+                        width={50}
+                        height={50}
                         priority
                     />
-                    <h1 className="flex-grow font-bold text-black/80 md:text-xl">
-                        Greenfield Campus <br /> [V.C.S.M matric. Hr. sec.
-                        School]
+                    <h1 className="flex flex-grow flex-col font-bold text-black/80">
+                        <span className="text-xl leading-5 md:hidden">
+                            Greenfield <br />
+                            Campus
+                        </span>
+                        <span className="hidden text-2xl md:block lg:text-3xl">
+                            Greenfield Campus
+                        </span>
+                        <span className="hidden text-sm md:block lg:text-base">
+                            [V.C.S.M matric. Hr. sec. School]
+                        </span>
                     </h1>
                 </NavbarBrand>
+            </NavbarContent>
+            <NavbarContent justify="end">
                 <LanguageSwitcher />
             </NavbarContent>
         </Navbar>

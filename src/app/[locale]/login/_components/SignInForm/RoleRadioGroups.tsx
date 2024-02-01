@@ -4,25 +4,10 @@ import { Controller, useFormContext } from "react-hook-form";
 
 import { useScopedI18n } from "@/src/app/_locales/client";
 import { RadioGroup } from "@nextui-org/react";
-import { type Prisma } from "@prisma/client";
 import type { FC } from "react";
-import { z } from "zod";
+import { type z } from "zod";
+import { type UserCreateInputSchema } from ".";
 import RoleRadioButton from "./RoleRadioButton";
-
-const UserCreateInputSchema: z.ZodType<Prisma.UserCreateInput> = z
-    .object({
-        id: z.string().cuid().optional(),
-        role: z.enum(["student", "teacher", "admin", "parent"]),
-        username: z
-            .string()
-            .min(6, { message: "short-input" })
-            .max(16, { message: "long-input" }),
-        password: z
-            .string()
-            .min(6, { message: "short-input" })
-            .max(16, { message: "long-input" }),
-    })
-    .strict();
 
 const RoleRadioGroups: FC = () => {
     const t = useScopedI18n("login.sub-links.index");
@@ -49,11 +34,13 @@ const RoleRadioGroups: FC = () => {
                             : ""
                     }
                 >
-                    {(["student", "admin", "teacher", "parent"] as const).map(role => (
-                        <RoleRadioButton key={role} value={role}>
-                            {t(`content.inputs.role.roles.${role}`)}
-                        </RoleRadioButton>
-                    ))}
+                    {(["student", "admin", "teacher", "parent"] as const).map(
+                        role => (
+                            <RoleRadioButton key={role} value={role}>
+                                {t(`content.inputs.role.roles.${role}`)}
+                            </RoleRadioButton>
+                        ),
+                    )}
                 </RadioGroup>
             )}
         />

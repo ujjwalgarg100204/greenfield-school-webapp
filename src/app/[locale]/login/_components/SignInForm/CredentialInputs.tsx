@@ -3,30 +3,16 @@
 import { Input } from "@/src/app/_lib/next-ui";
 import { useScopedI18n } from "@/src/app/_locales/client";
 import type Translation from "@/src/app/_locales/languages/en";
-import { type Prisma } from "@prisma/client";
 import type { FC } from "react";
 import { useFormContext } from "react-hook-form";
-import { z } from "zod";
+import { type z } from "zod";
+import { type UserCreateInputSchema } from ".";
 
 type UserIdErrorType =
     keyof (typeof Translation)["login"]["sub-links"]["index"]["content"]["inputs"]["user-id"]["error"];
 type PasswordErrorType =
     keyof (typeof Translation)["login"]["sub-links"]["index"]["content"]["inputs"]["password"]["error"];
 
-const UserCreateInputSchema: z.ZodType<Prisma.UserCreateInput> = z
-    .object({
-        id: z.string().cuid().optional(),
-        role: z.enum(["student", "teacher", "admin", "parent"]),
-        username: z
-            .string()
-            .min(6, { message: "short-input" })
-            .max(16, { message: "long-input" }),
-        password: z
-            .string()
-            .min(6, { message: "short-input" })
-            .max(16, { message: "long-input" }),
-    })
-    .strict();
 const CredentialInputs: FC = () => {
     const t = useScopedI18n("login.sub-links.index");
     const {

@@ -15,7 +15,7 @@ import { z } from "zod";
 import CredentialInputs from "./CredentialInputs";
 import RoleRadioGroups from "./RoleRadioGroups";
 
-const UserCreateInputSchema: z.ZodType<Prisma.UserCreateInput> = z
+export const UserCreateInputSchema: z.ZodType<Prisma.UserCreateInput> = z
     .object({
         id: z.string().cuid().optional(),
         role: z.enum(["student", "teacher", "admin", "parent"]),
@@ -29,6 +29,7 @@ const UserCreateInputSchema: z.ZodType<Prisma.UserCreateInput> = z
             .max(16, { message: "long-input" }),
     })
     .strict();
+
 const SignInForm: FC = () => {
     const t = useScopedI18n("login.sub-links.index");
     const formMethods = useForm<z.infer<typeof UserCreateInputSchema>>({

@@ -14,7 +14,7 @@ const LoginPage: FC = async () => {
 
     return (
         <>
-            <ArticleHeading className="lg:text-center lg:text-2xl">
+            <ArticleHeading className="md:text-center md:text-3xl">
                 {t("title")}
             </ArticleHeading>
             <main>
