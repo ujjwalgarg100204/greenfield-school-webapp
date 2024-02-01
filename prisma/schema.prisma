@@ -2,26 +2,6 @@ generator client {
     provider = "prisma-client-js"
 }
 
-generator zod {
-    provider                         = "zod-prisma-types"
-    output                           = "../src/types/zod"
-    useMultipleFiles                 = false
-    writeBarrelFiles                 = true
-    createInputTypes                 = true
-    createModelTypes                 = false
-    addInputTypeValidation           = true
-    addIncludeType                   = true
-    addSelectType                    = true
-    validateWhereUniqueInput         = false
-    createOptionalDefaultValuesTypes = true
-    createRelationValuesTypes        = false
-    createPartialTypes               = false
-    useDefaultValidators             = true
-    coerceDate                       = true
-    writeNullishInModelTypes         = false
-    useTypeAssertions                = true
-}
-
 datasource db {
     provider     = "mysql"
     url          = env("DATABASE_URL")
@@ -38,8 +18,8 @@ enum UserRoles {
 model User {
     id       String    @id @default(cuid())
     role     UserRoles
-    username String    @unique /// @zod.string.min(6, { message: "short-input" }).max(16, { message: "long-input" })
-    password String /// @zod.string.min(6, { message: "short-input" }).max(16, { message: "long-input" })
+    username String    @unique
+    password String
 }
 
 model GalleryFolder {
@@ -84,10 +64,10 @@ model S3UploadTransaction {
 
 model Otp {
     id        String   @id @default(cuid())
-    mobile    String   @unique /// @zod.string.min(10, { message: "short-input" }).max(10, { message: "long-input" }).regex(/^\d+$/, { message: "wrong-input" }),    
-    otp       String /// @zod.string.min(6, { message: "short-input" }).max(6, { message: "long-input" }).regex(/^\d+$/, { message: "wrong-input" }),
+    mobile    String   @unique
+    otp       String
     updatedAt DateTime @updatedAt
-    expiresAt DateTime /// @zod.custom.omit([input])
+    expiresAt DateTime
 
     @@index([mobile])
 }
