@@ -1,3 +1,24 @@
 {
-    "cSpell.words": ["Aadhar", "swipeable", "trpc"]
+    "cSpell.words": [
+        "Aadhar",
+        "chartjs",
+        "clsx",
+        "hookform",
+        "nextjs",
+        "nextui",
+        "presigner",
+        "superjson",
+        "swipeable",
+        "tailwindcss",
+        "tanstack",
+        "trpc"
+    ],
+    "material-icon-theme.folders.associations": {
+        "_components": "components",
+        "_contexts": "context",
+        "_hooks": "hook",
+        "_lib": "lib",
+        "_locales": "I18n"
+    },
+    "terminal.integrated.defaultProfile.windows": "Git Bash"
 }
