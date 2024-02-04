@@ -28,7 +28,7 @@ const AdmissionPortal: FC<NextPageProps> = async ({ params: { locale } }) => {
         radius="sm"
         as={Link}
         color="primary"
-        href="/admission/admission-application"
+        href="/admission/onboarding"
         className="w-full font-semibold"
       >
         {t("button-text")}

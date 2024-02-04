@@ -3,7 +3,7 @@ import { createTRPCRouter, publicProcedure } from "../trpc";
 import { io } from "socket.io-client";
 import { z } from "zod";
 
-const socket = io("http://13.127.116.229:8001/", {
+const socket = io("http://localhost:8001/", {
   transports: ["websocket", "polling"],
   auth: {
     token: "abcd",

@@ -45,63 +45,63 @@ const Search_student = () => {
     },
   });
 
-  const onSubmit: SubmitHandler<FormData> = async data => {
-    // Handle form submission logic here
-    // console.log(data.recept_number);
-    if (isSubmitting) {
-      <Spinner />;
-    } else {
-      const result = await admissionFormMutation.mutateAsync({
-        // recept_number: data.recept_number,
-        // faadhar: data.faadhar,
-        // saddress: data.saddress,
-        // saadhar: data.saadhar,
-        // smobilenumber: data.smobilenumber,
-        // spob: data.spob,
-        // payment_date: data.payment_date,
-        // mode_of_payment: data.mode_of_payment,
-        // smothertoungue: data.smothertoungue,
-        // sbg: data.sbg,
-        // scaste: data.scaste,
-        // scommunity: data.scommunity,
-        // sreligion: data.sreligion,
-        // snationality: data.snationality,
-        // sname: data.sname,
-        // sclass: data.sclass,
-        // academic_year: data.academic_year,
-        // maadhar: data.maadhar,
-        // memail: data.memail,
-        // mmobilenumber: data.mmobilenumber,
-        // mothers_name: data.mothers_name,
-        // fmaiil: data.fmaiil,
-        // fmobilenumber: data.fmobilenumber,
-        // fprofession: data.fprofession,
-      });
+  // const onSubmit: SubmitHandler<FormData> = async data => {
+  // Handle form submission logic here
+  // console.log(data.recept_number);
+  //   if (isSubmitting) {
+  //     <Spinner />;
+  //   } else {
+  //     const result = await admissionFormMutation.mutateAsync({
+  //       // recept_number: data.recept_number,
+  //       // faadhar: data.faadhar,
+  //       // saddress: data.saddress,
+  //       // saadhar: data.saadhar,
+  //       // smobilenumber: data.smobilenumber,
+  //       // spob: data.spob,
+  //       // payment_date: data.payment_date,
+  //       // mode_of_payment: data.mode_of_payment,
+  //       // smothertoungue: data.smothertoungue,
+  //       // sbg: data.sbg,
+  //       // scaste: data.scaste,
+  //       // scommunity: data.scommunity,
+  //       // sreligion: data.sreligion,
+  //       // snationality: data.snationality,
+  //       // sname: data.sname,
+  //       // sclass: data.sclass,
+  //       // academic_year: data.academic_year,
+  //       // maadhar: data.maadhar,
+  //       // memail: data.memail,
+  //       // mmobilenumber: data.mmobilenumber,
+  //       // mothers_name: data.mothers_name,
+  //       // fmaiil: data.fmaiil,
+  //       // fmobilenumber: data.fmobilenumber,
+  //       // fprofession: data.fprofession,
+  //     // });
 
-      if (
-        result.message ===
-        "School already have your data. Please wait for the confirmation !"
-      ) {
-        toast(result.message, {
-          icon: "⚠️",
-        });
-      } else {
-        toast.success(result.message);
-      }
-    }
-    reset();
-    // data.mm
-  };
-  React.useEffect(() => {
-    if (isSubmitSuccessful) {
-      reset();
-    }
-  }, [reset, isSubmitSuccessful]);
+  //     if (
+  //       result.message ===
+  //       "School already have your data. Please wait for the confirmation !"
+  //     ) {
+  //       toast(result.message, {
+  //         icon: "⚠️",
+  //       });
+  //     } else {
+  //       toast.success(result.message);
+  //     }
+  //   }
+  //   reset();
+  //   // data.mm
+  // };
+  // React.useEffect(() => {
+  //   if (isSubmitSuccessful) {
+  //     reset();
+  //   }
+  // }, [reset, isSubmitSuccessful]);
 
   return (
     <>
       <div className="container mx-auto my-8 text-xs md:text-lg ">
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form>
           {/* General instruction */}
           <div className="mb-3 w-full border-3 ">
             <div className="border-3 bg-green-50 py-2 pl-2 font-bold ">
@@ -581,7 +581,9 @@ const Search_student = () => {
                             className="form-radio"
                             id="mode_payment"
                             value="Cheque"
-                            {...register("mode_of_payment", { required: true })}
+                            {...register("mode_of_payment", {
+                              required: true,
+                            })}
                           />
                           <span className="ml-2">Cheque</span>
                         </label>
@@ -591,7 +593,9 @@ const Search_student = () => {
                             className="form-radio"
                             id="mode_payment"
                             value="Digital Payment"
-                            {...register("mode_of_payment", { required: true })}
+                            {...register("mode_of_payment", {
+                              required: true,
+                            })}
                           />
                           <span className="ml-2">Digital Payment</span>
                         </label>
@@ -601,7 +605,9 @@ const Search_student = () => {
                             className="form-radio"
                             id="mode_payment"
                             value="Cash"
-                            {...register("mode_of_payment", { required: true })}
+                            {...register("mode_of_payment", {
+                              required: true,
+                            })}
                           />
                           <span className="ml-2">Cash</span>
                         </label>
@@ -611,7 +617,9 @@ const Search_student = () => {
                             className="form-radio"
                             id="mode_payment"
                             value="Challan"
-                            {...register("mode_of_payment", { required: true })}
+                            {...register("mode_of_payment", {
+                              required: true,
+                            })}
                           />
                           <span className="ml-2">Challan</span>
                         </label>
@@ -657,7 +665,7 @@ const Search_student = () => {
                       <Textarea
                         className=" border-3"
                         type=""
-                        {...register("fmobilenumber", {
+                        {...register("remark", {
                           required: true,
                         })}
                       />
@@ -669,12 +677,12 @@ const Search_student = () => {
           </div>
 
           {/* Declaration */}
-         
-            <div className=" form-control mb-3 text-center text-xs md:text-base">
-              <Button color="primary" type="submit">
-                Submit form
-              </Button>
-            </div>
+
+          <div className=" form-control mb-3 text-center text-xs md:text-base">
+            <Button color="primary" type="submit">
+              Submit form
+            </Button>
+          </div>
         </form>
       </div>
     </>
