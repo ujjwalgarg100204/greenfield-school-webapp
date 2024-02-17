@@ -9,22 +9,22 @@ import PhotoGallery from "./_components/LandingPage/PhotoGallery";
 import PremiumFacilities from "./_components/LandingPage/PremiumFacilities";
 
 const LandingPage: FC<NextPageProps> = ({ params: { locale } }) => {
-  setStaticParamsLocale(locale);
+    setStaticParamsLocale(locale);
 
-  return (
-    <main className="mb-8 text-center">
-      <div className="space-y-4">
-        <HeroCarousel />
-        <div className="space-y-20 p-4 sm:p-6 md:p-10 lg:p-12">
-          <AboutUs />
-          <PhotoGallery />
-          <KeyCharacteristics />
-          <AdmissionOpen />
-          <PremiumFacilities />
-        </div>
-      </div>
-    </main>
-  );
+    return (
+        <main className="mb-8 text-center">
+            <div className="space-y-4">
+                <HeroCarousel />
+                <div className="space-y-20 p-4 sm:p-6 md:p-10 lg:p-12">
+                    <AboutUs />
+                    <PhotoGallery />
+                    <KeyCharacteristics />
+                    <AdmissionOpen />
+                    <PremiumFacilities />
+                </div>
+            </div>
+        </main>
+    );
 };
 
 export default LandingPage;

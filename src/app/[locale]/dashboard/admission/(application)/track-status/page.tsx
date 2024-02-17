@@ -4,11 +4,11 @@ import type { FC } from "react";
 import DashboardPageInDevelopment from "../../../_components/AdminDashboardPageInDevelopment";
 
 const TrackStatusOfAdmissionApplicationPage: FC<NextPageProps> = ({
-  params: { locale },
+    params: { locale },
 }) => {
-  setStaticParamsLocale(locale);
+    setStaticParamsLocale(locale);
 
-  return <DashboardPageInDevelopment />;
+    return <DashboardPageInDevelopment />;
 };
 
 export default TrackStatusOfAdmissionApplicationPage;

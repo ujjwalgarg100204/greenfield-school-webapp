@@ -26,31 +26,35 @@ export default function App() {
   //   setSelectedKeys(new Set(keys));
   // };
 
-  return (
-    <Dropdown>
-      {/* <DropdownTrigger>
+    return (
+        <Dropdown>
+            {/* <DropdownTrigger>
         <Button variant="bordered" className="border-green-700  capitalize  ">
           {selectedValue}
         </Button>
       </DropdownTrigger> */}
 
-      <DropdownTrigger>
-        {screen === "sm" ? (
-          <Button
-            color="primary"
-            variant="bordered"
-            // isDisabled={isPending}
-            size="sm"
-            isIconOnly
-          >
-            📅
-          </Button>
-        ) : (
-          <Button color="primary" variant="bordered" className="font-semibold">
-            {selectedValue}
-          </Button>
-        )}
-      </DropdownTrigger>
+            <DropdownTrigger>
+                {screen === "sm" ? (
+                    <Button
+                        color="primary"
+                        variant="bordered"
+                        // isDisabled={isPending}
+                        size="sm"
+                        isIconOnly
+                    >
+                        📅
+                    </Button>
+                ) : (
+                    <Button
+                        color="primary"
+                        variant="bordered"
+                        className="font-semibold"
+                    >
+                        {selectedValue}
+                    </Button>
+                )}
+            </DropdownTrigger>
 
       <DropdownMenu
         aria-label="Single selection example"

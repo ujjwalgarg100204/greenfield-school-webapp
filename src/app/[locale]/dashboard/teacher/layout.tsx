@@ -7,16 +7,16 @@ import TeacherDrawer from "./_components/TeacherDrawer";
 type Props = { children: ReactNode };
 
 const TeacherDashboardLayout: FC<Props> = async ({ children }) => {
-  const session = await getServerAuthSession();
-  if (!session || session.user.role !== "teacher")
-    redirect("/login", RedirectType.replace);
+    const session = await getServerAuthSession();
+    if (!session || session.user.role !== "teacher")
+        redirect("/login", RedirectType.replace);
 
-  return (
-    <>
-      <TeacherDrawer />
-      {children}
-    </>
-  );
+    return (
+        <>
+            <TeacherDrawer />
+            {children}
+        </>
+    );
 };
 
 export default TeacherDashboardLayout;

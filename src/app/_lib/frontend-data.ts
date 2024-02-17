@@ -1,0 +1,82 @@
+export const NAV_LINKS = {
+    home: [
+        { translationKey: "hero", link: "/#about-us" },
+        { translationKey: "photo-gallery", link: "/#photo-gallery" },
+        { translationKey: "key-features", link: "/#key-features" },
+        { translationKey: "premium-facilities", link: "/#premium-facilities" },
+    ],
+    school: [
+        { translationKey: "about", link: "/school/about-us" },
+        { translationKey: "mission", link: "/school/mission-and-vision" },
+        { translationKey: "principal", link: "/school/principals-message" },
+        { translationKey: "pledge", link: "/school/our-pledge" },
+        { translationKey: "infrastructure", link: "/school/infrastructure" },
+        { translationKey: "achievements", link: "/school/achievements" },
+        { translationKey: "gallery", link: "/school/gallery" },
+        { translationKey: "news", link: "/school/in-the-news" },
+        { translationKey: "transport", link: "/school/school-transport" },
+        { translationKey: "news-letter", link: "/school/newsletter" },
+        { translationKey: "contact", link: "/school/contact-us" },
+    ],
+    admission: [
+        { translationKey: "procedure", link: "/admission/procedure" },
+        {
+            translationKey: "instructions",
+            link: "/admission/general-instructions-for-admission",
+        },
+        { translationKey: "admission-portal", link: "/admission/portal" },
+    ],
+    miscellaneous: [
+        { translationKey: "timings", link: "/student/school-timings" },
+        { translationKey: "cc", link: "/student/code-of-conduct" },
+        {
+            translationKey: "+ve-behavior-manage",
+            link: "/student/positive-behavior-management",
+        },
+        { translationKey: "uniform", link: "/parent/school-uniform" },
+        { translationKey: "uniform", link: "/parent/school-uniform" },
+        { translationKey: "hours", link: "/parent/visiting-hours" },
+    ],
+    // academic: [
+    //     { translationKey: "result", link: "/academics/result-analysis" },
+    //     { translationKey: "syllabus", link: "/academics/syllabus" },
+    //     { translationKey: "holiday", link: "/academics/holiday-list" },
+    // ],
+    // student: [
+    //     { translationKey: "portal", link: "/dashboard/student" },
+    //     { translationKey: "council", link: "/student/student-council" },
+    //     {
+    //         translationKey: "activities",
+    //         link: "/student/co-curricular-activities",
+    //     },
+    //     { translationKey: "timings", link: "/student/school-timings" },
+    //     { translationKey: "prayer", link: "/student/school-prayer" },
+    //     { translationKey: "trips", link: "/student/trips-and-excursions" },
+    //     { translationKey: "cc", link: "/student/code-of-conduct" },
+    //     { translationKey: "s-rules", link: "/student/special-rules" },
+    //     { translationKey: "l-rules", link: "/student/library-rules" },
+    //     { translationKey: "c-rules", link: "/student/canteen-rules" },
+    //     {
+    //         translationKey: "+ve-behavior-manage",
+    //         link: "/student/positive-behavior-management",
+    //     },
+    //     {
+    //         translationKey: "cce",
+    //         link: "/student/continuous-and-comprehensive-evaluation",
+    //     },
+    // ],
+    // parent: [
+    //     { translationKey: "dispersal", link: "/parent/student-dispersal" },
+    //     { translationKey: "uniform", link: "/parent/school-uniform" },
+    //     { translationKey: "hours", link: "/parent/visiting-hours" },
+    //     { translationKey: "guidelines", link: "/parent/general-guidelines" },
+    //     {
+    //         translationKey: "absence",
+    //         link: "/parent/absence-leave-late-arrival-in-school",
+    //     },
+    //     { translationKey: "infirmary", link: "/parent/school-infirmary" },
+    //     { translationKey: "report", link: "/parent/progress-report" },
+    //     { translationKey: "fee", link: "/dashboard/parent" },
+    //     { translationKey: "login", link: "/dashboard/parent" },
+    // ],
+} as const;

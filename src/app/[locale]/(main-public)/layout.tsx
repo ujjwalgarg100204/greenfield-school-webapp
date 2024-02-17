@@ -7,14 +7,14 @@ import MainNavbar from "./_components/Navbar/MainNavbar";
 type Props = { children: React.ReactNode };
 
 const MainSiteLayout: FC<Props> = ({ children }) => {
-  return (
-    <div>
-      <MainNavbar />
-      <LinksNavbar />
-      {children}
-      <Footer />
-    </div>
-  );
+    return (
+        <div>
+            <MainNavbar />
+            <LinksNavbar />
+            {children}
+            <Footer />
+        </div>
+    );
 };
 
 export default MainSiteLayout;

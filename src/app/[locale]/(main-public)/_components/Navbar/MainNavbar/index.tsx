@@ -1,72 +1,72 @@
 import {
-  Button,
-  Link,
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-} from "@lib/next-ui";
+    Button,
+    Link,
+    Navbar,
+    NavbarBrand,
+    NavbarContent,
+    NavbarItem,
+} from "@/src/app/_lib/next-ui";
 
-import type { FC } from "react";
-import GreenfieldLogo from "@/public/images/logo.png";
+import LanguageSwitcher from "@/src/app/_components/ui/LanguageSwitcher";
+import { getScopedI18n } from "@/src/app/_locales/server";
 import Image from "next/image";
-import LanguageSwitcher from "@/src/components/ui/LanguageSwitcher";
+import type { FC } from "react";
 import PrimaryAction from "./PrimaryAction";
-import { getScopedI18n } from "@/src/locales/server";
 
 const MainNavbar: FC = async () => {
-  const t = await getScopedI18n("Root.main-navbar");
+    const t = await getScopedI18n("Root.main-navbar");
 
-  return (
-    <Navbar position="static" maxWidth="full">
-      <NavbarBrand>
-        <Link href="/" className="flex h-full w-full gap-4">
-          <Image
-            src={GreenfieldLogo}
-            alt="Greenfield School Logo"
-            quality={95}
-            className="rounded-full"
-            priority
-          />
-          <p className="hidden text-sm font-bold text-primary md:block md:text-2xl">
-            Greenfield Campus
-            <br />
-            <p> V.C.S.M matric. Hr. sec. School</p>
-          </p>
-        </Link>
-      </NavbarBrand>
+    return (
+        <Navbar position="static" maxWidth="full">
+            <NavbarBrand>
+                <Link href="/" className="flex h-full w-full gap-4">
+                    <Image
+                        src={"/images/logo_pixel_plus.png"}
+                        alt="Greenfield School Logo"
+                        quality={95}
+                        width={95}
+                        height={95}
+                        className="rounded-full"
+                        priority
+                    />
+                    <p className="hidden text-sm font-bold text-primary md:block md:text-3xl">
+                        Greenfield Campus
+                        <br /> [V.C.S.M Matric. Hr. Sec. School]
+                    </p>
+                </Link>
+            </NavbarBrand>
 
-      <NavbarContent justify="end" className="gap-2 md:gap-4">
-        <NavbarItem>
-          <LanguageSwitcher />
-        </NavbarItem>
-        <NavbarItem>
-          <Button
-            as={Link}
-            href="/admission/portal"
-            variant="ghost"
-            color="primary"
-            className="hidden font-semibold sm:flex"
-          >
-            {t("admission-portal")}
-          </Button>
-          <Button
-            as={Link}
-            href="/admission/portal"
-            variant="ghost"
-            color="primary"
-            size="sm"
-            className="font-semibold sm:hidden"
-          >
-            {t("admission-portal")}
-          </Button>
-        </NavbarItem>
-        <NavbarItem>
-          <PrimaryAction />
-        </NavbarItem>
-      </NavbarContent>
-    </Navbar>
-  );
+            <NavbarContent justify="end" className="gap-2 md:gap-4">
+                <NavbarItem>
+                    <LanguageSwitcher />
+                </NavbarItem>
+                <NavbarItem>
+                    <Button
+                        as={Link}
+                        href="/admission/portal"
+                        variant="ghost"
+                        color="primary"
+                        className="hidden font-semibold sm:flex"
+                    >
+                        {t("admission-portal")}
+                    </Button>
+                    <Button
+                        as={Link}
+                        href="/admission/portal"
+                        variant="ghost"
+                        color="primary"
+                        size="sm"
+                        className="font-semibold sm:hidden"
+                    >
+                        {t("admission-portal")}
+                    </Button>
+                </NavbarItem>
+                <NavbarItem>
+                    <PrimaryAction />
+                </NavbarItem>
+            </NavbarContent>
+        </Navbar>
+    );
 };
 
 export default MainNavbar;

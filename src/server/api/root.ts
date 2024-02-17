@@ -10,10 +10,10 @@ import { admissionForm as submitHandler } from "./routers/admissionForm";
  * All routers added in /api/routers should be manually added here.
  */
 export const appRouter = createTRPCRouter({
-  auth: authRouter,
-  gallery: galleryRouter,
-  otp: otpRouter,
-  admissionForm: submitHandler,
+    auth: authRouter,
+    gallery: galleryRouter,
+    otp: otpRouter,
+    admissionForm: submitHandler,
 });
 
 // export type definition of API

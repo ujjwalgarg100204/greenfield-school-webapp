@@ -1,14 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const Header = () => {
-  return (
-    <div className='bg-pink-300 md:p-3 md:m-4  rounded-lg'>
-        <div>
-        ₹ Fees section
+    return (
+        <div className="rounded-lg bg-pink-300 md:m-4  md:p-3">
+            <div>₹ Fees section</div>
         </div>
-      
-    </div>
-  )
-}
+    );
+};
 
-export default Header
+export default Header;

@@ -8,14 +8,14 @@ const page = () => {
       {/* <div className="  m-5 w-full  rounded-lg bg-green-100">
         <h1>you are under collect section</h1>
       </div> */}
-      <div className="rounded-lg  font-bold   md:p-3">
-        <div>Payment Collection</div>
-      </div>
-      <div className="my-3 rounded-lg border border-black  md:w-full">
-        <Search_student />
-      </div>
-    </div>
-  );
+            <div className="rounded-lg  font-bold   md:p-3">
+                <div>Payment Collection</div>
+            </div>
+            <div className="my-3 rounded-lg border border-black  md:w-full">
+                <Search_student />
+            </div>
+        </div>
+    );
 };
 
 export default page;

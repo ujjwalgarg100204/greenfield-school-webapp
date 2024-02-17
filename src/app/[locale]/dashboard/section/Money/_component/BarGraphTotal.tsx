@@ -1,50 +1,50 @@
 import {
-  BarElement,
-  CategoryScale,
-  Chart as ChartJS,
-  Legend,
-  LinearScale,
-  Title,
-  Tooltip,
+    BarElement,
+    CategoryScale,
+    Chart as ChartJS,
+    Legend,
+    LinearScale,
+    Title,
+    Tooltip,
 } from "chart.js";
 
 import { Bar } from "react-chartjs-2";
 import { faker } from "@faker-js/faker";
 
 ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend,
 );
 
 export const options = {
-  responsive: true,
+    responsive: true,
 
-  plugins: {
-    legend: {
-      position: "top" as const,
+    plugins: {
+        legend: {
+            position: "top" as const,
+        },
+        title: {
+            display: true,
+        },
     },
-    title: {
-      display: true,
+    scales: {
+        y: {
+            title: {
+                display: true,
+                text: "Amount (₹)", // Y-axis label
+            },
+        },
     },
-  },
-  scales: {
-    y: {
-      title: {
-        display: true,
-        text: "Amount (₹)", // Y-axis label
-      },
-    },
-  },
 };
 
 const labels = [
-  "Total Fees",
-  "Amount requested (Till Date)",
-  "Amount collected",
+    "Total Fees",
+    "Amount requested (Till Date)",
+    "Amount collected",
 ];
 
 export const data = {
