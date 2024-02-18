@@ -1,11 +1,11 @@
 import { Button, Link } from "@/src/app/_lib/next-ui";
 
 import ArticleHeading from "@/src/app/_components/ArticleHeading";
-import { getScopedI18n } from "@/src/app/_locales/server";
-import type { NextPageProps } from "@/src/types";
-import { setStaticParamsLocale } from "next-international/server";
-import type { FC } from "react";
 import ArticlePage from "../../_components/ArticlePage";
+import type { FC } from "react";
+import type { NextPageProps } from "@/src/types";
+import { getScopedI18n } from "@/src/app/_locales/server";
+import { setStaticParamsLocale } from "next-international/server";
 
 const AdmissionPortal: FC<NextPageProps> = async ({ params: { locale } }) => {
     setStaticParamsLocale(locale);

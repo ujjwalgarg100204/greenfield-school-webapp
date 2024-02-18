@@ -65,28 +65,50 @@ const labels = [
     "December",
 ];
 
+// label_dataset = {
+//   '1'
+// }
+// const inputs = {
+//   min: 20,
+//   max: 80,
+//   count: 8,
+//   decimals: 2,
+//   continuity: 1,
+// };
+
+// const generateLabels = () => {
+//   return Utils.months({ count: inputs.count });
+// };
+
+// const generateData = () => Utils.numbers(inputs);
+
+// Utils.srand(42);
+
+// const generateData = () => Utils.numbers(inputs);
+// Utils.srand(42);
+
 export const data = {
-    labels,
-    datasets: [
-        {
-            label: "Paid Fees",
-            data: labels.map(() => faker.number.int({ min: 0, max: 1000 })),
-            backgroundColor: "rgba(255, 99, 132, 0.5)",
-        },
-        {
-            label: "Unpaid Fees",
-            data: labels.map(() => faker.number.int({ min: 0, max: 1000 })),
-            backgroundColor: "rgba(53, 162, 235, 0.5)",
-        },
-    ],
+  labels,
+  datasets: [
+    {
+      id: 1,
+      label: "",
+      data: [5, 6, 7],
+    },
+    {
+      id: 2,
+      label: "",
+      data: [3, 2, 1],
+    },
+  ],
 };
 
 const BarGraph = () => {
-    return (
-        <div className="flex justify-center md:max-h-96 md:max-w-full">
-            <Bar options={options} data={data} />
-        </div>
-    );
+  return (
+    <div className="flex justify-center md:max-h-96 md:max-w-full">
+      <Bar options={options} data={data} />
+    </div>
+  );
 };
 
 export default BarGraph;

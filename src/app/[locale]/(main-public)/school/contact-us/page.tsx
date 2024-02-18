@@ -1,7 +1,7 @@
 import ArticleHeading from "@/src/app/_components/ArticleHeading";
 import GreenfieldLocation from "@/src/app/_components/GreenfieldLocation";
-import type { NextPageProps } from "@/src/types";
 import { Link } from "@/src/app/_lib/next-ui";
+import type { NextPageProps } from "@/src/types";
 import { setStaticParamsLocale } from "next-international/server";
 import type { FC } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
@@ -20,7 +20,7 @@ const SchoolContactPage: FC<NextPageProps> = ({ params: { locale } }) => {
                     <h2 className="text-lg font-semibold">Reception Contact</h2>
                     <p className="mt-6 flex items-center gap-5">
                         <FaPhoneAlt className="h-5 w-5 fill-primary" />
-                        <span>+91 935 441 6441</span>
+                        <span>+91 98943 76100</span>
                     </p>
                     <p className="mt-2 flex items-center gap-4">
                         <HiMail className="h-7 w-7 fill-primary" />

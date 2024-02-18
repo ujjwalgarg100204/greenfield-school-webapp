@@ -34,13 +34,11 @@ const RoleRadioGroups: FC = () => {
                             : ""
                     }
                 >
-                    {(["student", "admin", "teacher", "parent"] as const).map(
-                        role => (
-                            <RoleRadioButton key={role} value={role}>
-                                {t(`content.inputs.role.roles.${role}`)}
-                            </RoleRadioButton>
-                        ),
-                    )}
+                    {(["student", "admin", "teacher"] as const).map(role => (
+                        <RoleRadioButton key={role} value={role}>
+                            {t(`content.inputs.role.roles.${role}`)}
+                        </RoleRadioButton>
+                    ))}
                 </RadioGroup>
             )}
         />

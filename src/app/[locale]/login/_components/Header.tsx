@@ -28,8 +28,8 @@ const Header: FC = () => {
                         src={"/images/logo.png"}
                         alt="Greenfield Logo"
                         className="h-10 w-10 rounded-full object-cover object-center md:h-12 md:w-12"
-                        width={50}
-                        height={50}
+                        width={30}
+                        height={30}
                         priority
                     />
                     <h1 className="flex flex-grow flex-col font-bold text-black/80">
@@ -41,7 +41,7 @@ const Header: FC = () => {
                             Greenfield Campus
                         </span>
                         <span className="hidden text-sm md:block lg:text-base">
-                            [V.C.S.M matric. Hr. sec. School]
+                            [V.C.S.M Matric. Hr. Sec. School]
                         </span>
                     </h1>
                 </NavbarBrand>

@@ -48,27 +48,32 @@ const labels = [
 ];
 
 export const data = {
-    labels,
-    datasets: [
-        {
-            label: "Paid Fees",
-            data: labels.map(() => faker.number.int({ min: 0, max: 1000 })),
-            backgroundColor: "rgba(255, 99, 132, 0.5)",
-        },
-    ],
+  labels,
+  datasets: [
+    {
+      id: 1,
+      label: "",
+      data: [5, 6, 7],
+    },
+    {
+      id: 2,
+      label: "",
+      data: [3, 2, 1],
+    },
+  ],
 };
 
 const BarGraphTotal = () => {
-    return (
-        <div>
-            <h1 className=" ml-3 text-left font-bold md:ml-10">
-                Collection Report (2023-2024)
-            </h1>
-            <div className="flex justify-center md:max-h-80 md:max-w-full">
-                <Bar options={options} data={data} />
-            </div>
-        </div>
-    );
+  return (
+    <div>
+      <h1 className=" ml-3 text-left font-bold md:ml-10">
+        Collection Report (2023-2024)
+      </h1>
+      <div className="flex justify-center md:max-h-80 md:max-w-full">
+        <Bar options={options} data={data} />
+      </div>
+    </div>
+  );
 };
 
 export default BarGraphTotal;

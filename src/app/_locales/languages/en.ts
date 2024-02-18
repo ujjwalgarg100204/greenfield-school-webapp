@@ -35,9 +35,9 @@ export default {
                         role: {
                             label: "I am a/an",
                             roles: {
-                                student: "Student",
+                                student: "Student/Parent",
                                 teacher: "Teacher",
-                                parent: "Parent",
+                                // parent: "Parent",
                                 admin: "Admin",
                             },
                             error: {
@@ -72,7 +72,7 @@ export default {
                     content: {
                         heading: "Welcome to Greenfield International School",
                         "para-1":
-                            "At Our School, Education is looked upon as a holistic learning experience to help children develop those attributes and qualities which will make them self-reliant. Conscious effort is made to foster pride in and love for the country and its great heritage.The School provides facilities for SUPW, Music & Dance classes at least once a week as part of the regular time table. Besides academic excellence and intellectual development, the school helps each child to discover and develop his innate talents and abilities. It seeks to instill in the children good habits and values such as truthfulness, self respect, sense of duty, discipline, and punctuality.",
+                            "At Our School, Education is looked upon as a holistic learning experience to help children develop those attributes and qualities which will make them self-reliant. Conscious effort is made to foster pride in and love for the country and its great heritage.The School provides facilities for Drawing(SUPW), Music & Dance classes at least once a week as part of the regular time table. Besides academic excellence and intellectual development, the school helps each child to discover and develop his innate talents and abilities. It seeks to instill in the children good habits and values such as truthfulness, self respect, sense of duty, discipline, and punctuality.",
                         "button-text": "About us",
                     },
                 },
@@ -187,7 +187,7 @@ export default {
             },
         },
         school: {
-            title: "School",
+            title: "About Us",
             "sub-links": {
                 about: {
                     title: "About Us",
@@ -195,7 +195,7 @@ export default {
                         "para-1":
                             "At Our School, Education is looked upon as a holistic learning experience to help children develop those attributes and qualities which will make them self-reliant. Conscious effort is made to foster pride in and love for the country and its great heritage.",
                         "para-2":
-                            "The School provides facilities for SUPW, Music & Dance classes at least once a week as part of the regular time table. Besides academic excellence and intellectual development, the school helps each child to discover and develop his innate talents and abilities. It seeks to instill in the children good habits and values such as truthfulness, self respect, sense of duty, discipline, and punctuality. The School provides a pleasing learning environment with a spirit of sharing and caring and with close bonds between teachers and students. They are trained to participate in inter-house and inter school competition in declamation, debates, recitations and quiz. We also provide adequate games and sports facilities to our students.",
+                            "The School provides facilities for Drawing(SUPW), Music & Dance classes at least once a week as part of the regular time table. Besides academic excellence and intellectual development, the school helps each child to discover and develop his innate talents and abilities. It seeks to instill in the children good habits and values such as truthfulness, self respect, sense of duty, discipline, and punctuality. The School provides a pleasing learning environment with a spirit of sharing and caring and with close bonds between teachers and students. They are trained to participate in inter-house and inter school competition in declamation, debates, recitations and quiz. We also provide adequate games and sports facilities to our students.",
                     },
                 },
                 mission: {

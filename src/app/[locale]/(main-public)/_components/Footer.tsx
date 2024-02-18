@@ -8,20 +8,20 @@ const Footer: FC = () => {
     return (
         <footer className="grid grid-cols-2 justify-items-center gap-y-8 rounded-t-md bg-primary px-4 py-8 text-sm text-foreground-100 sm:grid-cols-3 md:grid-cols-5 md:px-5 lg:grid-cols-6 lg:px-6 xl:px-7">
             <section className="col-span-3 max-w-md space-y-4 text-center md:col-span-2 md:justify-self-start md:text-left lg:col-span-3">
-                <p className="text-base font-bold">
+                <p className="text-xs font-bold md:text-lg">
                     Greenfield Campus [V.C.S.M matric. Hr. sec. School]
                 </p>
                 <GreenfieldLocation />
                 <p className="flex items-center gap-2">
                     <MdOutlineLocationOn />
                     <span>
-                        11/34B, Udayampalayam Rd, Pallakattu Thottam, Gounder
+                        11/34B, Udayampalayam Rd, Gounder
                         Mills, Coimbatore, Tamil Nadu 641029
                     </span>
                 </p>
                 <p className="flex items-center gap-3">
                     <BsTelephone />
-                    <span>+91 935 441 6441</span>
+                    <span>+91 98943 76100</span>
                 </p>
             </section>
             <section className="space-y-4 md:justify-self-end">
@@ -76,8 +76,8 @@ const Footer: FC = () => {
                 </ul>
             </section>
             <hr className="col-span-2 w-full rounded-full border border-white text-white md:col-span-6" />
-            <p className="col-span-2 text-center text-xs font-bold md:col-span-6">
-                Greenfield Campus [ [V.C.S.M matric. Hr. sec. School]]@{" "}
+            <p className="col-span-2 text-center text-xs font-bold  md:col-span-6">
+                Greenfield Campus [ [V.C.S.M Matric. Hr. Sec. School]]@{" "}
                 {new Date().getFullYear()}. All rights reserved.
             </p>
         </footer>

@@ -21,17 +21,17 @@ const MainNavbar: FC = async () => {
             <NavbarBrand>
                 <Link href="/" className="flex h-full w-full gap-4">
                     <Image
-                        src={"/images/logo.png"}
+                        src={"/images/logo_pixel_plus.png"}
                         alt="Greenfield School Logo"
                         quality={95}
-                        width={50}
-                        height={50}
+                        width={95}
+                        height={95}
                         className="rounded-full"
                         priority
                     />
-                    <p className="hidden text-sm font-bold text-primary md:block md:text-xl">
+                    <p className="hidden text-sm font-bold text-primary md:block md:text-3xl">
                         Greenfield Campus
-                        <br /> [V.C.S.M matric. Hr. sec. School]
+                        <br /> [V.C.S.M Matric. Hr. Sec. School]
                     </p>
                 </Link>
             </NavbarBrand>
