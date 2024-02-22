@@ -1,22 +1,19 @@
-import { z } from "zod";
-import { AdmissionApplicationValidatorWithZod } from "./validator/AdmissionApplicationValidator";
-
 export default interface AdmissionApplication {
     id: string;
     academicYear: string;
     grade: string;
     studentName: string;
     studentNationality: string;
-    studentReligion?: string;
-    studentCommunity?: string;
-    studentCaste?: string;
+    studentReligion: string | null;
+    studentCommunity: string | null;
+    studentCaste: string | null;
     studentBloodGroup: string;
-    studentMotherTongue?: string;
+    studentMotherTongue: string | null;
     studentGender: string;
     studentDateOfBirth: Date;
     studentPlaceOfBirth: string;
     mobileNumComm: string;
-    studentAadharNumber?: string;
+    studentAadharNumber: string | null;
     address: string;
     fatherName: string;
     fatherProfession: string;
@@ -24,18 +21,8 @@ export default interface AdmissionApplication {
     fatherEmailId: string;
     fatherAadharNumber: string;
     motherName: string;
-    motherProfession?: string;
-    motherEmailId?: string;
+    motherProfession: string | null;
+    motherEmailId: string | null;
     motherMobileNumber: string;
-    motherAadharNumber?: string;
+    motherAadharNumber: string | null;
 }
-
-export const admissionApplicationBuilder = (
-    application: AdmissionApplication,
-) => {
-    return AdmissionApplicationValidatorWithZod.getApplicationFormSchema()
-        .extend({
-            id: z.string().optional(),
-        })
-        .parse(application);
-};

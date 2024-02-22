@@ -12,6 +12,8 @@ model User {
     role         String @map("role")
     username     String @unique @map("username")
     passwordHash String @map("password_hash")
+
+    @@unique([role, username])
 }
 
 model AdmissionApplication {

@@ -174,7 +174,7 @@ const Home: FC = () => {
                                 className="font-bold"
                                 href="/school/about-us"
                             >
-                                About us
+                                More about us
                             </Button>
                         </div>
                         <NextImage
@@ -271,7 +271,7 @@ const Home: FC = () => {
                             color="secondary"
                             className="order-3 font-bold text-amber-950 lg:order-2"
                         >
-                            Enroll Now
+                            Admission
                         </Button>
                         <div className="order-2 w-full self-end justify-self-end text-center font-semibold sm:row-span-2 sm:self-center lg:order-3 lg:text-lg lg:font-normal">
                             Get your kid the best experience of education at

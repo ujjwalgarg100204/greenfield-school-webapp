@@ -7,6 +7,7 @@ const InTheNewsPage = () => {
     return (
         <TwoSectionPage linkTitle="School" currentLink="In the News">
             <H1>Greenfield Latest News</H1>
+            {/* FIXME: there should be a loading state passed in the suspense boundry */}
             <Suspense>
                 <NewsSection />
             </Suspense>

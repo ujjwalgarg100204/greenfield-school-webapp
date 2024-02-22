@@ -10,16 +10,19 @@ import {
     Textarea,
 } from "@nextui-org/react";
 import { useForm, type SubmitHandler } from "react-hook-form";
+import toast from "react-hot-toast";
 import { type z } from "zod";
-import { AdmissionApplicationValidatorWithZod } from "~/server/model/validator/AdmissionApplicationValidator";
+import { AdmissionApplicationValidator } from "~/server/model/validator/AdmissionApplicationValidator";
+import { api } from "~/trpc/react";
 
 const ApplicationFormSchema =
-    AdmissionApplicationValidatorWithZod.getApplicationFormSchema();
+    AdmissionApplicationValidator.getApplicationFormSchema();
 
 const AdmissionApplicationForm = () => {
     const {
         register,
-        watch,
+        setError,
+        reset,
         formState: { errors },
         handleSubmit,
     } = useForm<z.infer<typeof ApplicationFormSchema>>({
@@ -27,21 +30,29 @@ const AdmissionApplicationForm = () => {
         mode: "onBlur",
         reValidateMode: "onBlur",
     });
-    console.log(watch());
-
-    const submitHandler: SubmitHandler<
-        z.infer<typeof ApplicationFormSchema>
-    > = data => {
-        console.log(data);
-    };
+    const { mutate, isLoading } =
+        api.admissionApplication.newApplication.useMutation({
+            onSuccess() {
+                toast.success(
+                    "🎉 Your Application was successfully submitted 🎉",
+                );
+                reset();
+            },
+            onError(err) {
+                setError("root.serverError", { message: err.message });
+            },
+        });
 
     return (
-        <form className="space-y-6" onSubmit={handleSubmit(submitHandler)}>
+        <form
+            className="space-y-6"
+            onSubmit={handleSubmit(data => mutate(data))}
+        >
             <section className="space-y-4">
                 <h4 className="rounded-sm border-3 bg-green-50 py-2 pl-2 text-xl font-bold">
                     Student&apos;s Particulars
                 </h4>
-                <div className="grid grid-cols-2 gap-x-4 gap-y-2 px-2 pb-4 text-xl">
+                <div className="grid grid-cols-1 gap-x-4 gap-y-2 px-2 pb-4 text-xl md:grid-cols-2">
                     <Select
                         variant="underlined"
                         label="Academic Year"
@@ -100,7 +111,7 @@ const AdmissionApplicationForm = () => {
                         isInvalid={errors.studentName !== undefined}
                         errorMessage={errors.studentName?.message}
                         placeholder="Ex: John Doe"
-                        className="col-span-2"
+                        className="md:col-span-2"
                         size="lg"
                         color="primary"
                         isRequired
@@ -236,7 +247,7 @@ const AdmissionApplicationForm = () => {
                         errorMessage={errors.address?.message}
                         placeholder="EX: No. 123, ABC Street, Chennai, Chennai, Tamil Nadu, 600001, India"
                         size="lg"
-                        className="col-span-2"
+                        className="md:col-span-2"
                         classNames={{ label: "pb-2" }}
                         color="primary"
                         isRequired
@@ -248,8 +259,8 @@ const AdmissionApplicationForm = () => {
                 <h3 className="rounded-sm border-3 bg-green-50 py-2 pl-2 text-xl font-bold">
                     Parent&apos;s Particulars
                 </h3>
-                <div className="grid grid-cols-2 gap-x-4 gap-y-2 px-2 pb-4 text-xl">
-                    <h4 className="col-span-2 text-left font-semibold">
+                <div className="grid grid-cols-1 gap-x-4 gap-y-2 px-2 pb-4 text-xl md:grid-cols-2">
+                    <h4 className="text-left font-semibold md:col-span-2">
                         Father&apos;s Details
                     </h4>
                     <Input
@@ -259,7 +270,7 @@ const AdmissionApplicationForm = () => {
                         isInvalid={errors.fatherName !== undefined}
                         errorMessage={errors.fatherName?.message}
                         placeholder="Ex: John Doe"
-                        className="col-span-2"
+                        className="md:col-span-2"
                         size="lg"
                         color="primary"
                         isRequired
@@ -310,7 +321,7 @@ const AdmissionApplicationForm = () => {
                         size="lg"
                         {...register("fatherEmailId")}
                     />
-                    <h4 className="col-span-2 pt-4 text-xl font-semibold">
+                    <h4 className="pt-4 text-xl font-semibold md:col-span-2">
                         Mother&apos;s Details
                     </h4>
                     <Input
@@ -320,7 +331,7 @@ const AdmissionApplicationForm = () => {
                         isInvalid={errors.motherName !== undefined}
                         errorMessage={errors.motherName?.message}
                         placeholder="Ex: John Doe"
-                        className="col-span-2"
+                        className="md:col-span-2"
                         size="lg"
                         color="primary"
                         isRequired
@@ -374,6 +385,13 @@ const AdmissionApplicationForm = () => {
                 </div>
             </section>
             <section>
+                {errors?.root?.serverError && (
+                    <div className="font-bolder border-2 border-danger-700 px-4 py-2 text-danger-600">
+                        {errors.root.serverError.message}
+                    </div>
+                )}
+            </section>
+            <section>
                 <h4 className="border-3 bg-green-50 py-2 pl-2 text-lg font-bold text-danger-500 md:text-base">
                     Declaration:
                 </h4>
@@ -382,13 +400,17 @@ const AdmissionApplicationForm = () => {
                         <span className="px-1 font-bold text-danger-500">
                             *
                         </span>{" "}
-                        I agree that all the information provided above is
-                        absolutely correct to the best of my knowledge.
+                        <span className="text-justify text-sm md:text-base">
+                            I agree that all the information provided above is
+                            absolutely correct to the best of my knowledge.
+                        </span>
                     </Checkbox>
                     <Button
                         color="primary"
                         type="submit"
                         className="max-w-fit font-bold"
+                        disabled={isLoading}
+                        isDisabled={isLoading}
                     >
                         Submit My Application
                     </Button>

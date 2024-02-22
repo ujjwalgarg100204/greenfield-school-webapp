@@ -1,10 +1,11 @@
 import type AdmissionApplication from "../model/AdmissionApplication";
 import { type AdmissionApplicationRepository } from "../model/repository/AdmissionApplicationRepository";
+import { AdmissionApplicationValidator } from "../model/validator/AdmissionApplicationValidator";
 
 export interface AdmissionApplicationService {
-    save(
-        application: { id?: string } & Omit<AdmissionApplication, "id">,
-    ): Promise<void>;
+    createNewApplication(
+        application: Omit<AdmissionApplication, "id">,
+    ): Promise<AdmissionApplication>;
 }
 
 export class AdmissionApplicationServiceImpl
@@ -15,9 +16,14 @@ export class AdmissionApplicationServiceImpl
     public constructor(applicationRepo: AdmissionApplicationRepository) {
         this.applicationRepo = applicationRepo;
     }
-    public async save(
-        application: { id?: string } & Omit<AdmissionApplication, "id">,
-    ): Promise<void> {
-        await this.applicationRepo.save(application);
+
+    public async createNewApplication(
+        application: Omit<AdmissionApplication, "id">,
+    ): Promise<AdmissionApplication> {
+        const parsed =
+            AdmissionApplicationValidator.getCreateNewApplicationFormSchema().parse(
+                application,
+            );
+        return await this.applicationRepo.createNewApplication(parsed);
     }
 }

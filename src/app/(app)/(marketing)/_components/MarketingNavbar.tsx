@@ -1,4 +1,5 @@
 import NextImage from "next/image";
+import { redirect } from "next/navigation";
 import GreenfieldLogo from "~/../public/images/logo_pixel_plus.png";
 import {
     Button,
@@ -8,7 +9,8 @@ import {
     NavbarContent,
     NavbarItem,
 } from "~/app/next-ui";
-import AccountDropdown from "./AccountDropdown";
+import { getServerAuthSession, logout } from "~/server/auth";
+import AccountDropdown from "../../../_components/AccountDropdown";
 import MarketingLinksDropdown from "./MarketingLinksDropdown";
 
 export const NAV_LINKS = {
@@ -46,8 +48,12 @@ export const NAV_LINKS = {
 } as const;
 
 const MarketingNavbar = async () => {
-    // const session = await getServerAuthSession();
-    const session = null;
+    const session = await getServerAuthSession();
+    const logoutHandler = async () => {
+        "use server";
+        await logout();
+        redirect("/");
+    };
 
     return (
         <>
@@ -77,12 +83,33 @@ const MarketingNavbar = async () => {
                     <NavbarItem>
                         <Button
                             as={Link}
+                            href="/school/contact-us"
+                            variant="ghost"
+                            color="primary"
+                            className="hidden font-semibold sm:flex"
+                        >
+                            Contact Us
+                        </Button>
+                        <Button
+                            as={Link}
+                            href="/school/contact-us"
+                            variant="ghost"
+                            color="primary"
+                            size="sm"
+                            className="font-semibold sm:hidden"
+                        >
+                            Contact Us
+                        </Button>
+                    </NavbarItem>
+                    <NavbarItem>
+                        <Button
+                            as={Link}
                             href="/admission/portal"
                             variant="ghost"
                             color="primary"
                             className="hidden font-semibold sm:flex"
                         >
-                            Admission Portal
+                            Admission
                         </Button>
                         <Button
                             as={Link}
@@ -122,7 +149,10 @@ const MarketingNavbar = async () => {
                                 </Button>
                             </>
                         ) : (
-                            <AccountDropdown />
+                            <AccountDropdown
+                                user={session.user}
+                                logoutHandler={logoutHandler}
+                            />
                         )}
                     </NavbarItem>
                 </NavbarContent>

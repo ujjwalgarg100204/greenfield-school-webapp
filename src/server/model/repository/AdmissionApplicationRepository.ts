@@ -1,20 +1,25 @@
 import { db } from "~/server/db";
 import type AdmissionApplication from "../AdmissionApplication";
+import { AdmissionApplicationValidator } from "../validator/AdmissionApplicationValidator";
 
 export interface AdmissionApplicationRepository {
-    save(
-        application: { id?: string } & Omit<AdmissionApplication, "id">,
-    ): Promise<void>;
+    createNewApplication(
+        application: Omit<AdmissionApplication, "id">,
+    ): Promise<AdmissionApplication>;
 }
 
 export class AdmissionApplicationRepositoryImpl
     implements AdmissionApplicationRepository
 {
-    public async save(
-        application: { id?: string } & Omit<AdmissionApplication, "id">,
-    ): Promise<void> {
-        await db.admissionApplication.create({
-            data: { ...application },
+    public async createNewApplication(
+        application: Omit<AdmissionApplication, "id">,
+    ): Promise<AdmissionApplication> {
+        const parsed =
+            AdmissionApplicationValidator.getCreateNewApplicationFormSchema().parse(
+                application,
+            );
+        return await db.admissionApplication.create({
+            data: { ...parsed },
         });
     }
 }
