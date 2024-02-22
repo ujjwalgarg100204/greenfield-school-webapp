@@ -9,7 +9,7 @@ import {
     SelectItem,
     Textarea,
 } from "@nextui-org/react";
-import { useForm, type SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { type z } from "zod";
 import { AdmissionApplicationValidator } from "~/server/model/validator/AdmissionApplicationValidator";

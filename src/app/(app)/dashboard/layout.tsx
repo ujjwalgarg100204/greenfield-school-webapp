@@ -1,16 +1,16 @@
 import {
+    Link,
     Navbar,
     NavbarBrand,
     NavbarContent,
     NavbarItem,
-    Link,
 } from "@nextui-org/react";
-import React, { ReactNode, FC } from "react";
 import Image from "next/image";
+import { redirect } from "next/navigation";
+import { type FC, type ReactNode } from "react";
 import GreenfieldLogo from "~/../public/images/logo.png";
 import AccountDropdown from "~/app/_components/AccountDropdown";
 import { getServerAuthSession, logout } from "~/server/auth";
-import { redirect } from "next/navigation";
 import AcademicYearDropdown from "./_components/AcademicYearDropdown";
 
 type Props = { children: ReactNode };

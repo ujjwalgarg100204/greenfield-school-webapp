@@ -15,7 +15,7 @@ import { GoNumber } from "react-icons/go";
 import { GrMoney } from "react-icons/gr";
 import { MdWorkOutline } from "react-icons/md";
 import { RiSettings2Line } from "react-icons/ri";
-import Drawer, { DrawerItem } from "../../_components/Drawer";
+import Drawer, { type DrawerItem } from "../../_components/Drawer";
 
 const drawerItems: DrawerItem[] = [
     {

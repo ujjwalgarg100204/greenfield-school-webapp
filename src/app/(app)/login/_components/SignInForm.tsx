@@ -1,10 +1,10 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FC } from "react";
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import { z } from "zod";
-import { RadioGroup, Link, Radio, Input, Button } from "~/app/next-ui";
+import { type FC } from "react";
+import { Controller, useForm, type SubmitHandler } from "react-hook-form";
+import { type z } from "zod";
+import { Button, Input, Link, Radio, RadioGroup } from "~/app/next-ui";
 import { USER_ROLE } from "~/server/model/User";
 import { UserValidator } from "~/server/model/validator/UserValidator";
 

@@ -1,14 +1,14 @@
-import "server-only";
-import { SignJWT, jwtVerify } from "jose";
-import { env } from "~/env";
-import { User } from "./model/User";
-import { UserService, UserServiceImpl } from "./service/UserService";
-import { UserRepositoryImpl } from "./model/repository/UserRepo";
-import { cookies } from "next/headers";
-import { NextRequest, NextResponse } from "next/server";
-import { UserValidator } from "./model/validator/UserValidator";
-import { z } from "zod";
 import crypto from "crypto";
+import { SignJWT, jwtVerify } from "jose";
+import { cookies } from "next/headers";
+import { NextResponse, type NextRequest } from "next/server";
+import "server-only";
+import { z } from "zod";
+import { env } from "~/env";
+import { type User } from "./model/User";
+import { UserRepositoryImpl } from "./model/repository/UserRepo";
+import { UserValidator } from "./model/validator/UserValidator";
+import { UserServiceImpl, type UserService } from "./service/UserService";
 
 const key = new TextEncoder().encode(env.JWT_SECRET);
 const alg = "HS256";
@@ -31,7 +31,7 @@ export const decrypt = async (input: string): Promise<JWTPayload> => {
     return payload as JWTPayload;
 };
 
-export const hashString = (input: string, salt: number = 10): string => {
+export const hashString = (input: string, salt = 10): string => {
     let inputStr = input,
         hashed = "";
     for (let i = 0; i < salt; i++) {

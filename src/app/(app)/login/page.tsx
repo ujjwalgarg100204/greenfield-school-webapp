@@ -1,10 +1,9 @@
-import React from "react";
+import { redirect } from "next/navigation";
+import { type z } from "zod";
+import { login } from "~/server/auth";
+import { UserValidator } from "~/server/model/validator/UserValidator";
 import H1 from "../(marketing)/_components/H1";
 import SignInForm from "./_components/SignInForm";
-import { UserValidator } from "~/server/model/validator/UserValidator";
-import { z } from "zod";
-import { login } from "~/server/auth";
-import { redirect } from "next/navigation";
 
 const SignInFormSchema = UserValidator.getUserSignInFormSchema();
 

@@ -1,6 +1,6 @@
-import H1 from "../../(marketing)/_components/H1";
+import { type FC } from "react";
 import { Button, Link } from "~/app/next-ui";
-import { FC } from "react";
+import H1 from "../../(marketing)/_components/H1";
 
 const ForgetPasswordPage: FC = () => {
     return (

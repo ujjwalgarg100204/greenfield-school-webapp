@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 import { getServerAuthSession, updateSession } from "./server/auth";
 
 export const middleware = async (req: NextRequest) => {

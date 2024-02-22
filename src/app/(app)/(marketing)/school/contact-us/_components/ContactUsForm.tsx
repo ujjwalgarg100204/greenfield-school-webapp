@@ -29,6 +29,7 @@ const ContactUsForm: FC = () => {
         z.infer<typeof ContactUsFormSchema>
     > = data => {
         reset();
+        console.log(data);
         toast.success(
             "Query submitted successfully\nWe will get back to you shortly.",
         );

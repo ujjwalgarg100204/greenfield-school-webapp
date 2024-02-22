@@ -1,5 +1,5 @@
 import { db } from "~/server/db";
-import { User } from "../User";
+import { type User } from "../User";
 import { UserValidator } from "../validator/UserValidator";
 
 export interface UserRepository {

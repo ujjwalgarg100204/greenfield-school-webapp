@@ -1,14 +1,14 @@
 "use client";
 
 import {
-    Dropdown,
-    DropdownTrigger,
-    DropdownMenu,
-    DropdownItem,
     Button,
-    Selection,
+    Dropdown,
+    DropdownItem,
+    DropdownMenu,
+    DropdownTrigger,
+    type Selection,
 } from "@nextui-org/react";
-import { FC, useState, useMemo } from "react";
+import { useMemo, useState, type FC } from "react";
 
 const AcademicYearDropdown: FC = () => {
     const [selectedKeys, setSelectedKeys] = useState<Set<string | number>>(

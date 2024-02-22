@@ -20,7 +20,7 @@ import { GiTakeMyMoney } from "react-icons/gi";
 import { GoNumber } from "react-icons/go";
 import { MdWorkOutline } from "react-icons/md";
 import { RiSettings2Line } from "react-icons/ri";
-import Drawer, { DrawerItem } from "../../_components/Drawer";
+import Drawer, { type DrawerItem } from "../../_components/Drawer";
 
 const drawerItems: DrawerItem[] = [
     {

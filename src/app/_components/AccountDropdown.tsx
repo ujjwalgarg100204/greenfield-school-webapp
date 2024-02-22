@@ -5,12 +5,12 @@ import {
     DropdownItem,
     DropdownMenu,
     DropdownTrigger,
-    User,
     Link,
+    User,
 } from "~/app/next-ui";
 
 import type { FC } from "react";
-import { User as TUser } from "~/server/model/User";
+import { type User as TUser } from "~/server/model/User";
 
 type Props = {
     user: Pick<TUser, "role" | "username">;

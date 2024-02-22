@@ -1,14 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import NextImage from "next/image";
 import type { FC } from "react";
+import { useState } from "react";
 import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
 import Carousel from "~/app/_components/ui/Carousel";
 import useResponsiveScreen, {
-    ScreenSize,
+    type ScreenSize,
 } from "~/app/_hooks/useResponsiveScreen";
 import { Button, Card, CardBody, CardHeader } from "~/app/next-ui";
-import NextImage from "next/image";
 
 const getCarouselPercentage = (screenSize: ScreenSize): number => {
     switch (screenSize) {
@@ -105,7 +105,7 @@ const PremiumFacilitiesCarousel: FC<Props> = ({ facilities }) => {
                 centerSlidePercentage={centerSlidePercentage}
             >
                 {facilities.map(facility => (
-                    <Card className="m-4 py-4">
+                    <Card key={facility.heading} className="m-4 py-4">
                         <CardHeader className="flex-col items-start px-4 pb-0 pt-2">
                             <p className="text-tiny font-bold uppercase">
                                 {facility["sub-heading"]}

@@ -2,7 +2,7 @@
 
 import { Chip, Link } from "@nextui-org/react";
 import { useSearchParams } from "next/navigation";
-import { Suspense, type FC } from "react";
+import { type FC } from "react";
 import NewsCard from "./NewsCard";
 
 const DEMO_NEWS = [

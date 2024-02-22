@@ -1,8 +1,8 @@
 import { z } from "zod";
-import { User } from "../model/User";
-import { UserRepository } from "../model/repository/UserRepo";
-import { UserValidator } from "../model/validator/UserValidator";
 import { hashString } from "../auth";
+import { type User } from "../model/User";
+import { type UserRepository } from "../model/repository/UserRepo";
+import { UserValidator } from "../model/validator/UserValidator";
 
 export interface UserService {
     findByRoleUsername(role: string, username: string): Promise<User | null>;
