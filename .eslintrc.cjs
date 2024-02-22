@@ -27,8 +27,9 @@ const config = {
             "warn",
             { argsIgnorePattern: "^_" },
         ],
+        "@typescript-eslint/require-await": "off",
         "@typescript-eslint/no-misused-promises": [
-            2,
+            "error",
             {
                 checksVoidReturn: { attributes: false },
             },

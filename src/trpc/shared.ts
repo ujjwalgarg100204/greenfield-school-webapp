@@ -1,8 +1,8 @@
+import { type inferRouterInputs, type inferRouterOutputs } from "@trpc/server";
 import superjson from "superjson";
 
-import { type AppRouter } from "@/src/server/api/root";
-import type { inferReactQueryProcedureOptions } from "@trpc/react-query";
-import type { inferRouterInputs, inferRouterOutputs } from "@trpc/server";
+import { type AppRouter } from "~/server/controller/root";
+
 export const transformer = superjson;
 
 function getBaseUrl() {
@@ -14,8 +14,6 @@ function getBaseUrl() {
 export function getUrl() {
     return getBaseUrl() + "/api/trpc";
 }
-
-export type ReactQueryOptions = inferReactQueryProcedureOptions<AppRouter>;
 
 /**
  * Inference helper for inputs.

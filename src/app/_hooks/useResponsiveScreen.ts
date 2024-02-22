@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
 import useWindowSize from "./useWindowSize";
 
 export type ScreenSize = "sm" | "md" | "lg" | "xl" | "2xl";

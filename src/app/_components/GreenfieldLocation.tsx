@@ -4,7 +4,6 @@ import { twMerge } from "tailwind-merge";
 type Props = {
     className?: string;
 };
-
 const GreenfieldLocation: FC<Props> = ({ className }) => {
     return (
         <iframe

@@ -1,13 +1,11 @@
-import { Card, CardBody, Link } from "@/src/app/_lib/next-ui";
-
 import type { FC } from "react";
 import { BsFillFileEarmarkPdfFill } from "react-icons/bs";
+import { Card, CardBody, Link } from "~/app/next-ui";
 
 type Props = {
     title: string;
     link: string;
 };
-
 const DownloadablePdfCard: FC<Props> = ({ title, link }) => {
     return (
         <Card isPressable radius="lg" shadow="none">

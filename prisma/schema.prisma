@@ -3,127 +3,42 @@ generator client {
 }
 
 datasource db {
-    provider     = "mysql"
-    url          = env("DATABASE_URL")
-    relationMode = "prisma"
-}
-
-enum UserRoles {
-    student
-    teacher
-    parent
-    admin
+    provider = "mysql"
+    url      = env("DATABASE_URL")
 }
 
 model User {
-    id       String    @id @default(cuid())
-    role     UserRoles
-    username String    @unique
-    password String
+    id           String @id @default(cuid()) @map("id")
+    role         String @map("role")
+    username     String @unique @map("username")
+    passwordHash String @map("password_hash")
 }
 
-model GalleryFolder {
-    id   String @id @default(cuid())
-    name String @unique
-
-    // Define the one-to-many relationship with GalleryImage
-    images GalleryImage[] @relation("GalleryImages")
-
-    // Define the one-to-one relationship with GalleryImage for the thumbnail
-    thumbnail   GalleryImage? @relation("Thumbnail", fields: [thumbnailId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-    thumbnailId String?       @unique
-
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-}
-
-model GalleryImage {
-    id       String @id @default(cuid())
-    filename String
-
-    // Define the many-to-one relationship with GalleryFolder
-    folder   GalleryFolder @relation("GalleryImages", fields: [folderId], references: [id])
-    folderId String
-
-    // Define the one-to-one relationship with GalleryFolder for serving as a thumbnail
-    thumbnailFor GalleryFolder? @relation("Thumbnail")
-
-    @@index([folderId])
-}
-
-model S3UploadTransaction {
-    id           String   @id @default(cuid())
-    s3Path       String   @unique
-    errorMessage String?
-    errorCode    String?
-    createdAt    DateTime @default(now())
-    updatedAt    DateTime @updatedAt
-
-    @@index([s3Path])
-}
-
-model Otp {
-    id        String   @id @default(cuid())
-    mobile    String   @unique
-    otp       String
-    updatedAt DateTime @updatedAt
-    expiresAt DateTime
-
-    @@index([mobile])
-}
-
-model AdmissionForm {
-    id             String @id @default(cuid())
-    saddress       String
-    saadhar        String
-    smobilenumber  String
-    spob           String
-    sdob           String
-    sgender        String
-    smothertoungue String
-    sbg            String
-    scaste         String
-    scommunity     String
-    sreligion      String
-    snationality   String
-    sname          String
-    sclass         String
-    academic_year  String
-    maadhar        String
-    memail         String
-    mmobilenumber  String
-    mothers_name   String
-    faadhar        String @unique
-    fmaiil         String
-    fmobilenumber  String @unique
-    fprofession    String
-    fathers_name   String
-}
-
-model Admin_Student_Application {
-    id             String @id @default(cuid())
-    saddress       String
-    saadhar        String
-    smobilenumber  String
-    spob           String
-    sdob           String
-    sgender        String
-    smothertoungue String
-    sbg            String
-    scaste         String
-    scommunity     String
-    sreligion      String
-    snationality   String
-    sname          String
-    sclass         String
-    academic_year  String
-    maadhar        String
-    memail         String
-    mmobilenumber  String
-    mothers_name   String
-    faadhar        String @unique
-    fmaiil         String
-    fmobilenumber  String @unique
-    fprofession    String
-    fathers_name   String
+model AdmissionApplication {
+    id                  String   @id @default(cuid()) @map("id")
+    academicYear        String   @map("academic_year")
+    grade               String   @map("grade_schema")
+    studentName         String   @map("student_name")
+    studentNationality  String   @map("student_nationality")
+    studentReligion     String?  @map("student_religion")
+    studentCommunity    String?  @map("student_community")
+    studentCaste        String?  @map("student_caste")
+    studentBloodGroup   String   @map("student_blood_group")
+    studentMotherTongue String?  @map("student_mother_tongue")
+    studentGender       String   @map("student_gender")
+    studentDateOfBirth  DateTime @map("student_date_of_birth")
+    studentPlaceOfBirth String   @map("student_place_of_birth")
+    mobileNumComm       String   @map("mobile_num_comm")
+    studentAadharNumber String?  @map("student_aadhar_number")
+    address             String   @map("address")
+    fatherName          String   @map("father_name")
+    fatherProfession    String   @map("father_profession")
+    fatherMobileNumber  String   @map("father_mobile_number")
+    fatherEmailId       String   @map("father_email_id")
+    fatherAadharNumber  String   @map("father_aadhar_number")
+    motherName          String   @map("mother_name")
+    motherProfession    String?  @map("mother_profession")
+    motherEmailId       String?  @map("mother_email_id")
+    motherMobileNumber  String   @map("mother_mobile_number")
+    motherAadharNumber  String?  @map("mother_aadhar_number")
 }
