@@ -2,7 +2,6 @@
     "cSpell.words": [
         "Aadhar",
         "chartjs",
-        "clsx",
         "hookform",
         "matric",
         "nextjs",
@@ -18,8 +17,7 @@
         "_components": "components",
         "_contexts": "context",
         "_hooks": "hook",
-        "_lib": "lib",
-        "_locales": "I18n"
+        "_lib": "lib"
     },
     "terminal.integrated.defaultProfile.windows": "Git Bash"
 }
