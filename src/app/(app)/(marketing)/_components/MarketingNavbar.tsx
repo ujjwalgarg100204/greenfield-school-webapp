@@ -12,6 +12,7 @@ import {
 import { getServerAuthSession, logout } from "~/server/auth";
 import AccountDropdown from "../../../_components/AccountDropdown";
 import MarketingLinksDropdown from "./MarketingLinksDropdown";
+import AdmissionButton from "./AdmissionButton";
 
 export const NAV_LINKS = {
     ["School"]: [
@@ -20,22 +21,15 @@ export const NAV_LINKS = {
         { title: "Principal's Message", link: "/school/principals-message" },
         { title: "Our Pledge", link: "/school/our-pledge" },
         { title: "Infrastructure", link: "/school/infrastructure" },
-        { title: "Achievements", link: "/school/achievements" },
+        //  FIXME: add this page later after we have  received some data
+        // { title: "Achievements", link: "/school/achievements" },
         { title: "Gallery", link: "/school/gallery" },
-        { title: "In the News", link: "/school/in-the-news" },
+        //  FIXME: add this page later after we have  received some data
+        //{ title: "In the News", link: "/school/in-the-news" },
         { title: "School Transport", link: "/school/school-transport" },
-        { title: "Newsletter", link: "/school/newsletter" },
         { title: "Contact Us", link: "/school/contact-us" },
     ],
-    ["Admission"]: [
-        { title: "Admission Procedure", link: "/admission/procedure" },
-        {
-            title: "General Instructions for Admission",
-            link: "/admission/general-instructions-for-admission",
-        },
-        { title: "Admission Portal", link: "/admission/portal" },
-    ],
-    ["Miscellaneous"]: [
+    ["Campus Life"]: [
         { title: "Timings", link: "/misc/school-timings" },
         { title: "Code of Conduct", link: "/misc/code-of-conduct" },
         {
@@ -102,25 +96,7 @@ const MarketingNavbar = async () => {
                         </Button>
                     </NavbarItem>
                     <NavbarItem>
-                        <Button
-                            as={Link}
-                            href="/admission/portal"
-                            variant="ghost"
-                            color="primary"
-                            className="hidden font-semibold sm:flex"
-                        >
-                            Admission
-                        </Button>
-                        <Button
-                            as={Link}
-                            href="/admission/portal"
-                            variant="ghost"
-                            color="primary"
-                            size="sm"
-                            className="font-semibold sm:hidden"
-                        >
-                            Admission
-                        </Button>
+                        <AdmissionButton />
                     </NavbarItem>
                     <NavbarItem>
                         {session === null ? (
