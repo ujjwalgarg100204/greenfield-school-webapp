@@ -1,5 +1,4 @@
 import type { FC, HTMLAttributes, ThHTMLAttributes } from "react";
-
 import { twMerge } from "tailwind-merge";
 
 const Table: FC<
@@ -100,6 +99,7 @@ const TableCaption: FC<
                 "bg-white p-5 text-left text-lg font-semibold text-gray-900 dark:bg-gray-800 dark:text-white",
                 className,
             )}
+            role="caption"
         >
             {title}
             {desc && (
