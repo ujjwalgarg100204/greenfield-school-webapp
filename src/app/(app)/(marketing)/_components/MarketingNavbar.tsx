@@ -11,33 +11,53 @@ import {
 } from "~/app/next-ui";
 import { getServerAuthSession, logout } from "~/server/auth";
 import AccountDropdown from "../../../_components/AccountDropdown";
-import MarketingLinksDropdown from "./MarketingLinksDropdown";
 import AdmissionButton from "./AdmissionButton";
+import MarketingLinksDropdown from "./MarketingLinksDropdown";
 
 export const NAV_LINKS = {
     ["School"]: [
-        { title: "About Us", link: "/school/about-us" },
-        { title: "Mission and Vision", link: "/school/mission-and-vision" },
-        { title: "Principal's Message", link: "/school/principals-message" },
-        { title: "Our Pledge", link: "/school/our-pledge" },
-        { title: "Infrastructure", link: "/school/infrastructure" },
+        { title: "About Us", link: "/school/about-us", hidden: false },
+        {
+            title: "Mission and Vision",
+            link: "/school/mission-and-vision",
+            hidden: false,
+        },
+        {
+            title: "Principal's Message",
+            link: "/school/principals-message",
+            hidden: false,
+        },
+        { title: "Our Pledge", link: "/school/our-pledge", hidden: false },
+        {
+            title: "Infrastructure",
+            link: "/school/infrastructure",
+            hidden: false,
+        },
         //  FIXME: add this page later after we have  received some data
-        // { title: "Achievements", link: "/school/achievements" },
-        { title: "Gallery", link: "/school/gallery" },
+        { title: "Gallery", link: "/school/gallery", hidden: true },
         //  FIXME: add this page later after we have  received some data
-        //{ title: "In the News", link: "/school/in-the-news" },
-        { title: "School Transport", link: "/school/school-transport" },
-        { title: "Contact Us", link: "/school/contact-us" },
+        { title: "In the News", link: "/school/in-the-news", hidden: true },
+        {
+            title: "School Transport",
+            link: "/school/school-transport",
+            hidden: false,
+        },
+        { title: "Contact Us", link: "/school/contact-us", hidden: false },
     ],
     ["Campus Life"]: [
-        { title: "Timings", link: "/misc/school-timings" },
-        { title: "Code of Conduct", link: "/misc/code-of-conduct" },
+        { title: "Timings", link: "/misc/school-timings", hidden: false },
+        {
+            title: "Code of Conduct",
+            link: "/misc/code-of-conduct",
+            hidden: false,
+        },
         {
             title: "Positive Behavior Management",
             link: "/misc/positive-behavior-management",
+            hidden: false,
         },
-        { title: "Uniform", link: "/misc/school-uniform" },
-        { title: "School Hours", link: "/misc/school-hours" },
+        { title: "Uniform", link: "/misc/school-uniform", hidden: false },
+        { title: "School Hours", link: "/misc/school-hours", hidden: false },
     ],
 } as const;
 

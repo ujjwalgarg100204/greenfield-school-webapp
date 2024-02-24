@@ -1,10 +1,10 @@
 import { Button, Link } from "@nextui-org/react";
 import H1 from "../../_components/H1";
-import TwoSectionPage from "../../_components/TwoSectionPage";
+import TwoSectionAdmissionPage from "../_components/TwoSectionAdmissionPage";
 
 const AdmissionPortalPage = () => {
     return (
-        <TwoSectionPage linkTitle="Admission" currentLink="Admission Portal">
+        <TwoSectionAdmissionPage highlightedLink="Admission Portal">
             <H1>Welcome to Admission Portal of Greenfield School</H1>
             <div className="space-y-4">
                 <p>
@@ -29,7 +29,7 @@ const AdmissionPortalPage = () => {
             >
                 Get Started
             </Button>
-        </TwoSectionPage>
+        </TwoSectionAdmissionPage>
     );
 };
 

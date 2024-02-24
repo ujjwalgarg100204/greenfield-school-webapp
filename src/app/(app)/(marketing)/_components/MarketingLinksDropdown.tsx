@@ -14,7 +14,7 @@ import {
 
 type Props = {
     title: string;
-    links: ReadonlyArray<{ title: string; link: string }>;
+    links: ReadonlyArray<{ title: string; link: string; hidden: boolean }>;
 };
 const MarketingLinksDropdown: FC<Props> = ({ title, links }) => {
     return (
@@ -36,16 +36,18 @@ const MarketingLinksDropdown: FC<Props> = ({ title, links }) => {
                     base: "gap-4",
                 }}
             >
-                {links.map(({ title, link }) => (
-                    <DropdownItem
-                        key={title}
-                        href={link}
-                        as={Link}
-                        className="text-foreground data-[hover=true]:bg-transparent data-[hover=true]:text-primary data-[hover=true]:underline"
-                    >
-                        {title}
-                    </DropdownItem>
-                ))}
+                {links
+                    .filter(link => link.hidden === false)
+                    .map(({ title, link }) => (
+                        <DropdownItem
+                            key={title}
+                            href={link}
+                            as={Link}
+                            className="text-foreground data-[hover=true]:bg-transparent data-[hover=true]:text-primary data-[hover=true]:underline"
+                        >
+                            {title}
+                        </DropdownItem>
+                    ))}
             </DropdownMenu>
         </Dropdown>
     );

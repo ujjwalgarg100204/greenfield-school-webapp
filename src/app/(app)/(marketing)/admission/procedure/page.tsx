@@ -1,6 +1,6 @@
 import StaticList from "~/app/_components/ui/StaticList";
 import H1 from "../../_components/H1";
-import TwoSectionPage from "../../_components/TwoSectionPage";
+import TwoSectionAdmissionPage from "../_components/TwoSectionAdmissionPage";
 
 const PROCEDURE = [
     "The Admission procedure will be intimated to the parents of the selected candidates. It is mandatory for both the parents and local / legal guardian to be present to complete various admission formalities.",
@@ -12,10 +12,10 @@ const PROCEDURE = [
 
 const AdmissionProcedurePage = () => {
     return (
-        <TwoSectionPage linkTitle="Admission" currentLink="Admission Procedure">
+        <TwoSectionAdmissionPage highlightedLink="Admission Procedure">
             <H1>Admission Procedure</H1>
             <StaticList list={PROCEDURE} />
-        </TwoSectionPage>
+        </TwoSectionAdmissionPage>
     );
 };
 

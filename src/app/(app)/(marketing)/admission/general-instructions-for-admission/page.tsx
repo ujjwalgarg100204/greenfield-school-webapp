@@ -1,6 +1,6 @@
 import StaticList from "~/app/_components/ui/StaticList";
 import H1 from "../../_components/H1";
-import TwoSectionPage from "../../_components/TwoSectionPage";
+import TwoSectionAdmissionPage from "../_components/TwoSectionAdmissionPage";
 
 const INSTRUCTIONS = [
     "Parents/Guardians should upload only the Birth Certificate issued by Municipal Corporation or the DOB shown Aadhar card. Please do not upload Birth Certificates issued by the Nursing Home/Hospital.",
@@ -16,13 +16,10 @@ const INSTRUCTIONS = [
 
 const GeneralInstructionsForAdmissionPage = () => {
     return (
-        <TwoSectionPage
-            linkTitle="Admission"
-            currentLink="General Instructions for Admission"
-        >
+        <TwoSectionAdmissionPage highlightedLink="General Instructions for Admission">
             <H1>General Instructions for Admission</H1>
             <StaticList list={INSTRUCTIONS} />
-        </TwoSectionPage>
+        </TwoSectionAdmissionPage>
     );
 };
 
