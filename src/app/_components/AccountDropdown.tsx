@@ -10,6 +10,7 @@ import {
 } from "~/app/next-ui";
 
 import type { FC } from "react";
+import toast from "react-hot-toast";
 import { type User as TUser } from "~/server/model/User";
 
 type Props = {
@@ -22,6 +23,9 @@ const AccountDropdown: FC<Props> = ({ user, logoutHandler }) => {
         try {
             await logoutHandler();
         } catch (err) {
+            toast.error(
+                "Something went wrong while logging you out. Please try again",
+            );
             console.log(err);
         }
     };
