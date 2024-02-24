@@ -8,7 +8,6 @@ import {
     TableHeaderCell,
     TableRow,
 } from "./Table";
-
 import { v4 as uuid } from "uuid";
 
 export type Cell = Omit<ThHTMLAttributes<HTMLTableCellElement>, "children"> &
