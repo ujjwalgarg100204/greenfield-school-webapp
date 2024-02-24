@@ -8,27 +8,33 @@ const AboutUsPage: FC = () => {
             <H1>About Us</H1>
             <div className="space-y-4">
                 <p className="text-justify">
-                    At Our School, Education is looked upon as a holistic
-                    learning experience to help children develop those
-                    attributes and qualities which will make them self-reliant.
-                    Conscious effort is made to foster pride in and love for the
-                    country and its great heritage.
+                    Greenfield Campus is a vibrant school where curiosity meets
+                    education and each and every student is valued. In Our
+                    school, we foster a dynamic learning environment that sparks
+                    curiosity, encourages critical thinking, and unleashes
+                    creativity. Sports facilities in our school are designed to
+                    nurture physical health, teamwork and sportsmanship. Our
+                    dedicated management and teachers is committed to nurturing
+                    the intellectual and emotional growth of each student,
+                    preparing them for a future filled with endless
+                    possibilities.
                 </p>
                 <p className="text-justify">
-                    The School provides facilities for Drawing(SUPW), Music &
-                    Dance classes at least once a week as part of the regular
-                    time table. Besides academic excellence and intellectual
-                    development, the school helps each child to discover and
-                    develop his innate talents and abilities. It seeks to
-                    instill in the children good habits and values such as
-                    truthfulness, self respect, sense of duty, discipline, and
-                    punctuality. The School provides a pleasing learning
-                    environment with a spirit of sharing and caring and with
-                    close bonds between teachers and students. They are trained
-                    to participate in inter-house and inter school competition
-                    in declamation, debates, recitations and quiz. We also
-                    provide adequate games and sports facilities to our
-                    students.
+                    In addition to fostering academic excellence, we prioritize
+                    the holistic development of each student, emphasizing
+                    essential life skills that extend beyond the classroom.
+                    Resilience, adaptability, and creativity are integral
+                    aspects of our educational philosophy. Together, we
+                    celebrate diversity, promote inclusiveness, and create a
+                    supportive atmosphere where students feel empowered to
+                    thrive.
+                </p>
+                <p className="text-justify">
+                    Join us on this educational journey, where sports facilities
+                    complement intellectual growth, creating a comprehensive and
+                    empowering foundation for every student&apos;s future
+                    success. Together, we embrace each day as an opportunity for
+                    exploration, discovery, and personal and physical growth.
                 </p>
             </div>
         </TwoSectionPage>
