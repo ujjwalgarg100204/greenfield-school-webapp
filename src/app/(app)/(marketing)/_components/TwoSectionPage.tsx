@@ -23,28 +23,30 @@ const TwoSectionPage: FC<Props> = ({ children, linkTitle, currentLink }) => {
                     <Divider className="h-0.5 rounded-full" />
                     <nav>
                         <ul className="space-y-0.5">
-                            {NAV_LINKS[linkTitle].map(({ link, title }) => (
-                                <li key={title}>
-                                    <Button
-                                        className="w-full justify-start "
-                                        radius="sm"
-                                        as={Link}
-                                        href={link}
-                                        variant={
-                                            currentLink === title
-                                                ? "solid"
-                                                : "light"
-                                        }
-                                        color={
-                                            currentLink === title
-                                                ? "primary"
-                                                : "default"
-                                        }
-                                    >
-                                        {title}
-                                    </Button>
-                                </li>
-                            ))}
+                            {NAV_LINKS[linkTitle]
+                                .filter(link => link.hidden === false)
+                                .map(({ link, title }) => (
+                                    <li key={title}>
+                                        <Button
+                                            className="w-full justify-start "
+                                            radius="sm"
+                                            as={Link}
+                                            href={link}
+                                            variant={
+                                                currentLink === title
+                                                    ? "solid"
+                                                    : "light"
+                                            }
+                                            color={
+                                                currentLink === title
+                                                    ? "primary"
+                                                    : "default"
+                                            }
+                                        >
+                                            {title}
+                                        </Button>
+                                    </li>
+                                ))}
                         </ul>
                     </nav>
                 </aside>

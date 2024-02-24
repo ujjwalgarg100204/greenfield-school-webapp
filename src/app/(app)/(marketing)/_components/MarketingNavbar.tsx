@@ -35,7 +35,7 @@ export const NAV_LINKS = {
         },
         { title: "Achievements", link: "/school/achievements", hidden: true },
         //  FIXME: add this page later after we have  received some data
-        { title: "Gallery", link: "/school/gallery", hidden: true },
+        { title: "Gallery", link: "/school/gallery", hidden: false },
         //  FIXME: add this page later after we have  received some data
         { title: "In the News", link: "/school/in-the-news", hidden: true },
         {
