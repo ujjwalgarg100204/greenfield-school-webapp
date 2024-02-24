@@ -7,57 +7,45 @@ const DEMO_INFRASTRUCTURE_DATA = [
         title: "Smart Classes rooms",
         desc: "Modern & spacious classrooms with Interactive TV",
         image: {
-            src: "https://images.pexels.com/photos/5905445/pexels-photo-5905445.jpeg?auto=compress&cs=tinysrgb",
+            src: "/images/hero-carousel/4.png",
             alt: "smart class",
         },
     },
     {
-        bigScreen: true,
         title: "Sports facilities",
-        desc: "Outdoor Facility for Football, Basketball and Cricket. Indoor Facility for Chess, Gymnastics, Badminton, Yoga & Table Tennis.",
+        desc: "Outdoor Facility for Football,Volleyball, Cricket, Badminton, Yoga, Table Tennis and other sports.",
         image: {
-            src: "https://images.pexels.com/photos/18644293/pexels-photo-18644293/free-photo-of-aerial-drone-view-of-a-rugby-stadium-from-top.jpeg?auto=compress&cs=tinysrgb",
+            src: "/images/sports facility.jpeg",
             alt: "Sports facilities",
         },
     },
     {
-        bigScreen: true,
         title: "Dance Room",
-        desc: "Indian Classical, Folk Dance, Contemporary and Modern Creative Dance etc.",
+        desc: "Dance room for Indian Classical, Folk Dance, Contemporary and Modern Creative Dance etc.",
         image: {
-            src: "https://images.pexels.com/photos/358010/pexels-photo-358010.jpeg?auto=compress&cs=tinysrgb",
+            src: "/images/dance class.jpeg",
             alt: "Dance Room",
         },
     },
     {
         title: "Art Room",
-        desc: "Spacious Air-conditioned well equipped Art Studio to enlarge the creative minds.",
+        desc: "Spacious well equipped Art room to enlarge the creative minds.",
         image: {
             src: "https://images.pexels.com/photos/383568/pexels-photo-383568.jpeg?auto=compress&cs=tinysrgb",
             alt: "Art Room",
         },
     },
     {
-        bigScreen: false,
-        title: "Music Room",
-        desc: "Facilities for learning Piano, Guitar, Tabla, Violin, Vocal - Indian & Western",
-        image: {
-            src: "https://images.pexels.com/photos/164938/pexels-photo-164938.jpeg?auto=compress&cs=tinysrgb",
-            alt: "Music Room",
-        },
-    },
-    {
         title: "Computer Lab",
-        desc: "7 fully Air-conditioned Computer Labs with 1:1 computer for every student. tie-up with NIIT",
+        desc: "Computer lab with latest machines for every student to practice hands on learning with modern tech.",
         image: {
             src: "https://images.pexels.com/photos/3747486/pexels-photo-3747486.jpeg?auto=compress&cs=tinysrgb",
             alt: "Computer Lab",
         },
     },
     {
-        bigScreen: true,
         title: "Library",
-        desc: "5 airconditioned library to cater 200 students at a time. It is well equipped with 50,000 books, numerous magazines, journals and newspapers with more than 1000 DVDs / CDs to browse through. It has excellent collection of latest Reference books for Competitive Entrance Examinations.",
+        desc: "Library to cater for students with well equipped with 5,000+ books, numerous magazines, journals and newspapers with more than DVDs / CDs to browse through. It has excellent collection of latest Reference books for Competitive Entrance Examinations.",
         image: {
             src: "https://images.pexels.com/photos/1370298/pexels-photo-1370298.jpeg?auto=compress&cs=tinysrgb",
             alt: "Library",
@@ -80,19 +68,11 @@ const DEMO_INFRASTRUCTURE_DATA = [
         },
     },
     {
-        title: "Infirmary",
-        desc: "An airconditioned efficient Infirmary with trained nurse to cater daily medical emergencies. Provision for online medical consultation with trained Doctors of the city.",
+        title: "Prime City Location with Greenery",
+        desc: "Prime city location meets tranquil greenery, offering the perfect balance of urban convenience and natural serenity",
         image: {
-            src: "https://images.pexels.com/photos/13427358/pexels-photo-13427358.jpeg?auto=compress&cs=tinysrgb",
-            alt: "Infirmary",
-        },
-    },
-    {
-        title: "Internet and WIFI facility",
-        desc: "Wi-Fi Campus for conducting Online Exams to prepare students for Competitive Exams.",
-        image: {
-            src: "https://images.pexels.com/photos/13092788/pexels-photo-13092788.jpeg?auto=compress&cs=tinysrgb",
-            alt: "Internet and WIFI facility",
+            src: "/images/greenery.jpeg",
+            alt: "Prime City Location and Greenery",
         },
     },
     {
