@@ -4,6 +4,7 @@ import { BsTelephone } from "react-icons/bs";
 import { MdOutlineLocationOn } from "react-icons/md";
 import GreenfieldLocation from "~/app/_components/GreenfieldLocation";
 import MarketingNavbar from "./_components/MarketingNavbar";
+import QRCode from "react-qr-code";
 
 type Props = { children: ReactNode };
 const MarketingSiteLayout: FC<Props> = ({ children }) => {
@@ -11,12 +12,18 @@ const MarketingSiteLayout: FC<Props> = ({ children }) => {
         <div>
             <MarketingNavbar />
             {children}
-            <footer className="grid grid-cols-2 justify-items-center gap-y-8 rounded-t-md bg-primary px-4 py-8 text-sm text-foreground-100 sm:grid-cols-3 md:grid-cols-5 md:px-5 lg:grid-cols-6 lg:px-6 xl:px-7">
-                <section className="col-span-3 max-w-md space-y-4 text-center md:col-span-2 md:justify-self-start md:text-left lg:col-span-3">
+            <footer className="rounded-t-md bg-primary px-4 py-8 text-sm text-foreground-100 sm:grid-cols-3 md:grid-cols-5 md:px-5 lg:grid-cols-6 lg:px-6 xl:px-7">
+                <section className="max-w-md space-y-4 text-center md:col-span-2 md:justify-self-start md:text-left lg:col-span-3">
                     <p className="text-xs font-bold md:text-lg">
                         Greenfield Campus [V.C.S.M matric. Hr. sec. School]
                     </p>
-                    <GreenfieldLocation />
+                    <div className="flex items-center justify-center gap-4">
+                        <GreenfieldLocation />
+                        <QRCode
+                            className="aspect-square h-32 w-48 rounded-xl border-8 border-gray-200"
+                            value="https://www.google.com/maps/place/Greenfields+Matriculation+School/@11.059943,76.949453,14z/data=!4m6!3m5!1s0x3ba8f626ffc42147:0xf398a88ed4aed02b!8m2!3d11.0599425!4d76.9494529!16s%2Fg%2F11fx8r7qn0?hl=en&entry=ttu"
+                        />
+                    </div>
                     <p className="flex items-center gap-2">
                         <MdOutlineLocationOn />
                         <span>
@@ -26,61 +33,16 @@ const MarketingSiteLayout: FC<Props> = ({ children }) => {
                     </p>
                     <p className="flex items-center gap-3">
                         <BsTelephone />
-                        <span>+91 98943 76100</span>
+                        <Link
+                            href="tel://+919894376100"
+                            className="text-white"
+                            underline="always"
+                        >
+                            +91 98943 76100
+                        </Link>
                     </p>
                 </section>
-                <section className="space-y-4 md:justify-self-end">
-                    <h6 className="text-base font-bold">Student Links</h6>
-                    <ul className="space-y-2">
-                        <li>
-                            <Link href="#">Student Portal</Link>
-                        </li>
-                        <li>
-                            <Link href="#">Student Email</Link>
-                        </li>
-                        <li>
-                            <Link href="#">Student Portal</Link>
-                        </li>
-                        <li>
-                            <Link href="#">Student Portal</Link>
-                        </li>
-                    </ul>
-                </section>
-                <section className="space-y-4 md:justify-self-end">
-                    <h6 className="text-base font-bold">Parental Links</h6>
-                    <ul className="space-y-2">
-                        <li>
-                            <Link href="#">Parental Portal</Link>
-                        </li>
-                        <li>
-                            <Link href="#">Parental Email</Link>
-                        </li>
-                        <li>
-                            <Link href="#">Parental Portal</Link>
-                        </li>
-                        <li>
-                            <Link href="#">Parental Portal</Link>
-                        </li>
-                    </ul>
-                </section>
-                <section className="col-span-2 space-y-4 text-center sm:col-auto sm:text-left md:justify-self-end">
-                    <h6 className="text-base font-bold">More about School</h6>
-                    <ul className="space-y-2">
-                        <li>
-                            <Link href="#">About Us</Link>
-                        </li>
-                        <li>
-                            <Link href="#">Infrastructure</Link>
-                        </li>
-                        <li>
-                            <Link href="#">Gallery</Link>
-                        </li>
-                        <li>
-                            <Link href="#">Infirmary</Link>
-                        </li>
-                    </ul>
-                </section>
-                <hr className="col-span-2 w-full rounded-full border border-white text-white md:col-span-6" />
+                <hr className="col-span-2 mb-2 mt-4 w-full rounded-full border border-white text-white md:col-span-6" />
                 <p className="col-span-2 text-center text-xs font-bold  md:col-span-6">
                     Greenfield Campus [V.C.S.M Matric. Hr. Sec. School]@{" "}
                     {new Date().getFullYear()}. All rights reserved.
