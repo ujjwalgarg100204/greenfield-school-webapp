@@ -46,10 +46,7 @@ export class UserServiceImpl implements UserService {
         user: Pick<User, "username" | "role"> & { password: string },
     ): Promise<User> {
         // verify input
-        const parsedInput = UserValidator.getCreateNewUserSchema()
-            .omit({ passwordHash: true })
-            .extend({ password: z.string() })
-            .parse(user);
+        const parsedInput = UserValidator.getUserSignInFormSchema().parse(user);
 
         // check if user already exists
         const foundUser = await this.findByRoleUsername(
