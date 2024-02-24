@@ -20,8 +20,8 @@ const ContactUsPage: FC = () => {
                     </p>
                     <p className="mt-2 flex items-center gap-4">
                         <HiMail className="h-7 w-7 fill-primary" />
-                        <Link href="mailto:greenfieldschool@gmail.com">
-                            greenfieldschool@gmail.com
+                        <Link href="mailto://campusgreenfield@gmail.com">
+                            campusgreenfield@gmail.com
                         </Link>
                     </p>
                 </div>
