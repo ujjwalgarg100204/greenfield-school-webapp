@@ -37,13 +37,10 @@ const AchievementsPage: FC = () => {
                 veniam eos aspernatur possimus voluptate aperiam laudantium
                 deleniti suscipit alias tempore fuga?
             </p>
-            {ACHIEVEMENTS.length > 0 ? (
-                <AchievementsAccordion achievements={ACHIEVEMENTS} />
-            ) : (
-                <p className="text-lg font-semibold">
-                    Working hard for achieving
-                </p>
-            )}
+            {/*FIXME: put some images similar to infrastructure page*/}
+            <p className="text-rose-400">
+                FIXME: put some images similar to infrastructure page
+            </p>
         </TwoSectionPage>
     );
 };
