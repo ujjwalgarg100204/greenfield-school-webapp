@@ -1,40 +1,36 @@
+import NextImage from "next/image";
 import { type FC } from "react";
+import Lottie from "~/app/_components/ui/Lottie";
+import { Button, Card, CardBody, CardHeader, Link } from "~/app/next-ui";
 import HeroCarousel from "./_components/HeroCarousel";
 import PremiumFacilitiesCarousel from "./_components/PremimumFacilitiesCarousel";
-import { Button, Card, CardBody, CardHeader, Link } from "~/app/next-ui";
-import NextImage from "next/image";
-import Lottie from "~/app/_components/ui/Lottie";
 
 const PHOTO_GALLERY_CARDS = [
     {
-        heading: "What to watch",
-        desc: "Stream the Acme event",
+        desc: "School Activities",
         image: {
             url: "/images/photo-gallery-landingPage/1.jpg",
             alt: "adorable dog",
         },
     },
     {
-        heading: "What to watch",
-        desc: "Stream the Acme event",
+        desc: "Student Engagements",
         image: {
             url: "/images/photo-gallery-landingPage/2.jpg",
             alt: "boy studying",
         },
     },
     {
-        heading: "What to watch",
-        desc: "Stream the Acme event",
+        desc: "Extracurricular Pursuits",
         image: {
             url: "/images/photo-gallery-landingPage/3.jpg",
             alt: "students in classroom",
         },
     },
     {
-        heading: "What to watch",
-        desc: "Stream the Acme event",
+        desc: "Cultural Activities",
         image: {
-            url: "/images/photo-gallery-landingPage/4.jpg",
+            url: "/images/cultular-activities.jpeg",
             alt: "students in classroom",
         },
     },
@@ -150,21 +146,18 @@ const Home: FC = () => {
                                 Welcome to Greenfield International School
                             </h5>
                             <p className="mb-3 text-justify font-normal text-gray-700 dark:text-gray-400">
-                                At Our School, Education is looked upon as a
-                                holistic learning experience to help children
-                                develop those attributes and qualities which
-                                will make them self-reliant. Conscious effort is
-                                made to foster pride in and love for the country
-                                and its great heritage.The School provides
-                                facilities for Drawing(SUPW), Music & Dance
-                                classes at least once a week as part of the
-                                regular time table. Besides academic excellence
-                                and intellectual development, the school helps
-                                each child to discover and develop his innate
-                                talents and abilities. It seeks to instill in
-                                the children good habits and values such as
-                                truthfulness, self respect, sense of duty,
-                                discipline, and punctuality.
+                                Greenfield Campus is a vibrant school where
+                                curiosity meets education and each and every
+                                student is valued. In Our school, we foster a
+                                dynamic learning environment that sparks
+                                curiosity, encourages critical thinking, and
+                                unleashes creativity. Sports facilities in our
+                                school are designed to nature physical health,
+                                teamwork and sportsmanship. Our dedicated
+                                management and teachers is committed to
+                                nurturing the intellectual and emotional growth
+                                of each student, preparing them for a future
+                                filled with endless possibilities.
                             </p>
                             <Button
                                 as={Link}
@@ -182,8 +175,8 @@ const Home: FC = () => {
                             quality={95}
                             width={500}
                             height={500}
-                            src={"/images/landing-page-about-us.png"}
-                            alt="Girl Studying in Greenfield school"
+                            src={"/images/landing-page-about-us.jpeg"}
+                            alt="Staff of Greenfield"
                             className="hidden h-72 w-full rounded-lg object-cover lg:block"
                         />
                     </section>
@@ -196,30 +189,32 @@ const Home: FC = () => {
                             </h1>
                         </header>
                         <div className="grid max-w-full grid-rows-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
-                            {PHOTO_GALLERY_CARDS.map(
-                                ({ image, heading, desc }) => (
-                                    <Card
-                                        key={heading}
-                                        className="group h-[300px] w-full"
-                                    >
-                                        <CardHeader className="absolute top-1/2 z-10 w-full -translate-y-1/2 flex-col items-start text-center">
-                                            <p className="w-full text-center text-tiny font-bold uppercase text-white/60">
-                                                {heading}
-                                            </p>
-                                            <h4 className="w-full text-center text-lg font-bold text-slate-50 lg:font-medium">
-                                                {desc}
-                                            </h4>
-                                        </CardHeader>
-                                        <NextImage
-                                            src={image.url}
-                                            alt={image.alt}
-                                            className="z-0 object-cover object-top brightness-[.4] transition-all duration-500 group-hover:hover:scale-110"
-                                            quality={95}
-                                            fill
-                                        />
-                                    </Card>
-                                ),
-                            )}
+                            {PHOTO_GALLERY_CARDS.map(({ image, desc }) => (
+                                <Card
+                                    key={desc}
+                                    className="group h-[300px] w-full"
+                                >
+                                    <CardHeader className="absolute top-1/2 z-10 w-full -translate-y-1/2 flex-col items-start text-center">
+                                        <Link
+                                            href="/school/gallery"
+                                            underline="always"
+                                            className="mx-auto text-center text-tiny font-bold uppercase text-white/60"
+                                        >
+                                            View More
+                                        </Link>
+                                        <h4 className="w-full text-center text-lg font-bold text-slate-50 lg:font-medium">
+                                            {desc}
+                                        </h4>
+                                    </CardHeader>
+                                    <NextImage
+                                        src={image.url}
+                                        alt={image.alt}
+                                        className="z-0 object-cover object-top brightness-[.4] transition-all duration-500 group-hover:hover:scale-110"
+                                        quality={95}
+                                        fill
+                                    />
+                                </Card>
+                            ))}
                         </div>
                     </section>
 
