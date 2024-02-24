@@ -26,7 +26,7 @@ const SCHOOL_HOURS_DATA = {
 
 const SchoolHoursPage: FC = () => {
     return (
-        <TwoSectionPage linkTitle="Miscellaneous" currentLink="School Hours">
+        <TwoSectionPage linkTitle="Campus Life" currentLink="School Hours">
             <H1>School Hours</H1>
             <p>
                 The school would like the parents to maintain a rapport with the

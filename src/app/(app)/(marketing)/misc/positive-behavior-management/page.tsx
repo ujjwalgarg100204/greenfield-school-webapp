@@ -13,7 +13,7 @@ const DEMO_POINTS = [
 const PositiveBehaviorManagementPage = () => {
     return (
         <TwoSectionPage
-            linkTitle="Miscellaneous"
+            linkTitle="Campus Life"
             currentLink="Positive Behavior Management"
         >
             <H1>Positive Behavior Management</H1>

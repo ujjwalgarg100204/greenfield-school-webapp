@@ -6,7 +6,7 @@ import { UNIFORM_RULES, UNIFORMS } from "./data";
 
 const SchoolUniformPage = () => {
     return (
-        <TwoSectionPage linkTitle="Miscellaneous" currentLink="Uniform">
+        <TwoSectionPage linkTitle="Campus Life" currentLink="Uniform">
             <H1>School Uniform</H1>
             <StaticList list={UNIFORM_RULES} containerClassName="space-y-1" />
             <p>

@@ -32,7 +32,7 @@ const DEMO_RULES = [
 
 const CodeOfConductPage = () => {
     return (
-        <TwoSectionPage linkTitle="Miscellaneous" currentLink="Code of Conduct">
+        <TwoSectionPage linkTitle="Campus Life" currentLink="Code of Conduct">
             <H1>Code of Conduct</H1>
             {DEMO_RULES.length > 0 ? (
                 <StaticList list={DEMO_RULES} />

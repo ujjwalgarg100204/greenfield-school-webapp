@@ -4,7 +4,7 @@ import SchoolTimingsTabs from "./_components/SchoolTimingsTabs";
 
 const SchoolTimingsPage = () => {
     return (
-        <TwoSectionPage linkTitle="Miscellaneous" currentLink="Timings">
+        <TwoSectionPage linkTitle="Campus Life" currentLink="Timings">
             <H1>School Timings</H1>
             <SchoolTimingsTabs />
             <p>
