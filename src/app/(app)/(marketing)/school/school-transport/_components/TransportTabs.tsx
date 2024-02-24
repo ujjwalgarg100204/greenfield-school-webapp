@@ -21,7 +21,7 @@ const TABS = [
         href: "/school/school-transport/fees",
     },
     {
-        title: "Bus Routes(Tentative)",
+        title: "Bus Routes",
         key: "bus-routes",
         href: "/school/school-transport/routes",
     },
