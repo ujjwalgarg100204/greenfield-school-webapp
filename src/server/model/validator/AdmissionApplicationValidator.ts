@@ -94,6 +94,37 @@ export class AdmissionApplicationValidator {
         motherAadharNumber: z.string().regex(/^\d{12}$/, {
             message: "Invalid aadhar number, only 12 digit characters allowed",
         }),
+        siblings: z.array(
+            z.object({
+                name: z.string({
+                    required_error: "Sibling's name is required",
+                    invalid_type_error: "Name must be a string",
+                }),
+                grade: z.enum(
+                    [
+                        "PKG",
+                        "LKG",
+                        "UKG",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                    ],
+                    {
+                        required_error: "Sibling's grade is required",
+                        invalid_type_error: "Invalid grade",
+                    },
+                ),
+            }),
+        ),
     });
 
     public static getApplicationFormSchema() {

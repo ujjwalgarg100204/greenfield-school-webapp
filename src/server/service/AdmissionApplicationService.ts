@@ -20,6 +20,7 @@ export class AdmissionApplicationServiceImpl
     public async createNewApplication(
         application: Omit<AdmissionApplication, "id">,
     ): Promise<AdmissionApplication> {
+        // FIXME: Data is not being saved in database rn due to some bug
         const parsed =
             AdmissionApplicationValidator.getCreateNewApplicationFormSchema().parse(
                 application,

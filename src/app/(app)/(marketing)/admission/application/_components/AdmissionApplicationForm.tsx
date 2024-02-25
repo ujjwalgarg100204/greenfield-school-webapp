@@ -1,5 +1,6 @@
 "use client";
-
+import { FaPlus } from "react-icons/fa6";
+import { FaMinus } from "react-icons/fa6";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
     Button,
@@ -9,11 +10,12 @@ import {
     SelectItem,
     Textarea,
 } from "@nextui-org/react";
-import { useForm } from "react-hook-form";
+import { useFieldArray, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { type z } from "zod";
 import { AdmissionApplicationValidator } from "~/server/model/validator/AdmissionApplicationValidator";
 import { api } from "~/trpc/react";
+import { Fragment } from "react";
 
 const ApplicationFormSchema =
     AdmissionApplicationValidator.getApplicationFormSchema();
@@ -23,6 +25,7 @@ const AdmissionApplicationForm = () => {
         register,
         setError,
         reset,
+        control,
         formState: { errors },
         handleSubmit,
     } = useForm<z.infer<typeof ApplicationFormSchema>>({
@@ -30,6 +33,12 @@ const AdmissionApplicationForm = () => {
         mode: "onBlur",
         reValidateMode: "onBlur",
     });
+    const { fields, append, remove } = useFieldArray({
+        control,
+        name: "siblings",
+    });
+    const handleAppendSibling = () => append({ name: "", grade: "1" });
+    const handleRemoveLastSibling = (index: number) => remove(index);
     const { mutate, isLoading } =
         api.admissionApplication.newApplication.useMutation({
             onSuccess() {
@@ -253,6 +262,93 @@ const AdmissionApplicationForm = () => {
                         isRequired
                         {...register("address")}
                     />
+                </div>
+            </section>
+            <section className="space-y-4">
+                <h3 className="rounded-sm border-3 bg-green-50 py-2 pl-2 text-xl font-bold">
+                    Sibling Info
+                </h3>
+                <div className="grid grid-cols-1 gap-x-4 gap-y-4 px-2 pb-4 text-xl md:grid-cols-2">
+                    <Button
+                        className="col-span-2"
+                        color="primary"
+                        startContent={<FaPlus />}
+                        onClick={handleAppendSibling}
+                    >
+                        Add Sibling
+                    </Button>
+                    {fields.map((field, index) => (
+                        <Fragment key={field.id}>
+                            <Input
+                                type="text"
+                                label="Sibling's Name"
+                                variant="underlined"
+                                isInvalid={
+                                    errors?.siblings?.[index]?.name !==
+                                    undefined
+                                }
+                                errorMessage={
+                                    errors?.siblings?.[index]?.name?.message
+                                }
+                                placeholder="Ex: John Doe"
+                                size="lg"
+                                color="primary"
+                                className="col-span-2 md:col-span-1"
+                                isRequired
+                                {...register(`siblings.${index}.name`)}
+                            />
+                            <Select
+                                variant="underlined"
+                                label="Sibling's Grade"
+                                placeholder="Select grade"
+                                className="col-span-2 md:col-span-1"
+                                color="primary"
+                                size="lg"
+                                isRequired
+                                isInvalid={
+                                    errors?.siblings?.[index]?.grade !==
+                                    undefined
+                                }
+                                errorMessage={
+                                    errors?.siblings?.[index]?.grade?.message
+                                }
+                                {...register(`siblings.${index}.grade`)}
+                            >
+                                {[
+                                    "PKG",
+                                    "LKG",
+                                    "UKG",
+                                    "1",
+                                    "2",
+                                    "3",
+                                    "4",
+                                    "5",
+                                    "6",
+                                    "7",
+                                    "8",
+                                    "9",
+                                    "10",
+                                    "11",
+                                    "12",
+                                ].map(grade => (
+                                    <SelectItem key={grade} value={grade}>
+                                        {grade}
+                                    </SelectItem>
+                                ))}
+                            </Select>
+                            <Button
+                                className="col-span-2 mx-auto w-fit"
+                                color="primary"
+                                startContent={<FaMinus />}
+                                onClick={handleRemoveLastSibling.bind(
+                                    null,
+                                    index,
+                                )}
+                            >
+                                Remove Sibling
+                            </Button>
+                        </Fragment>
+                    ))}
                 </div>
             </section>
             <section className="space-y-4">
