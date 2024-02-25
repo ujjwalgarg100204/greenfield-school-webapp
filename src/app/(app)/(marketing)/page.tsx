@@ -260,7 +260,7 @@ const Home: FC = () => {
                             {`Admission Open for ${currYear} - ${currYear + 1}`}
                         </h3>
                         <Button
-                            href="/admission/portal"
+                            href="/admission/application"
                             as={Link}
                             variant="shadow"
                             color="secondary"

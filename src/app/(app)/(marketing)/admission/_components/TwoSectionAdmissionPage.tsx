@@ -3,8 +3,8 @@ import { type FC, type ReactNode } from "react";
 
 const ADMISSION_NAV_LINKS = [
     {
-        title: "Admission Portal",
-        link: "/admission/portal",
+        title: "Admission Application",
+        link: "/admission/application",
     },
     {
         title: "General Instructions for Admission",

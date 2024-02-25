@@ -25,7 +25,7 @@ const AdmissionButton = () => {
         <>
             <Button
                 as={Link}
-                href="/admission/portal"
+                href="/admission/application"
                 variant={variant}
                 color="primary"
                 className="hidden font-semibold sm:flex"
@@ -34,7 +34,7 @@ const AdmissionButton = () => {
             </Button>
             <Button
                 as={Link}
-                href="/admission/portal"
+                href="/admission/application"
                 variant={variant}
                 color="primary"
                 size="sm"

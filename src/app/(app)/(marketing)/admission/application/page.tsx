@@ -5,10 +5,10 @@ import AdmissionApplicationForm from "./_components/AdmissionApplicationForm";
 
 const AdmissionApplicationPage: FC = () => {
     return (
-        <TwoSectionAdmissionPage highlightedLink="Admission Portal">
+        <TwoSectionAdmissionPage highlightedLink="Admission Application">
             <H1>Application for Admission</H1>
             <div className="space-y-4">
-                {/* General instruction */}
+                {/* General Instruction */}
                 <section className="rounded-sm border-3">
                     <h2 className="border-3 bg-green-50 py-2 pl-2 text-lg font-bold text-danger-500 md:text-base">
                         Please Note :-

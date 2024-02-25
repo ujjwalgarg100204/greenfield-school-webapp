@@ -245,7 +245,7 @@ const AdmissionApplicationForm = () => {
                         variant="underlined"
                         isInvalid={errors.address !== undefined}
                         errorMessage={errors.address?.message}
-                        placeholder="EX: No. 123, ABC Street, Chennai, Chennai, Tamil Nadu, 600001, India"
+                        placeholder="EX: No. 123, ABC Street, Coimbatore, Chennai, Tamil Nadu, 600001, India"
                         size="lg"
                         className="md:col-span-2"
                         classNames={{ label: "pb-2" }}
