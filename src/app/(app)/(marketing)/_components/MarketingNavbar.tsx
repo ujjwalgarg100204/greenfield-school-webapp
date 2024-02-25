@@ -1,6 +1,7 @@
 import NextImage from "next/image";
 import { redirect } from "next/navigation";
 import GreenfieldLogo from "~/../public/images/logo_pixel_plus.png";
+import { RiContactsFill } from "react-icons/ri";
 import {
     Button,
     Link,
@@ -112,8 +113,9 @@ const MarketingNavbar = async () => {
                             color="primary"
                             size="sm"
                             className="font-semibold sm:hidden"
+                            isIconOnly
                         >
-                            Contact Us
+                            <RiContactsFill className="size-3.5" />
                         </Button>
                     </NavbarItem>
                     <NavbarItem>
