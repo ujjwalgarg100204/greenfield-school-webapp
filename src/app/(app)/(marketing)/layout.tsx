@@ -4,7 +4,7 @@ import { BsTelephone } from "react-icons/bs";
 import { MdOutlineLocationOn } from "react-icons/md";
 import GreenfieldLocation from "~/app/_components/GreenfieldLocation";
 import MarketingNavbar from "./_components/MarketingNavbar";
-import QRCode from "react-qr-code";
+import NextImage from "next/image";
 
 type Props = { children: ReactNode };
 const MarketingSiteLayout: FC<Props> = ({ children }) => {
@@ -19,9 +19,14 @@ const MarketingSiteLayout: FC<Props> = ({ children }) => {
                     </p>
                     <div className="flex items-center justify-center gap-4">
                         <GreenfieldLocation />
-                        <QRCode
-                            className="aspect-square h-32 w-48 rounded-xl border-8 border-gray-200"
-                            value="https://www.google.com/maps/place/Greenfields+Matriculation+School/@11.059943,76.949453,14z/data=!4m6!3m5!1s0x3ba8f626ffc42147:0xf398a88ed4aed02b!8m2!3d11.0599425!4d76.9494529!16s%2Fg%2F11fx8r7qn0?hl=en&entry=ttu"
+                        <NextImage
+                            src="/images/location-qr.svg"
+                            alt="Greenfield QR Code"
+                            className="w-32 rounded-lg"
+                            width={100}
+                            height={100}
+                            priority
+                            quality={100}
                         />
                     </div>
                     <p className="flex items-center gap-2">
