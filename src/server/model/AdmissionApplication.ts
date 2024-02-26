@@ -25,4 +25,10 @@ export default interface AdmissionApplication {
     motherEmailId: string | null;
     motherMobileNumber: string;
     motherAadharNumber: string | null;
+    siblings:AdmissionApplicationSibling[];
+}
+
+export interface AdmissionApplicationSibling {
+    name: string;
+    grade: string;
 }

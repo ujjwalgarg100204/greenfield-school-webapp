@@ -18,6 +18,8 @@ export class AdmissionApplicationRepositoryImpl
             AdmissionApplicationValidator.getCreateNewApplicationFormSchema().parse(
                 application,
             );
+            // FIXME: sibling data not reflected in db
+            // @ts-expect-error sibling data not reflected in database
         return await db.admissionApplication.create({
             data: { ...parsed },
         });
