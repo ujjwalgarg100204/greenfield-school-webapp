@@ -1,6 +1,4 @@
 "use client";
-import { FaPlus } from "react-icons/fa6";
-import { FaMinus } from "react-icons/fa6";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
     Button,
@@ -10,12 +8,13 @@ import {
     SelectItem,
     Textarea,
 } from "@nextui-org/react";
+import { Fragment } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { FaMinus, FaPlus } from "react-icons/fa6";
 import { type z } from "zod";
 import { AdmissionApplicationValidator } from "~/server/model/validator/AdmissionApplicationValidator";
 import { api } from "~/trpc/react";
-import { Fragment } from "react";
 
 const ApplicationFormSchema =
     AdmissionApplicationValidator.getApplicationFormSchema();
@@ -51,6 +50,7 @@ const AdmissionApplicationForm = () => {
                 setError("root.serverError", { message: err.message });
             },
         });
+    const currYear = new Date().getFullYear();
 
     return (
         <form
@@ -65,19 +65,18 @@ const AdmissionApplicationForm = () => {
                     <Select
                         variant="underlined"
                         label="Academic Year"
-                        placeholder="Select academic year applying for"
                         color="primary"
                         size="lg"
-                        isInvalid={errors.academicYear !== undefined}
-                        errorMessage={errors.academicYear?.message}
+                        isDisabled
+                        defaultSelectedKeys={[`${currYear}-${currYear + 1}`]}
                         isRequired
                         {...register("academicYear")}
                     >
-                        <SelectItem key="2023-2024" value="2023-2024">
-                            2023-2024
-                        </SelectItem>
-                        <SelectItem key="2024-2025" value="2024-2025">
-                            2024-2025
+                        <SelectItem
+                            key={`${currYear}-${currYear + 1}`}
+                            value={`${currYear}-${currYear + 1}`}
+                        >
+                            {`${currYear}-${currYear + 1}`}
                         </SelectItem>
                     </Select>
                     <Select
@@ -92,7 +91,7 @@ const AdmissionApplicationForm = () => {
                         {...register("grade")}
                     >
                         {[
-                            "PreKG",
+                            "Pre-KG",
                             "LKG",
                             "UKG",
                             "1",
@@ -140,25 +139,14 @@ const AdmissionApplicationForm = () => {
                     />
                     <Input
                         type="text"
-                        label="Student's Community"
+                        label="Student's Religion"
                         variant="underlined"
-                        isInvalid={errors.studentCommunity !== undefined}
-                        errorMessage={errors.studentCommunity?.message}
-                        placeholder="Ex: EWS"
+                        isInvalid={errors.studentReligion !== undefined}
+                        errorMessage={errors.studentReligion?.message}
+                        placeholder="Ex: Hindu"
                         color="primary"
                         size="lg"
-                        {...register("studentCommunity")}
-                    />
-                    <Input
-                        type="text"
-                        label="Student's Caste"
-                        variant="underlined"
-                        isInvalid={errors.studentCaste !== undefined}
-                        errorMessage={errors.studentCaste?.message}
-                        placeholder="Ex: Baniya"
-                        color="primary"
-                        size="lg"
-                        {...register("studentCaste")}
+                        {...register("studentReligion")}
                     />
                     <Input
                         type="text"
@@ -254,7 +242,7 @@ const AdmissionApplicationForm = () => {
                         variant="underlined"
                         isInvalid={errors.address !== undefined}
                         errorMessage={errors.address?.message}
-                        placeholder="EX: No. 123, ABC Street, Coimbatore, Chennai, Tamil Nadu, 600001, India"
+                        placeholder="EX: No. 123, ABC Street, Coimbatore, Tamil Nadu, 641029, India"
                         size="lg"
                         className="md:col-span-2"
                         classNames={{ label: "pb-2" }}

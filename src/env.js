@@ -21,6 +21,7 @@ export const env = createEnv({
             process.env.NODE_ENV === "production"
                 ? z.string()
                 : z.string().optional(),
+        EMAIL_SECRET: z.string(),
     },
 
     /**
@@ -40,6 +41,7 @@ export const env = createEnv({
         DATABASE_URL: process.env.DATABASE_URL,
         NODE_ENV: process.env.NODE_ENV,
         JWT_SECRET: process.env.JWT_SECRET,
+        EMAIL_SECRET: process.env.EMAIL_SECRET,
     },
     /**
      * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

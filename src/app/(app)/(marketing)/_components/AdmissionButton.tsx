@@ -1,8 +1,9 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
 
 const AdmissionButton = () => {
     const [variant, setVariant] = useState<"solid" | "light">("solid");
@@ -25,7 +26,7 @@ const AdmissionButton = () => {
         <>
             <Button
                 as={Link}
-                href="/admission/application"
+                href="/admission"
                 variant={variant}
                 color="primary"
                 className="hidden font-semibold sm:flex"
@@ -34,7 +35,7 @@ const AdmissionButton = () => {
             </Button>
             <Button
                 as={Link}
-                href="/admission/application"
+                href="/admission"
                 variant={variant}
                 color="primary"
                 size="sm"

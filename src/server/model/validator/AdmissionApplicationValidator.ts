@@ -15,7 +15,7 @@ export class AdmissionApplicationValidator {
             .refine(
                 value =>
                     [
-                        "PreKG",
+                        "Pre-KG",
                         "LKG",
                         "UKG",
                         "1",
@@ -38,8 +38,6 @@ export class AdmissionApplicationValidator {
             invalid_type_error: "Student's nationality is required",
         }),
         studentReligion: z.string().nullable(),
-        studentCommunity: z.string().nullable(),
-        studentCaste: z.string().nullable(),
         studentBloodGroup: z.string({
             required_error: "Student's blood group is required",
         }),

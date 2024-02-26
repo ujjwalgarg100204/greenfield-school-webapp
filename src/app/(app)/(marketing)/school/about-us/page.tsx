@@ -8,6 +8,14 @@ const AboutUsPage: FC = () => {
             <H1>About Us</H1>
             <div className="space-y-4">
                 <p className="text-justify">
+                    Greenfield campus, Coimbatore Established in the year 1999,
+                    the Institution has seen unprecedented growth rising to
+                    heights becoming one of the best in the Coimbatore city. The
+                    school imparts education following the state board syllabus
+                    from Kindergarten to Standard XII irrespective of religion,
+                    caste and community.
+                </p>
+                <p className="text-justify">
                     Greenfield Campus is a vibrant school where curiosity meets
                     education and each and every student is valued. In Our
                     school, we foster a dynamic learning environment that sparks

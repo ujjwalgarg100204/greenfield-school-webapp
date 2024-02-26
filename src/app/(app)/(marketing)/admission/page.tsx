@@ -1,11 +1,10 @@
 import { type FC } from "react";
-import H1 from "../../_components/H1";
-import TwoSectionAdmissionPage from "../_components/TwoSectionAdmissionPage";
+import H1 from "../_components/H1";
 import AdmissionApplicationForm from "./_components/AdmissionApplicationForm";
 
 const AdmissionApplicationPage: FC = () => {
     return (
-        <TwoSectionAdmissionPage highlightedLink="Admission Application">
+        <section className="container my-12 max-w-xl space-y-6 px-6 lg:max-w-4xl lg:px-8 xl:px-12 2xl:px-16">
             <H1>Application for Admission</H1>
             <div className="space-y-4">
                 {/* General Instruction */}
@@ -29,7 +28,7 @@ const AdmissionApplicationPage: FC = () => {
                 </section>
                 <AdmissionApplicationForm />
             </div>
-        </TwoSectionAdmissionPage>
+        </section>
     );
 };
 
