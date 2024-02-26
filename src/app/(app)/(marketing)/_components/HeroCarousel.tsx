@@ -6,7 +6,7 @@ import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
 import { type FC } from "react";
 
 const CAROUSEL_IMAGE_LINKS = [
-    "/images/hero-carousel/1.png",
+    "/images/hero-carousel-1.jpeg",
     "/images/hero-carousel/2.png",
     "/images/hero-carousel/3.png",
     "/images/new-carousel.jpeg",
@@ -50,8 +50,8 @@ const HeroCarousel: FC = () => {
                     <NextImage
                         src={image}
                         alt={`image-${i}`}
-                        className="object-cover object-top"
-                        quality={95}
+                        className="object-cover object-center"
+                        quality={100}
                         priority={i < 4}
                         fill
                     />

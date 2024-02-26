@@ -1,7 +1,6 @@
 export const UNIFORM_RULES = [
-    "As long as a student is on the school roll he / she must always come to school in uniform, even on birthdays.",
-    "No student is allowed to attend any Open House, school function (in or outside the school) in any dress other than the school uniform.",
-    "Nursery, L.K.G and U.K.G students should carry a clean napkin and a mat to school daily.",
+    "As long as a student he /she is obliged to wear school uniform even on birthday",
+    "For more details on uniform and size of uniform, kindly align with school  administration office",
 ] as const;
 
 export const UNIFORMS = {

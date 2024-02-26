@@ -15,7 +15,7 @@ export class AdmissionApplicationValidator {
             .refine(
                 value =>
                     [
-                        "PKG",
+                        "PreKG",
                         "LKG",
                         "UKG",
                         "1",

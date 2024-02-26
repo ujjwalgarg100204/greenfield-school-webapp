@@ -9,21 +9,21 @@ const PHOTO_GALLERY_CARDS = [
     {
         desc: "School Activities",
         image: {
-            url: "/images/photo-gallery-landingPage/1.jpg",
+            url: "/images/school-activity.jpeg",
             alt: "adorable dog",
         },
     },
     {
         desc: "Student Engagements",
         image: {
-            url: "/images/photo-gallery-landingPage/2.jpg",
+            url: "/images/student-engagement.jpeg",
             alt: "boy studying",
         },
     },
     {
         desc: "Extracurricular Pursuits",
         image: {
-            url: "/images/photo-gallery-landingPage/3.jpg",
+            url: "/images/extra curricular activities.jpeg",
             alt: "students in classroom",
         },
     },
@@ -39,94 +39,59 @@ const PHOTO_GALLERY_CARDS = [
 const KEY_CHARACTERISTICS = [
     {
         heading: "Tomorrow's Leaders",
-        desc: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
+        desc: "Leadership Development Programs nurturing resilience and adaptability.",
         lottie: "https://lottie.host/3b570408-327f-41f4-9f50-27d9f9babb65/ZkWM5SdPGZ.json",
     },
     {
-        heading: "Noteworthy technology acquisitions 2021",
-        desc: "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
+        heading: "Green Campus Oasis",
+        desc: "Heart of city but given top priority for Green campus",
         lottie: "https://lottie.host/57a7603e-9f49-41f9-b8b0-84f27dec2d1b/DHSDaYQzrH.json",
     },
     {
-        heading: "Tomorrow's Leaders",
-        desc: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
+        heading: "Talent Encouragement Culture",
+        desc: "Every student is celebrated for their unique abilities, passions, and interests. We help with self-discovery and empowerment",
         lottie: "https://lottie.host/0965ef1d-8246-43c7-83a2-aad231cb117e/T5DIee22dX.json",
     },
     {
-        heading: "Tomorrow's Leaders",
-        desc: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
+        heading: "State-Level Sports Exposure",
+        desc: "Comprehensive Sports Programs and motivate students for State-Level participation. Also Media afflictions for students visibility.",
         lottie: "https://lottie.host/c1935571-8ef7-45f2-8365-66687e1646b9/vVo20iC8Vl.json",
     },
 ] as const;
 
 const PREMIUM_FACILITIES = [
     {
-        heading: "Frontend Radio",
-        "sub-heading": "Daily Mix",
-        subtitle: "12 tracks",
-        desc: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
+        heading: "Expansive Campus Grounds for Outdoor Activities",
         img: {
-            url: "/images/premium-facilities-landingPage/1.jpg",
+            url: "/images/exclusive-1.jpeg",
             alt: "image",
         },
     },
     {
-        heading: "Frontend Radio",
-        "sub-heading": "Daily Mix",
-        subtitle: "12 tracks",
-        desc: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
+        heading: "Outdoor Learning Areas for Nature Studies",
         img: {
-            url: "/images/premium-facilities-landingPage/2.jpg",
+            url: "/images/exclusive-2.jpeg",
             alt: "image",
         },
     },
     {
-        heading: "Frontend Radio",
-        "sub-heading": "Daily Mix",
-        subtitle: "12 tracks",
-        desc: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
+        heading: "Technologically Advanced Classrooms",
         img: {
-            url: "/images/premium-facilities-landingPage/3.jpg",
+            url: "/images/exclusive-3.jpeg",
             alt: "image",
         },
     },
     {
-        heading: "Frontend Radio",
-        "sub-heading": "Daily Mix",
-        subtitle: "12 tracks",
-        desc: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
+        heading: "Lush Greenery Surrounding the School",
         img: {
-            url: "/images/premium-facilities-landingPage/4.jpg",
+            url: "/images/exclusive-4.jpeg",
             alt: "image",
         },
     },
     {
-        heading: "Frontend Radio",
-        "sub-heading": "Daily Mix",
-        subtitle: "12 tracks",
-        desc: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
+        heading: "Prime City Location for Accessibility and Convenience",
         img: {
-            url: "/images/premium-facilities-landingPage/5.jpg",
-            alt: "image",
-        },
-    },
-    {
-        heading: "Frontend Radio",
-        "sub-heading": "Daily Mix",
-        subtitle: "12 tracks",
-        desc: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
-        img: {
-            url: "/images/premium-facilities-landingPage/6.jpg",
-            alt: "image",
-        },
-    },
-    {
-        heading: "Frontend Radio",
-        "sub-heading": "Daily Mix",
-        subtitle: "12 tracks",
-        desc: "Here with us, students develop a sense of self, social skills, and independence, preparing them to take on leadership roles in the future.",
-        img: {
-            url: "/images/premium-facilities-landingPage/7.jpg",
+            url: "/images/exclusive-6.jpeg",
             alt: "image",
         },
     },
@@ -285,7 +250,7 @@ const Home: FC = () => {
                     {/* PremiumFacilities */}
                     <section className="space-y-8 rounded-xl bg-slate-100 p-8 md:p-10">
                         <h3 className="scroll-mt-24 text-3xl font-bold md:text-4xl">
-                            Premium Facilities
+                            Exclusive Amenities
                         </h3>
                         <PremiumFacilitiesCarousel
                             facilities={PREMIUM_FACILITIES}

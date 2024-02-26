@@ -93,8 +93,11 @@ const PrincipalsMessage = () => {
                         name="Sam"
                         color="success"
                         ImgComponent={NextImage}
+                        classNames={{
+                            img: "object-cover object-top",
+                        }}
                         className="h-40 w-40"
-                        src="https://images.pexels.com/photos/756484/pexels-photo-756484.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        src="/images/sam-sir.jpeg"
                     />
                     <p className="flex flex-col items-center justify-center gap-1">
                         <span className="text-xl font-bold leading-6 lg:leading-5">

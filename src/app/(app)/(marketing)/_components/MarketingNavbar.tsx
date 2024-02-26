@@ -59,7 +59,6 @@ export const NAV_LINKS = {
             hidden: false,
         },
         { title: "Uniform", link: "/misc/school-uniform", hidden: false },
-        { title: "School Hours", link: "/misc/school-hours", hidden: false },
     ],
 } as const;
 

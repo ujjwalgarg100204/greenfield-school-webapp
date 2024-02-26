@@ -55,9 +55,6 @@ const CarouselNextBtn: FC<BtnProps> = ({ onClick, className }) => {
 type Props = {
     facilities: {
         heading: string;
-        "sub-heading": string;
-        subtitle: string;
-        desc: string;
         img: {
             url: string;
             alt: string;
@@ -107,20 +104,14 @@ const PremiumFacilitiesCarousel: FC<Props> = ({ facilities }) => {
                 {facilities.map(facility => (
                     <Card key={facility.heading} className="m-4 py-4">
                         <CardHeader className="flex-col items-start px-4 pb-0 pt-2">
-                            <p className="text-tiny font-bold uppercase">
-                                {facility["sub-heading"]}
-                            </p>
-                            <small className="text-default-500">
-                                {facility["sub-heading"]}
-                            </small>
                             <h4 className="text-large font-bold">
                                 {facility.heading}
                             </h4>
                         </CardHeader>
-                        <CardBody className="overflow-visible py-2">
+                        <CardBody className="py-2">
                             <NextImage
                                 alt={facility.img.alt}
-                                className="rounded-xl object-cover"
+                                className="h-52 rounded-xl object-cover"
                                 src={facility.img.url}
                                 height={270}
                                 width={270}

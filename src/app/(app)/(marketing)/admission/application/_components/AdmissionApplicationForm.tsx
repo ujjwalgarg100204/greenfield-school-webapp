@@ -92,7 +92,7 @@ const AdmissionApplicationForm = () => {
                         {...register("grade")}
                     >
                         {[
-                            "PKG",
+                            "PreKG",
                             "LKG",
                             "UKG",
                             "1",
@@ -266,7 +266,7 @@ const AdmissionApplicationForm = () => {
             </section>
             <section className="space-y-4">
                 <h3 className="rounded-sm border-3 bg-green-50 py-2 pl-2 text-xl font-bold">
-                    Sibling Info
+                    Sibling Information
                 </h3>
                 <div className="grid grid-cols-1 gap-x-4 gap-y-4 px-2 pb-4 text-xl md:grid-cols-2">
                     <Button
@@ -315,7 +315,7 @@ const AdmissionApplicationForm = () => {
                                 {...register(`siblings.${index}.grade`)}
                             >
                                 {[
-                                    "PKG",
+                                    "PreKG",
                                     "LKG",
                                     "UKG",
                                     "1",

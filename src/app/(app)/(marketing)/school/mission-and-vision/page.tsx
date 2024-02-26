@@ -4,14 +4,6 @@ import { Image } from "~/app/next-ui";
 import H1 from "../../_components/H1";
 import TwoSectionPage from "../../_components/TwoSectionPage";
 
-const DEMO_MISSIONS = [
-    "Giving the young learners individualized attention and recognizing their latent talent.",
-    "Emphasizing holistic development as we ensure a healthy balance between academic, co-curricular, and extra-curricular activities.",
-    "Catering to the students’ queries, raising the degree of inquisitiveness in them.",
-    "Creating and sustaining an environment of self-learning, analytical thinking and practising social skills.",
-    "Igniting conscience and propensity in the students towards the conservation of nature, maintaining harmony and giving back to the communities",
-] as const;
-
 const MissionAndVisionPage: FC = () => {
     return (
         <TwoSectionPage linkTitle="School" currentLink="Mission and Vision">
@@ -31,10 +23,9 @@ const MissionAndVisionPage: FC = () => {
                             duty is to foster an atmosphere where these gifts
                             can flourish.
                         </p>
-                        {/* FIXME: put a school image here  */}
                         <Image
                             isBlurred
-                            src="/images/school-pages/mission-and-vision/mission.jpg"
+                            src="/images/exclusive-2.jpeg"
                             alt="Greenfield mission"
                             as={NextImage}
                             className="object-cover object-center md:w-[120rem]"
@@ -135,10 +126,10 @@ const MissionAndVisionPage: FC = () => {
                         {/* FIXME: Replace the image */}
                         <Image
                             isBlurred
-                            src="/images/school-pages/mission-and-vision/vision.jpg"
+                            src="/images/logo_pixel_plus.png"
                             alt="Greenfield vision"
                             as={NextImage}
-                            className="object-cover object-center md:w-[120rem]"
+                            className="object-cover object-center md:w-[50rem]"
                             height={500}
                             width={500}
                             quality={95}
