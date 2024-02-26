@@ -209,7 +209,7 @@ const Home: FC = () => {
                                             <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                                                 {heading}
                                             </h5>
-                                            <p className="text-center text-sm font-normal text-gray-700 dark:text-gray-400 lg:text-justify">
+                                            <p className="text-center text-sm font-normal text-gray-700 dark:text-gray-400">
                                                 {desc}
                                             </p>
                                         </CardBody>
@@ -220,22 +220,20 @@ const Home: FC = () => {
                     </section>
 
                     {/* AdmissionOpen Banner */}
-                    <section className="grid grid-cols-1 gap-6 rounded-xl bg-primary-400 p-8 text-slate-50 sm:grid-flow-row sm:grid-cols-2 md:p-10 lg:grid-flow-col lg:grid-cols-3 lg:items-center lg:gap-x-16">
-                        <h3 className="order-1 text-3xl font-bold lg:self-end lg:text-4xl">
-                            {`Admission Open for ${currYear} - ${currYear + 1}`}
-                        </h3>
-                        <Button
-                            href="/admission"
-                            as={Link}
-                            variant="shadow"
-                            color="secondary"
-                            className="order-3 font-bold text-amber-950 lg:order-2"
-                        >
-                            Admission
-                        </Button>
-                        <div className="order-2 w-full self-end justify-self-end text-center font-semibold sm:row-span-2 sm:self-center lg:order-3 lg:text-lg lg:font-normal">
-                            Get your kid the best experience of education at
-                            Greenfield School,Tamil Nadu. Best for your child
+                    <section className="flex gap-6 rounded-xl bg-primary-400 p-8 text-slate-50 md:items-center md:justify-between md:p-10">
+                        <div className="flex flex-col gap-6 sm:flex-row sm:items-center md:flex-col">
+                            <h3 className="text-3xl font-bold lg:text-4xl">
+                                {`Admission Open for ${currYear} - ${currYear + 1}`}
+                            </h3>
+                            <Button
+                                href="/admission"
+                                as={Link}
+                                variant="shadow"
+                                color="secondary"
+                                className="w-full font-bold text-amber-950"
+                            >
+                                Admission
+                            </Button>
                         </div>
                         <NextImage
                             width={500}
@@ -243,7 +241,7 @@ const Home: FC = () => {
                             quality={95}
                             src={"/images/landing-page-admission-banner.png"}
                             alt="Students Studying"
-                            className="order-4 row-span-2 ml-auto hidden max-w-xs rounded-lg object-cover object-center shadow-2xl lg:block"
+                            className="hidden max-w-xs rounded-lg object-cover object-center shadow-2xl md:block"
                         />
                     </section>
 
