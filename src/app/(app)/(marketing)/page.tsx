@@ -239,9 +239,9 @@ const Home: FC = () => {
                             width={500}
                             height={500}
                             quality={95}
-                            src={"/images/landing-page-admission-banner.png"}
+                            src={"/images/admission-banner.webp"}
                             alt="Students Studying"
-                            className="hidden max-w-xs rounded-lg object-cover object-center shadow-2xl md:block"
+                            className="hidden max-w-xs rounded-lg object-cover object-top shadow-2xl md:block"
                         />
                     </section>
 

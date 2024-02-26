@@ -254,7 +254,11 @@ const AdmissionApplicationForm = () => {
             </section>
             <section className="space-y-4">
                 <h3 className="rounded-sm border-3 bg-green-50 py-2 pl-2 text-xl font-bold">
-                    Sibling Information
+                    Sibling Information{" "}
+                    <span className="font-normal">
+                        (<span className="font-bold text-danger-500">*</span> If
+                        already studying in Greenfield school)
+                    </span>
                 </h3>
                 <div className="grid grid-cols-1 gap-x-4 gap-y-4 px-2 pb-4 text-xl md:grid-cols-2">
                     <Button

@@ -100,11 +100,11 @@ const PrincipalsMessage = () => {
                         src="/images/sam-sir.jpeg"
                     />
                     <p className="flex flex-col items-center justify-center gap-1">
-                        <span className="text-xl font-bold leading-6 lg:leading-5">
+                        <span className="text-center text-xl font-bold leading-6 lg:leading-5">
                             Mr. D. Herald Sham
                         </span>
                         <span className="text-sm lg:text-base">
-                            Prinicpal of Greenfield
+                            Principal of Greenfield
                         </span>
                     </p>
                 </div>
