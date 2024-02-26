@@ -61,6 +61,7 @@ type Props = {
         };
     }[];
 };
+
 const PremiumFacilitiesCarousel: FC<Props> = ({ facilities }) => {
     const screenSize = useResponsiveScreen();
     const [currSlideIndex, setCurrSlideIndex] = useState(0);
@@ -88,7 +89,6 @@ const PremiumFacilitiesCarousel: FC<Props> = ({ facilities }) => {
                 autoPlay
                 swipeable
                 centerMode
-                infiniteLoop
                 emulateTouch
                 useKeyboardArrows
                 showArrows={false}

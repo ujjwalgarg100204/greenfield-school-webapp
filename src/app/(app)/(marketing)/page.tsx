@@ -186,7 +186,7 @@ const Home: FC = () => {
                     {/* KeyCharacteristics Section */}
                     <section className="space-y-12 rounded-xl bg-slate-100 p-8 md:p-10">
                         <h2 className="scroll-mt-24 text-3xl font-bold md:text-3xl">
-                            Key differentiating characteristics of the School
+                            Key differentiating characteristics of our School
                         </h2>
 
                         <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
