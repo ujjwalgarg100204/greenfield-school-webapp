@@ -1,10 +1,10 @@
 import { Link } from "@nextui-org/react";
+import NextImage from "next/image";
 import { type FC, type ReactNode } from "react";
 import { BsTelephone } from "react-icons/bs";
 import { MdOutlineLocationOn } from "react-icons/md";
 import GreenfieldLocation from "~/app/_components/GreenfieldLocation";
 import MarketingNavbar from "./_components/MarketingNavbar";
-import NextImage from "next/image";
 
 type Props = { children: ReactNode };
 const MarketingSiteLayout: FC<Props> = ({ children }) => {
@@ -18,11 +18,11 @@ const MarketingSiteLayout: FC<Props> = ({ children }) => {
                         Greenfield Campus [V.C.S.M matric. Hr. sec. School]
                     </p>
                     <div className="flex items-center justify-center gap-4">
-                        <GreenfieldLocation />
+                        <GreenfieldLocation className="md:w-full w-1/2"/>
                         <NextImage
                             src="/images/location-qr.svg"
                             alt="Greenfield QR Code"
-                            className="w-32 rounded-lg"
+                            className="md:w-32 rounded-lg w-24"
                             width={100}
                             height={100}
                             priority
