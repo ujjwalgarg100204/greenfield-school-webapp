@@ -3,7 +3,7 @@ import H1 from "../../_components/H1";
 import TwoSectionPage from "../../_components/TwoSectionPage";
 
 const UNIFORM_RULES = [
-    "As long as a student he /she is obliged to wear school uniform even on birthday",
+    "As long as a student he/she is obliged to wear school uniform. An exception only on Birthday",
     "For more details on uniform and size of uniform, kindly align with school  administration office",
 ] as const;
 
