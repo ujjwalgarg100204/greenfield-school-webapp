@@ -95,6 +95,13 @@ const PREMIUM_FACILITIES = [
             alt: "image",
         },
     },
+    {
+        heading: "Dynamic and academic pioneers",
+        img: {
+            url: "/images/landing-page-about-us.jpeg",
+            alt: "image",
+        },
+    },
 ];
 
 const Home: FC = () => {
