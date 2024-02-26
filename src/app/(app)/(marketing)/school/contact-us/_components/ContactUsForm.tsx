@@ -1,19 +1,15 @@
 "use client";
 
-import { Button, Input, Textarea } from "~/app/next-ui";
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { FC } from "react";
-import type { SubmitHandler } from "react-hook-form";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { z } from "zod";
+import { type z } from "zod";
+import { Button, Input, Textarea } from "~/app/next-ui";
+import { ContactUsFormValidator } from "~/server/model/validator/ContactUsFormValidator";
+import { api } from "~/trpc/react";
 
-const ContactUsFormSchema = z.object({
-    name: z.string().min(1, "Name is required"),
-    phone: z.string().regex(/^(\+?91|0)?[6789]\d{9}$/, "Invalid phone number"),
-    query: z.string().min(5, "Query is required"),
-});
+const ContactUsFormSchema = ContactUsFormValidator.getBaseSchema();
 
 const ContactUsForm: FC = () => {
     const {
@@ -24,19 +20,25 @@ const ContactUsForm: FC = () => {
     } = useForm<z.infer<typeof ContactUsFormSchema>>({
         resolver: zodResolver(ContactUsFormSchema),
     });
-
-    const onSubmit: SubmitHandler<
-        z.infer<typeof ContactUsFormSchema>
-    > = data => {
-        reset();
-        console.log(data);
-        toast.success(
-            "Query submitted successfully\nWe will get back to you shortly.",
-        );
-    };
+    const { mutate, isLoading} = api.contactUsForm.newApplication.useMutation({
+        onSuccess() {
+            reset();
+            toast.success(
+                "Query submitted successfully\nWe will get back to you shortly.",
+            );
+        },
+        onError() {
+            toast.error(
+                "Your query couldn't be submitted successfully\nPlease try again",
+            );
+        },
+    });
 
     return (
-        <section className="space-y-10">
+        <form
+            className="space-y-10"
+            onSubmit={handleSubmit(data => mutate(data))}
+        >
             <h3 className="text-2xl font-bold">Got a Query?</h3>
             <div className="space-y-10">
                 <Input
@@ -81,14 +83,14 @@ const ContactUsForm: FC = () => {
                 <Button
                     color="primary"
                     className="w-full font-semibold"
-                    type="button"
+                    type="submit"
                     radius="sm"
-                    onClick={handleSubmit(onSubmit)}
+                    isDisabled={isLoading}
                 >
                     Submit Query
                 </Button>
             </div>
-        </section>
+        </form>
     );
 };
 
