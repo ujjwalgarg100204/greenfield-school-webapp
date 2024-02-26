@@ -101,7 +101,7 @@ const PrincipalsMessage = () => {
                     />
                     <p className="flex flex-col items-center justify-center gap-1">
                         <span className="text-xl font-bold leading-6 lg:leading-5">
-                            Mr. Sam
+                            Mr.Herald Shyam
                         </span>
                         <span className="text-sm lg:text-base">
                             Prinicpal of Greenfield

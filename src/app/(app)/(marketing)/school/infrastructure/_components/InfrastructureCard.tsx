@@ -18,7 +18,7 @@ const InfrastructureCardHeader: FC<Pick<Props, "title" | "desc" | "dark">> = ({
             className={`h-64 flex-col items-start p-6 ${dark ? "bg-slate-500 text-white" : ""}`}
         >
             <h3 className="my-4 text-2xl font-bold">{title}</h3>
-            <p className="overflow-scroll">{desc}</p>
+            <p className="">{desc}</p>
         </CardHeader>
     );
 };

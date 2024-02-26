@@ -13,7 +13,7 @@ const DEMO_INFRASTRUCTURE_DATA = [
     },
     {
         title: "Sports facilities",
-        desc: "Outdoor Facility for Football,Volleyball, Cricket, Badminton, Yoga, Table Tennis and other sports.",
+        desc: "Outdoor Facility for Football,Volleyball, Cricket, Badminton, Yoga, kabadi, athletics and other sports.",
         image: {
             src: "/images/sports facility.jpeg",
             alt: "Sports facilities",
@@ -37,7 +37,7 @@ const DEMO_INFRASTRUCTURE_DATA = [
     },
     {
         title: "Computer Lab",
-        desc: "Computer lab with latest machines for every student to practice hands on learning with modern tech.",
+        desc: "Computer lab with latest machines for every student to practice hands on learning with modern technology.",
         image: {
             src: "https://images.pexels.com/photos/3747486/pexels-photo-3747486.jpeg?auto=compress&cs=tinysrgb",
             alt: "Computer Lab",

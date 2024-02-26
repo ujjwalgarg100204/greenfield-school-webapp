@@ -225,7 +225,7 @@ const Home: FC = () => {
                             {`Admission Open for ${currYear} - ${currYear + 1}`}
                         </h3>
                         <Button
-                            href="/admission/application"
+                            href="/admission"
                             as={Link}
                             variant="shadow"
                             color="secondary"
