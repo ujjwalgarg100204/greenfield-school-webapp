@@ -62,45 +62,31 @@ const KEY_CHARACTERISTICS = [
 const PREMIUM_FACILITIES = [
     {
         heading: "Expansive Campus Grounds for Outdoor Activities",
-        img: {
-            url: "/images/exclusive-1.jpeg",
-            alt: "image",
-        },
+        img: { url: "/images/exclusive-1.jpeg", alt: "image" },
     },
     {
         heading: "Outdoor Learning Areas for Nature Studies",
-        img: {
-            url: "/images/exclusive-2.jpeg",
-            alt: "image",
-        },
+        img: { url: "/images/exclusive-2.jpeg", alt: "image" },
     },
     {
         heading: "Technologically Advanced Classrooms",
-        img: {
-            url: "/images/exclusive-3.jpeg",
-            alt: "image",
-        },
+        img: { url: "/images/exclusive-3.jpeg", alt: "image" },
     },
     {
         heading: "Lush Greenery Surrounding the School",
-        img: {
-            url: "/images/exclusive-4.jpeg",
-            alt: "image",
-        },
+        img: { url: "/images/exclusive-4.jpeg", alt: "image" },
     },
     {
         heading: "Prime City Location for Accessibility and Convenience",
-        img: {
-            url: "/images/exclusive-6.jpeg",
-            alt: "image",
-        },
+        img: { url: "/images/exclusive-6.jpeg", alt: "image" },
     },
     {
         heading: "Dynamic and academic pioneers",
-        img: {
-            url: "/images/landing-page-about-us.jpeg",
-            alt: "image",
-        },
+        img: { url: "/images/landing-page-about-us.jpeg", alt: "image" },
+    },
+    {
+        heading: "Record breaking sport performances",
+        img: { url: "/images/sports.jpeg", alt: "image" },
     },
 ];
 
