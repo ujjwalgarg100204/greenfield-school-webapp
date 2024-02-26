@@ -88,6 +88,13 @@ const PREMIUM_FACILITIES = [
         heading: "Record breaking sport performances",
         img: { url: "/images/sports.jpeg", alt: "image" },
     },
+    {
+        heading: "Innovative way to keep kindergarten engaged",
+        img: {
+            url: "/images/innovation.jpeg",
+            alt: "image",
+        },
+    },
 ];
 
 const Home: FC = () => {
