@@ -14,14 +14,14 @@ export class AdmissionApplicationRepositoryImpl
     public async createNewApplication(
         application: Omit<AdmissionApplication, "id">,
     ): Promise<AdmissionApplication> {
-        const parsed =
+        const { siblings, ...rest } =
             AdmissionApplicationValidator.getCreateNewApplicationFormSchema().parse(
                 application,
             );
-            // FIXME: sibling data not reflected in db
-            // @ts-expect-error sibling data not reflected in database
+
         return await db.admissionApplication.create({
-            data: { ...parsed },
+            data: { ...rest, siblings: { createMany: { data: siblings } } },
+            include: { siblings: true },
         });
     }
 }

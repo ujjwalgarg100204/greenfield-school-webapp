@@ -14,7 +14,10 @@ export const admissionApplicationRouter = createTRPCRouter({
                 new AdmissionApplicationServiceImpl(
                     new AdmissionApplicationRepositoryImpl(),
                 );
-            // FIXME: add application data to db
-            // await service.createNewApplication(newApplication);
+            const applicationWithAcademicYr = {
+                ...newApplication,
+                academicYear: `${new Date().getFullYear()}-${new Date().getFullYear() + 1}`,
+            };
+            await service.createNewApplication(applicationWithAcademicYr);
         }),
 });

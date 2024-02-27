@@ -70,7 +70,6 @@ const AdmissionApplicationForm = () => {
                         isDisabled
                         defaultSelectedKeys={[`${currYear}-${currYear + 1}`]}
                         isRequired
-                        {...register("academicYear")}
                     >
                         <SelectItem
                             key={`${currYear}-${currYear + 1}`}
@@ -307,7 +306,7 @@ const AdmissionApplicationForm = () => {
                                 {...register(`siblings.${index}.grade`)}
                             >
                                 {[
-                                    "PreKG",
+                                    "Pre-KG",
                                     "LKG",
                                     "UKG",
                                     "1",

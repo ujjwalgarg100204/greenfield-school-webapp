@@ -5,8 +5,6 @@ export default interface AdmissionApplication {
     studentName: string;
     studentNationality: string;
     studentReligion: string | null;
-    studentCommunity: string | null;
-    studentCaste: string | null;
     studentBloodGroup: string;
     studentMotherTongue: string | null;
     studentGender: string;
@@ -25,7 +23,7 @@ export default interface AdmissionApplication {
     motherEmailId: string | null;
     motherMobileNumber: string;
     motherAadharNumber: string | null;
-    siblings:AdmissionApplicationSibling[];
+    siblings: AdmissionApplicationSibling[];
 }
 
 export interface AdmissionApplicationSibling {
