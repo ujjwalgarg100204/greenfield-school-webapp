@@ -100,7 +100,7 @@ export class AdmissionApplicationValidator {
                 }),
                 grade: z.enum(
                     [
-                        "PKG",
+                        "Pre-KG",
                         "LKG",
                         "UKG",
                         "1",
@@ -126,7 +126,7 @@ export class AdmissionApplicationValidator {
     });
 
     public static getApplicationFormSchema() {
-        return this.baseSchema.omit({ id: true });
+        return this.baseSchema.omit({ id: true, academicYear: true });
     }
 
     public static getCreateNewApplicationFormSchema() {

@@ -63,7 +63,7 @@ const DEMO_INFRASTRUCTURE_DATA = [
         title: "Science Lab",
         desc: "Twenty-First Century Science Labs to emphasise the modern infrastructure of the school",
         image: {
-            src: "https://images.pexels.com/photos/4033148/pexels-photo-4033148.jpeg?auto=compress&cs=tinysrgb",
+            src: "/images/sci-lab.jpg",
             alt: "Science Lab",
         },
     },
