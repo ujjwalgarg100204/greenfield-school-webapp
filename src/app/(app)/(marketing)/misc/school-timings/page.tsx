@@ -23,7 +23,7 @@ const SCHOOL_TIMINGS = {
             timings: "3:30 p.m.",
         },
     ],
-};
+} as const;
 
 const SchoolTimingsPage = () => {
     return (

@@ -21,7 +21,7 @@ const SignInForm: FC<Props> = ({ onSuccessfulSubmission }) => {
         handleSubmit,
         control,
         setError,
-        formState: { errors },
+        formState: { errors, isSubmitting },
     } = useForm<z.infer<typeof SignInFormSchema>>({
         resolver: zodResolver(SignInFormSchema),
     });
@@ -131,6 +131,8 @@ const SignInForm: FC<Props> = ({ onSuccessfulSubmission }) => {
                 color="primary"
                 variant="solid"
                 className="w-full font-semibold"
+                disabled={isSubmitting}
+                isDisabled={isSubmitting}
             >
                 Login
             </Button>

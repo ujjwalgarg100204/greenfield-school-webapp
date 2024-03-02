@@ -81,7 +81,7 @@ const CODE_OF_CONDUCT_RULES = [
             "Leave will not be granted on the reopening or closing day of a term.",
         ],
     },
-];
+] as const;
 
 const CodeOfConductPage = () => {
     return (
@@ -92,7 +92,7 @@ const CodeOfConductPage = () => {
                     <li key={rules.heading} className="space-y-3">
                         <h4 className="text-xl font-bold">{rules.heading}</h4>
                         <StaticList list={rules.rules} />
-                        {rules.footer && <p>{rules.footer}</p>}
+                        {"footer" in rules && <p>{rules.footer}</p>}
                     </li>
                 ))}
             </ul>

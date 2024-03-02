@@ -15,7 +15,7 @@ const SchoolUniformPage = () => {
             <p className="hidden">
                 <strong className="font-bold">Important: </strong>
                 Please send an extra pair of undergarments and a set of clothes
-                in the child{"'"}s bag regularly.
+                in the child&apos;s bag regularly.
             </p>
         </TwoSectionPage>
     );

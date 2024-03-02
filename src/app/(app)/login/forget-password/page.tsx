@@ -15,11 +15,7 @@ const ForgetPasswordPage: FC = () => {
                     <h4 className="font-semibold">Contact details</h4>
                     <p>
                         Technical Administration:{" "}
-                        <Link href="tel://+91xxxxxxxxxx">+91 xxxxxxxxxx</Link>
-                    </p>
-                    <p>
-                        Principal:{" "}
-                        <Link href="tel://+91xxxxxxxxxx">+91 xxxxxxxxxx</Link>
+                        <Link href="tel://+919894376100">+91 98943 76100</Link>
                     </p>
                 </div>
                 <Button
