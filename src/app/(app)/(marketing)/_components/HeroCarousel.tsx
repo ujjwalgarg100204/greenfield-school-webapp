@@ -6,10 +6,10 @@ import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
 import { type FC } from "react";
 
 const CAROUSEL_IMAGE_LINKS = [
-    "/images/hero-carousel-1.jpeg",
+    "/images/hero-carousel/1.jpeg",
     "/images/hero-carousel/2.png",
     "/images/hero-carousel/3.png",
-    "/images/new-carousel.jpeg",
+    "/images/hero-carousel/4.jpeg",
     "/images/hero-carousel/5.png",
 ] as const;
 
