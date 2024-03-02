@@ -25,7 +25,7 @@ const MissionAndVisionPage: FC = () => {
                         </p>
                         <Image
                             isBlurred
-                            src="/images/exclusive-2.jpeg"
+                            src="/images/mission.jpeg"
                             alt="Greenfield mission"
                             as={NextImage}
                             className="object-cover object-center md:w-[120rem]"
@@ -123,10 +123,9 @@ const MissionAndVisionPage: FC = () => {
                             emerges as a confident, compassionate, and competent
                             global citizen.
                         </p>
-                        {/* FIXME: Replace the image */}
                         <Image
                             isBlurred
-                            src="/images/logo_pixel_plus.png"
+                            src="/images/vision.png"
                             alt="Greenfield vision"
                             as={NextImage}
                             className="object-cover object-center md:w-[50rem]"

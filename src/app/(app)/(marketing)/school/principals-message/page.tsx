@@ -97,7 +97,7 @@ const PrincipalsMessage = () => {
                             img: "object-cover object-top",
                         }}
                         className="h-40 w-40"
-                        src="/images/sam-sir.jpeg"
+                        src="/images/principal.jpeg"
                     />
                     <p className="flex flex-col items-center justify-center gap-1">
                         <span className="text-center text-xl font-bold leading-6 lg:leading-5">

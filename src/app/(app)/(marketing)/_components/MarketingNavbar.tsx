@@ -1,6 +1,6 @@
 import NextImage from "next/image";
 import { redirect } from "next/navigation";
-import GreenfieldLogo from "~/../public/images/logo_pixel_plus.png";
+import GreenfieldLogo from "~/../public/images/logo.png";
 import { RiContactsFill } from "react-icons/ri";
 import {
     Button,

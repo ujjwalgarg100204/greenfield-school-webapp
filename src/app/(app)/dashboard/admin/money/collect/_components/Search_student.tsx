@@ -3,10 +3,10 @@
 import { Button, Spinner, Textarea } from "@nextui-org/react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 
-import { api } from "@/src/trpc/react";
 import Link from "next/link";
 import React from "react";
 import { CiSearch } from "react-icons/ci";
+import { api } from "~/trpc/react";
 
 type FormData = {
     fathers_name(fathers_name: unknown): unknown;

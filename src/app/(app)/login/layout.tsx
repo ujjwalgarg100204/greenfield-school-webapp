@@ -8,7 +8,7 @@ const LoginPageLayout: FC<{ children: ReactNode }> = ({ children }) => {
         <div className="relative h-screen w-full md:grid md:place-content-center">
             <div className="inset-0 -z-10 hidden md:absolute md:block">
                 <NextImage
-                    src="/images/login-page-side-img.jpg"
+                    src="/images/login-page-bg.jpg"
                     alt="Login Page Side Image"
                     priority
                     fill

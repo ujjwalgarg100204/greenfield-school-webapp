@@ -22,7 +22,7 @@ const GalleryPage = () => {
                         alt="Woman listing to music"
                         className="object-cover"
                         height={200}
-                        src="/images/logo_pixel_plus.png"
+                        src="/images/logo.png"
                         width={200}
                         as={NextImage}
                     />

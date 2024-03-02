@@ -4,6 +4,7 @@ import Lottie from "~/app/_components/ui/Lottie";
 import { Button, Card, CardBody, CardHeader, Link } from "~/app/next-ui";
 import HeroCarousel from "./_components/HeroCarousel";
 import PremiumFacilitiesCarousel from "./_components/PremimumFacilitiesCarousel";
+import AboutUsImage from "~/../public/images/about-us.jpeg";
 
 const PHOTO_GALLERY_CARDS = [
     {
@@ -161,7 +162,7 @@ const Home: FC = () => {
                             quality={95}
                             width={500}
                             height={500}
-                            src={"/images/landing-page-about-us.jpeg"}
+                            src={AboutUsImage}
                             alt="Staff of Greenfield"
                             className="hidden h-72 w-full rounded-lg object-cover lg:block"
                         />
@@ -261,7 +262,7 @@ const Home: FC = () => {
                             height={500}
                             quality={95}
                             src={"/images/admission-banner.webp"}
-                            alt="Students Studying"
+                            alt="Admission Banner"
                             className="hidden max-w-xs rounded-lg object-cover object-top shadow-2xl md:block"
                         />
                     </section>

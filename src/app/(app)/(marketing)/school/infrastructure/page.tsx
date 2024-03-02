@@ -2,12 +2,12 @@ import H1 from "../../_components/H1";
 import TwoSectionPage from "../../_components/TwoSectionPage";
 import InfrastructureCard from "./_components/InfrastructureCard";
 
-const DEMO_INFRASTRUCTURE_DATA = [
+const INFRASTRUCTURES = [
     {
         title: "Smart Classes rooms",
         desc: "Modern & spacious classrooms with Interactive TV",
         image: {
-            src: "/images/hero-carousel/4.png",
+            src: "/images/infrastructure/1.png",
             alt: "smart class",
         },
     },
@@ -15,7 +15,7 @@ const DEMO_INFRASTRUCTURE_DATA = [
         title: "Sports facilities",
         desc: "Outdoor Facility for Football,Volleyball, Cricket, Badminton, Yoga, kabadi, athletics and other sports.",
         image: {
-            src: "/images/sports facility.jpeg",
+            src: "/images/infrastructure/2.jpeg",
             alt: "Sports facilities",
         },
     },
@@ -23,7 +23,7 @@ const DEMO_INFRASTRUCTURE_DATA = [
         title: "Dance Room",
         desc: "Dance room for Indian Classical, Folk Dance, Contemporary and Modern Creative Dance etc.",
         image: {
-            src: "/images/dance class.jpeg",
+            src: "/images/infrastructure/3.jpeg",
             alt: "Dance Room",
         },
     },
@@ -31,7 +31,7 @@ const DEMO_INFRASTRUCTURE_DATA = [
         title: "Art Room",
         desc: "Spacious well equipped Art room to enlarge the creative minds.",
         image: {
-            src: "https://images.pexels.com/photos/383568/pexels-photo-383568.jpeg?auto=compress&cs=tinysrgb",
+            src: "/images/infrastructure/4.jpeg",
             alt: "Art Room",
         },
     },
@@ -39,7 +39,7 @@ const DEMO_INFRASTRUCTURE_DATA = [
         title: "Computer Lab",
         desc: "Computer lab with latest machines for every student to practice hands on learning with modern technology.",
         image: {
-            src: "https://images.pexels.com/photos/3747486/pexels-photo-3747486.jpeg?auto=compress&cs=tinysrgb",
+            src: "/images/infrastructure/5.webp",
             alt: "Computer Lab",
         },
     },
@@ -47,7 +47,7 @@ const DEMO_INFRASTRUCTURE_DATA = [
         title: "Library",
         desc: "Library to cater for students with well equipped with 5,000+ books, numerous magazines, journals and newspapers with more than DVDs / CDs to browse through. It has excellent collection of latest Reference books for Competitive Entrance Examinations.",
         image: {
-            src: "https://images.pexels.com/photos/1370298/pexels-photo-1370298.jpeg?auto=compress&cs=tinysrgb",
+            src: "/images/infrastructure/6.jpeg",
             alt: "Library",
         },
     },
@@ -55,7 +55,7 @@ const DEMO_INFRASTRUCTURE_DATA = [
         title: "CCTV surveillance system",
         desc: "School is under CCTV surveillance & 24×7 Security Guards to take care of the safety of students. School also has the latest system for fire safety and detection.",
         image: {
-            src: "https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg?auto=compress&cs=tinysrgb",
+            src: "/images/infrastructure/7.jpeg",
             alt: "CCTV surveillance system",
         },
     },
@@ -63,7 +63,7 @@ const DEMO_INFRASTRUCTURE_DATA = [
         title: "Science Lab",
         desc: "Twenty-First Century Science Labs to emphasise the modern infrastructure of the school",
         image: {
-            src: "/images/sci-lab.jpg",
+            src: "/images/infrastructure/8.png",
             alt: "Science Lab",
         },
     },
@@ -71,7 +71,7 @@ const DEMO_INFRASTRUCTURE_DATA = [
         title: "Prime City Location with Greenery",
         desc: "Prime city location meets tranquil greenery, offering the perfect balance of urban convenience and natural serenity",
         image: {
-            src: "/images/greenery.jpeg",
+            src: "/images/infrastructure/9.jpeg",
             alt: "Prime City Location and Greenery",
         },
     },
@@ -79,7 +79,7 @@ const DEMO_INFRASTRUCTURE_DATA = [
         title: "Fire-Fighting Devices",
         desc: "Fire Control Panel, Smoke Detectors, Hooters, Manual Call Point, Water Pump, Reservoir.",
         image: {
-            src: "https://images.pexels.com/photos/189474/pexels-photo-189474.jpeg?auto=compress&cs=tinysrgb",
+            src: "/images/infrastructure/10.jpeg",
             alt: "Fire-Fighting Devices",
         },
     },
@@ -89,13 +89,10 @@ const InfrastructurePage = () => {
     return (
         <TwoSectionPage linkTitle="School" currentLink="Infrastructure">
             <H1>Infrastructure</H1>
-            {DEMO_INFRASTRUCTURE_DATA.length > 0 ? (
+            {INFRASTRUCTURES.length > 0 ? (
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                    <InfrastructureCard
-                        dark={false}
-                        {...DEMO_INFRASTRUCTURE_DATA[0]}
-                    />
-                    {DEMO_INFRASTRUCTURE_DATA.slice(1).map((item, i) => (
+                    <InfrastructureCard dark={false} {...INFRASTRUCTURES[0]} />
+                    {INFRASTRUCTURES.slice(1).map((item, i) => (
                         <InfrastructureCard
                             key={item.title}
                             dark={[0, 1].includes(i % 4)}
