@@ -15,6 +15,7 @@ import AccountDropdown from "../../../_components/AccountDropdown";
 import AdmissionButton from "./AdmissionButton";
 import MarketingLinksDropdown from "./MarketingLinksDropdown";
 
+// TODO: Add achievements and gallery page later on
 export const NAV_LINKS = {
     ["School"]: [
         { title: "About Us", link: "/school/about-us", hidden: false },

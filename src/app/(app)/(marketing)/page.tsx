@@ -40,22 +40,22 @@ const KEY_CHARACTERISTICS = [
     {
         heading: "Tomorrow's Leaders",
         desc: "Leadership Development Programs nurturing resilience and adaptability.",
-        lottie: "https://lottie.host/3b570408-327f-41f4-9f50-27d9f9babb65/ZkWM5SdPGZ.json",
+        lottie: "/lotties/key-diff-characterisitcs/1.json",
     },
     {
         heading: "Green Campus Oasis",
         desc: "Heart of city but given top priority for Green campus",
-        lottie: "https://lottie.host/57a7603e-9f49-41f9-b8b0-84f27dec2d1b/DHSDaYQzrH.json",
+        lottie: "/lotties/key-diff-characterisitcs/2.json",
     },
     {
         heading: "Talent Encouragement Culture",
         desc: "Every student is celebrated for their unique abilities, passions, and interests. We help with self-discovery and empowerment",
-        lottie: "https://lottie.host/0965ef1d-8246-43c7-83a2-aad231cb117e/T5DIee22dX.json",
+        lottie: "/lotties/key-diff-characterisitcs/3.json",
     },
     {
         heading: "State-Level Sports Exposure",
         desc: "Comprehensive Sports Programs and motivate students for State-Level participation. Also Media afflictions for students visibility.",
-        lottie: "https://lottie.host/c1935571-8ef7-45f2-8365-66687e1646b9/vVo20iC8Vl.json",
+        lottie: "/lotties/key-diff-characterisitcs/4.json",
     },
 ] as const;
 
