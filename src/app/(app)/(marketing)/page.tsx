@@ -9,29 +9,29 @@ const PHOTO_GALLERY_CARDS = [
     {
         desc: "School Activities",
         image: {
-            url: "/images/school-activity.jpeg",
-            alt: "adorable dog",
+            url: "/images/photo-gallery-images/1.jpeg",
+            alt: "School Activities",
         },
     },
     {
         desc: "Student Engagements",
         image: {
-            url: "/images/student-engagement.jpeg",
-            alt: "boy studying",
+            url: "/images/photo-gallery-images/2.jpeg",
+            alt: "Student Engagements",
         },
     },
     {
         desc: "Extracurricular Pursuits",
         image: {
-            url: "/images/extra curricular activities.jpeg",
-            alt: "students in classroom",
+            url: "/images/photo-gallery-images/3.jpeg",
+            alt: "Extracurricular Pursuits",
         },
     },
     {
         desc: "Cultural Activities",
         image: {
-            url: "/images/cultular-activities.jpeg",
-            alt: "students in classroom",
+            url: "/images/photo-gallery-images/4.jpeg",
+            alt: "Cultural Activities",
         },
     },
 ] as const;
