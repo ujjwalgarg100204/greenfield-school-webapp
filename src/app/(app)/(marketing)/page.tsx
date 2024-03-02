@@ -59,40 +59,61 @@ const KEY_CHARACTERISTICS = [
     },
 ] as const;
 
-const PREMIUM_FACILITIES = [
+const EXCLUSIVE_AMENTITIES = [
     {
         heading: "Expansive Campus Grounds for Outdoor Activities",
-        img: { url: "/images/exclusive-1.jpeg", alt: "image" },
+        img: {
+            url: "/images/exclusive-amentities/1.jpeg",
+            alt: "Expansive Campus Grounds for Outdoor Activities",
+        },
     },
     {
         heading: "Outdoor Learning Areas for Nature Studies",
-        img: { url: "/images/exclusive-2.jpeg", alt: "image" },
+        img: {
+            url: "/images/exclusive-amentities/2.jpeg",
+            alt: "Outdoor Learning Areas for Nature Studies",
+        },
     },
     {
         heading: "Technologically Advanced Classrooms",
-        img: { url: "/images/exclusive-3.jpeg", alt: "image" },
+        img: {
+            url: "/images/exclusive-amentities/3.jpeg",
+            alt: "Technologically Advanced Classrooms",
+        },
     },
     {
         heading: "Lush Greenery Surrounding the School",
-        img: { url: "/images/exclusive-4.jpeg", alt: "image" },
+        img: {
+            url: "/images/exclusive-amentities/4.jpeg",
+            alt: "Lush Greenery Surrounding the School",
+        },
     },
     {
         heading: "Prime City Location for Accessibility and Convenience",
-        img: { url: "/images/exclusive-6.jpeg", alt: "image" },
+        img: {
+            url: "/images/exclusive-amentities/5.jpeg",
+            alt: "Prime City Location for Accessibility and Convenience",
+        },
     },
     {
         heading: "Dynamic and academic pioneers",
-        img: { url: "/images/landing-page-about-us.jpeg", alt: "image" },
+        img: {
+            url: "/images/exclusive-amentities/6.jpeg",
+            alt: "Dynamic and academic pioneers",
+        },
     },
     {
         heading: "Record breaking sport performances",
-        img: { url: "/images/sports.jpeg", alt: "image" },
+        img: {
+            url: "/images/sports.jpeg",
+            alt: "Record breaking sport performances",
+        },
     },
     {
         heading: "Innovative way to keep kindergarten engaged",
         img: {
             url: "/images/innovation.jpeg",
-            alt: "image",
+            alt: "Innovative way to keep kindergarten engaged",
         },
     },
 ];
@@ -251,7 +272,7 @@ const Home: FC = () => {
                             Exclusive Amenities
                         </h3>
                         <PremiumFacilitiesCarousel
-                            facilities={PREMIUM_FACILITIES}
+                            facilities={EXCLUSIVE_AMENTITIES}
                         />
                     </section>
                 </div>
