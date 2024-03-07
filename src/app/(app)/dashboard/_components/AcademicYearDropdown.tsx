@@ -7,30 +7,31 @@ import {
     DropdownMenu,
     DropdownTrigger,
     type Selection,
-} from "@nextui-org/react";
-import { useMemo, useState, type FC, useEffect } from "react";
-import { useCurrAcademicYear } from "../_contexts/currAcademicYear";
+} from "~/app/next-ui";
+import { type FC } from "react";
+import { getAcademicStr } from "../admin/administration/academic-year/utils";
+import { useAllAcademicYrCtx } from "../_contexts/AllAcademicYrCtx";
+import { useSelectedAcademicYrCtx } from "../_contexts/SelectedAcademicYrCtx";
+
+const getSelectedValue = (keys: Selection): string => {
+    return Array.from(keys).join(", ").replaceAll("_", " ");
+};
 
 const AcademicYearDropdown: FC = () => {
-    const { currAcademicYear, updateAcademicYear } = useCurrAcademicYear();
-    const [selectedKeys, setSelectedKeys] = useState<Set<string | number>>(
-        new Set([currAcademicYear]),
-    );
-    const selectedValue = useMemo(
-        () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
-        [selectedKeys],
-    );
+    const { allAcademicYrs } = useAllAcademicYrCtx();
+    const { selectedAcademicYr, setSelectedAcademicYr } =
+        useSelectedAcademicYrCtx();
     const selectionChangeHandler = (keys: Selection) => {
-        if (typeof keys === "string") {
-            throw new Error("Invalid selection");
+        if (typeof keys !== "string") {
+            const selectedAcademicYrId = getSelectedValue(keys);
+            const chosenYr = allAcademicYrs.find(
+                yr => yr.id === selectedAcademicYrId,
+            )!;
+            return setSelectedAcademicYr(chosenYr);
         }
-        setSelectedKeys(keys);
-    };
 
-    // update academic year when academic year is changed
-    useEffect(() => {
-        updateAcademicYear(selectedValue);
-    }, [selectedValue, updateAcademicYear]);
+        console.info("Invalid value selected in Academic Year Dropdown", keys);
+    };
 
     return (
         <Dropdown>
@@ -40,20 +41,28 @@ const AcademicYearDropdown: FC = () => {
                     className="capitalize"
                     color="primary"
                 >
-                    {selectedValue}
+                    {getAcademicStr(selectedAcademicYr)}
                 </Button>
             </DropdownTrigger>
             <DropdownMenu
                 variant="flat"
                 disallowEmptySelection
                 selectionMode="single"
-                selectedKeys={selectedKeys}
+                selectedKeys={new Set([selectedAcademicYr.id])}
                 onSelectionChange={selectionChangeHandler}
                 color="primary"
+                items={allAcademicYrs.map(yr => ({
+                    key: yr.id,
+                    label: getAcademicStr(yr),
+                }))}
             >
-                <DropdownItem key="2022-2023">2022-2023</DropdownItem>
-                <DropdownItem key="2023-2024">2023-2024</DropdownItem>
-                <DropdownItem key="2024-2025">2024-2025</DropdownItem>
+                {[...allAcademicYrs]
+                    .sort((a, b) => b.endDate.getTime() - a.endDate.getTime())
+                    .map(yr => (
+                        <DropdownItem key={yr.id}>
+                            {getAcademicStr(yr)}
+                        </DropdownItem>
+                    ))}
             </DropdownMenu>
         </Dropdown>
     );

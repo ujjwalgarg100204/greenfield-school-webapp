@@ -1,5 +1,7 @@
 "use client";
 
+import { MdDateRange } from "react-icons/md";
+import { RiAdminLine } from "react-icons/ri";
 import { BiHome, BiUserCircle } from "react-icons/bi";
 import { FaMoneyCheckAlt, FaUserClock } from "react-icons/fa";
 import { LiaChalkboardTeacherSolid, LiaMoneyBillSolid } from "react-icons/lia";
@@ -125,6 +127,17 @@ const drawerItems: DrawerItem[] = [
                 title: "Setup",
                 icon: <TbReportMoney className="h-[1.265rem] w-[1.265rem]" />,
                 href: "/dashboard/admin/money/setup",
+            },
+        ],
+    },
+    {
+        title: "Administration",
+        icon: <RiAdminLine className="size-[1.265rem]" />,
+        subItems: [
+            {
+                title: "Academic Year",
+                icon: <MdDateRange />,
+                href: "/dashboard/admin/administration/academic-year",
             },
         ],
     },

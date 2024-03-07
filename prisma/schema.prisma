@@ -13,6 +13,7 @@ model User {
     username     String @map("username")
     passwordHash String @map("password_hash")
 
+    @@map("user")
     @@unique([role, username])
 }
 
@@ -43,6 +44,8 @@ model AdmissionApplication {
     motherAadharNumber  String?  @map("mother_aadhar_number")
 
     siblings AdmissionApplicationSiblingData[]
+
+    @@map("admission_application")
 }
 
 model AdmissionApplicationSiblingData {
@@ -51,4 +54,17 @@ model AdmissionApplicationSiblingData {
     grade String @map("grade")
 
     application AdmissionApplication @relation(fields: [id], references: [id])
+
+    @@map("admission_application_sibling_data")
+}
+
+model AcademicYear {
+    id        String   @id @default(cuid()) @map("id")
+    startDate DateTime @map("start_date")
+    endDate   DateTime @map("end_date")
+    createdAt DateTime @default(now()) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
+
+    @@unique([startDate, endDate])
+    @@map("academic_year")
 }

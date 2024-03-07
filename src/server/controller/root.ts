@@ -1,6 +1,7 @@
 import { createTRPCRouter } from "~/server/controller/trpc";
 import { admissionApplicationRouter } from "./routers/admissionApplication";
 import { contactUsFormRouter } from "./routers/contactUsForm";
+import { academicYearRouter } from "./routers/academicYear.router";
 
 /**
  * This is the primary router for your server.
@@ -10,6 +11,7 @@ import { contactUsFormRouter } from "./routers/contactUsForm";
 export const appRouter = createTRPCRouter({
     admissionApplication: admissionApplicationRouter,
     contactUsForm: contactUsFormRouter,
+    academicYear: academicYearRouter,
 });
 
 // export type definition of API

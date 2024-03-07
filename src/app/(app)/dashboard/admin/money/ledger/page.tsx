@@ -1,14 +1,14 @@
-import React from "react";
+import { type FC } from "react";
+import H1 from "~/app/(app)/(marketing)/_components/H1";
+import LedgerTable from "./_components/LedgerTable";
 
-const page = () => {
+const FeesLedgerPage: FC = () => {
     return (
-        <div>
-            <div>{/* <LinkNavbar /> */}</div>
-            <div className="  m-5 w-full  rounded-lg bg-green-100">
-                <h1>you are under ledger section</h1>
-            </div>
-        </div>
+        <main className="space-y-4">
+            <H1 className="pt-2">Ledger</H1>
+            <LedgerTable />
+        </main>
     );
 };
 
-export default page;
+export default FeesLedgerPage;
