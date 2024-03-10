@@ -13,8 +13,8 @@ model User {
     username     String @map("username")
     passwordHash String @map("password_hash")
 
-    @@map("user")
     @@unique([role, username])
+    @@map("user")
 }
 
 model AdmissionApplication {
@@ -65,6 +65,55 @@ model AcademicYear {
     createdAt DateTime @default(now()) @map("created_at")
     updatedAt DateTime @updatedAt @map("updated_at")
 
+    teachers         Teacher[]
+    standards        Standard[]
+    standardSections StandardSection[]
+
     @@unique([startDate, endDate])
     @@map("academic_year")
+}
+
+model Teacher {
+    id        String   @id @default(cuid()) @map("id")
+    name      String   @map("name")
+    email     String?  @map("email")
+    phone     String?  @map("phone")
+    createdAt DateTime @default(now()) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
+
+    // some teachers will be class-section teachers
+    standardSection StandardSection?
+
+    AcademicYear   AcademicYear @relation(fields: [academicYearId], references: [id])
+    academicYearId String       @map("academic_year_id")
+
+    @@unique([id, academicYearId])
+    @@map("teacher")
+}
+
+model Standard {
+    id    String @id @default(cuid()) @map("id")
+    label String @map("label")
+
+    sections StandardSection[]
+
+    AcademicYear   AcademicYear @relation(fields: [academicYearId], references: [id])
+    academicYearId String       @map("academic_year_id")
+
+    @@map("standard")
+}
+
+model StandardSection {
+    id    String @id @default(cuid()) @map("id")
+    label String @map("label")
+
+    // every section will have a class-section teacher
+    Teacher        Teacher      @relation(fields: [teacherId], references: [id])
+    teacherId      String       @unique @map("teacher_id")
+    Standard       Standard     @relation(fields: [standardId], references: [id])
+    standardId     String       @map("standard_id")
+    AcademicYear   AcademicYear @relation(fields: [academicYearId], references: [id])
+    academicYearId String       @map("academic_year_id")
+
+    @@map("standard_section")
 }
