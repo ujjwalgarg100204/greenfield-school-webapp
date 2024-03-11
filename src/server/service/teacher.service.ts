@@ -5,7 +5,8 @@ import { TeacherValidator } from "../model/validator/teacher.validator";
 
 export interface TeacherService {
     createNewTeacher(
-        teacher: Pick<Teacher, "name" | "email" | "phone">,
+        teacher: Pick<Teacher, "name"> &
+            Partial<Pick<Teacher, "email" | "phone">>,
         academicYrId: string,
     ): Promise<void>;
     getAllByAcademicYrId(academicYrId: string): Promise<Teacher[]>;
@@ -21,11 +22,15 @@ export class TeacherServiceImpl implements TeacherService {
     constructor(private readonly teacherRepo: TeacherRepository) {}
 
     async createNewTeacher(
-        teacher: Pick<Teacher, "name" | "email" | "phone">,
+        teacher: Pick<Teacher, "name"> &
+            Partial<Pick<Teacher, "email" | "phone">>,
         academicYrId: string,
     ): Promise<void> {
         try {
-            await TeacherValidator.getBaseSchema().parseAsync(teacher);
+            await TeacherValidator.getNewTeacherSchema().parseAsync({
+                ...teacher,
+                academicYearId: academicYrId,
+            });
             await this.teacherRepo.create(teacher, academicYrId);
         } catch (err) {
             throw handleServiceLevelError(err, "Could not create teacher", {
@@ -37,6 +42,9 @@ export class TeacherServiceImpl implements TeacherService {
 
     async getAllByAcademicYrId(academicYrId: string): Promise<Teacher[]> {
         try {
+            await TeacherValidator.getAllTeacherSchema().parseAsync({
+                academicYearId: academicYrId,
+            });
             return await this.teacherRepo.findAllByAcademicYrId(academicYrId);
         } catch (err) {
             throw handleServiceLevelError(
@@ -53,7 +61,11 @@ export class TeacherServiceImpl implements TeacherService {
         data: Partial<Pick<Teacher, "name" | "email" | "phone">>,
     ): Promise<Teacher> {
         try {
-            await TeacherValidator.getUpdateTeacherSchema().parseAsync(data);
+            await TeacherValidator.getUpdateTeacherSchema().parseAsync({
+                ...data,
+                id,
+                academicYearId: academicYrId,
+            });
             return await this.teacherRepo.updateByIdAndAcademicYrId(
                 id,
                 academicYrId,
@@ -73,6 +85,10 @@ export class TeacherServiceImpl implements TeacherService {
         academicYrId: string,
     ): Promise<void> {
         try {
+            await TeacherValidator.getDeleteTeacherSchema().parseAsync({
+                id,
+                academicYearId: academicYrId,
+            });
             await this.teacherRepo.deleteByIdAndAcademicYrId(id, academicYrId);
         } catch (err) {
             throw handleServiceLevelError(err, "Could not delete teacher", {

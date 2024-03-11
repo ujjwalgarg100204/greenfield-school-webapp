@@ -3,7 +3,8 @@ import { handleDBLevelError } from "~/server/errors";
 
 export interface TeacherRepository {
     create(
-        teacher: Pick<Teacher, "name" | "email" | "phone">,
+        teacher: Pick<Teacher, "name"> &
+            Partial<Pick<Teacher, "email" | "phone">>,
         academicYrId: string,
     ): Promise<void>;
     findAllByAcademicYrId(academicYrId: string): Promise<Teacher[]>;
@@ -23,7 +24,8 @@ export class TeacherPrismaRepository implements TeacherRepository {
     constructor(private readonly prismaTeacher: PrismaClient["teacher"]) {}
 
     async create(
-        teacher: Pick<Teacher, "name" | "email" | "phone">,
+        teacher: Pick<Teacher, "name"> &
+            Partial<Pick<Teacher, "email" | "phone">>,
         academicYrId: string,
     ): Promise<void> {
         try {

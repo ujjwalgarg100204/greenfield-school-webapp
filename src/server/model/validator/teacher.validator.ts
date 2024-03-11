@@ -3,7 +3,12 @@ import { z } from "zod";
 
 export class TeacherValidator {
     private static readonly baseSchema = z.object({
-        id: z.string().cuid({ message: "Invalid id provided" }).optional(),
+        id: z
+            .string({
+                required_error: "Teacher Id is required",
+                invalid_type_error: "Teacher Id should be a string",
+            })
+            .cuid({ message: "Invalid id provided" }),
         name: z
             .string({
                 required_error: "Name of teacher is required",
@@ -23,10 +28,10 @@ export class TeacherValidator {
             }),
         academicYearId: z
             .string({
-                required_error:
-                    "Academic Year Id is required to create a new teacher",
+                required_error: "Academic Year Id is required",
+                invalid_type_error: "Academic Year Id should be a string",
             })
-            .cuid(),
+            .cuid({ message: "Invalid academic year id provided" }),
         createdAt: z.date().optional(),
         updatedAt: z.date().optional(),
     }) satisfies z.Schema<Prisma.TeacherUncheckedCreateInput>;
@@ -35,20 +40,38 @@ export class TeacherValidator {
         return this.baseSchema;
     }
 
+    static getAllTeacherSchema() {
+        return this.baseSchema.pick({ academicYearId: true }).strict();
+    }
+
     static getNewTeacherSchema() {
         return this.baseSchema
             .pick({
                 name: true,
                 email: true,
                 phone: true,
+                academicYearId: true,
             })
+            .partial({ email: true, phone: true })
             .strict();
     }
 
     static getUpdateTeacherSchema() {
         return this.baseSchema
-            .pick({ name: true, email: true, phone: true })
-            .partial()
+            .pick({
+                name: true,
+                email: true,
+                phone: true,
+                academicYearId: true,
+                id: true,
+            })
+            .partial({ email: true, phone: true })
+            .strict();
+    }
+
+    static getDeleteTeacherSchema() {
+        return this.baseSchema
+            .pick({ id: true, academicYearId: true })
             .strict();
     }
 }

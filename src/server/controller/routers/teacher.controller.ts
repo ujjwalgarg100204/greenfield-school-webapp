@@ -1,4 +1,3 @@
-import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "~/server/controller/trpc";
 import { db } from "~/server/db";
 import { handleControllerLevelError } from "~/server/errors";
@@ -14,18 +13,10 @@ const teacherSvc: TeacherService = new TeacherServiceImpl(teacherRepo);
 
 export const teacherRouter = createTRPCRouter({
     getAll: publicProcedure
-        .input(
-            z
-                .string({
-                    required_error: "Academic Year Id is required",
-                    invalid_type_error:
-                        "Academic Year Id is supposed be a string value",
-                })
-                .cuid("Invalid academic year id provided"),
-        )
-        .query(async ({ input: academicYrId }) => {
+        .input(TeacherValidator.getAllTeacherSchema())
+        .query(async ({ input: { academicYearId } }) => {
             try {
-                return await teacherSvc.getAllByAcademicYrId(academicYrId);
+                return await teacherSvc.getAllByAcademicYrId(academicYearId);
             } catch (err) {
                 throw handleControllerLevelError(
                     err,
@@ -34,20 +25,10 @@ export const teacherRouter = createTRPCRouter({
             }
         }),
     newTeacher: publicProcedure
-        .input(
-            TeacherValidator.getNewTeacherSchema().extend({
-                academicYrId: z
-                    .string({
-                        required_error:
-                            "Academic Year Id is required to create a new teacher",
-                        invalid_type_error: "Academic Year Id must be a string",
-                    })
-                    .cuid("Invalid Academic Year Id"),
-            }),
-        )
-        .mutation(async ({ input: { academicYrId, ...teacher } }) => {
+        .input(TeacherValidator.getNewTeacherSchema())
+        .mutation(async ({ input: { academicYearId, ...teacher } }) => {
             try {
-                await teacherSvc.createNewTeacher(teacher, academicYrId);
+                await teacherSvc.createNewTeacher(teacher, academicYearId);
             } catch (err) {
                 throw handleControllerLevelError(
                     err,
@@ -56,29 +37,12 @@ export const teacherRouter = createTRPCRouter({
             }
         }),
     updateTeacher: publicProcedure
-        .input(
-            TeacherValidator.getUpdateTeacherSchema().extend({
-                id: z
-                    .string({
-                        required_error:
-                            "Teacher Id is required to update teacher",
-                        invalid_type_error: "Teacher Id must be a string",
-                    })
-                    .cuid("Invalid Teacher Id"),
-                academicYrId: z
-                    .string({
-                        required_error:
-                            "Academic Year Id is required to update teacher",
-                        invalid_type_error: "Academic Year Id must be a string",
-                    })
-                    .cuid("Invalid Academic Year Id"),
-            }),
-        )
-        .mutation(async ({ input: { id, academicYrId, ...data } }) => {
+        .input(TeacherValidator.getUpdateTeacherSchema())
+        .mutation(async ({ input: { id, academicYearId, ...data } }) => {
             try {
                 return await teacherSvc.updateByIdAndAcademicYrId(
                     id,
-                    academicYrId,
+                    academicYearId,
                     data,
                 );
             } catch (err) {
@@ -89,27 +53,10 @@ export const teacherRouter = createTRPCRouter({
             }
         }),
     deleteTeacher: publicProcedure
-        .input(
-            z.object({
-                id: z
-                    .string({
-                        required_error:
-                            "Teacher Id is required to update teacher",
-                        invalid_type_error: "Teacher Id must be a string",
-                    })
-                    .cuid("Invalid Teacher Id"),
-                academicYrId: z
-                    .string({
-                        required_error:
-                            "Academic Year Id is required to update teacher",
-                        invalid_type_error: "Academic Year Id must be a string",
-                    })
-                    .cuid("Invalid Academic Year Id"),
-            }),
-        )
-        .mutation(async ({ input: { id, academicYrId } }) => {
+        .input(TeacherValidator.getDeleteTeacherSchema())
+        .mutation(async ({ input: { id, academicYearId } }) => {
             try {
-                await teacherSvc.deleteByIdAndAcademicYrId(id, academicYrId);
+                await teacherSvc.deleteByIdAndAcademicYrId(id, academicYearId);
             } catch (err) {
                 throw handleControllerLevelError(
                     err,
