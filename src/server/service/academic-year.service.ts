@@ -4,7 +4,19 @@ import { AcademicYearValidator } from "../model/validator/academic-year.validato
 import { BaseError, handleServiceLevelError } from "../errors";
 import { ValidationError } from "zod-validation-error";
 
-export class AcademicYearService {
+export interface AcadmeicYearService {
+    createNewAcademicYear(
+        academicYear: Pick<AcademicYear, "startDate" | "endDate">,
+    ): Promise<void>;
+    getAll(): Promise<AcademicYear[]>;
+    updateOne(
+        id: string,
+        data: Partial<Pick<AcademicYear, "startDate" | "endDate">>,
+    ): Promise<AcademicYear>;
+    deleteById(id: string): Promise<void>;
+}
+
+export class AcademicYearServiceImpl implements AcadmeicYearService {
     constructor(private readonly academicYearRepo: AcademicYearRepository) {}
 
     async createNewAcademicYear(
@@ -45,7 +57,7 @@ export class AcademicYearService {
         }
     }
 
-    async getAll() {
+    async getAll(): Promise<AcademicYear[]> {
         try {
             return await this.academicYearRepo.findAll();
         } catch (err) {
@@ -56,7 +68,7 @@ export class AcademicYearService {
     async updateOne(
         id: string,
         data: Partial<Pick<AcademicYear, "startDate" | "endDate">>,
-    ) {
+    ): Promise<AcademicYear> {
         try {
             const { startDate, endDate } =
                 await AcademicYearValidator.getBaseSchema().parseAsync(data);

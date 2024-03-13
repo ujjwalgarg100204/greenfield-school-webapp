@@ -11,7 +11,7 @@ import {
 const teacherRepo = new TeacherPrismaRepository(db.teacher);
 const teacherSvc: TeacherService = new TeacherServiceImpl(teacherRepo);
 
-export const teacherRouter = createTRPCRouter({
+export const teacherController = createTRPCRouter({
     getAll: publicProcedure
         .input(TeacherValidator.getAllTeacherSchema())
         .query(async ({ input: { academicYearId } }) => {

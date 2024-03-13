@@ -1,9 +1,9 @@
 import { redirect } from "next/navigation";
 import { type z } from "zod";
 import { login } from "~/server/auth";
-import { UserValidator } from "~/server/model/validator/UserValidator";
 import H1 from "../(marketing)/_components/H1";
 import SignInForm from "./_components/SignInForm";
+import { UserValidator } from "~/server/model/validator/user.validator";
 
 const SignInFormSchema = UserValidator.getUserSignInFormSchema();
 
@@ -13,7 +13,7 @@ const LoginPage = () => {
     ) => {
         "use server";
         await login(data);
-        redirect(`/dashboard/${data.role}`);
+        redirect(`/dashboard/${data.role.toLowerCase()}`);
     };
     return (
         <>

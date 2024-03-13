@@ -11,7 +11,7 @@ import { handleControllerLevelError } from "~/server/errors";
 const standardRepo = new StandardPrismaRepository(db.standard);
 const standardSvc: StandardService = new StandardServiceImpl(standardRepo);
 
-export const standardRouter = createTRPCRouter({
+export const standardController = createTRPCRouter({
     getAll: publicProcedure
         .input(StandardValidator.getAllStandardsSchema())
         .query(async ({ input: { academicYearId } }) => {

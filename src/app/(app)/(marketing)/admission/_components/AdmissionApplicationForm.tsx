@@ -13,7 +13,7 @@ import { useFieldArray, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { FaMinus, FaPlus } from "react-icons/fa6";
 import { type z } from "zod";
-import { AdmissionApplicationValidator } from "~/server/model/validator/AdmissionApplicationValidator";
+import { AdmissionApplicationValidator } from "~/server/model/validator/admission-application.validator";
 import { api } from "~/trpc/react";
 
 const ApplicationFormSchema =

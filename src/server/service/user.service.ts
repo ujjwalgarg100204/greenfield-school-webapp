@@ -1,12 +1,12 @@
 import { hashString } from "../auth";
-import { type User } from "../model/User";
+import { type UserRole, type User } from "@prisma/client";
 import { type UserRepository } from "../model/repository/user.repository";
 import { UserValidator } from "../model/validator/user.validator";
 
 export interface UserService {
-    findByRoleUsername(role: string, username: string): Promise<User | null>;
+    findByRoleUsername(role: UserRole, username: string): Promise<User | null>;
     findByRoleUsernamePasswordHash(
-        role: string,
+        role: UserRole,
         username: string,
         password: string,
     ): Promise<User | null>;
@@ -23,14 +23,14 @@ export class UserServiceImpl implements UserService {
     }
 
     public async findByRoleUsername(
-        role: string,
+        role: UserRole,
         username: string,
     ): Promise<User | null> {
         return await this.userRepo.findByRoleUsername(role, username);
     }
 
     public async findByRoleUsernamePasswordHash(
-        role: string,
+        role: UserRole,
         username: string,
         passwordHash: string,
     ): Promise<User | null> {

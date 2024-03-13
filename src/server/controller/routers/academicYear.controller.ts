@@ -4,12 +4,12 @@ import { db } from "~/server/db";
 import { handleControllerLevelError } from "~/server/errors";
 import { AcademicYearPrismaRepository } from "~/server/model/repository/academic-year.repository";
 import { AcademicYearValidator } from "~/server/model/validator/academic-year.validator";
-import { AcademicYearService } from "~/server/service/academic-year.service";
+import { AcademicYearServiceImpl } from "~/server/service/academic-year.service";
 
 const academicYrRepo = new AcademicYearPrismaRepository(db.academicYear);
-const academicYrSvc = new AcademicYearService(academicYrRepo);
+const academicYrSvc = new AcademicYearServiceImpl(academicYrRepo);
 
-export const academicYearRouter = createTRPCRouter({
+export const academicYearController = createTRPCRouter({
     getAll: publicProcedure.query(async () => {
         try {
             return await academicYrSvc.getAll();

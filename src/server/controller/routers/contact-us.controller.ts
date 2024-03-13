@@ -6,14 +6,14 @@ import {
     ContactUsFormServiceImpl,
 } from "~/server/service/contact-us.service";
 
-export const contactUsFormRouter = createTRPCRouter({
+const contactUsSvc: ContactUsFormService = new ContactUsFormServiceImpl();
+
+export const contactUsController = createTRPCRouter({
     newApplication: publicProcedure
         .input(ContactUsFormValidator.getBaseSchema())
         .mutation(async ({ input }) => {
-            const contactUsService: ContactUsFormService =
-                new ContactUsFormServiceImpl();
             try {
-                await contactUsService.sendEmail(
+                await contactUsSvc.sendEmail(
                     input.name,
                     input.query,
                     input.phone,

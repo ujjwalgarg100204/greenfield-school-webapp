@@ -1,5 +1,5 @@
+import { UserRole } from "@prisma/client";
 import { z } from "zod";
-import { USER_ROLE } from "../User";
 
 export class UserValidator {
     private static baseSchema = z.object({
@@ -7,10 +7,13 @@ export class UserValidator {
             required_error: "id is required",
             invalid_type_error: "id must be a string",
         }),
-        role: z.enum(USER_ROLE, {
-            required_error: "Role is required",
-            invalid_type_error: "Invalid role provided",
-        }),
+        role: z.enum(
+            [UserRole.ADMIN, UserRole.TEACHER, UserRole.STUDENT_PARENT],
+            {
+                required_error: "Role is required",
+                invalid_type_error: "Invalid role provided",
+            },
+        ),
         username: z.string({
             required_error: "username is required",
             invalid_type_error: "username must be a string",
@@ -21,20 +24,27 @@ export class UserValidator {
         }),
     });
 
+    public static getBaseSchema() {
+        return this.baseSchema;
+    }
+
     public static getCreateNewUserSchema() {
-        return this.baseSchema.omit({ id: true });
+        return this.baseSchema.omit({ id: true }).strict();
     }
 
     public static getUserSignInFormSchema() {
-        return this.baseSchema.pick({ role: true, username: true }).extend({
-            password: z.string({
-                required_error: "password is required",
-                invalid_type_error: "password must be a string",
-            }),
-        });
+        return this.baseSchema
+            .pick({ role: true, username: true })
+            .extend({
+                password: z.string({
+                    required_error: "password is required",
+                    invalid_type_error: "password must be a string",
+                }),
+            })
+            .strict();
     }
 
     public static getUserObjSchema() {
-        return this.baseSchema;
+        return this.baseSchema.strict();
     }
 }

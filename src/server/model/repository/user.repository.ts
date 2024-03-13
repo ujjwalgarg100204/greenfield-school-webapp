@@ -1,20 +1,20 @@
 import { db } from "~/server/db";
-import { type User } from "../User";
+import { type UserRole, type User } from "@prisma/client";
 import { UserValidator } from "../validator/user.validator";
 
 export interface UserRepository {
     create(user: Omit<User, "id">): Promise<User>;
     findByRoleUsernamePasswordHash(
-        role: string,
+        role: UserRole,
         username: string,
         passwordHash: string,
     ): Promise<User | null>;
-    findByRoleUsername(role: string, username: string): Promise<User | null>;
+    findByRoleUsername(role: UserRole, username: string): Promise<User | null>;
 }
 
 export class UserRepositoryImpl implements UserRepository {
     public async findByRoleUsername(
-        role: string,
+        role: UserRole,
         username: string,
     ): Promise<User | null> {
         const user = await db.user.findFirst({
@@ -28,7 +28,7 @@ export class UserRepositoryImpl implements UserRepository {
     }
 
     public async findByRoleUsernamePasswordHash(
-        role: string,
+        role: UserRole,
         username: string,
         passwordHash: string,
     ): Promise<User | null> {

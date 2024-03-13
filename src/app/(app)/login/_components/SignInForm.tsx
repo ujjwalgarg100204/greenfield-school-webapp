@@ -1,12 +1,12 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { UserRole } from "@prisma/client";
 import { type FC } from "react";
 import { Controller, useForm, type SubmitHandler } from "react-hook-form";
 import { type z } from "zod";
 import { Button, Input, Link, Radio, RadioGroup } from "~/app/next-ui";
-import { USER_ROLE } from "~/server/model/User";
-import { UserValidator } from "~/server/model/validator/UserValidator";
+import { UserValidator } from "~/server/model/validator/user.validator";
 
 const SignInFormSchema = UserValidator.getUserSignInFormSchema();
 
@@ -57,7 +57,11 @@ const SignInForm: FC<Props> = ({ onSuccessfulSubmission }) => {
                         onValueChange={onChange}
                         errorMessage={fieldState.error?.message}
                     >
-                        {USER_ROLE.map(role => (
+                        {[
+                            UserRole.ADMIN,
+                            UserRole.TEACHER,
+                            UserRole.STUDENT_PARENT,
+                        ].map(role => (
                             <Radio
                                 classNames={{
                                     base: "inline-flex m-0 bg-content1 hover:bg-content2 items-center justify-between flex-row-reverse max-w-[300px] cursor-pointer rounded-lg gap-4 p-3 border-2 border-default data-[selected=true]:border-primary data-[selected=true]:bg-primary data-[invalid=true]:border-rose-600",
@@ -68,7 +72,7 @@ const SignInForm: FC<Props> = ({ onSuccessfulSubmission }) => {
                                 key={role}
                                 value={role}
                             >
-                                {role.replace("_", "/")}
+                                {role.replace("_", "/").toLowerCase()}
                             </Radio>
                         ))}
                     </RadioGroup>

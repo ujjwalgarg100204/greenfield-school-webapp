@@ -1,9 +1,9 @@
 import { createTRPCRouter } from "~/server/controller/trpc";
-import { admissionApplicationRouter } from "./routers/admissionApplication.controller";
-import { contactUsFormRouter } from "./routers/contact-us.controller";
-import { academicYearRouter } from "./routers/academicYear.controller";
-import { teacherRouter } from "./routers/teacher.controller";
-import { standardRouter } from "./routers/standard.controller";
+import { admissionApplicationController } from "./routers/admissionApplication.controller";
+import { contactUsController } from "./routers/contact-us.controller";
+import { academicYearController } from "./routers/academicYear.controller";
+import { teacherController } from "./routers/teacher.controller";
+import { standardController } from "./routers/standard.controller";
 import { standardSectionController } from "./routers/standard-section.controller";
 
 /**
@@ -12,11 +12,11 @@ import { standardSectionController } from "./routers/standard-section.controller
  * All routers added in /api/routers should be manually added here.
  */
 export const appRouter = createTRPCRouter({
-    admissionApplication: admissionApplicationRouter,
-    contactUsForm: contactUsFormRouter,
-    academicYear: academicYearRouter,
-    teacher: teacherRouter,
-    standard: standardRouter,
+    admissionApplication: admissionApplicationController,
+    contactUsForm: contactUsController,
+    academicYear: academicYearController,
+    teacher: teacherController,
+    standard: standardController,
     standardSection: standardSectionController,
 });
 

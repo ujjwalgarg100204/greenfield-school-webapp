@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { getServerAuthSession, updateSession } from "./server/auth";
+import { UserRole } from "@prisma/client";
 
 export const middleware = async (req: NextRequest) => {
     // if an unauthenticated user tries to access dashboard, redirect
@@ -13,9 +14,11 @@ export const middleware = async (req: NextRequest) => {
         const { role } = session.user;
         if (
             !(
-                (role === "admin" && url.startsWith("/dashboard/admin")) ||
-                (role === "teacher" && url.startsWith("/dashboard/teacher")) ||
-                (role === "student_parent" &&
+                (role === UserRole.ADMIN &&
+                    url.startsWith("/dashboard/admin")) ||
+                (role === UserRole.TEACHER &&
+                    url.startsWith("/dashboard/teacher")) ||
+                (role === UserRole.STUDENT_PARENT &&
                     url.startsWith("/dashboard/student_parent"))
             )
         ) {

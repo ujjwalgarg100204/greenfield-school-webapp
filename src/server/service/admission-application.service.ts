@@ -1,4 +1,4 @@
-import type AdmissionApplication from "../model/AdmissionApplication";
+import { type AdmissionApplication } from "@prisma/client";
 import { type AdmissionApplicationRepository } from "../model/repository/admission-application.repository";
 import { AdmissionApplicationValidator } from "../model/validator/admission-application.validator";
 

@@ -1,5 +1,5 @@
 import { db } from "~/server/db";
-import type AdmissionApplication from "../AdmissionApplication";
+import { type AdmissionApplication } from "@prisma/client";
 import { AdmissionApplicationValidator } from "../validator/admission-application.validator";
 
 export interface AdmissionApplicationRepository {

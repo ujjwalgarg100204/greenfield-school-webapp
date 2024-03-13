@@ -1,11 +1,12 @@
+import "server-only";
+
 import crypto from "crypto";
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 import { NextResponse, type NextRequest } from "next/server";
-import "server-only";
 import { z } from "zod";
 import { env } from "~/env";
-import { type User } from "./model/User";
+import { type User } from "@prisma/client";
 import { UserRepositoryImpl } from "./model/repository/user.repository";
 import { UserValidator } from "./model/validator/user.validator";
 import { UserServiceImpl, type UserService } from "./service/user.service";

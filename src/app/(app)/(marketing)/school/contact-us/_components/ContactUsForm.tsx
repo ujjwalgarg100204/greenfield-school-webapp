@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { type z } from "zod";
 import { Button, Input, Textarea } from "~/app/next-ui";
-import { ContactUsFormValidator } from "~/server/model/validator/ContactUsFormValidator";
+import { ContactUsFormValidator } from "~/server/model/validator/contact-us.validator";
 import { api } from "~/trpc/react";
 
 const ContactUsFormSchema = ContactUsFormValidator.getBaseSchema();
@@ -20,7 +20,7 @@ const ContactUsForm: FC = () => {
     } = useForm<z.infer<typeof ContactUsFormSchema>>({
         resolver: zodResolver(ContactUsFormSchema),
     });
-    const { mutate, isLoading} = api.contactUsForm.newApplication.useMutation({
+    const { mutate, isLoading } = api.contactUsForm.newApplication.useMutation({
         onSuccess() {
             reset();
             toast.success(

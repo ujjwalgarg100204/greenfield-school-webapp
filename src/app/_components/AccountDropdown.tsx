@@ -11,7 +11,7 @@ import {
 
 import type { FC } from "react";
 import toast from "react-hot-toast";
-import { type User as TUser } from "~/server/model/User";
+import { type User as TUser } from "@prisma/client";
 
 type Props = {
     user: Pick<TUser, "role" | "username">;
