@@ -1,10 +1,10 @@
 import { createTRPCRouter, publicProcedure } from "~/server/controller/trpc";
-import { AdmissionApplicationRepositoryImpl } from "~/server/model/repository/AdmissionApplicationRepository";
-import { AdmissionApplicationValidator } from "~/server/model/validator/AdmissionApplicationValidator";
+import { AdmissionApplicationRepositoryImpl } from "~/server/model/repository/admission-application.repository";
+import { AdmissionApplicationValidator } from "~/server/model/validator/admission-application.validator";
 import {
     AdmissionApplicationServiceImpl,
     type AdmissionApplicationService,
-} from "~/server/service/AdmissionApplicationService";
+} from "~/server/service/admission-application.service";
 
 export const admissionApplicationRouter = createTRPCRouter({
     newApplication: publicProcedure

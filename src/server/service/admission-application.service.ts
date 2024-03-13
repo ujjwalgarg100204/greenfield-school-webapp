@@ -1,6 +1,6 @@
 import type AdmissionApplication from "../model/AdmissionApplication";
-import { type AdmissionApplicationRepository } from "../model/repository/AdmissionApplicationRepository";
-import { AdmissionApplicationValidator } from "../model/validator/AdmissionApplicationValidator";
+import { type AdmissionApplicationRepository } from "../model/repository/admission-application.repository";
+import { AdmissionApplicationValidator } from "../model/validator/admission-application.validator";
 
 export interface AdmissionApplicationService {
     createNewApplication(

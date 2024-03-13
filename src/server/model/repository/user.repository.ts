@@ -1,6 +1,6 @@
 import { db } from "~/server/db";
 import { type User } from "../User";
-import { UserValidator } from "../validator/UserValidator";
+import { UserValidator } from "../validator/user.validator";
 
 export interface UserRepository {
     create(user: Omit<User, "id">): Promise<User>;

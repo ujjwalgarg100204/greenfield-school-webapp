@@ -1,7 +1,7 @@
 import { createTRPCRouter } from "~/server/controller/trpc";
-import { admissionApplicationRouter } from "./routers/admissionApplication";
-import { contactUsFormRouter } from "./routers/contactUsForm";
-import { academicYearRouter } from "./routers/academicYear.router";
+import { admissionApplicationRouter } from "./routers/admissionApplication.controller";
+import { contactUsFormRouter } from "./routers/contact-us.controller";
+import { academicYearRouter } from "./routers/academicYear.controller";
 import { teacherRouter } from "./routers/teacher.controller";
 import { standardRouter } from "./routers/standard.controller";
 import { standardSectionController } from "./routers/standard-section.controller";

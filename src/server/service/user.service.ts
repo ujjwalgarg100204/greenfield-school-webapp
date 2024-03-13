@@ -1,7 +1,7 @@
 import { hashString } from "../auth";
 import { type User } from "../model/User";
-import { type UserRepository } from "../model/repository/UserRepo";
-import { UserValidator } from "../model/validator/UserValidator";
+import { type UserRepository } from "../model/repository/user.repository";
+import { UserValidator } from "../model/validator/user.validator";
 
 export interface UserService {
     findByRoleUsername(role: string, username: string): Promise<User | null>;

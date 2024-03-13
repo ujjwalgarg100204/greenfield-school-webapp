@@ -1,6 +1,6 @@
 import { db } from "~/server/db";
 import type AdmissionApplication from "../AdmissionApplication";
-import { AdmissionApplicationValidator } from "../validator/AdmissionApplicationValidator";
+import { AdmissionApplicationValidator } from "../validator/admission-application.validator";
 
 export interface AdmissionApplicationRepository {
     createNewApplication(

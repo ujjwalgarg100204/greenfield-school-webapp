@@ -1,10 +1,10 @@
 import { TRPCError } from "@trpc/server";
 import { createTRPCRouter, publicProcedure } from "~/server/controller/trpc";
-import { ContactUsFormValidator } from "~/server/model/validator/ContactUsFormValidator";
+import { ContactUsFormValidator } from "~/server/model/validator/contact-us.validator";
 import {
-    ContactUsFormServiceImpl,
     type ContactUsFormService,
-} from "~/server/service/ContactUsFormService";
+    ContactUsFormServiceImpl,
+} from "~/server/service/contact-us.service";
 
 export const contactUsFormRouter = createTRPCRouter({
     newApplication: publicProcedure
@@ -13,7 +13,11 @@ export const contactUsFormRouter = createTRPCRouter({
             const contactUsService: ContactUsFormService =
                 new ContactUsFormServiceImpl();
             try {
-                await contactUsService.sendEmail(input.name, input.query, input.phone);
+                await contactUsService.sendEmail(
+                    input.name,
+                    input.query,
+                    input.phone,
+                );
             } catch (err) {
                 throw new TRPCError({
                     message: (err as Error).message,

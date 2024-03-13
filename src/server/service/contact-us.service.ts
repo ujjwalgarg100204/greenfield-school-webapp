@@ -1,16 +1,20 @@
 import { Resend } from "resend";
 import { env } from "~/env";
-import { ContactUsFormValidator } from "../model/validator/ContactUsFormValidator";
+import { ContactUsFormValidator } from "../model/validator/contact-us.validator";
 
 export interface ContactUsFormService {
     sendEmail(name: string, query: string, phone: string): Promise<void>;
 }
 
 export class ContactUsFormServiceImpl implements ContactUsFormService {
-    public async sendEmail(name: string, query: string, phone: string): Promise<void> {
+    public async sendEmail(
+        name: string,
+        query: string,
+        phone: string,
+    ): Promise<void> {
         // verify all the details
-        ContactUsFormValidator.getBaseSchema().parse({name, query, phone});
-        
+        ContactUsFormValidator.getBaseSchema().parse({ name, query, phone });
+
         const resend = new Resend(env.EMAIL_SECRET);
         try {
             await resend.emails.send({

@@ -6,9 +6,9 @@ import "server-only";
 import { z } from "zod";
 import { env } from "~/env";
 import { type User } from "./model/User";
-import { UserRepositoryImpl } from "./model/repository/UserRepo";
-import { UserValidator } from "./model/validator/UserValidator";
-import { UserServiceImpl, type UserService } from "./service/UserService";
+import { UserRepositoryImpl } from "./model/repository/user.repository";
+import { UserValidator } from "./model/validator/user.validator";
+import { UserServiceImpl, type UserService } from "./service/user.service";
 
 const key = new TextEncoder().encode(env.JWT_SECRET);
 const alg = "HS256";
