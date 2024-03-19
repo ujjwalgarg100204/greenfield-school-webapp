@@ -9,31 +9,7 @@ import { Button, Input, Textarea } from "~/app/next-ui";
 import { ContactUsFormValidator } from "~/server/model/validator/contact-us.validator";
 import { api } from "~/trpc/react";
 
-import { type Metadata } from "next";
 
-
-export const metadata: Metadata = {
-    title: "Contact Us",
-    description:
-        "Reception Contact: - +91 98943 76100, email address:- campusgreenfield@gmail.com" ,
-    keywords: [
-        "Reception contact",
-        "Phone number",
-        "Email address",
-        "Contact details",
-        "Reception phone",
-        "Contact information",
-        "Customer service",
-        "Inquiry line",
-        "Helpline",
-        "Communication",
-        "Campus contact",
-        "Reception email",
-        "Contact phone",
-        "Contact email",
-        "Campus information",
-    ],
-};
 
 const ContactUsFormSchema = ContactUsFormValidator.getBaseSchema();
 

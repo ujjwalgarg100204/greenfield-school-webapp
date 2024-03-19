@@ -7,6 +7,32 @@ import H1 from "../../_components/H1";
 import TwoSectionPage from "../../_components/TwoSectionPage";
 import ContactUsForm from "./_components/ContactUsForm";
 
+import { type Metadata } from "next";
+
+
+export const metadata: Metadata = {
+    title: "Contact Us",
+    description:
+        "Reception Contact: - +91 98943 76100, email address:- campusgreenfield@gmail.com" ,
+    keywords: [
+        "Reception contact",
+        "Phone number",
+        "Email address",
+        "Contact details",
+        "Reception phone",
+        "Contact information",
+        "Customer service",
+        "Inquiry line",
+        "Helpline",
+        "Communication",
+        "Campus contact",
+        "Reception email",
+        "Contact phone",
+        "Contact email",
+        "Campus information",
+    ],
+};
+
 const ContactUsPage: FC = () => {
     return (
         <TwoSectionPage linkTitle="School" currentLink="Contact Us">
