@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import StaticList from "../../../../../_components/ui/StaticList";
 
-const DEMO_RULES = [
+const RULES = [
     "The fee for the school bus must aligning with school fees guidelines.",
     "No withdrawal of transport fees will be allowed during the Academic Session, except for the Transfer Cases.",
     "A parent should not try to overtake and stop the school bus to board the child, as this may lead to an accident with the bus or put the boarders in danger.",
@@ -30,8 +30,8 @@ const DEMO_RULES = [
 ];
 
 const SchoolTransportRulesPage: FC = () => {
-    return DEMO_RULES.length > 0 ? (
-        <StaticList list={DEMO_RULES} />
+    return RULES.length > 0 ? (
+        <StaticList list={RULES} />
     ) : (
         <p className="text-lg font-semibold text-danger-600">
             Oops, no bus routes found
