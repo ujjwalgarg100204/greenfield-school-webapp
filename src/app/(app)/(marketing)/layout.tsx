@@ -18,11 +18,11 @@ const MarketingSiteLayout: FC<Props> = ({ children }) => {
                         Greenfield Campus [V.C.S.M matric. Hr. sec. School]
                     </p>
                     <div className="flex items-center justify-center gap-4">
-                        <GreenfieldLocation className="md:w-full w-1/2"/>
+                        <GreenfieldLocation className="w-1/2 md:w-full" />
                         <NextImage
                             src="/images/location-qr.svg"
                             alt="Greenfield QR Code"
-                            className="md:w-32 rounded-lg w-24"
+                            className="w-24 rounded-lg md:w-32"
                             width={100}
                             height={100}
                             priority
