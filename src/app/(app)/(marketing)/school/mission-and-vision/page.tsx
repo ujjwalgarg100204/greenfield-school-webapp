@@ -3,6 +3,30 @@ import { type FC } from "react";
 import { Image } from "~/app/next-ui";
 import H1 from "../../_components/H1";
 import TwoSectionPage from "../../_components/TwoSectionPage";
+import { type Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Mission and Vision",
+    description:
+        "At Green Fields school, our mission is to foster an inclusive community where education serves as a beacon of opportunity. We champion a nurturing environment, unlocking every student's unique talents and potential. Our vision is to cultivate a dynamic learning community, inspiring excellence and empowering individuals to reach their full potential, fostering innovation and global citizenship.",
+    keywords: [
+        "Green Fields school",
+        "Education for All",
+        "Inclusive learning community",
+        "Nurturing environment",
+        "Student empowerment",
+        "Excellence in education",
+        "Innovation in learning",
+        "Global citizenship",
+        "Individual potential",
+        "Dynamic learning environment",
+        "Opportunity in education",
+        "Compassionate education",
+        "Talent development",
+        "Academic excellence",
+        "Future-ready education",
+    ],
+};
 
 const MissionAndVisionPage: FC = () => {
     return (

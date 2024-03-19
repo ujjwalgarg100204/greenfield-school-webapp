@@ -1,6 +1,31 @@
+import { type Metadata } from "next";
 import { type FC } from "react";
 import H1 from "../../_components/H1";
 import TwoSectionPage from "../../_components/TwoSectionPage";
+
+export const metadata: Metadata = {
+    title: "About Us",
+    description:
+        "Greenfield Campus, Coimbatore, founded in 1999, excels in providing state board education from Kindergarten to Standard XII, emphasizing holistic development and diversity. Our vibrant learning environment encourages curiosity, critical thinking, and creativity, preparing students for a future filled with endless possibilities through academic excellence and supportive community.",
+    keywords: [
+        "Greenfield Campus",
+        "Coimbatore",
+        "Education",
+        "State board syllabus",
+        "Vibrant school",
+        "Dynamic learning environment",
+        "Academic excellence",
+        "Holistic development",
+        "Diversity",
+        "Inclusiveness",
+        "Sports facilities",
+        "Intellectual growth",
+        "Personal growth",
+        "Empowerment",
+        "Creativity",
+        
+    ],
+};
 
 const AboutUsPage: FC = () => {
     return (

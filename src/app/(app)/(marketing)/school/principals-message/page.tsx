@@ -1,7 +1,32 @@
+import { type Metadata } from "next";
 import NextImage from "next/image";
 import { Avatar } from "~/app/next-ui";
 import H1 from "../../_components/H1";
 import TwoSectionPage from "../../_components/TwoSectionPage";
+
+export const metadata: Metadata = {
+    title: "Principal's Message",
+    description:
+        "As Principal of Green Fields School, I extend a warm welcome to our vibrant learning community. Guided by principles of excellence, innovation, inclusivity, and community engagement, our mission is to create a dynamic environment where every student thrives. We nurture curiosity, critical thinking, and creativity, fostering personal growth and social responsibility. Join us in shaping compassionate leaders and a brighter future.",
+    keywords: [
+        "Green Fields School",
+        "Excellence in education",
+        "Inclusive learning community",
+        "Personal growth",
+        "Community engagement",
+        "Innovation in education",
+        "Diversity and inclusion",
+        "Social responsibility",
+        "Curiosity and critical thinking",
+        "Compassionate leadership",
+        "Vibrant learning environment",
+        "Service-learning initiatives",
+        "Academic excellence",
+        "Empowerment of students",
+        "Future leaders",
+    ],
+};
+
 
 const PrincipalsMessage = () => {
     return (

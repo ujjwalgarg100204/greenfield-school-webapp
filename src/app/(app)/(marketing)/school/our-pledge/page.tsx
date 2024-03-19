@@ -1,6 +1,34 @@
+import { type Metadata } from "next";
 import { type FC } from "react";
 import H1 from "../../_components/H1";
 import TwoSectionPage from "../../_components/TwoSectionPage";
+
+
+export const metadata: Metadata = {
+    title: "Our Pledge",
+    description:
+        "India is my country and all Indians are my brothers and sisters.I love my country and I am proud of its rich and varied heritage.I shall always strive to be worthy of it.I shall give respect to my parents, teachers and elders and treat everyone with courtesy. To my country and my people, I pledge my devotion. In their well being and prosperity alone, lies my happiness.Jai Hind!",
+             
+        
+    keywords: [
+        "India",
+        "Brothers and sisters",
+        "Heritage",
+        "Pride",
+        "Respect",
+        "Parents",
+        "Teachers",
+        "Elders",
+        "Courtesy",
+        "Devotion",
+        "Well-being",
+        "Prosperity",
+        "Happiness",
+        "Jai Hind",
+        "Pledge",
+    ],
+};
+
 
 const OurPledgePage: FC = () => {
     return (

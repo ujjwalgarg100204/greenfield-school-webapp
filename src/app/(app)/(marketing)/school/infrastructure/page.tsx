@@ -2,6 +2,33 @@ import H1 from "../../_components/H1";
 import TwoSectionPage from "../../_components/TwoSectionPage";
 import InfrastructureCard from "./_components/InfrastructureCard";
 
+import { type Metadata } from "next";
+
+
+export const metadata: Metadata = {
+    title: "Infrastructure",
+    description:
+    "Modern & spacious classrooms with Interactive TV,Outdoor Facility for Football,Volleyball, Cricket, Badminton, Yoga, kabadi, athletics and other sports,  Dance room for Indian Classical, Folk Dance, Contemporary and Modern Creative Dance etc. Spacious well equipped Art room to enlarge the creative minds. Computer lab with latest machines for every student to practice hands on learning with modern technology.Library to cater for students with well equipped with 5,000+ books, numerous magazines, journals and newspapers with more than DVDs / CDs to browse through. It has excellent collection of latest Reference books for Competitive Entrance Examinations. School is under CCTV surveillance & 24×7 Security Guards to take care of the safety of students. School also has the latest system for fire safety and detection. Twenty-First Century Science Labs to emphasise the modern infrastructure of the school Prime city location meets tranquil greenery, offering the perfect balance of urban convenience and natural serenity. Fire Control Panel, Smoke Detectors, Hooters, Manual Call Point, Water Pump, Reservoir.",
+    keywords: [
+        "Modern classrooms",
+        "Spacious facilities",
+        "Interactive TV",
+        "Outdoor sports",
+        "Football",
+        "Volleyball",
+        "Cricket",
+        "Badminton",
+        "Yoga",
+        "Dance room",
+        "Art room",
+        "Computer lab",
+        "Library",
+        "CCTV surveillance",
+        "Fire safety",
+    ],
+};
+
+
 const INFRASTRUCTURES = [
     {
         title: "Smart Classes rooms",
