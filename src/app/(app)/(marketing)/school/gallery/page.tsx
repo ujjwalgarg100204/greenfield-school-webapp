@@ -1,13 +1,40 @@
 import { Card, CardFooter, Image, Link } from "@nextui-org/react";
+import NextImage from "next/image";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaFacebook } from "react-icons/fa6";
-import NextImage from "next/image";
 import H1 from "../../_components/H1";
 import TwoSectionPage from "../../_components/TwoSectionPage";
 
 // TODO: Complete gallery page part
 // FIXME:similar to blurred footer card image, where footer woould contain link to insta and stuff
 // FIXME: put images here which are already on website
+import { type Metadata } from "next";
+
+
+export const metadata: Metadata = {
+    title: "Gallery",
+    description:
+        "Explore our captivating photo gallery, showcasing the vibrant essence of our school community. From modern classrooms to outdoor sports facilities, art rooms, and computer labs, witness the dynamic learning environment we offer. Be inspired by snapshots of students engaged in academics, sports, arts, and more. Follow us on social media for regular updates and glimpses into our enriching journey.",
+    keywords: [
+        "Green Fields School",
+        "Excellence in education",
+        "Inclusive learning community",
+        "Personal growth",
+        "Community engagement",
+        "Innovation in education",
+        "Diversity and inclusion",
+        "Social responsibility",
+        "Curiosity and critical thinking",
+        "Compassionate leadership",
+        "Vibrant learning environment",
+        "Service-learning initiatives",
+        "Academic excellence",
+        "Empowerment of students",
+        "Future leaders",
+    ],
+};
+
+
 const GalleryPage = () => {
     return (
         <TwoSectionPage linkTitle="School" currentLink="Gallery">

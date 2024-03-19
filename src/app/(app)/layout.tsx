@@ -1,10 +1,10 @@
 import "./globals.css";
 
+import { type Metadata, type Viewport } from "next";
 import localFont from "next/font/local";
 import { type FC, type ReactNode } from "react";
 import { Toaster } from "react-hot-toast";
 import Providers from "../providers";
-import { type Metadata, type Viewport } from "next";
 
 const satoshi = localFont({
     src: [
