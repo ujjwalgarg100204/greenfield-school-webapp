@@ -23,7 +23,6 @@ export const metadata: Metadata = {
         "Personal growth",
         "Empowerment",
         "Creativity",
-        
     ],
 };
 

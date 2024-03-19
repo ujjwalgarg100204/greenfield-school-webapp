@@ -27,7 +27,6 @@ export const metadata: Metadata = {
     ],
 };
 
-
 const PrincipalsMessage = () => {
     return (
         <TwoSectionPage linkTitle="School" currentLink="Principal's Message">

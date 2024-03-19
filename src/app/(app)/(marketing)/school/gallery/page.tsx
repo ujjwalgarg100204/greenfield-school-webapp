@@ -4,12 +4,11 @@ import { AiFillInstagram } from "react-icons/ai";
 import { FaFacebook } from "react-icons/fa6";
 import H1 from "../../_components/H1";
 import TwoSectionPage from "../../_components/TwoSectionPage";
+import { type Metadata } from "next";
 
 // TODO: Complete gallery page part
 // FIXME:similar to blurred footer card image, where footer woould contain link to insta and stuff
 // FIXME: put images here which are already on website
-import { type Metadata } from "next";
-
 
 export const metadata: Metadata = {
     title: "Gallery",
@@ -33,7 +32,6 @@ export const metadata: Metadata = {
         "Future leaders",
     ],
 };
-
 
 const GalleryPage = () => {
     return (
