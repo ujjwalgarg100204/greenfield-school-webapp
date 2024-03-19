@@ -19,6 +19,7 @@ const satoshi = localFont({
 });
 
 export const metadata: Metadata = {
+    metadataBase: new URL("https://greenfieldcampus.com"),
     title: {
         template: "%s | Greenfield School",
         default: "Greenfield",
@@ -73,7 +74,21 @@ export const metadata: Metadata = {
         { name: "Priyansh Kotak" },
     ],
     category: "education",
-    metadataBase: new URL("https://greenfieldcampus.com"),
+    openGraph: {
+        title: "Greenfield Campus",
+        description:
+            "Greenfield Campus is a vibrant school where curiosity meets education and each and every student is valued. In Our school, we foster a dynamic learning environment that sparks curiosity, encourages critical thinking, and unleashes creativity",
+        url: "https://greenfieldcampus.com/",
+        siteName: "Greenfield Campus",
+        locale: "en_US",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Greenfield Campus",
+        description:
+            "Greenfield Campus is a vibrant school where curiosity meets education and each and every student is valued. In Our school, we foster a dynamic learning environment that sparks curiosity, encourages critical thinking, and unleashes creativity",
+    },
 };
 
 export const viewport: Viewport = {
