@@ -2,6 +2,32 @@ import { type FC } from "react";
 import { Button, Link } from "~/app/next-ui";
 import H1 from "../../(marketing)/_components/H1";
 
+import { type Metadata } from "next";
+
+
+export const metadata: Metadata = {
+    title: "Login to your account",
+    description:
+        "Login to your account with your GreenField credentials provided",
+    keywords: [
+        "Login page",
+        "Account access",
+        "Admin login",
+        "Teacher login",
+        "Student login",
+        "Parent login",
+        "Credentials",
+        "User ID",
+        "Password",
+        "Authentication",
+        "Account type",
+        "Access level",
+        "Secure login",
+        "Sign-in",
+        "Login options",
+    ],
+};
+
 const ForgetPasswordPage: FC = () => {
     return (
         <>

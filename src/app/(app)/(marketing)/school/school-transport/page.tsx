@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         "First aid boxes",
         "Fire extinguishers",
         "Lady attendant",
-        "Student safet",
+        "Student safety",
     ],
 };
 
