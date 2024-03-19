@@ -1,6 +1,7 @@
 import StaticTable from "~/app/_components/ui/StaticTable";
 import H1 from "../../_components/H1";
 import TwoSectionPage from "../../_components/TwoSectionPage";
+import { type Metadata } from "next";
 
 const SCHOOL_TIMINGS = {
     reporting: [
@@ -24,6 +25,23 @@ const SCHOOL_TIMINGS = {
         },
     ],
 } as const;
+
+export const metadata: Metadata = {
+    title: "School Timings",
+    description:
+        "Explore the school timings for reporting and dispersal, ensuring punctuality and coordination for students using various means of transport. Stay updated with any changes made by the school management.",
+    keywords: [
+        "school timings",
+        "reporting timings",
+        "dispersal timings",
+        "school transport timings",
+        "school punctuality",
+        "school schedule",
+        "school management",
+        "school location",
+        "school coordination",
+    ],
+};
 
 const SchoolTimingsPage = () => {
     return (

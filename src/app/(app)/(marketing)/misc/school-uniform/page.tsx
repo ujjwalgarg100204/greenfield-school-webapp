@@ -1,11 +1,27 @@
 import StaticList from "~/app/_components/ui/StaticList";
 import H1 from "../../_components/H1";
 import TwoSectionPage from "../../_components/TwoSectionPage";
+import { type Metadata } from "next";
 
 const UNIFORM_RULES = [
     "As long as a student he/she is obliged to wear school uniform. An exception only on Birthday",
     "For more details on uniform and size of uniform, kindly align with school  administration office",
 ] as const;
+
+export const metadata: Metadata = {
+    title: "School Uniform",
+    description:
+        "Discover the rules and guidelines for wearing the school uniform, ensuring uniformity and adherence to dress code policies. Get details on uniform sizes and administration procedures.",
+    keywords: [
+        "school uniform rules",
+        "school dress code",
+        "school uniform guidelines",
+        "school uniform sizes",
+        "school uniform administration",
+        "school uniform policy",
+        "school attire regulations",
+    ],
+};
 
 const SchoolUniformPage = () => {
     return (

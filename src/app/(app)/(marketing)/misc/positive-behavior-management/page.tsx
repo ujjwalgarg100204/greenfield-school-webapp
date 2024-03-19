@@ -1,6 +1,7 @@
 import StaticList from "~/app/_components/ui/StaticList";
 import H1 from "../../_components/H1";
 import TwoSectionPage from "../../_components/TwoSectionPage";
+import { type Metadata } from "next";
 
 const POSITIVE_BEHAVIOR_POINTS = [
     "Oral warning and counselling",
@@ -9,6 +10,26 @@ const POSITIVE_BEHAVIOR_POINTS = [
     "Suspension",
     "Transfer Certificate from the school.",
 ] as const;
+
+export const metadata: Metadata = {
+    title: "Positive Behavior Management",
+    description:
+        "Explore the disciplinary actions and consequences outlined in our school's code of conduct. From oral warnings to suspension, learn about the steps taken to maintain a positive learning environment.",
+    keywords: [
+        "school disciplinary actions",
+        "disciplinary consequences",
+        "school warning system",
+        "student detention",
+        "school suspension policy",
+        "transfer certificate process",
+        "disciplinary measures",
+        "school punishment",
+        "disciplinary procedures",
+        "disciplinary protocol",
+        "disciplinary consequences for students",
+        "school code of conduct consequences",
+    ],
+};
 
 const PositiveBehaviorManagementPage = () => {
     return (

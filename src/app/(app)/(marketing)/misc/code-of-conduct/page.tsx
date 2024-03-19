@@ -1,6 +1,7 @@
 import StaticList from "~/app/_components/ui/StaticList";
 import H1 from "../../_components/H1";
 import TwoSectionPage from "../../_components/TwoSectionPage";
+import { type Metadata } from "next";
 
 const CODE_OF_CONDUCT_RULES = [
     {
@@ -82,6 +83,40 @@ const CODE_OF_CONDUCT_RULES = [
         ],
     },
 ] as const;
+
+export const metadata: Metadata = {
+    title: "Code of Conduct",
+    description:
+        "The page showcasing the code of conduct of the school offers a comprehensive overview of the behavioral guidelines and expectations upheld within the educational institution. It outlines the principles, values, and rules that govern student behavior, fostering a safe, respectful, and conducive learning environment. By delineating standards of conduct for students, faculty, and staff, the code of conduct promotes accountability, integrity, and mutual respect throughout the school community. Visitors to the page gain insight into the school's commitment to character development, equity, and inclusivity, reinforcing its mission to cultivate responsible, empathetic, and well-rounded individuals.",
+    keywords: [
+        "school code of conduct",
+        "student discipline",
+        "school rules",
+        "student behavior guidelines",
+        "school guidelines",
+        "student conduct expectations",
+        "school discipline policy",
+        "school attendance policy",
+        "student uniform policy",
+        "school property respect",
+        "student language etiquette",
+        "bullying prevention",
+        "school prohibited behavior",
+        "unruly behavior",
+        "misconduct",
+        "disciplinary action",
+        "bullying and ragging",
+        "prohibited items",
+        "restricted items",
+        "school medical aid",
+        "school medical facilities",
+        "parental responsibilities",
+        "parent-teacher communication",
+        "student leave of absence",
+        "school attendance requirements",
+        "school leave application process",
+    ],
+};
 
 const CodeOfConductPage = () => {
     return (
