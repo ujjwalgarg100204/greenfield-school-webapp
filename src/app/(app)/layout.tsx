@@ -21,7 +21,7 @@ const satoshi = localFont({
 export const metadata: Metadata = {
     metadataBase: new URL("https://greenfieldcampus.com"),
     title: {
-        template: "%s | Greenfield School",
+        template: "%s | Greenfield Campus",
         default: "Greenfield",
     },
     description:
@@ -69,9 +69,12 @@ export const metadata: Metadata = {
     authors: [
         {
             name: "Ujjwal Garg",
-            url: "https://ujjwal-new-portfolio.vercel.app/",
+            url: "https://ujjwal-new-portfolio.vercel.app",
         },
-        { name: "Priyansh Kotak" },
+        {
+            name: "Priyansh Kotak",
+            url: "https://resume-november.s3.ap-south-1.amazonaws.com/Priyansh_Resume_sem6pdf.pdf",
+        },
     ],
     category: "education",
     openGraph: {
